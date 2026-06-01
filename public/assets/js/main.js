@@ -537,3 +537,73 @@
 
 
 })(jQuery, window)
+
+// === su-website Phase 2 hook (additive, do not modify code above) ===
+// Exposes a re-init entry point under window.suInit.all so
+// VendorPluginInitializer can re-attach plugins after Next.js
+// client-side navigation. The original IIFE above is untouched: rtsJs.m()
+// at line 500 still runs once on first load. This append only adds an
+// external, namespaced re-entry point that uses each plugin's public
+// API on the current DOM.
+(function () {
+  if (typeof window === 'undefined' || typeof jQuery === 'undefined') return;
+  window.suInit = window.suInit || {};
+  window.suInit.all = function () {
+    try {
+      jQuery(function ($) {
+        // --- nice-select: destroy any stale wrappers, then re-init ---
+        $('select').each(function () {
+          var $sel = $(this);
+          if ($sel.next('.nice-select').length) {
+            $sel.next('.nice-select').remove();
+            $sel.removeClass('nice-select-loaded').show();
+          }
+        });
+        if (typeof $.fn.niceSelect === 'function') {
+          $('select').niceSelect();
+        }
+        // --- Magnific Popup: idempotent re-bind ---
+        if (typeof $.fn.magnificPopup === 'function') {
+          $('.popup-image').magnificPopup({ type: 'image' });
+          $('.popup-gallery').magnificPopup({ type: 'image', gallery: { enabled: true } });
+          $('.video-popup').magnificPopup({ type: 'iframe' });
+        }
+        // --- data-bgimage re-apply ---
+        $('body,div,section').each(function () {
+          var $el = $(this);
+          var bgImage = $el.data('bgimage');
+          if (bgImage) {
+            $el.addClass('bgcustom');
+            $el.css('background', bgImage + ' 0% 0% / cover no-repeat');
+          }
+        });
+        // --- copyright year ---
+        $('#year').text(new Date().getFullYear());
+        // --- Swiper: destroy any existing instances on .swiper elements ---
+        // Pages with named swipers (e.g. .mySwiper-category-1) should
+        // re-instantiate them in their own client effect.
+        if (typeof Swiper !== 'undefined') {
+          document.querySelectorAll('.swiper').forEach(function (el) {
+            if (el.swiper) { try { el.swiper.destroy(true, true); } catch (e) {} }
+          });
+        }
+        // --- Sticky header: rebind scroll listener under namespace ---
+        var $header = $('.header__sticky');
+        if ($header.length) {
+          $(window).off('scroll.suInit');
+          $(window).on('scroll.suInit', function () {
+            if ($(this).scrollTop() > 100) {
+              $header.addClass('sticky');
+            } else {
+              $header.removeClass('sticky');
+            }
+          });
+        }
+      });
+    } catch (err) {
+      if (window.console && console.warn) {
+        console.warn('[suInit.all] error during re-init:', err);
+      }
+    }
+  };
+})();

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import VendorPluginInitializer from '@/components/system/VendorPluginInitializer';
 
 export const metadata: Metadata = {
   title: 'SU Website',
@@ -32,6 +33,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/style.css" />
       </head>
       <body className="page">
+        <VendorPluginInitializer />
         {children}
 
         {/* jQuery first — plugins depend on window.jQuery being defined */}
