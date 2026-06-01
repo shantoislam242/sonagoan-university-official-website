@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
 /**
@@ -15,7 +15,6 @@ import { useEffect, useRef } from 'react';
  */
 export default function VendorPluginInitializer(): null {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const isFirstRun = useRef(true);
 
   useEffect(() => {
@@ -29,7 +28,7 @@ export default function VendorPluginInitializer(): null {
       }
     });
     return () => window.cancelAnimationFrame(handle);
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
