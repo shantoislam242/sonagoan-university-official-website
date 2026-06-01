@@ -16,6 +16,7 @@ export function buildMetadata(input: BuildMetadataInput): Metadata {
   const url = `${siteUrl}${input.path}`;
   const image = input.image ?? '/assets/images/og-default.jpg';
   return {
+    metadataBase: new URL(siteUrl),
     title: `${input.title} | ${siteName}`,
     description: input.description,
     openGraph: {
