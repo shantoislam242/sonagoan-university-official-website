@@ -1,0 +1,330 @@
+// faculty css
+.rts-faculty{}
+.single-staff{
+    border: 1px solid var(--rt-line);
+    padding: 20px;
+    transition: var(--transition);
+    &__content{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        @include mq($lg){
+            flex-wrap: wrap;
+        }
+        @include mq($md){
+            flex-wrap: nowrap;
+        }
+        @include mq($xs){
+            flex-wrap: wrap;
+        }
+        .staf-image{
+            width: 100%;
+            @include mq($md){
+                width: auto;
+            }
+            @include mq($xs){
+                width: 100%;
+            }
+            img{
+                
+                min-width: 300px;
+                height: 360px;
+                @include mq($lg){
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: top;
+                }
+                @include mq($xs){
+                    min-width: 100%;
+                }
+            }
+        }
+        .staf-info{
+            .name{
+                margin-bottom: 5px;
+            }
+            .designation{
+                display: block;
+                margin-bottom: 15px;
+            }
+            &__social{
+                margin-bottom: 15px;
+                display: flex;
+                gap: 10px;
+                i{
+                    font-size: 16px;
+                    color: var(--rt-body);
+                    transition: var(--transition);
+                    &:hover{
+                        color: var(--rt-primary-2);
+                    }
+                }
+            }
+            .email-contact, .phone-contact{
+                display: block;
+                display: flex;
+                gap: 10px;
+                margin-bottom: 10px;
+                span{
+                    color: var(--rt-primary);
+                }
+            }
+            .phone-contact{
+                margin-bottom: 0;
+            }
+            &__speciality{
+                margin-top: 25px;
+                border-left: 2px solid var(--rt-primary-2);
+                margin-bottom: 30px;
+                p{
+                    margin-left: 15px;
+                }
+            }
+        }
+        
+    }
+    &:hover{
+        border-color: var(--rt-primary-2);
+    }
+}
+// faculty details
+.rts-faculty-details{
+
+}
+.faculty-member{
+    &__details{}
+    &__image{
+        margin-bottom: 30px;
+        img{
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            @include mq($md){
+                width: 100%;
+                
+            }
+        }
+
+    }
+    &__info{
+        display: block;
+        &--social{
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            i{
+                font-size: 16px;
+            }
+
+        }
+        .email-contact, .phone-contact{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            span{
+                color: var(--rt-primary-2);
+            }
+        }
+        .email-contact{
+            margin-bottom: 10px;
+        }
+    }
+}
+.member-info{
+    margin-left: 40px;
+    @include mq($md){
+        margin-left: 0;
+    }
+    &__details{
+        .short-info{
+            &:not(:last-child){
+                padding-bottom: 50px;
+                border-bottom: 1px solid var(--rt-border);
+            }
+            &:not(:first-child){
+                padding-top: 50px;
+            }
+            .designation{
+                margin-bottom: 25px;
+                display: block;
+                font-size: 20px;
+            }
+            h5.rts-section-title{
+              margin-bottom: 15px;  
+            }
+            .description{
+                &:not(:last-child){
+                    margin-bottom: 35px;
+                }
+            }
+            .course__single{
+                ul{
+                    padding: 0;
+                    margin: 0;
+                    li{
+                        margin-top: 10px;
+                        margin-bottom: 0;
+                        transition: var(--transition);
+                        &:hover{
+                            a{
+                                text-decoration: underline;
+                            }
+                        }
+                        a{
+                            color: var(--rt-primary-2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// kids teacher
+.kid__teacher__info{
+    border: 1px solid #FFEBE0;
+    padding: 20px;
+    padding-bottom: 35px;
+}
+.kid__teacher__details{
+    .kid__teacher__name{
+        font-size: 32px;
+        color: var(--rt-heading);
+        margin-bottom: 5px;
+    }
+    .teacher__phone, .teacher__email{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+        span{
+            color: var(--rt-heading);
+        }
+    }
+}
+
+.kids__teacher__social{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin-top: 20px;
+    li{
+        margin: 0;
+        height: 48px;
+        width: 48px;
+        background: var(--transparent);
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        border: 1px solid #FFEBE0;
+        font-size: 26px;
+        transition: var(--transition);
+        i{
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        &:hover{
+            background: var(--primary-color);
+           i{
+            color: var(--rt-white);
+           }
+        }
+        a{
+            color: var(--rt-body);
+            transition: var(--transition);
+            &:hover{
+                color: var(--rt-primary-2);
+            }
+        }
+    }
+}
+
+.kid__teacher__details{
+    font-weight: 500;
+    padding-left: 20px;
+    .title{
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .teacher__speciality{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        margin-bottom: 50px;
+        li{
+            margin: 0;
+            display: flex;
+            padding-top: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #FFEBE0;
+            span{
+                min-width: 185px;
+                color: var(--rt-heading);
+                font-weight: 700;
+            }
+        }
+    }
+}
+.kid__teacher__professional{
+    margin-bottom: 50px;
+    .title{
+        color: var(--rt-heading);
+    }
+    .single__skill{
+        .skill__title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            p, span{
+                color: var(--rt-heading);
+            }
+            p{
+                margin: 0;
+            }
+        }
+        .progress{
+            height: 4px;
+            background-color: #D9D9D9;
+            border-radius: 0;
+            &-bar{
+                background-color: var(--primary-color);
+            }
+        }
+    }
+}
+
+.teacher__section{
+    margin-left: 50px;
+    @include mq($md){
+        margin-left: 0;
+    }
+}
+.send__message__form{
+    margin-top: 30px;
+    .form__content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-bottom: 25px;
+        @include mq($sm){
+            grid-template-columns: repeat(1, 1fr);
+        }
+        input{
+            border: 1px solid #FFEBE0;
+            padding: 17px 20px;
+            border-radius: 4px;
+            line-height: 1;
+            outline: none;
+            height: unset;
+        }
+    }
+    .kids__send__message{
+        padding: 17px 35px;
+        border-radius: 4px;
+
+    }
+}

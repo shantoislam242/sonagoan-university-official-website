@@ -1,0 +1,45 @@
+body.index-kid {
+   --primary-color: #FF6D1C;
+   --secondary-color: #009A3C;
+   --tertiary-color: #223874;
+   --title-color: #000;
+   --rt-primary: #FF6D1C;
+   --rt-body: #595959;
+
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+      font-family: var(--rufina);
+      color: var(--title-color);
+   }
+
+   // .container{
+   //    max-width: 1370px;
+   // }
+
+   .side-bar button i,
+   .mobile-menu-main nav ul li.has-droupdown::after {
+      background: var(--primary-color) !important;
+   }
+
+   .admission-content-top .application-deadline__content table tbody tr {
+      border-bottom-color: #FFEBE0;
+
+      td {
+         border-width: 0;
+      }
+   }
+
+   .admission-content-top .application-deadline__content table .table-theme td {
+      border-width: 0;
+   }
+
+   .admission-content-top .application-deadline__content table {
+      margin-bottom: 30px;
+      border-radius: 4px;
+      overflow: hidden;
+   }
+}
