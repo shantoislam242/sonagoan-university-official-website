@@ -822,12 +822,13 @@ button, .btn, a.rts-theme-btn {
   color: #FFFFFF !important;
 }
 
-/* — Funfact / CTA counter cards — */
-.rts-funfact-wrapper .single-cta-item h2,
-.rts-funfact-wrapper .single-cta-item p,
-.rts-funfact.v_3 .single-cta-item h2 {
-  color: #FFFFFF !important;
-}
+/* — Funfact / CTA counter cards — REMOVED unscoped white rule.
+   Template's cascade gives:
+   - .rts-funfact-wrapper (default, navy bg)        → h2/p white (template line 24468)
+   - .rts-funfact.v__1 .rts-funfact-wrapper (white) → __title navy, p navy (lines 24515, 24523)
+   - .rts-funfact.v_3 / .v_2 variants               → other colors
+   Applying !important on the default broke .v__1 (homepage) — invisible
+   navy text rendered white-on-white. Leave template's variants intact. */
 
 /* — About details info — */
 .rts-about-details .single-about-info .desc p {
