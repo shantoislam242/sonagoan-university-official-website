@@ -686,19 +686,18 @@ button, .btn, a.rts-theme-btn {
 
 /* Watermark outline ("About University", "Admission Now" etc.) — re-assert
    clip-text fill transparency so heading color cascade doesn't null it.
-   Drop font-weight from template's 700 → 400: at 700 the bold character path
-   is thick enough that the 1px stroke renders outlines on BOTH the inside
-   and outside edges of each glyph, giving a doubled/blurry look. 400 keeps
-   the silhouette readable while collapsing the outlines into a single trace. */
+   Also force single-line + relaxed line-height so multi-word watermarks
+   ("Admission Now") don't wrap and overlap each other vertically. */
 .bottom-text.rt-clip-text {
   -webkit-text-fill-color: transparent !important;
 }
+.rts-campus .bottom-text,
+.rts-application-area .rts-section-big-text {
+  white-space: nowrap !important;
+  line-height: 1.1 !important;
+}
 .rts-campus .bottom-text {
   font-size: 84px !important;
-  font-weight: 400 !important;
-}
-.rts-application-area .rts-section-big-text {
-  font-weight: 400 !important;
 }
 @media (max-width: 767px) {
   .rts-campus .bottom-text {
