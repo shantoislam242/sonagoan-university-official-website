@@ -804,9 +804,13 @@ button, .btn, a.rts-theme-btn {
   color: #FFFFFF !important;
 }
 
-/* — Newsletter box — */
+/* — Newsletter box — title white + magenta overlay (user request) — */
 .rts-newsletter-box-content .newsletter-title {
   color: #FFFFFF !important;
+}
+/* /index-three CTA above footer: change navy overlay → magenta */
+.rts-newsletter-box::before {
+  background: var(--su-magenta) !important;
 }
 
 /* — Funfact / CTA counter cards — REMOVED unscoped white rule.
