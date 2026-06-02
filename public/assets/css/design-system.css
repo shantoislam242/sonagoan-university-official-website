@@ -691,10 +691,10 @@ button, .btn, a.rts-theme-btn {
   -webkit-text-fill-color: transparent !important;
 }
 .rts-campus .bottom-text {
-  font-size: 72px !important;
+  font-size: 84px !important;
 }
 @media (max-width: 767px) {
   .rts-campus .bottom-text {
-    font-size: 48px !important;
+    font-size: 56px !important;
   }
 }
