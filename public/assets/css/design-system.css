@@ -683,3 +683,12 @@ button, .btn, a.rts-theme-btn {
   color: #FFFFFF !important;
   font-weight: 700 !important;
 }
+
+/* Decorative outline watermark ("About University" etc.) on navy bands.
+   Template's #DEDEDE stroke was tuned for warm maroon bg; on navy it reads
+   too prominent. Switch to faint white at low opacity for a subtler blend. */
+.rts-campus .bottom-text.rt-clip-text,
+.rts-campus-bg .bottom-text.rt-clip-text {
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.12) !important;
+  color: transparent !important;
+}
