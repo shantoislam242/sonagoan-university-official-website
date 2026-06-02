@@ -641,15 +641,11 @@ button, .btn, a.rts-theme-btn {
   color: var(--su-amber) !important;
 }
 
-/* Campus Life section — left wrapper.v__2 is a navy band; image cards on right */
-.rts__section--wrapper.v__2 .rts__section--title,
-.rts__section--wrapper.v__2 .rts__section--description {
-  color: #FFFFFF !important;
-}
-.rts__section--wrapper.v__2 .rts__section--description {
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-weight: 400 !important;
-}
+/* NOTE: previously had .rts__section--wrapper.v__2 { color: white } rule here.
+   Removed because the same wrapper class is used in /index-three Programs section
+   (white bg) AND homepage Campus Life (white bg too). Forcing white made
+   "Our Programs" title invisible. White-on-navy band fix lives in .campus.v__2/v__3
+   block below — that targets the real dark-bg context by parent class. */
 
 /* Campus life image cards (3 cards, each has img bg) */
 .campus__life--single--title,
