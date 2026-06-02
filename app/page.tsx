@@ -36,6 +36,7 @@ export default function HomePage() {
                     University
                     <span> Of SU Website</span>
                   </h1>
+                  <span className="home-hero-accent" />
                   <div className="banner__content--circle rts__circle v__2">
                     <svg className="spinner" viewBox="0 0 100 100">
                       <defs>

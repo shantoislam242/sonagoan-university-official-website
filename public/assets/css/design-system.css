@@ -415,13 +415,26 @@ footer p, footer .disc {
 .hero-area::before,
 .page-banner::before,
 .rts-banner-area::before {
-  background: linear-gradient(rgba(43, 49, 117, 0.55), rgba(0, 0, 0, 0.3)) !important;
+  background: rgba(43, 49, 117, 0.75) !important;
 }
+/* Hero heading must be 48px white regardless of template defaults */
 .banner-area h1,
 .hero-area h1,
 .page-banner h1,
 .rts-banner-area h1 {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  font-size: 48px !important;
+  line-height: 1.2 !important;
   color: var(--su-white) !important;
+}
+@media (max-width: 767px) {
+  .banner-area h1,
+  .hero-area h1,
+  .page-banner h1,
+  .rts-banner-area h1 {
+    font-size: 36px !important;
+  }
 }
 .banner-area p,
 .hero-area p,
@@ -496,4 +509,14 @@ footer p, footer .disc {
 /* === Accessibility — keep touch targets ≥ 44px =============== */
 button, .btn, a.rts-theme-btn {
   min-height: 44px;
+}
+
+/* === Amber accent line — homepage hero H1 only =============== */
+.home-hero-accent {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--su-amber);
+  margin: 20px 0;
+  border: none;
 }
