@@ -1,0 +1,465 @@
+/* =============================================================
+   SU Website — Design System Override
+   Source: docs/mechanical-engineering-olive.vercel.app-DESIGN.md
+   Palette: Deep Navy + Vibrant Magenta + Warm Amber
+   Type: Poppins (700) headings, Montserrat (400/500/600) UI/body
+   Style: Flat (0px radius) institutional, subtle shadow elevation
+   Loaded AFTER template style.css to cascade-override variables.
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ── Brand palette ─────────────────────────────────────────── */
+  --su-navy:           #2B3175;
+  --su-navy-dark:      #1A1F50;
+  --su-navy-text:      #1C1C1A;
+  --su-magenta:        #CC1579;
+  --su-magenta-dark:   #A81470;
+  --su-amber:          #F8BD23;
+  --su-white:          #FFFFFF;
+  --su-black:          #000000;
+
+  --su-navy-deep:      #282D72;
+  --su-magenta-deep:   #9E2274;
+  --su-orange:         #E97E24;
+  --su-salmon:         #DF514E;
+  --su-red:            #DC2428;
+  --su-text-strong:    #111827;
+  --su-text-muted:     #5B5B78;
+  --su-bg-tint:        #F1F9FD;
+
+  --su-grad-deep:    linear-gradient(135deg, #323075 0%, #CC1579 100%);
+  --su-grad-medium:  linear-gradient(135deg, #2D479C 0%, #E44598 100%);
+  --su-grad-light:   linear-gradient(135deg, #6F7CBB 0%, #DF9AC3 100%);
+  --su-grad-vlight:  linear-gradient(135deg, #B8BDDF 0%, #F4CBDF 100%);
+
+  --font-bangla:    "Hind Siliguri", "Montserrat", sans-serif;
+
+  /* ── Neutrals ──────────────────────────────────────────────── */
+  --su-gray-light:        #F2F2F2;
+  --su-gray-surface:      #F5F5F5;
+  --su-gray-border:       #E8E8E8;
+  --su-gray-input-border: #E0E0E0;
+  --su-gray-text-muted:   #666666;
+  --su-gray-placeholder:  #999999;
+
+  /* ── Override template (rt-*) variables ────────────────────── */
+  --rt-primary:        var(--su-navy);
+  --rt-primary-1:      var(--su-magenta);
+  --rt-primary-2:      var(--su-navy);
+  --rt-secondary:      var(--su-navy);
+  --rt-hover:          var(--su-magenta);
+  --rt-heading:        var(--su-navy);
+  --rt-body:           var(--su-navy-text);
+  --rt-theme:          var(--su-magenta);
+  --rt-border:         var(--su-gray-border);
+  --rt-line:           var(--su-gray-border);
+  --rt-rating:         var(--su-amber);
+  --rt-footer:         var(--su-navy);
+  --footer-bg:         var(--su-navy);
+  --color-warning:     var(--su-amber);
+  --primary-color:     var(--su-navy);
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-primary:   "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-secondary: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-hind:      var(--font-secondary);
+  --rufina:         var(--font-primary);
+
+  /* ── Heading scale (px) — see Section 3 of design spec ───── */
+  /* Brand spec hierarchy — see spec §4. Desktop sizes; mobile drops at @media below. */
+  --h1: 48px;
+  --h2: 32px;
+  --h3: 24px;
+  --h4: 20px;
+  --h5: 18px;
+  --h6: 16px;
+  --p-l: 16px;
+  --p-m: 14px;
+  --p-s: 14px;
+  --p-xs: 11px;
+
+  --line-height-b1: 20px;
+  --line-height-b2: 20px;
+  --line-height-b3: 1.5;
+
+  /* ── Flat institutional style ──────────────────────────────── */
+  --rt-radius:       0px;
+  --rt-radius-btn:   8px;       /* secondary/icon buttons only */
+  --rt-radius-badge: 3px;
+}
+
+/* === Typography baseline ===================================== */
+body {
+  font-family: var(--font-secondary) !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  color: var(--su-navy-text) !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.title, .section-title, .title-area .title {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  color: var(--su-navy) !important;
+  letter-spacing: 0 !important;
+}
+
+h1, .h1 { font-size: 48px; line-height: 1.2; }
+h2, .h2 { font-size: 32px; line-height: 1.25; }
+h3, .h3 { font-size: 24px; line-height: 1.3; }
+h4, .h4 { font-size: 20px; line-height: 1.4; font-weight: 600; }
+h5, .h5 { font-size: 18px; line-height: 1.4; font-weight: 600; }
+h6, .h6 { font-size: 16px; line-height: 1.5; font-weight: 600; }
+
+@media (max-width: 767px) {
+  h1, .h1 { font-size: 36px; line-height: 1.2; }
+  h2, .h2 { font-size: 24px; }
+  h3, .h3 { font-size: 20px; }
+  h4, .h4 { font-size: 18px; }
+  h5, .h5 { font-size: 16px; }
+  h6, .h6 { font-size: 14px; }
+}
+
+p, .disc, .description {
+  font-family: var(--font-secondary) !important;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--su-navy-text);
+}
+
+/* === Links =================================================== */
+a {
+  color: var(--su-navy);
+  transition: color 0.25s ease;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--su-magenta);
+}
+
+/* === Primary CTAs (Apply Now / theme buttons) → Magenta ====== */
+.rts-theme-btn,
+.rts-btn.btn-primary,
+a.rts-theme-btn,
+button.rts-theme-btn {
+  background-color: var(--su-magenta) !important;
+  background-image: none !important;
+  color: var(--su-white) !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-family: var(--font-secondary) !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  padding: 12px 32px !important;
+  line-height: 24px !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.rts-theme-btn:hover,
+.rts-btn.btn-primary:hover,
+a.rts-theme-btn:hover,
+button.rts-theme-btn:hover {
+  background-color: var(--su-magenta-dark) !important;
+  color: var(--su-white) !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 20px -3px !important;
+}
+
+/* CTAs in dark-bg contexts (hero/footer) keep magenta */
+.hero-area .rts-theme-btn,
+footer .rts-theme-btn {
+  background-color: var(--su-magenta) !important;
+  color: var(--su-white) !important;
+}
+
+/* === Secondary / icon buttons (light gray, 8px radius) ======= */
+.search-icon,
+.menu-btn,
+.header-search-icon,
+.icon-btn,
+.rts-btn.btn-secondary {
+  background-color: var(--su-gray-surface) !important;
+  color: var(--su-navy) !important;
+  border: 1px solid var(--su-gray-border) !important;
+  border-radius: 8px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  padding: 10px !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px !important;
+  transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+.search-icon:hover,
+.menu-btn:hover,
+.header-search-icon:hover,
+.icon-btn:hover,
+.rts-btn.btn-secondary:hover {
+  background-color: var(--su-gray-border) !important;
+  color: var(--su-navy-text) !important;
+}
+
+/* === Header (white bg, navy text) ============================ */
+.header-area,
+.header__one,
+.header__two,
+.header__three,
+.header__five,
+.header-style-one,
+.header-style-two,
+.header-style-three,
+.header-style-five {
+  background-color: var(--su-white) !important;
+  border-bottom: 1px solid var(--su-gray-border);
+  box-shadow: none !important;
+}
+
+.mainmenu > li > a,
+.nav-main > ul > li > a {
+  color: var(--su-navy) !important;
+  font-family: var(--font-secondary) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+}
+.mainmenu > li > a:hover,
+.nav-main > ul > li > a:hover,
+.mainmenu > li.active > a,
+.nav-main > ul > li.active > a {
+  color: var(--su-magenta) !important;
+}
+.mainmenu > li.active > a {
+  border-bottom: 3px solid var(--su-magenta) !important;
+}
+
+/* === Top bar (navy bg, white text) =========================== */
+.header-top,
+.header__top-one,
+.header__top-two,
+.header__top-three,
+.header__top-five,
+.top-bar,
+.header-top-area {
+  background-color: var(--su-navy) !important;
+  color: var(--su-white) !important;
+  min-height: 42px;
+  padding: 12px 0;
+}
+.header-top a,
+.top-bar a,
+.header-top-area a {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-family: var(--font-secondary) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+}
+.header-top a:hover,
+.top-bar a:hover {
+  color: var(--su-white) !important;
+}
+
+/* === Inputs (flat, 48px, navy focus ring) ==================== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="url"],
+input[type="date"],
+textarea,
+select,
+.nice-select {
+  background: var(--su-white) !important;
+  border: 1px solid var(--su-gray-input-border) !important;
+  border-radius: 0px !important;
+  font-family: var(--font-secondary) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  padding: 12px 16px !important;
+  color: var(--su-navy-text) !important;
+  min-height: 48px;
+  line-height: 24px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--su-gray-placeholder) !important;
+  font-weight: 400 !important;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--su-navy) !important;
+  box-shadow: 0 0 0 3px rgba(43, 49, 117, 0.1) !important;
+  outline: none !important;
+}
+
+label,
+.form-label {
+  font-family: var(--font-secondary) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--su-navy) !important;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* === Cards / containers (flat, subtle shadow) =============== */
+.card,
+.rts-card,
+.program-card,
+.blog-card,
+.faculty-card,
+.event-card,
+.notice-card,
+.scholarship-card {
+  background: var(--su-white);
+  border: none !important;
+  border-radius: 0px !important;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 4px 20px 0px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card:hover,
+.rts-card:hover,
+.program-card:hover,
+.blog-card:hover,
+.faculty-card:hover,
+.event-card:hover,
+.notice-card:hover,
+.scholarship-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 10px 30px 0px;
+}
+
+/* === Footer (navy bg, white text) ============================ */
+footer,
+.footer-area,
+.footer__one,
+.footer__two,
+.footer__three,
+.footer__five,
+.footer-style-one,
+.footer-style-two {
+  background-color: var(--su-navy) !important;
+  color: var(--su-white) !important;
+}
+footer a {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+footer a:hover {
+  color: var(--su-white) !important;
+}
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
+footer .title, footer .footer-title {
+  color: var(--su-white) !important;
+}
+footer p, footer .disc {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.copyright-area,
+.copyright {
+  background-color: var(--su-navy-dark) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* === Hero / banner (navy gradient overlay over images) ====== */
+.banner-area,
+.hero-area,
+.banner-style-one,
+.banner-style-two,
+.page-banner,
+.rts-banner-area {
+  position: relative;
+}
+.banner-area::before,
+.hero-area::before,
+.page-banner::before,
+.rts-banner-area::before {
+  background: linear-gradient(rgba(43, 49, 117, 0.55), rgba(0, 0, 0, 0.3)) !important;
+}
+.banner-area h1,
+.hero-area h1,
+.page-banner h1,
+.rts-banner-area h1 {
+  color: var(--su-white) !important;
+}
+.banner-area p,
+.hero-area p,
+.page-banner p,
+.rts-banner-area p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* === Breadcrumb badge (amber accent per spec) ================ */
+.breadcrumb-active,
+.badge-status {
+  background-color: var(--su-amber) !important;
+  color: var(--su-navy-text) !important;
+  font-family: var(--font-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+
+/* === Section spacing ========================================= */
+.rts-section-gap {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+}
+@media (max-width: 1023px) {
+  .rts-section-gap {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}
+@media (max-width: 639px) {
+  .rts-section-gap {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* === Flat radius reset for common UI containers ============== */
+.btn:not(.rts-theme-btn):not(.rts-btn.btn-primary):not(.btn-secondary),
+.thumbnail img,
+.card img,
+.rts-card img {
+  border-radius: 0px;
+}
+
+/* === Mobile menu (off-canvas) drawer ========================= */
+.side-bar,
+#side-bar {
+  background: var(--su-white) !important;
+}
+.side-bar .mobile-menu-main a {
+  color: var(--su-navy) !important;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+}
+.side-bar .mobile-menu-main a:hover {
+  color: var(--su-magenta) !important;
+}
+.close-icon-menu {
+  background: var(--su-gray-surface) !important;
+  color: var(--su-navy) !important;
+  border-radius: 8px !important;
+}
+
+/* === Selection / focus accent ================================ */
+::selection {
+  background-color: var(--su-magenta);
+  color: var(--su-white);
+}
+
+/* === Accessibility — keep touch targets ≥ 44px =============== */
+button, .btn, a.rts-theme-btn {
+  min-height: 44px;
+}
