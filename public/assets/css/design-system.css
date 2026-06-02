@@ -685,10 +685,11 @@ button, .btn, a.rts-theme-btn {
 }
 
 /* Decorative outline watermark ("About University" etc.) on navy bands.
-   Template's #DEDEDE stroke was tuned for warm maroon bg; on navy it reads
-   too prominent. Switch to faint white at low opacity for a subtler blend. */
+   Template's #DEDEDE stroke was tuned for warm maroon bg; on cool navy it reads
+   slightly too prominent at full opacity. ~40% white gives readable-but-subtle
+   blend matching the spirit of the original maroon visual. */
 .rts-campus .bottom-text.rt-clip-text,
 .rts-campus-bg .bottom-text.rt-clip-text {
-  -webkit-text-stroke-color: rgba(255, 255, 255, 0.12) !important;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.4) !important;
   color: transparent !important;
 }
