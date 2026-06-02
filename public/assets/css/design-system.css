@@ -684,12 +684,17 @@ button, .btn, a.rts-theme-btn {
   font-weight: 700 !important;
 }
 
-/* NOTE: Watermark + .rts-campus-bg overrides intentionally REMOVED.
-   Template's intended design is 80% navy band + 20% white strip with
-   the "About University" watermark blending across both. Keeping
-   template's natural cascade preserves that visual. Only the clip-text
-   pattern needs re-asserting so our heading color cascade does not
-   null the transparent fill. */
+/* Watermark outline ("About University" etc.) — re-assert clip-text fill
+   transparency so heading color cascade doesn't null it. Size dialed down
+   from template's 96px to 72px (desktop) / 48px (mobile) per request. */
 .bottom-text.rt-clip-text {
   -webkit-text-fill-color: transparent !important;
+}
+.rts-campus .bottom-text {
+  font-size: 72px !important;
+}
+@media (max-width: 767px) {
+  .rts-campus .bottom-text {
+    font-size: 48px !important;
+  }
 }
