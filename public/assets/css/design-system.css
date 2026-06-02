@@ -414,14 +414,49 @@ footer p, footer .disc {
 .banner-area::before,
 .hero-area::before,
 .page-banner::before,
-.rts-banner-area::before {
+.rts-banner-area::before,
+.banner.v__1::before,
+.banner.v__2::before,
+.banner.v__3::before,
+.banner.v__5::before,
+.rts-breadcrumb.breadcumb-bg::before {
   background: rgba(43, 49, 117, 0.75) !important;
+}
+.banner.v__1,
+.banner.v__2,
+.banner.v__3,
+.banner.v__5,
+.rts-breadcrumb.breadcumb-bg {
+  position: relative;
+}
+.banner.v__1::before,
+.banner.v__2::before,
+.banner.v__3::before,
+.banner.v__5::before,
+.rts-breadcrumb.breadcumb-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.banner.v__1 > *,
+.banner.v__2 > *,
+.banner.v__3 > *,
+.banner.v__5 > *,
+.rts-breadcrumb.breadcumb-bg > * {
+  position: relative;
+  z-index: 2;
 }
 /* Hero heading must be 48px white regardless of template defaults */
 .banner-area h1,
 .hero-area h1,
 .page-banner h1,
-.rts-banner-area h1 {
+.rts-banner-area h1,
+.banner__content--title,
+.banner__slides--content--title,
+.banner__heading__title,
+.rts-breadcrumb .section-title {
   font-family: var(--font-primary) !important;
   font-weight: 700 !important;
   font-size: 48px !important;
@@ -432,7 +467,11 @@ footer p, footer .disc {
   .banner-area h1,
   .hero-area h1,
   .page-banner h1,
-  .rts-banner-area h1 {
+  .rts-banner-area h1,
+  .banner__content--title,
+  .banner__slides--content--title,
+  .banner__heading__title,
+  .rts-breadcrumb .section-title {
     font-size: 36px !important;
   }
 }
