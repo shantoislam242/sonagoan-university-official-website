@@ -172,6 +172,40 @@ button.rts-theme-btn:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 20px -3px !important;
 }
 
+/* === Button variants (brand guide 5 styles) ================== */
+.btn-navy,
+.btn-amber,
+.btn-grad-magenta,
+.btn-grad-blue {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 12px 32px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: rgba(0,0,0,0.1) 0px 10px 15px -3px, rgba(0,0,0,0.1) 0px 4px 6px -4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease, box-shadow 0.3s ease, color 0.2s ease;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-navy        { background: var(--su-navy-deep); color: var(--su-white); }
+.btn-navy:hover  { background: var(--su-navy); color: var(--su-white); box-shadow: rgba(0,0,0,0.2) 0px 12px 20px -3px; }
+
+.btn-amber       { background: var(--su-amber); color: var(--su-navy-text); }
+.btn-amber:hover { background: #E6A810; color: var(--su-navy-text); box-shadow: rgba(0,0,0,0.2) 0px 12px 20px -3px; }
+
+.btn-grad-magenta       { background: linear-gradient(135deg, #2D3380 0%, #9E2274 100%); color: var(--su-white); }
+.btn-grad-magenta:hover { background: linear-gradient(135deg, #232860 0%, #821C5F 100%); color: var(--su-white); box-shadow: rgba(0,0,0,0.2) 0px 12px 20px -3px; }
+
+.btn-grad-blue       { background: linear-gradient(135deg, #353391 0%, #585BA7 100%); color: var(--su-white); }
+.btn-grad-blue:hover { background: linear-gradient(135deg, #2A2876 0%, #4548A0 100%); color: var(--su-white); box-shadow: rgba(0,0,0,0.2) 0px 12px 20px -3px; }
+
 /* CTAs in dark-bg contexts (hero/footer) keep magenta */
 .hero-area .rts-theme-btn,
 footer .rts-theme-btn {
