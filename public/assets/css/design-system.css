@@ -822,17 +822,19 @@ button, .btn, a.rts-theme-btn {
   color: #FFFFFF !important;
 }
 
-/* — Header v__1 / navigation__menu — force NAVY on white header background.
-   Original template put this on a dark-bg header; we redesigned headers to
-   be white, so navy text is correct. The earlier white-force here made nav
-   links invisible on homepage. */
+/* — Header navigation: respect template's dual-state design —
+   - REST (.header.v__1): transparent header on dark banner → WHITE text
+   - STICKY (.header__sticky.fixed): solid white header → NAVY text
+   Both states need !important to win over our heading cascade. */
 .header.v__1 .navigation__menu--item__link,
-.navigation__menu--item__link,
-.navigation__menu--item__link:link,
-.navigation__menu--item__link:visited {
-  color: var(--su-navy) !important;
+.navigation__menu--item__link {
+  color: #FFFFFF !important;
   font-family: var(--font-secondary) !important;
   font-weight: 600 !important;
+}
+.header__sticky.fixed .navigation__menu--item__link,
+.header__sticky.fixed.header.v__1 .navigation__menu--item__link {
+  color: var(--su-navy) !important;
 }
 .navigation__menu--item__link:hover,
 .navigation__menu--item.active > .navigation__menu--item__link {
