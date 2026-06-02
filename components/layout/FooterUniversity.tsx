@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from './BrandLogo';
 
 /**
  * University-variant footer. Markup from unipix-Main/index.html lines 943–1004.
@@ -13,7 +14,7 @@ export default function FooterUniversity() {
           <div className="col-lg-4 col-md-6 col-sm-6">
             <div className="footer__widget">
               <div className="footer__widget--logo">
-                <Link href="/"><img src="/assets/images/logo/logo__white.svg" alt="logo" /></Link>
+                <BrandLogo variant="dark" />
               </div>
               <p className="footer__widget--description">
                 We are passionate education dedicated to providing high-quality resources learners

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from './BrandLogo';
 
 /**
  * Variant footer for /index-five. Markup from unipix-Main/index-five.html lines 886+.
@@ -10,9 +11,9 @@ export default function FooterHomeFive() {
         <div className="row gy-5 gy-lg-0">
           <div className="col-lg-4 col-md-6 col-sm-6">
             <div className="rts-footer-widget w-320">
-              <Link href="/" className="d-block rts-footer-logo mb--40">
-                <img src="/assets/images/logo/logo__white.svg" alt="SU Website" />
-              </Link>
+              <div className="d-block rts-footer-logo mb--40">
+                <BrandLogo variant="dark" />
+              </div>
               <p>
                 We are passionate education dedicated to providing high-quality
                 resources learners all backgrounds.
