@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import VendorPluginInitializer from '@/components/system/VendorPluginInitializer';
+import BackToTop from '@/components/sections/BackToTop';
 
 export const metadata: Metadata = {
   title: 'SU Website',
@@ -35,6 +36,13 @@ export default function RootLayout({
       <body className="page">
         <VendorPluginInitializer />
         {children}
+        <BackToTop />
+        <div id="anywhere-home" />
+        {/* Hidden DOM stubs that template plugins (main.js) probe for on init.
+            Without these the rtsJs.m() IIFE throws on pages that do not include
+            the matching markup. The stubs are visually inert. */}
+        <div id="search-input-area-stub" aria-hidden="true" style={{ display: 'none' }} />
+        <span id="year" aria-hidden="true" style={{ display: 'none' }} />
 
         {/* jQuery first — plugins depend on window.jQuery being defined */}
         <Script
