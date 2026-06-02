@@ -32,6 +32,10 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/plugins/nice-select.css" />
         <link rel="stylesheet" href="/assets/css/plugins/jquery-ui.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
+        {/* SU design-system override — MUST load LAST so its cascade
+            wins over the template (style.css uses --rt-primary etc.,
+            which we redefine here to the Navy/Magenta/Amber palette). */}
+        <link rel="stylesheet" href="/assets/css/design-system.css" />
       </head>
       <body className="page">
         <VendorPluginInitializer />
