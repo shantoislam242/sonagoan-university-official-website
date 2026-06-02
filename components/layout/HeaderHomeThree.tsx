@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from './BrandLogo';
 
 /**
  * Variant header for /index-three. Markup from unipix-Main/index-three.html lines 34-162.
@@ -74,9 +75,7 @@ export default function HeaderHomeThree() {
                 </div>
                 {/* menu left side end */}
                 <div className="header__logo">
-                  <Link href="/" className="header__logo--link">
-                    <img src="/assets/images/logo/logo__five.svg" alt="su-website" />
-                  </Link>
+                  <BrandLogo variant="light" />
                 </div>
 
                 {/* menu right side */}

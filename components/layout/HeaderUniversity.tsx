@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from './BrandLogo';
 
 /**
  * University-variant header. Markup lifted verbatim from
@@ -14,9 +15,7 @@ export default function HeaderUniversity() {
           <div className="col-xl-12">
             <div className="header__wrapper">
               <div className="header__logo">
-                <Link href="/" className="header__logo--link">
-                  <img src="/assets/images/logo/logo__white.svg" alt="su-website" />
-                </Link>
+                <BrandLogo variant="light" />
               </div>
               <div className="header__menu">
                 <div className="navigation">

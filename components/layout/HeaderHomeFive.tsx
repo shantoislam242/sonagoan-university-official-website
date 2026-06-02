@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from './BrandLogo';
 
 /**
  * Variant header for /index-five. Markup from unipix-Main/index-five.html lines 33-138.
@@ -12,9 +13,7 @@ export default function HeaderHomeFive() {
           <div className="col-xl-12">
             <div className="header__wrapper">
               <div className="header__logo">
-                <Link href="/" className="header__logo--link">
-                  <img src="/assets/images/logo/logo__five.svg" alt="su-website" />
-                </Link>
+                <BrandLogo variant="light" />
               </div>
               <div className="header__menu">
                 <div className="navigation">
