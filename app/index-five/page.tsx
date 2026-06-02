@@ -1,6 +1,6 @@
 import { buildMetadata } from '@/lib/metadata';
-import HeaderUniversity from '@/components/layout/HeaderUniversity';
-import FooterUniversity from '@/components/layout/FooterUniversity';
+import HeaderHomeFive from '@/components/layout/HeaderHomeFive';
+import FooterHomeFive from '@/components/layout/FooterHomeFive';
 import MobileMenu from '@/components/layout/MobileMenu';
 import SearchPopup from '@/components/layout/SearchPopup';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
 export default function IndexFivePage() {
   return (
     <>
-      <HeaderUniversity />
+      <HeaderHomeFive />
       <MobileMenu />
       <SearchPopup />
       {/* banner area */}
@@ -765,7 +765,7 @@ export default function IndexFivePage() {
         </div>
       </div>
       {/* newsletter end */}
-      <FooterUniversity />
+      <FooterHomeFive />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { buildMetadata } from '@/lib/metadata';
-import HeaderUniversity from '@/components/layout/HeaderUniversity';
-import FooterUniversity from '@/components/layout/FooterUniversity';
+import HeaderHomeTwo from '@/components/layout/HeaderHomeTwo';
+import FooterHomeTwo from '@/components/layout/FooterHomeTwo';
 import MobileMenu from '@/components/layout/MobileMenu';
 import SearchPopup from '@/components/layout/SearchPopup';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
 export default function IndexTwoPage() {
   return (
     <>
-      <HeaderUniversity />
+      <HeaderHomeTwo />
       <MobileMenu />
       <SearchPopup />
       {/* header banner */}
@@ -830,7 +830,7 @@ export default function IndexTwoPage() {
         </div>
       </div>
       {/* brand slider end */}
-      <FooterUniversity />
+      <FooterHomeTwo />
     </>
   );
 }

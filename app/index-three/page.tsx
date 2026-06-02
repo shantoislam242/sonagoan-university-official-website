@@ -1,6 +1,6 @@
 import { buildMetadata } from '@/lib/metadata';
-import HeaderUniversity from '@/components/layout/HeaderUniversity';
-import FooterUniversity from '@/components/layout/FooterUniversity';
+import HeaderHomeThree from '@/components/layout/HeaderHomeThree';
+import FooterHomeThree from '@/components/layout/FooterHomeThree';
 import MobileMenu from '@/components/layout/MobileMenu';
 import SearchPopup from '@/components/layout/SearchPopup';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
 export default function IndexThreePage() {
   return (
     <>
-      <HeaderUniversity />
+      <HeaderHomeThree />
       <MobileMenu />
       <SearchPopup />
 
@@ -806,7 +806,7 @@ export default function IndexThreePage() {
       </div>
       {/* newsletter end */}
 
-      <FooterUniversity />
+      <FooterHomeThree />
     </>
   );
 }
