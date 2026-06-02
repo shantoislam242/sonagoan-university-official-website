@@ -1,6 +1,6 @@
 import { buildMetadata } from '@/lib/metadata';
-import HeaderSc from '@/components/layout/HeaderSc';
-import FooterSc from '@/components/layout/FooterSc';
+import HeaderUniversity from '@/components/layout/HeaderUniversity';
+import FooterUniversity from '@/components/layout/FooterUniversity';
 import MobileMenu from '@/components/layout/MobileMenu';
 import SearchPopup from '@/components/layout/SearchPopup';
 import PageBanner from '@/components/sections/PageBanner';
@@ -15,7 +15,7 @@ export const metadata = buildMetadata({
 export default function SingleResourcePage() {
   return (
     <>
-      <HeaderSc />
+      <HeaderUniversity />
       <MobileMenu />
       <SearchPopup />
       <PageBanner title="Resource" breadcrumb={[{label:'Home',href:'/'},{label:'Resources'},{label:'Details'}]} />
@@ -330,7 +330,7 @@ export default function SingleResourcePage() {
           </div>
         </div>
       </div>
-      <FooterSc />
+      <FooterUniversity />
     </>
   );
 }
