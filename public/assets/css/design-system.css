@@ -647,22 +647,9 @@ button, .btn, a.rts-theme-btn {
    "Our Programs" title invisible. White-on-navy band fix lives in .campus.v__2/v__3
    block below — that targets the real dark-bg context by parent class. */
 
-/* Campus life image cards (3 cards, each has img bg) */
-.campus__life--single--title,
-.campus__life--single--title a {
-  color: #FFFFFF !important;
-  font-weight: 700 !important;
-}
-.campus__life--single--description {
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-weight: 400 !important;
-}
-.campus__life--single--title a:hover {
-  color: var(--su-amber) !important;
-}
-.campus__life--single--button a {
-  color: #FFFFFF !important;
-}
+/* Campus life cards — template design: white card with dark text at rest,
+   bg image fades in on hover and text turns white. Don't force colors at rest;
+   template handles both states correctly. */
 
 /* /index-three campus.v__2 navy band — title and description need white */
 .campus.v__2 .campus__right--text--title,
