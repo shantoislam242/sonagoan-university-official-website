@@ -561,3 +561,10 @@ button, .btn, a.rts-theme-btn {
   margin: 20px 0;
   border: none;
 }
+
+/* === Bangla font (Hind Siliguri) — opt-in via lang="bn" ====== */
+:lang(bn),
+[lang="bn"],
+.bn {
+  font-family: var(--font-bangla) !important;
+}
