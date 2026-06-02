@@ -104,7 +104,11 @@ h1, h2, h3, h4, h5, h6,
 .title, .section-title, .title-area .title {
   font-family: var(--font-primary) !important;
   font-weight: 700 !important;
-  color: var(--su-navy) !important;
+  /* Color: navy WITHOUT !important so context-specific rules in template
+     (e.g. .rts__program--item--title--show { color: white }) and our own
+     dark-context overrides further down win on cascade. The body cascade
+     keeps headings navy by default; specific selectors override per section. */
+  color: var(--su-navy);
   letter-spacing: 0 !important;
 }
 
@@ -662,4 +666,24 @@ button, .btn, a.rts-theme-btn {
 }
 .campus__life--single--button a {
   color: #FFFFFF !important;
+}
+
+/* /index-three campus.v__2 navy band — title and description need white */
+.campus.v__2 .campus__right--text--title,
+.campus.v__2 .campus__right--text--description,
+.campus.v__3 .campus__right--text--title,
+.campus.v__3 .campus__right--text--description {
+  color: #FFFFFF !important;
+}
+.campus.v__2 .campus__right--text--description,
+.campus.v__3 .campus__right--text--description {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 400 !important;
+}
+
+/* Programs section — extend to cover --title--show (visible variant in .v__2) */
+.rts__program--item--title--show,
+.rts__program--item--title--show a {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
 }
