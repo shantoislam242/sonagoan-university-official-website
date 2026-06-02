@@ -49,10 +49,26 @@ export default function RootLayout({
           src="/assets/js/vendor/jquery.min.js"
           strategy="beforeInteractive"
         />
+        {/* Stub globals for WOW and TweenMax. The real libraries (waw.js,
+            twinmax.js) misbehave when Next.js's <Script> loads them in a
+            module-wrapped scope ("(intermediate value)(...) is not a function").
+            We disable them and provide no-op stubs so main.js's calls to
+            `new WOW().init()` and `TweenMax.to(...)` don't throw and abort the
+            rest of the plugin chain. */}
+        <Script id="su-vendor-stubs" strategy="beforeInteractive">{`
+          window.WOW = window.WOW || function () {};
+          window.WOW.prototype.init = function () {};
+          window.TweenMax = window.TweenMax || { to: function () {}, from: function () {}, set: function () {}, fromTo: function () {} };
+        `}</Script>
         {/* Vendor plugins — order mirrors index.html */}
         <Script src="/assets/js/plugins/bootstrap.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/vendor/jquery-ui.js" strategy="afterInteractive" />
-        <Script src="/assets/js/vendor/waw.js" strategy="afterInteractive" />
+        {/* waw.js (WOW 2015) and twinmax.js (GSAP 1.15) disabled — they bind to a
+            scope-dependent `this` that resolves to undefined in Next.js Script
+            context, triggering runtime TypeError "(intermediate value)(...) is
+            not a function". Their effects (scroll-triggered .wow animations,
+            .moving mousemove parallax) are decorative; site still works. */}
+        {/* <Script src="/assets/js/vendor/waw.js" strategy="afterInteractive" /> */}
         <Script src="/assets/js/vendor/metismenu.js" strategy="afterInteractive" />
         <Script src="/assets/js/vendor/magnifying-popup.js" strategy="afterInteractive" />
         <Script src="/assets/js/plugins/swiper.js" strategy="afterInteractive" />
@@ -63,7 +79,7 @@ export default function RootLayout({
         <Script src="/assets/js/plugins/imagesloaded.pkgd.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/plugins/sticky-sidebar.js" strategy="afterInteractive" />
         <Script src="/assets/js/plugins/resize-sensor.js" strategy="afterInteractive" />
-        <Script src="/assets/js/plugins/twinmax.js" strategy="afterInteractive" />
+        {/* <Script src="/assets/js/plugins/twinmax.js" strategy="afterInteractive" /> */}
         <Script src="/assets/js/plugins/contact.form.js" strategy="afterInteractive" />
         <Script src="/assets/js/plugins/nice-select.min.js" strategy="afterInteractive" />
         {/* main.js last */}
