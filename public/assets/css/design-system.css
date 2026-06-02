@@ -684,19 +684,12 @@ button, .btn, a.rts-theme-btn {
   font-weight: 700 !important;
 }
 
-/* Decorative outline watermark ("About University" etc.) — re-assert clip-text
-   pattern so heading color cascade doesn't null the stroke. */
+/* NOTE: Watermark + .rts-campus-bg overrides intentionally REMOVED.
+   Template's intended design is 80% navy band + 20% white strip with
+   the "About University" watermark blending across both. Keeping
+   template's natural cascade preserves that visual. Only the clip-text
+   pattern needs re-asserting so our heading color cascade does not
+   null the transparent fill. */
 .bottom-text.rt-clip-text {
   -webkit-text-fill-color: transparent !important;
-  -webkit-text-stroke-color: rgba(255, 255, 255, 0.35) !important;
-  -webkit-text-stroke-width: 1px !important;
-  z-index: 0 !important;   /* sit behind the side image so it doesn't visually intrude */
-}
-
-/* Navy band extension: template sets ::before height to 80%, leaving a white
-   strip at the bottom where the watermark falls. On maroon the strip went
-   unnoticed; on navy it makes the watermark sit half-on-white and overlap
-   the right-side image. Extend the band to full container height. */
-.rts-campus.rts-campus-bg::before {
-  height: 100% !important;
 }
