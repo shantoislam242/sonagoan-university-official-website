@@ -3,13 +3,70 @@
 import Link from 'next/link';
 
 /**
- * Off-canvas mobile drawer. Markup from unipix-Main/index.html lines ~1060-1141.
+ * Off-canvas mobile drawer. Markup from unipix-Main/index.html lines 1024-1143
+ * (outer side-bar wrapper + close button + desktop info wrapper + mobile menu nav).
  * Open/close toggling is driven by jQuery click handlers attached in main.js.
  * 'use client' is added because future iterations may need close-on-navigation.
  */
 export default function MobileMenu() {
   return (
-    <div className="mobile-menu-main">
+    <div id="side-bar" className="side-bar">
+      <button className="close-icon-menu" aria-label="Close menu">
+        <i className="far fa-times" />
+      </button>
+      <div className="inner-main-wrapper-desk">
+        <div className="thumbnail">
+          <img src="/assets/images/logo/logo__five.svg" alt="su-website" />
+        </div>
+        <div className="inner-content">
+          <p className="disc">
+            A modern HTML template for education, offering intuitive design &amp;
+            essential features for seamless learning experiences.
+          </p>
+          <div className="offcanvase__banner mt--50">
+            <div className="offcanvase__banner--content">
+              <img src="/assets/images/offcanvase.jpg" alt="offcanvase" />
+              <Link href="/admission" className="rts-theme-btn">
+                Apply Now
+              </Link>
+            </div>
+          </div>
+          <div className="offcanvase__info">
+            <div className="offcanvase__info--content">
+              <a href="callto:+61485826710">
+                <span>
+                  <i className="fa-sharp fa-light fa-phone" />
+                </span>
+                +(61) 485-826-710
+              </a>
+              <a href="#">
+                <span>
+                  <i className="fa-sharp fa-light fa-location-dot" />
+                </span>
+                Yarra Park, Melbourne, Australia
+              </a>
+              <div className="offcanvase__info--content--social">
+                <p className="title">Follow Us:</p>
+                <div className="social__links">
+                  <a href="#">
+                    <i className="fa-brands fa-facebook" />
+                  </a>
+                  <a href="#">
+                    <i className="fa-brands fa-instagram" />
+                  </a>
+                  <a href="#">
+                    <i className="fa-brands fa-linkedin" />
+                  </a>
+                  <a href="#">
+                    <i className="fa-brands fa-youtube" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mobile-menu-main">
       <nav className="nav-main mainmenu-nav mt--30">
         <ul className="mainmenu metismenu" id="mobile-menu-active">
 
@@ -89,6 +146,7 @@ export default function MobileMenu() {
             <a href="#"><i className="fa-brands fa-youtube"></i></a>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
