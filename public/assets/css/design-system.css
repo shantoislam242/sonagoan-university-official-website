@@ -415,24 +415,16 @@ footer p, footer .disc {
 .hero-area::before,
 .page-banner::before,
 .rts-banner-area::before,
-.banner.v__1::before,
-.banner.v__2::before,
-.banner.v__3::before,
-.banner.v__5::before,
 .rts-breadcrumb.breadcumb-bg::before {
   background: rgba(43, 49, 117, 0.75) !important;
 }
-.banner.v__1,
-.banner.v__2,
-.banner.v__3,
-.banner.v__5,
+/* Position helper — ONLY breadcrumb (single-bg container with simple structure).
+   Homepage banner variants (.banner.v__1-5) have complex split-3 layouts where
+   a ::before overlay would leak past the inner image and show as solid navy
+   bars on the sides. Hero text white color is enough for readability. */
 .rts-breadcrumb.breadcumb-bg {
   position: relative;
 }
-.banner.v__1::before,
-.banner.v__2::before,
-.banner.v__3::before,
-.banner.v__5::before,
 .rts-breadcrumb.breadcumb-bg::before {
   content: '';
   position: absolute;
@@ -440,10 +432,6 @@ footer p, footer .disc {
   z-index: 1;
   pointer-events: none;
 }
-.banner.v__1 > *,
-.banner.v__2 > *,
-.banner.v__3 > *,
-.banner.v__5 > *,
 .rts-breadcrumb.breadcumb-bg > * {
   position: relative;
   z-index: 2;
@@ -627,4 +615,51 @@ button, .btn, a.rts-theme-btn {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1.4;
+}
+
+/* === Image-overlay cards — force white text on dark photo backgrounds === */
+
+/* Programs section cards (.rts__program--item has style.backgroundImage) */
+.rts__program--item--title,
+.rts__program--item--title a {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+.rts__program--item--description {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 400 !important;
+}
+.rts__program--item .rts-nbg-btn,
+.rts__program--item .rts-nbg-btn span {
+  color: #FFFFFF !important;
+}
+.rts__program--item--title a:hover {
+  color: var(--su-amber) !important;
+}
+
+/* Campus Life section — left wrapper.v__2 is a navy band; image cards on right */
+.rts__section--wrapper.v__2 .rts__section--title,
+.rts__section--wrapper.v__2 .rts__section--description {
+  color: #FFFFFF !important;
+}
+.rts__section--wrapper.v__2 .rts__section--description {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 400 !important;
+}
+
+/* Campus life image cards (3 cards, each has img bg) */
+.campus__life--single--title,
+.campus__life--single--title a {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+.campus__life--single--description {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 400 !important;
+}
+.campus__life--single--title a:hover {
+  color: var(--su-amber) !important;
+}
+.campus__life--single--button a {
+  color: #FFFFFF !important;
 }
