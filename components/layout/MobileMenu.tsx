@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import BrandLogo from './BrandLogo';
 
 /**
  * Off-canvas mobile drawer. Markup from unipix-Main/index.html lines 1024-1143
@@ -16,7 +17,7 @@ export default function MobileMenu() {
       </button>
       <div className="inner-main-wrapper-desk">
         <div className="thumbnail">
-          <img src="/assets/images/logo/logo__five.svg" alt="su-website" />
+          <BrandLogo variant="light" />
         </div>
         <div className="inner-content">
           <p className="disc">
