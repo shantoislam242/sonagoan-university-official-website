@@ -63,6 +63,25 @@ export default function RootLayout({
           window.WOW = window.WOW || function () {};
           window.WOW.prototype.init = function () {};
           window.TweenMax = window.TweenMax || { to: function () {}, from: function () {}, set: function () {}, fromTo: function () {} };
+          /* Debug catcher: log full error details so we can identify which
+             vendor script throws "(intermediate value)(...) is not a function".
+             Next.js error overlay only shows minified frame names. */
+          window.addEventListener('error', function (e) {
+            try {
+              console.error('[SU debug] runtime error:', {
+                message: e.message,
+                filename: e.filename,
+                line: e.lineno,
+                col: e.colno,
+                stack: e.error && e.error.stack
+              });
+            } catch (_) {}
+          });
+          window.addEventListener('unhandledrejection', function (e) {
+            try {
+              console.error('[SU debug] unhandled promise rejection:', e.reason);
+            } catch (_) {}
+          });
         `}</Script>
         {/* Vendor plugins — order mirrors index.html */}
         <Script src="/assets/js/plugins/bootstrap.min.js" strategy="afterInteractive" />
