@@ -568,3 +568,63 @@ button, .btn, a.rts-theme-btn {
 .bn {
   font-family: var(--font-bangla) !important;
 }
+
+/* === Section header pattern ================================== */
+.section-title,
+.title-area {
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-title .pre-title,
+.title-area .pre-title,
+.title-area .sub-title,
+.section-title__eyebrow {
+  font-family: var(--font-secondary) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: var(--su-navy) !important;
+  margin-bottom: 8px !important;
+  display: inline-block;
+}
+.section-title h2,
+.title-area h2,
+.section-title__title {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  font-size: 32px !important;
+  line-height: 1.25 !important;
+  color: var(--su-navy) !important;
+  margin: 0 0 12px 0 !important;
+}
+.section-title p,
+.title-area p,
+.section-title__desc {
+  font-family: var(--font-secondary) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: var(--su-text-muted) !important;
+  max-width: 540px;
+  margin: 0 auto !important;
+}
+
+/* === Category badge (events, news, blog, breadcrumb) ========= */
+.category-badge,
+.event-category,
+.news-category,
+.blog-category {
+  display: inline-block;
+  background: var(--su-amber);
+  color: var(--su-navy-text);
+  font-family: var(--font-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
