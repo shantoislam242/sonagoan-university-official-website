@@ -684,13 +684,19 @@ button, .btn, a.rts-theme-btn {
   font-weight: 700 !important;
 }
 
-/* Decorative outline watermark ("About University" etc.) — keep template's
-   default #DEDEDE stroke. Matches the original maroon visual; on navy it's
-   still readable. We DO need to re-assert the rt-clip-text pattern because
-   our heading color cascade can leak `color: navy` onto it, which (combined
-   with text-fill-color: transparent from template) can null the stroke. */
+/* Decorative outline watermark ("About University" etc.) — re-assert clip-text
+   pattern so heading color cascade doesn't null the stroke. */
 .bottom-text.rt-clip-text {
   -webkit-text-fill-color: transparent !important;
-  -webkit-text-stroke-color: #DEDEDE !important;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.35) !important;
   -webkit-text-stroke-width: 1px !important;
+  z-index: 0 !important;   /* sit behind the side image so it doesn't visually intrude */
+}
+
+/* Navy band extension: template sets ::before height to 80%, leaving a white
+   strip at the bottom where the watermark falls. On maroon the strip went
+   unnoticed; on navy it makes the watermark sit half-on-white and overlap
+   the right-side image. Extend the band to full container height. */
+.rts-campus.rts-campus-bg::before {
+  height: 100% !important;
 }
