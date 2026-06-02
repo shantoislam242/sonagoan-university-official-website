@@ -456,6 +456,7 @@ footer p, footer .disc {
 .banner__content--title,
 .banner__slides--content--title,
 .banner__heading__title,
+.rts-slider-title,
 .rts-breadcrumb .section-title {
   font-family: var(--font-primary) !important;
   font-weight: 700 !important;
@@ -471,6 +472,7 @@ footer p, footer .disc {
   .banner__content--title,
   .banner__slides--content--title,
   .banner__heading__title,
+  .rts-slider-title,
   .rts-breadcrumb .section-title {
     font-size: 36px !important;
   }
