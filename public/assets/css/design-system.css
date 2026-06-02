@@ -700,13 +700,13 @@ button, .btn, a.rts-theme-btn {
   font-size: 84px !important;
 }
 .rts-application-area .rts-section-big-text {
-  font-size: 64px !important;
+  font-size: 76px !important;
 }
 @media (max-width: 767px) {
   .rts-campus .bottom-text {
     font-size: 56px !important;
   }
   .rts-application-area .rts-section-big-text {
-    font-size: 44px !important;
+    font-size: 52px !important;
   }
 }
