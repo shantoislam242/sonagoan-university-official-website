@@ -684,6 +684,184 @@ button, .btn, a.rts-theme-btn {
   font-weight: 700 !important;
 }
 
+/* ===============================================================
+   COMPREHENSIVE SWEEP — re-assert all template `color: var(--rt-white)`
+   selectors with !important so our heading-color cascade can't
+   override them. Captured via static audit of style.css.
+   Excludes removed kid/sc variants.
+   =============================================================== */
+
+/* — Homepage hero banners — */
+.banner .banner__content--sub,
+.banner .banner__content--description p,
+.banner.v__2 .banner__wrapper .banner__slides--content--sub,
+.banner.v__2 .banner__wrapper .banner__slides--content--title,
+.banner.v__2 .banner__wrapper .banner__slides--navigation--single .nav__description {
+  color: #FFFFFF !important;
+}
+
+/* — Hero slider variants (index-four etc.) — */
+.rts-hero-slider-active .swiper-slide-active .rts-slider-content .rts-university-estd span,
+.rts-hero-slider.v_2 .rt-slider-btn i {
+  color: #FFFFFF !important;
+}
+
+/* — PageBanner / breadcrumb (internal pages: about, admission, etc.) — */
+.rts-breadcrumb .breadcrumb-content .breadcrumb,
+.rts-breadcrumb .breadcrumb-content .breadcrumb li a,
+.rts-breadcrumb .breadcrumb-content .breadcrumb-item.active,
+.rts-breadcrumb .breadcrumb-content .section-title {
+  color: #FFFFFF !important;
+}
+
+/* — Section wrapper v__4 (used in some sections with dark bg) — */
+.rts__section--wrapper.v__4 .rts__section--title,
+.rts__section--wrapper.v__4 .rts__section--description {
+  color: #FFFFFF !important;
+}
+
+/* — Campus life image cards (hover state reveals overlay content) — */
+.campus__life--single:hover .campus__life--single--title a,
+.campus__life--single:hover .campus__life--single--description,
+.campus__life--single:hover .campus__life--single--button a,
+.campus__life--single:hover .campus__life--single--button a i {
+  color: #FFFFFF !important;
+}
+
+/* — Tuition fee boxes (.v__1 variant + hover) — */
+.tution__single--box.v__1 .tution__single--box--title,
+.tution__single--box.v__1 .tution__single--box--faculty,
+.tution__single--box.v__1 .tution__single--box--feature li,
+.tution__single--box:hover .tution__single--box--title,
+.tution__single--box:hover .tution__single--box--faculty,
+.tution__single--box:hover .tution__single--box--feature li {
+  color: #FFFFFF !important;
+}
+
+/* — Event cards with hover state — */
+.event__card__content .rts__section--subheading,
+.event__card__content .event__title,
+.event__card__content .event__link .rts-theme-btn {
+  color: #FFFFFF !important;
+}
+.rts-event-section-content .single-event:hover .single-event-content h5,
+.rts-event-section-content .single-event:hover .single-event-content-meta,
+.rts-event-section-content .single-event:hover .single-event-counter .count-number,
+.rts-event-section-content .single-event:nth-child(2n) .single-event-content h5,
+.rts-event-section-content .single-event:nth-child(2n) .single-event-content-meta,
+.rts-event-section-content .single-event:nth-child(2n) .single-event-counter .count-number,
+.rts-event .single-event:hover {
+  color: #FFFFFF !important;
+}
+
+/* — Feature & "What we offer" sections — */
+.feature__left .feature__title,
+.feature__left .rts-theme-btn,
+.feature__right,
+.what__we__offer__wrapper .content__section .content__description,
+.what__we__offer__wrapper .content__section .offer__link .rts-theme-btn {
+  color: #FFFFFF !important;
+}
+
+/* — About feature single items — */
+.about__feature .single__af,
+.about__feature .single__af p {
+  color: #FFFFFF !important;
+}
+
+/* — Program single details cards (hover overlay) — */
+.program__single--item:hover .program__single--item--title,
+.program__single--item:hover .program__single--item--list--item .link__list,
+.program__single--item.v__2 .program__single--item--title,
+.program__single--item.v__2 .program__single--item--list--item .link__list,
+.rts-program-single__content:hover .rts-program-hover .icon,
+.rts-program-single__content:hover .rts-program-hover .program-link,
+.rts-program-single__content:hover .rts-program-hover p,
+.rts-program-single__content:hover .rts-program-hover .about-btn {
+  color: #FFFFFF !important;
+}
+
+/* — Research procedure cards (primary style + hover) — */
+.rts-research-section .research__items .research-procedure.primary-style a,
+.rts-research-section .research__items .research-procedure.primary-style p,
+.rts-research-section .research__items .research-procedure:hover a,
+.rts-research-section .research__items .research-procedure:hover p {
+  color: #FFFFFF !important;
+}
+
+/* — Campus content (index-three v__2, index-five v__3) — */
+.campus.v__3 .campus__right--text--description,
+.campus__right--text--title {
+  color: #FFFFFF !important;
+}
+
+/* — Single procedure / service content cards — */
+.single-procedure a:hover,
+.single-procedure p,
+.single-service-content .single-service .content,
+.single-service-content .single-service .content p,
+.single__subject .subject__description,
+.academy__single__description {
+  color: #FFFFFF !important;
+}
+
+/* — Scholarship description sections — */
+.rts-scholarship-info p,
+.rts-scholarship-description .repeating-content .single-information-box .single-info p {
+  color: #FFFFFF !important;
+}
+
+/* — Single session (timeline/agenda) — */
+.single-session-title,
+.single-session p {
+  color: #FFFFFF !important;
+}
+
+/* — Newsletter box — */
+.rts-newsletter-box-content .newsletter-title {
+  color: #FFFFFF !important;
+}
+
+/* — Funfact / CTA counter cards — */
+.rts-funfact-wrapper .single-cta-item h2,
+.rts-funfact-wrapper .single-cta-item p,
+.rts-funfact.v_3 .single-cta-item h2 {
+  color: #FFFFFF !important;
+}
+
+/* — About details info — */
+.rts-about-details .single-about-info .desc p {
+  color: #FFFFFF !important;
+}
+
+/* — Header v__1 nav links (homepage 1 specific) — */
+.header.v__1 .navigation__menu--item__link {
+  color: #FFFFFF !important;
+}
+
+/* — Blog hover overlays — */
+.rts-blog.v_3 .single-blog:hover,
+.rts-blog.v_4 .single-blog:hover,
+.rts-blog.v_5 .single-blog:hover {
+  color: #FFFFFF !important;
+}
+
+/* — Program/category sidebar hover states — */
+.rts-sidebar .rts-single-widget.category-widget .single-cat:hover .button-tab {
+  color: #FFFFFF !important;
+}
+
+/* — Reactheme fee table — */
+.reactheme__table [class^=tb-] {
+  color: #FFFFFF !important;
+}
+
+/* — Catch-all helper for any element using the .rt-white utility — */
+.rt-white,
+.rt-white * {
+  color: #FFFFFF !important;
+}
+
 /* Watermark outline ("About University", "Admission Now" etc.) — re-assert
    clip-text fill transparency so heading color cascade doesn't null it.
    Also force single-line + relaxed line-height so multi-word watermarks
