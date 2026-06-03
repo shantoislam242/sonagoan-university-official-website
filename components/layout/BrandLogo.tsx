@@ -35,7 +35,7 @@ export default function BrandLogo({
         src={src}
         alt="Sonargaon University"
         style={{
-          height: 56,
+          height: 40,
           width: 'auto',
           display: 'block',
         }}
