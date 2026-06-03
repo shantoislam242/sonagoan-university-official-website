@@ -3,13 +3,11 @@ import Link from 'next/link';
 type Variant = 'light' | 'dark';
 
 /**
- * Brand logo placeholder. Renders text "Sonargaon University" + Bangla
- * line until the SVG file lands at /assets/images/logo/su-logo.svg.
- *
- * To switch to SVG later: replace the inner JSX with
- *   <img src={variant === 'dark' ? '/assets/images/logo/su-logo-white.svg'
- *                                 : '/assets/images/logo/su-logo.svg'}
- *        alt="Sonargaon University" />
+ * Brand logo for Sonargaon University.
+ * - variant="light" (default) → full-color logo for light-background contexts
+ *   (headers, mobile menu). File: /assets/images/logo/su-logo.png
+ * - variant="dark" → white logo for dark-background contexts (footers).
+ *   File: /assets/images/logo/su-logo-white.png
  */
 export default function BrandLogo({
   variant = 'light',
@@ -18,44 +16,30 @@ export default function BrandLogo({
   variant?: Variant;
   href?: string;
 }) {
-  const isDark = variant === 'dark';
-  const textColor = isDark ? '#FFFFFF' : 'var(--su-navy)';
-  const subColor = isDark ? 'rgba(255,255,255,0.85)' : 'var(--su-navy)';
+  const src =
+    variant === 'dark'
+      ? '/assets/images/logo/su-logo-white.png'
+      : '/assets/images/logo/su-logo.png';
 
   return (
     <Link
       href={href}
       style={{
         display: 'inline-flex',
-        flexDirection: 'column',
-        lineHeight: 1.1,
+        alignItems: 'center',
         textDecoration: 'none',
       }}
       aria-label="Sonargaon University — Home"
     >
-      <span
+      <img
+        src={src}
+        alt="Sonargaon University"
         style={{
-          fontFamily: 'var(--font-primary)',
-          fontWeight: 700,
-          fontSize: 20,
-          color: textColor,
-          letterSpacing: '-0.2px',
+          height: 56,
+          width: 'auto',
+          display: 'block',
         }}
-      >
-        Sonargaon University
-      </span>
-      <span
-        lang="bn"
-        style={{
-          fontFamily: 'var(--font-bangla)',
-          fontWeight: 500,
-          fontSize: 12,
-          color: subColor,
-          marginTop: 2,
-        }}
-      >
-        সোনারগাঁও ইউনিভার্সিটি
-      </span>
+      />
     </Link>
   );
 }
