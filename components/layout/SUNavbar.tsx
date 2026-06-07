@@ -1,0 +1,480 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import {
+  Menu, X, Search,
+  User, ChevronDown, ChevronRight, LayoutGrid,
+  GraduationCap, CheckCircle, Building, BookOpen, Calendar, Mail, Phone,
+} from 'lucide-react';
+import Container from '../ui/Container';
+import SUSearchOverlay from './SUSearchOverlay';
+import {
+  applyUrl, topLinks, quickAccessItems, mainNav, socials,
+  type QuickAccessItem, type MainNavGroup,
+} from '@/lib/nav-config';
+
+// Lucide's Youtube icon is an outline-style mark; at the top bar's
+// tiny size (12–14px) with fill applied it collapses into an
+// unrecognisable blob. Use the official brand "play-in-rounded-
+// rectangle" path instead so the icon reads at a glance.
+const YoutubeBrandIcon = ({ size = 14 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+  </svg>
+);
+
+// lucide-react v1 dropped brand/social icons (Facebook, LinkedIn).
+// Use official brand SVG paths so rendering is identical to the source.
+const FacebookBrandIcon = ({ size = 12 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M24 12.073C24 5.406 18.627 0 12 0S0 5.406 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.514c-1.491 0-1.956.93-1.956 1.885v2.27h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+  </svg>
+);
+
+const LinkedinBrandIcon = ({ size = 12 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
+
+// Icon map for QuickAccessItem.iconName → component. Source uses a
+// DynamicLucideIcon that resolves all 1000+ lucide icons; we only need
+// the small set the static config references.
+const ICON_MAP = {
+  User, GraduationCap, CheckCircle, Building, BookOpen, Calendar, Mail, Phone,
+} as const;
+
+function QuickAccessIcon({
+  name,
+  size,
+  className,
+}: {
+  name: QuickAccessItem['iconName'];
+  size?: number;
+  className?: string;
+}) {
+  const Icon = ICON_MAP[name];
+  return <Icon size={size} className={className} />;
+}
+
+// Helper for the named middle-bar quick-action buttons (ERP, Convoc.
+// Reg., Verification). Falls back to '#' if the named entry is absent.
+function resolveQuickAccessHref(name: string): string {
+  const hit = quickAccessItems.find((q) => q.name === name);
+  return hit?.href ?? '#';
+}
+
+export default function SUNavbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
+
+  const toggleMobileSection = (name: string) => {
+    setOpenMobileSection((prev) => (prev === name ? null : name));
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Lock body scroll while the mobile drawer is open
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, [mobileMenuOpen]);
+
+  // Mobile drawer "Quick Links" derives from the main_nav Admission
+  // group children. If Admission group is absent, fall back to empty.
+  const mobileQuickLinks = mainNav.find((g) => g.name === 'Admission')?.items ?? [];
+
+  return (
+    <nav className="fixed w-full z-[60] flex flex-col transition-all duration-300">
+      {/* 1. TOP BAR */}
+      <div className={`hidden md:flex items-center overflow-hidden transition-all duration-500 ${isScrolled ? 'h-0 opacity-0' : 'h-10 opacity-100'}`}>
+        {/* Left Side - Magenta Background */}
+        <div className="flex-grow bg-accent h-full flex items-center pr-4">
+          <Container className="!max-w-[1600px] flex items-center">
+            <div className="flex items-center gap-1 text-[11px] text-white/90 font-medium">
+              {topLinks.map((link, idx) => (
+                <div key={link.name} className="flex items-center">
+                  <a
+                    href={link.isDisabled || !link.href ? '#' : link.href}
+                    {...(link.isExternal && link.href && { target: '_blank', rel: 'noopener noreferrer' })}
+                    className={`px-2 relative group uppercase tracking-wider transition-colors ${
+                      link.isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:text-white'
+                    }`}
+                    aria-disabled={link.isDisabled || undefined}
+                  >
+                    {link.name}
+                  </a>
+                  {idx < topLinks.length - 1 && <span className="opacity-30">|</span>}
+                </div>
+              ))}
+            </div>
+          </Container>
+        </div>
+
+        {/* Right Side - Socials with Dark Blue Background */}
+        <div className="bg-primary h-full flex items-center px-10">
+          <div className="flex items-center gap-6 text-white text-[11px] font-medium">
+            {socials.facebookUrl && (
+              <a href={socials.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+                <FacebookBrandIcon size={12} />
+                <span className="uppercase tracking-widest">Facebook</span>
+              </a>
+            )}
+            {socials.linkedinUrl && (
+              <a href={socials.linkedinUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+                <LinkedinBrandIcon size={12} />
+                <span className="uppercase tracking-widest">LinkedIn</span>
+              </a>
+            )}
+            {socials.youtubeUrl && (
+              <a href={socials.youtubeUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+                <YoutubeBrandIcon size={14} />
+                <span className="uppercase tracking-widest">Youtube</span>
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* 2. MIDDLE BAR - Logo & Action Buttons */}
+      <div className={`relative z-[60] transition-all duration-500 border-b ${isScrolled ? 'bg-white/95 backdrop-blur-md border-gray-50 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.02)]' : 'bg-white border-gray-100 py-4'}`}>
+        <Container className="flex justify-between items-center !max-w-[1600px]">
+          {/* Logo */}
+          <a href="/" aria-label="Sonargaon University — Home" className="flex items-center shrink-0">
+            <img
+              src="/assets/images/logo/su-logo.png"
+              alt="Sonargaon University"
+              className={`${isScrolled ? 'h-7 md:h-8' : 'h-8 md:h-9 xl:h-10'} w-auto max-w-[42vw] object-contain transition-all duration-500`}
+            />
+          </a>
+
+          {/* Compact Scroll Navigation — only when scrolled */}
+          {isScrolled && (
+            <div className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1">
+              {mainNav.map((group) => (
+                <NavGroup key={group.name} group={group} compact />
+              ))}
+            </div>
+          )}
+
+          {/* Right side: Secondary buttons + Apply Now + Mobile toggle */}
+          <div className="flex items-center gap-1 lg:gap-3 -mr-3 lg:mr-0">
+            <div className={`flex items-center gap-3 ${isScrolled ? 'lg:hidden' : ''}`}>
+              <a
+                href={resolveQuickAccessHref('ERP')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden xl:flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-lg text-sm font-bold whitespace-nowrap transition-all shadow-sm border border-gray-100"
+              >
+                <User size={16} className="text-accent" />
+                ERP
+              </a>
+              <a
+                href={resolveQuickAccessHref('Convoc. Reg.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden xl:flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-lg text-sm font-bold whitespace-nowrap transition-all shadow-sm border border-gray-100"
+              >
+                <GraduationCap size={16} className="text-accent" />
+                Convoc. Reg.
+              </a>
+              <a
+                href={resolveQuickAccessHref('Verification')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden md:flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-lg text-sm font-bold whitespace-nowrap transition-all shadow-sm border border-gray-100"
+              >
+                <CheckCircle size={16} className="text-accent" />
+                Verification
+              </a>
+            </div>
+
+            {/* Apply Now */}
+            <a
+              href={applyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:flex items-center gap-2 px-3 lg:px-3 xl:px-5 py-2 xl:py-2.5 bg-gradient-to-r from-primary to-accent text-white rounded-lg text-xs lg:text-xs xl:text-sm font-bold whitespace-nowrap transition-all shadow-md hover:shadow-lg hover:brightness-110 shrink-0"
+            >
+              Apply Now
+            </a>
+
+            {/* Quick Access grid — only when scrolled */}
+            {isScrolled && (
+              <div className="hidden lg:block group relative">
+                <button
+                  aria-label="Quick access"
+                  className="p-2.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-primary transition-colors border border-blue-100"
+                >
+                  <LayoutGrid size={20} />
+                </button>
+                <div className="invisible absolute right-0 top-full z-50 mt-2 w-[320px] translate-y-2 rounded-xl border border-gray-100 bg-white p-3 opacity-0 shadow-premium transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div className="grid grid-cols-3 gap-1">
+                    {quickAccessItems.map((item) => {
+                      const isLive = !!item.href && !item.isDisabled;
+                      return (
+                        <a
+                          key={item.name}
+                          href={isLive ? item.href : '#'}
+                          {...(item.isExternal && isLive && { target: '_blank', rel: 'noopener noreferrer' })}
+                          className={`flex flex-col items-center justify-center gap-1.5 p-3 rounded-lg text-center transition-colors hover:bg-accent/5 ${
+                            !isLive ? 'opacity-50 cursor-not-allowed' : ''
+                          }`}
+                          aria-disabled={!isLive || undefined}
+                        >
+                          <QuickAccessIcon name={item.iconName} size={22} className="text-primary" />
+                          <span className="text-[12px] font-medium text-gray-700 leading-tight">{item.name}</span>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Search Toggle */}
+            {!mobileMenuOpen && (
+              <button
+                type="button"
+                aria-label="Search"
+                onClick={() => setSearchOpen(true)}
+                className="lg:hidden p-2 text-primary relative z-[70]"
+              >
+                <Search size={24} />
+              </button>
+            )}
+
+            {/* Mobile Menu Toggle */}
+            <button
+              type="button"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
+              className="lg:hidden p-2 text-primary relative z-[70]"
+              onClick={toggleMobileMenu}
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </Container>
+      </div>
+
+      {/* 3. BOTTOM BAR - Nav Links */}
+      {!isScrolled && (
+        <div className="bg-white/95 backdrop-blur-md hidden lg:block border-b border-gray-50 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+          <Container className="!max-w-[1600px]">
+            <div className="flex items-center h-14">
+              <div className="mx-auto flex items-center justify-center gap-0.5 xl:gap-1">
+                {mainNav.map((group) => (
+                  <NavGroup key={group.name} group={group} />
+                ))}
+              </div>
+            </div>
+          </Container>
+        </div>
+      )}
+
+      {/* Mobile Menu */}
+      {/* Backdrop */}
+      <div
+        onClick={() => setMobileMenuOpen(false)}
+        aria-hidden="true"
+        className={`lg:hidden fixed inset-0 bg-black/40 z-[50] transition-opacity duration-300 ${
+          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      />
+      {/* Drawer */}
+      <div
+        className={`lg:hidden fixed inset-y-0 right-0 w-[min(85vw,340px)] overflow-y-auto overscroll-contain bg-white z-[55] shadow-2xl transform transition-transform duration-300 pb-6 ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
+        }`}
+      >
+        <div className="px-4 pt-8 pb-3">
+          <h3 className="text-base font-bold text-primary">Menu</h3>
+        </div>
+
+        <div className="px-4">
+          {mainNav.map((group) => {
+            const isOpen = openMobileSection === group.name;
+            return (
+              <div key={group.name} className="border-b border-gray-100 last:border-b-0">
+                {group.hasDropdown ? (
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileSection(group.name)}
+                    aria-expanded={isOpen}
+                    className="w-full py-3 text-[14px] font-semibold text-primary flex justify-between items-center"
+                  >
+                    {group.name}
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                ) : (
+                  <a
+                    href={group.href ?? '#'}
+                    className="block py-3 text-[14px] font-semibold text-primary"
+                  >
+                    {group.name}
+                  </a>
+                )}
+                {group.items.length > 0 && isOpen && (
+                  <div className="pb-2 pl-3 flex flex-col gap-1">
+                    {group.items.map((child) => (
+                      <a
+                        key={child.name}
+                        href={child.isDisabled ? '#' : child.href}
+                        {...(child.isExternal && !child.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
+                        className={`py-1.5 text-[13px] font-medium transition-colors ${
+                          child.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:text-accent'
+                        }`}
+                        aria-disabled={child.isDisabled || undefined}
+                      >
+                        {child.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Apply Now */}
+        <div className="px-4 pt-3">
+          <a
+            href={applyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg text-sm font-bold text-center shadow-md transition-all"
+          >
+            Apply Now
+          </a>
+        </div>
+
+        {/* Quick Links — derived from main_nav Admission group */}
+        {mobileQuickLinks.length > 0 && (
+          <div className="mt-4 px-4 pt-4 border-t border-gray-100">
+            <h4 className="text-[13px] font-bold text-primary mb-2.5">Quick Links</h4>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+              {mobileQuickLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.isDisabled ? '#' : link.href}
+                  {...(link.isExternal && !link.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
+                  className={`text-[12.5px] transition-colors py-1 ${
+                    link.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:text-accent'
+                  }`}
+                  aria-disabled={link.isDisabled || undefined}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Services — from quickAccessItems */}
+        <div className="mt-4 px-4 pt-4 pb-4 border-t border-gray-100">
+          <h4 className="text-[13px] font-bold text-primary mb-3">Services</h4>
+          <div className="grid grid-cols-3 gap-2">
+            {quickAccessItems.map((item) => {
+              const isLive = !!item.href && !item.isDisabled;
+              return (
+                <a
+                  key={item.name}
+                  href={isLive ? item.href : '#'}
+                  {...(item.isExternal && isLive && { target: '_blank', rel: 'noopener noreferrer' })}
+                  onClick={() => isLive && setMobileMenuOpen(false)}
+                  className={`flex flex-col items-center justify-center gap-1.5 py-3 px-1 rounded-lg bg-gray-50 hover:bg-accent/5 active:bg-accent/10 transition-colors text-center ${
+                    !isLive ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+                  aria-disabled={!isLive || undefined}
+                >
+                  <QuickAccessIcon name={item.iconName} size={20} className="text-primary" />
+                  <span className="text-[10.5px] font-semibold text-gray-700 leading-tight">
+                    {item.name}
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Search Overlay */}
+      <SUSearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+    </nav>
+  );
+}
+
+function NavGroup({
+  group,
+  compact = false,
+}: {
+  group: MainNavGroup;
+  compact?: boolean;
+}) {
+  const linkClass = compact
+    ? 'h-11 px-1 xl:px-3 flex items-center gap-0.5 xl:gap-1 text-[11px] xl:text-[14px] font-bold whitespace-nowrap text-gray-800 hover:text-accent transition-colors'
+    : 'px-1.5 xl:px-5 h-14 flex items-center gap-0.5 xl:gap-1.5 text-[12px] xl:text-[15px] font-medium whitespace-nowrap text-gray-800 hover:text-accent transition-all relative';
+
+  return (
+    <div className="group relative">
+      <a
+        href={group.href ?? '#'}
+        className={linkClass}
+      >
+        {group.name}
+        {group.hasDropdown && <ChevronDown size={compact ? 12 : 13} className="hidden xl:block opacity-80" />}
+        {!compact && (
+          <span className="absolute bottom-0 left-0 w-0 h-1 bg-accent transition-all group-hover:w-full" />
+        )}
+      </a>
+      {group.items.length > 0 && (
+        <div className="invisible absolute left-0 top-full z-50 min-w-[280px] translate-y-2 rounded-lg border border-gray-100 bg-white py-3 opacity-0 shadow-premium transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+          {(group.title || group.name) && (
+            <div className="px-5 pt-1 pb-3 border-b border-gray-200">
+              <div className="text-[15px] font-bold text-gray-900">{group.title ?? group.name}</div>
+            </div>
+          )}
+          <div className="py-2">
+            {group.items.map((child) => (
+              <a
+                key={child.name}
+                href={child.isDisabled ? '#' : child.href}
+                {...(child.isExternal && !child.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
+                className={`group/item block px-5 py-2.5 text-sm font-medium transition-colors ${
+                  child.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-accent/5 hover:text-accent'
+                }`}
+                aria-disabled={child.isDisabled || undefined}
+              >
+                <span className="inline-flex items-center gap-2">
+                  {child.name}
+                  {!child.isDisabled && (
+                    <ChevronRight
+                      size={14}
+                      className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"
+                    />
+                  )}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
