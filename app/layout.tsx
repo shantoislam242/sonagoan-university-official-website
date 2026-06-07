@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import VendorPluginInitializer from '@/components/system/VendorPluginInitializer';
 import BackToTop from '@/components/sections/BackToTop';
+import './tailwind.css';
 
 export const metadata: Metadata = {
   title: 'SU Website',

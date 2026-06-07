@@ -1,0 +1,5 @@
+/* NO @tailwind base — preflight is off in tailwind.config.ts.
+   Loading base would re-introduce the global reset that conflicts
+   with template style.css. */
+@tailwind components;
+@tailwind utilities;
