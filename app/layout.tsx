@@ -38,7 +38,7 @@ export default function RootLayout({
             which we redefine here to the Navy/Magenta/Amber palette). */}
         <link rel="stylesheet" href="/assets/css/design-system.css" />
       </head>
-      <body className="page" style={{ paddingTop: 176 }}>
+      <body className="page" style={{ paddingTop: 146 }}>
         <VendorPluginInitializer />
         {children}
         <BackToTop />

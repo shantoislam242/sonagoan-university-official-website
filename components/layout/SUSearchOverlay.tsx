@@ -34,21 +34,23 @@ export default function SUSearchOverlay({ open, onClose }: SUSearchOverlayProps)
     return () => window.removeEventListener('keydown', onKey);
   }, [open, onClose]);
 
+  // Conditional render — keeping the overlay mounted with `-translate-y-full`
+  // would normally hide it, but template style.css contains broad `transform`
+  // resets that defeat Tailwind's transform utilities, so the closed overlay
+  // ended up visible. Unmounting when closed is bulletproof.
+  if (!open) return null;
+
   return (
     <>
       {/* Backdrop */}
       <div
         onClick={onClose}
         aria-hidden="true"
-        className={`fixed inset-0 bg-black/50 z-[80] transition-opacity duration-200 ${
-          open ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+        className="fixed inset-0 bg-black/50 z-[80] opacity-100 transition-opacity duration-200"
       />
       {/* Search panel */}
       <div
-        className={`fixed top-0 left-0 right-0 z-[85] bg-white transition-transform duration-300 ${
-          open ? 'translate-y-0 shadow-2xl' : '-translate-y-full pointer-events-none'
-        }`}
+        className="fixed top-0 left-0 right-0 z-[85] bg-white shadow-2xl transition-transform duration-300"
       >
         <div className="mx-auto max-w-2xl px-4 sm:px-6 py-4">
           {/* Input row */}

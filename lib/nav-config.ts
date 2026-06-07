@@ -72,15 +72,10 @@ export const mainNav: readonly MainNavGroup[] = [
     ],
   },
   {
-    name: 'Academics',
-    hasDropdown: true,
-    items: [
-      { name: 'Academic Area', href: '/academic-area' },
-      { name: 'Faculty',       href: '/faculty' },
-      { name: 'Department',    href: '/department-details' },
-      { name: 'Program',       href: '/program-single' },
-      { name: 'Campus Life',   href: '/campus-life' },
-    ],
+    name: 'Faculty Member',
+    href: '/faculty',
+    hasDropdown: false,
+    items: [],
   },
   {
     name: 'Admission',
@@ -92,20 +87,13 @@ export const mainNav: readonly MainNavGroup[] = [
     ],
   },
   {
-    name: 'Event',
+    name: 'Student Society',
     hasDropdown: true,
     items: [
-      { name: 'Event',         href: '/event' },
-      { name: 'Event Details', href: '/event-details' },
-    ],
-  },
-  {
-    name: 'Blog',
-    hasDropdown: true,
-    items: [
-      { name: 'Blog',      href: '/blog' },
-      { name: 'Blog Grid', href: '/blog-grid' },
-      { name: 'Blog List', href: '/blog-list' },
+      { name: 'Campus Life', href: '/campus-life' },
+      { name: 'Athletics',   href: '/athletics' },
+      { name: 'Event',       href: '/event' },
+      { name: 'Blog',        href: '/blog' },
     ],
   },
   {
