@@ -1,8 +1,6 @@
-import { buildMetadata } from '@/lib/metadata';
+﻿import { buildMetadata } from '@/lib/metadata';
 import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
-import MobileMenu from '@/components/layout/MobileMenu';
-import SearchPopup from '@/components/layout/SearchPopup';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
@@ -15,8 +13,6 @@ export default function IndexFourPage() {
   return (
     <>
       <HeaderUniversity />
-      <MobileMenu />
-      <SearchPopup />
       {/* hero slider start */}
       <div className="rts-hero-slider rt-relative v_2">
         <div

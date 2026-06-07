@@ -1,8 +1,6 @@
-import { buildMetadata } from '@/lib/metadata';
+﻿import { buildMetadata } from '@/lib/metadata';
 import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
-import MobileMenu from '@/components/layout/MobileMenu';
-import SearchPopup from '@/components/layout/SearchPopup';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
@@ -16,8 +14,6 @@ export default function HomePage() {
   return (
     <>
       <HeaderUniversity />
-      <MobileMenu />
-      <SearchPopup />
 
       {/* header banner */}
       <div className="banner v__1">

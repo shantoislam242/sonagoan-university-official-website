@@ -1,8 +1,6 @@
-import { buildMetadata } from '@/lib/metadata';
+﻿import { buildMetadata } from '@/lib/metadata';
 import HeaderHomeTwo from '@/components/layout/HeaderHomeTwo';
 import FooterHomeTwo from '@/components/layout/FooterHomeTwo';
-import MobileMenu from '@/components/layout/MobileMenu';
-import SearchPopup from '@/components/layout/SearchPopup';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
@@ -15,8 +13,6 @@ export default function IndexTwoPage() {
   return (
     <>
       <HeaderHomeTwo />
-      <MobileMenu />
-      <SearchPopup />
       {/* header banner */}
       <div className="banner v__2">
         <div className="banner__wrapper">

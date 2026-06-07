@@ -1,8 +1,6 @@
-import { buildMetadata } from '@/lib/metadata';
+﻿import { buildMetadata } from '@/lib/metadata';
 import HeaderHomeFive from '@/components/layout/HeaderHomeFive';
 import FooterHomeFive from '@/components/layout/FooterHomeFive';
-import MobileMenu from '@/components/layout/MobileMenu';
-import SearchPopup from '@/components/layout/SearchPopup';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
@@ -15,8 +13,6 @@ export default function IndexFivePage() {
   return (
     <>
       <HeaderHomeFive />
-      <MobileMenu />
-      <SearchPopup />
       {/* banner area */}
       <div className="banner v__5">
         <div className="banner__left__side__content">

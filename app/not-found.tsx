@@ -1,8 +1,6 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
-import MobileMenu from '@/components/layout/MobileMenu';
-import SearchPopup from '@/components/layout/SearchPopup';
 
 export const metadata = {
   title: 'Page not found | SU Website',
@@ -13,8 +11,6 @@ export default function NotFound() {
   return (
     <>
       <HeaderUniversity />
-      <MobileMenu />
-      <SearchPopup />
 
       <section
         style={{

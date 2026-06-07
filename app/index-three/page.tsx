@@ -1,8 +1,6 @@
-import { buildMetadata } from '@/lib/metadata';
+﻿import { buildMetadata } from '@/lib/metadata';
 import HeaderHomeThree from '@/components/layout/HeaderHomeThree';
 import FooterHomeThree from '@/components/layout/FooterHomeThree';
-import MobileMenu from '@/components/layout/MobileMenu';
-import SearchPopup from '@/components/layout/SearchPopup';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
@@ -15,8 +13,6 @@ export default function IndexThreePage() {
   return (
     <>
       <HeaderHomeThree />
-      <MobileMenu />
-      <SearchPopup />
 
       {/* header banner */}
       <div className="banner v__3">

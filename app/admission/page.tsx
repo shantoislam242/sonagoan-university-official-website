@@ -1,8 +1,6 @@
-import { buildMetadata } from '@/lib/metadata';
+﻿import { buildMetadata } from '@/lib/metadata';
 import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
-import MobileMenu from '@/components/layout/MobileMenu';
-import SearchPopup from '@/components/layout/SearchPopup';
 import PageBanner from '@/components/sections/PageBanner';
 import AdmissionForm from '@/components/forms/AdmissionForm';
 import Link from 'next/link';
@@ -17,8 +15,6 @@ export default function AdmissionPage() {
   return (
     <>
       <HeaderUniversity />
-      <MobileMenu />
-      <SearchPopup />
       <PageBanner
         title="Admission"
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Admission' }]}
