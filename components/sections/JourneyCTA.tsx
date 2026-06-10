@@ -78,23 +78,24 @@ export default function JourneyCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            style={{ maxWidth: 560, color: '#ffffff', textAlign: 'left' }}
+            style={{ maxWidth: 640, color: '#ffffff', textAlign: 'left' }}
           >
             <h2
               style={{
-                // Bumped to 60px + weight 800 to match the visual
-                // weight of the source design (text-5xl@48px in font-bold
-                // Poppins on a mid-density viewport rendered noticeably
-                // heavier than ours; user wants the heading bolder).
+                // 52px sized so "Shape Your Future with" sits on line 1
+                // and "Excellence" lands on line 2 within a 620px box
+                // (matches the source's 2-line layout shape). Weight
+                // 800 (extrabold) gives the heading the visual heft of
+                // the source's font-display Poppins render.
                 fontFamily: POPPINS_STACK,
-                fontSize: 60,
+                fontSize: 52,
                 fontWeight: 800,
                 lineHeight: 1.1,
                 letterSpacing: '-0.025em',
                 marginBottom: 24,
                 marginTop: 0,
                 color: '#ffffff',
-                maxWidth: 580,
+                maxWidth: 620,
               }}
             >
               {cta.heading}
@@ -102,12 +103,12 @@ export default function JourneyCTA() {
             <p
               style={{
                 fontFamily: POPPINS_STACK,
-                fontSize: 19,
+                fontSize: 18,
                 lineHeight: 1.6,
                 fontWeight: 400,
                 marginBottom: 32,
                 color: 'rgba(255,255,255,0.88)',
-                maxWidth: 520,
+                maxWidth: 540,
               }}
             >
               {cta.body}
