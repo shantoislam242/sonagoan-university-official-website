@@ -89,7 +89,10 @@ export default function JourneyCTA() {
                 // tracking-tight + leading-tight. Size handled by the
                 // scoped <style> media query below (36px mobile / 48px
                 // md+) so it exactly matches Tailwind's responsive
-                // utilities the source project uses.
+                // utilities the source project uses. The narrower
+                // 540px max-width forces "Excellence" onto line 2 at
+                // the 48px desktop size (mirrors the source's 2-line
+                // wrap shape).
                 fontFamily: POPPINS_STACK,
                 fontWeight: 700,
                 lineHeight: 1.1,
@@ -97,7 +100,7 @@ export default function JourneyCTA() {
                 marginBottom: 20,
                 marginTop: 0,
                 color: '#ffffff',
-                maxWidth: 580,
+                maxWidth: 540,
               }}
             >
               {cta.heading}
@@ -106,13 +109,14 @@ export default function JourneyCTA() {
               className="cta-body"
               style={{
                 // Source: text-base md:text-lg (16px / 18px) +
-                // leading-relaxed.
+                // leading-relaxed. Same max-width as the heading so
+                // both wrap to 2 lines and right edges align.
                 fontFamily: POPPINS_STACK,
                 lineHeight: 1.625,
                 fontWeight: 400,
                 marginBottom: 32,
                 color: 'rgba(255,255,255,0.85)',
-                maxWidth: 580,
+                maxWidth: 540,
               }}
             >
               {cta.body}
