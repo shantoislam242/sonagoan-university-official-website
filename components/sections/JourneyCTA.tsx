@@ -110,7 +110,10 @@ export default function JourneyCTA() {
                 fontWeight: 400,
                 marginBottom: 32,
                 color: 'rgba(255,255,255,0.88)',
-                maxWidth: 540,
+                // Match heading's max-width so the right edge aligns
+                // and the paragraph wraps to 2 lines (not 3 with an
+                // orphaned "success." on its own line).
+                maxWidth: 600,
               }}
             >
               {cta.body}

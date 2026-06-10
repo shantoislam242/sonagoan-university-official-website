@@ -14,9 +14,10 @@ export const cta = {
   // /public/assets/journey-cta.webp). `heroImagePosition` mirrors the
   // source `heroImageVerticalPercent: 32`.
   heroImageUrl: '/assets/journey-cta.webp',
-  // Source seed: heroImageVerticalPercent: 32 → 'center 32%'. Used
-  // verbatim so the image focal point matches the source rendering.
-  heroImagePosition: 'center 32%',
+  // Higher % shifts the image content upward in the viewport (more
+  // of the original image's middle/lower portion fills the frame,
+  // the top fence/building strip moves off-screen).
+  heroImagePosition: 'center 50%',
 
   heading: 'Shape Your Future with Excellence',
   body:
