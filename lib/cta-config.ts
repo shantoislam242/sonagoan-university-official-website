@@ -14,11 +14,9 @@ export const cta = {
   // /public/assets/journey-cta.webp). `heroImagePosition` mirrors the
   // source `heroImageVerticalPercent: 32`.
   heroImageUrl: '/assets/journey-cta.webp',
-  // Crop bias toward the upper part of the original image — pushes
-  // the visible focal area (people + background) upward in the viewport
-  // and cuts off the lower foreground. Source seed uses 32%; 25%
-  // shifts marginally higher per user request.
-  heroImagePosition: 'center 25%',
+  // Source seed: heroImageVerticalPercent: 32 → 'center 32%'. Used
+  // verbatim so the image focal point matches the source rendering.
+  heroImagePosition: 'center 32%',
 
   heading: 'Shape Your Future with Excellence',
   body:

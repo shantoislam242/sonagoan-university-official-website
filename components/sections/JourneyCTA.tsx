@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Container from '@/components/ui/Container';
 import { cta } from '@/lib/cta-config';
 
 // Full-bleed CTA section anchored above SUFooter. Inline styles defend
@@ -60,19 +61,20 @@ export default function JourneyCTA() {
           }}
         />
 
-        {/* Content overlay */}
+        {/* Content overlay — uses the same Container component as
+            SUNavbar so the heading's left edge aligns perfectly with
+            the logo's left edge at every breakpoint (Container's
+            `px-4 sm:px-6 lg:px-8` responsive padding is consistent
+            across the page). */}
         <div
           style={{
             position: 'relative',
             zIndex: 10,
             height: '100%',
-            maxWidth: 1600,
-            margin: '0 auto',
-            padding: '0 32px',
-            display: 'flex',
-            alignItems: 'center',
           }}
+          className="cta-container-wrapper"
         >
+          <Container className="h-full flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -162,6 +164,7 @@ export default function JourneyCTA() {
               </a>
             </div>
           </motion.div>
+          </Container>
         </div>
       </div>
 
