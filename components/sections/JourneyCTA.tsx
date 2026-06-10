@@ -82,17 +82,19 @@ export default function JourneyCTA() {
           >
             <h2
               style={{
-                // Source: text-4xl md:text-5xl + font-display (Poppins) +
-                // font-bold + tracking-tight + leading-tight.
+                // Bumped to 60px + weight 800 to match the visual
+                // weight of the source design (text-5xl@48px in font-bold
+                // Poppins on a mid-density viewport rendered noticeably
+                // heavier than ours; user wants the heading bolder).
                 fontFamily: POPPINS_STACK,
-                fontSize: 48,
-                fontWeight: 700,
+                fontSize: 60,
+                fontWeight: 800,
                 lineHeight: 1.1,
                 letterSpacing: '-0.025em',
-                marginBottom: 20,
+                marginBottom: 24,
                 marginTop: 0,
                 color: '#ffffff',
-                maxWidth: 470,
+                maxWidth: 580,
               }}
             >
               {cta.heading}
@@ -100,11 +102,12 @@ export default function JourneyCTA() {
             <p
               style={{
                 fontFamily: POPPINS_STACK,
-                fontSize: 18,
-                lineHeight: 1.625,
+                fontSize: 19,
+                lineHeight: 1.6,
+                fontWeight: 400,
                 marginBottom: 32,
-                color: 'rgba(255,255,255,0.85)',
-                maxWidth: 500,
+                color: 'rgba(255,255,255,0.88)',
+                maxWidth: 520,
               }}
             >
               {cta.body}
