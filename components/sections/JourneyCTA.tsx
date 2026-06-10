@@ -4,164 +4,109 @@ import { motion } from 'motion/react';
 import Container from '@/components/ui/Container';
 import { cta } from '@/lib/cta-config';
 
-// Full-bleed CTA section anchored above SUFooter. Inline styles defend
-// against template style.css cascade (proven pattern from SUNavbar
-// port — `img { height: auto }`, `a { color: ... }`, `a:hover { color: ... }`
-// would otherwise override Tailwind utilities and inline gradient
-// backgrounds. Class-chained selectors in the scoped <style> block
-// (specificity 0,0,2,1) beat template's `a:hover` (0,0,1,1).
-
-const POPPINS_STACK =
-  'var(--font-poppins), "Poppins", -apple-system, BlinkMacSystemFont, sans-serif';
+// Full-bleed CTA section anchored above SUFooter. Uses the SOURCE
+// project's exact Tailwind className markup (font-display text-4xl
+// md:text-5xl etc.) — the font-display utility maps to Poppins via
+// tailwind.config.ts → fontFamily.display + the --font-poppins CSS
+// variable set by next/font in app/layout.tsx.
+//
+// Inline `style` overrides remain on a few critical properties (text
+// colour, button gradient + bg) because template style.css has wider
+// selectors that strip Tailwind colour/background utilities. The
+// scoped <style> block at the bottom uses class-chained selectors
+// (specificity 0,0,2,1) to beat template's `a:hover` (0,0,1,1).
 
 export default function JourneyCTA() {
   return (
-    <section style={{ position: 'relative' }}>
-      <div
-        style={{
-          position: 'relative',
-          height: 480,
-          overflow: 'hidden',
-        }}
-      >
-        {/* Hero image — plain <img> so inline `objectPosition` survives
-            template img-reset. */}
+    <section className="cta-section relative">
+      <div className="relative h-[420px] md:h-[480px] overflow-hidden">
+        {/* Hero image — plain <img> with inline objectFit/objectPosition
+            so template `img { height: auto }` cannot strip the cover
+            behaviour. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={cta.heroImageUrl}
           alt=""
+          className="absolute inset-0 w-full h-full"
           style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
             objectFit: 'cover',
             objectPosition: cta.heroImagePosition,
           }}
         />
         {/* Left dark overlay for text readability */}
         <div
+          className="absolute inset-0"
           style={{
-            position: 'absolute',
-            inset: 0,
             background:
               'linear-gradient(to right, #2B3175 0%, rgba(43,49,117,0.75) 40%, transparent 100%)',
           }}
         />
         {/* Bottom fade for smooth transition into footer */}
         <div
+          className="absolute inset-x-0 bottom-0 h-24"
           style={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            height: 96,
             background:
               'linear-gradient(to top, rgba(43,49,117,0.9) 0%, transparent 100%)',
           }}
         />
 
         {/* Content overlay — uses the same Container component as
-            SUNavbar so the heading's left edge aligns perfectly with
-            the logo's left edge at every breakpoint (Container's
-            `px-4 sm:px-6 lg:px-8` responsive padding is consistent
-            across the page). */}
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 10,
-            height: '100%',
-          }}
-          className="cta-container-wrapper"
-        >
-          <Container className="h-full flex items-center">
+            SUNavbar so the heading's left edge aligns with the logo. */}
+        <Container className="relative z-10 h-full flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            style={{ maxWidth: 640, color: '#ffffff', textAlign: 'left' }}
+            className="max-w-xl text-white text-left"
           >
+            {/* Heading — source-exact classes. Inline color defends
+                against template `h2 { color: ... }`. */}
             <h2
-              className="cta-heading"
-              style={{
-                // Source: text-4xl md:text-5xl + font-bold +
-                // tracking-tight + leading-tight. Size handled by the
-                // scoped <style> media query below (36px mobile / 48px
-                // md+) so it exactly matches Tailwind's responsive
-                // utilities the source project uses. The narrower
-                // 540px max-width forces "Excellence" onto line 2 at
-                // the 48px desktop size (mirrors the source's 2-line
-                // wrap shape).
-                fontFamily: POPPINS_STACK,
-                fontWeight: 700,
-                lineHeight: 1.1,
-                letterSpacing: '-0.025em',
-                marginBottom: 20,
-                marginTop: 0,
-                color: '#ffffff',
-                maxWidth: 540,
-              }}
+              className="font-display text-4xl md:text-5xl font-bold mb-5 leading-tight tracking-tight"
+              style={{ color: '#ffffff' }}
             >
               {cta.heading}
             </h2>
+
+            {/* Body — source-exact classes. Inline color override. */}
             <p
-              className="cta-body"
-              style={{
-                // Source: text-base md:text-lg (16px / 18px) +
-                // leading-relaxed. Same max-width as the heading so
-                // both wrap to 2 lines and right edges align.
-                fontFamily: POPPINS_STACK,
-                lineHeight: 1.625,
-                fontWeight: 400,
-                marginBottom: 32,
-                color: 'rgba(255,255,255,0.85)',
-                maxWidth: 540,
-              }}
+              className="text-base md:text-lg mb-8 leading-relaxed"
+              style={{ color: 'rgba(255,255,255,0.85)' }}
             >
               {cta.body}
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+
+            <div className="flex flex-wrap gap-4">
+              {/* Primary — source classes for layout, inline bg for the
+                  navy→magenta gradient (Tailwind gradient utilities
+                  are easy targets for template style.css overrides). */}
               <a
                 href={cta.primary.href}
                 {...(cta.primary.external && {
                   target: '_blank',
                   rel: 'noopener noreferrer',
                 })}
-                className="cta-btn cta-btn-primary"
+                className="cta-btn cta-btn-primary px-7 py-3 font-semibold rounded-md shadow-xl"
                 style={{
-                  padding: '14px 28px',
                   background: 'linear-gradient(to right, #2B3175, #CC1579)',
                   color: '#ffffff',
-                  fontFamily: POPPINS_STACK,
-                  fontWeight: 600,
-                  fontSize: 16,
-                  borderRadius: 6,
-                  boxShadow: '0 10px 28px rgba(0,0,0,0.25)',
-                  textDecoration: 'none',
-                  display: 'inline-block',
                   transition: 'all 300ms ease',
                 }}
               >
                 {cta.primary.label}
               </a>
+
+              {/* Secondary — white border + transparent bg, swaps on hover. */}
               <a
                 href={cta.secondary.href}
                 {...(cta.secondary.external && {
                   target: '_blank',
                   rel: 'noopener noreferrer',
                 })}
-                className="cta-btn cta-btn-secondary"
+                className="cta-btn cta-btn-secondary px-7 py-3 border-2 border-white font-semibold rounded-md"
                 style={{
-                  padding: '14px 28px',
-                  border: '2px solid #ffffff',
                   color: '#ffffff',
-                  fontFamily: POPPINS_STACK,
-                  fontWeight: 600,
-                  fontSize: 16,
-                  borderRadius: 6,
-                  textDecoration: 'none',
-                  display: 'inline-block',
                   background: 'transparent',
                   transition: 'all 300ms ease',
                 }}
@@ -170,32 +115,21 @@ export default function JourneyCTA() {
               </a>
             </div>
           </motion.div>
-          </Container>
-        </div>
+        </Container>
       </div>
 
       {/* Gradient divider into footer */}
       <div
+        className="h-1"
         style={{
-          height: 4,
           background: 'linear-gradient(to right, #2B3175, #CC1579)',
           boxShadow: '0 -4px 12px rgba(204,21,121,0.25)',
         }}
       />
 
-      {/* Class-chained selectors (0,0,2,1) beat template's
-          `a:hover {…}` (0,0,1,1) so hover lift + colour swap actually
-          land. Source: primary brightens + lifts + heavier shadow;
-          secondary inverts to white-bg + navy text + lifts.
-          Responsive font sizes mirror Tailwind's text-4xl md:text-5xl
-          and text-base md:text-lg breakpoint at 768px. */}
+      {/* Class-chained selectors (0,0,2,1) beat template's `a:hover`
+          (0,0,1,1) so hover effects actually land. */}
       <style>{`
-        .cta-heading { font-size: 2.25rem; }   /* text-4xl = 36px */
-        .cta-body { font-size: 1rem; }          /* text-base = 16px */
-        @media (min-width: 768px) {
-          .cta-heading { font-size: 3rem; }    /* md:text-5xl = 48px */
-          .cta-body { font-size: 1.125rem; }   /* md:text-lg = 18px */
-        }
         .cta-btn.cta-btn-primary:hover,
         .cta-btn.cta-btn-primary:focus,
         .cta-btn.cta-btn-primary:active {
