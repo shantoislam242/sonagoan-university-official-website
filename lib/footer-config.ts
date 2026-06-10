@@ -1,6 +1,7 @@
-// Static content for SUFooter. Edit values here to change brand info,
-// contact details, social URLs, or any of the 4 link columns — every
-// page picks up the change automatically.
+// Static content for SUFooter. All values mirror the source
+// Mechanical-Engineering project's seeded UniversityIdentity + footer
+// link tables (source: scripts/seed.ts) so the SU site renders
+// the same brand info, social URLs, copyright, and 4 link columns.
 
 export interface FooterLink {
   name: string;
@@ -10,21 +11,25 @@ export interface FooterLink {
 }
 
 export const footer = {
-  logoSrc: '/assets/images/logo/su-logo-white.png',
+  // Source asset (copied from C:/Databrandix HQ/Mechanical-Engineering
+  // /public/assets/footer-logo.webp).
+  logoSrc: '/assets/footer-logo.webp',
   address: '147/I, Green Road, Panthapath, Tejgaon, Dhaka',
   phones: ['+8801775000888', '+880241010352'] as readonly string[],
   emails: ['info@su.edu.bd'] as readonly string[],
-  copyrightText: '© 2026 Sonargaon University. All rights reserved.',
+  copyrightText: 'Copyright © 2026 All Rights Reserved by Sonargaon University',
 
-  // null URL hides the row instead of rendering an inert link.
+  // 8 socials — real URLs from source UniversityIdentity seed.
+  // null URL hides the row. Source has whatsappUrl: null so we keep
+  // that one hidden (7 icons render on desktop, not 8).
   socials: {
-    facebookUrl:  'https://facebook.com/sonargaonuni',
-    instagramUrl: 'https://instagram.com/sonargaonuni',
-    linkedinUrl:  'https://linkedin.com/school/sonargaonuni',
-    youtubeUrl:   'https://youtube.com/@sonargaonuni',
-    xUrl:         null as string | null,
-    threadsUrl:   null as string | null,
-    tiktokUrl:    null as string | null,
+    facebookUrl:  'https://www.facebook.com/SonargaonUniversity',
+    instagramUrl: 'https://www.instagram.com/sonargaonuniversitybd/',
+    linkedinUrl:  'https://www.linkedin.com/school/14451954/',
+    youtubeUrl:   'https://www.youtube.com/@SonargaonUniversityEdu',
+    xUrl:         'https://x.com/SonargaonUni',
+    threadsUrl:   'https://www.threads.com/@sonargaonuniversitybd',
+    tiktokUrl:    'https://www.tiktok.com/@sonargaonuniversityedu',
     whatsappUrl:  null as string | null,
   },
 
@@ -32,18 +37,18 @@ export const footer = {
     { name: 'Tuition Fee',   href: '/tution-fee' },
     { name: 'Faculty Staff', href: '/faculty' },
     { name: 'Alumni',        href: '/alumni' },
-    { name: 'Career',        href: '#' },
+    { name: 'Career',        href: 'https://su.edu.bd/welcome/career', external: true },
     { name: 'Event',         href: '/event' },
-    { name: 'Our Blogs',     href: '/blog', disabled: true },
+    { name: 'Our Blogs',     href: '#', disabled: true },
   ] as readonly FooterLink[],
 
   getInTouchLinks: [
-    { name: 'Contact',           href: '/contact' },
-    { name: 'Meet With Us',      href: '/contact' },
-    { name: 'Privacy Statement', href: '#' },
-    { name: 'Newsletters',       href: '#' },
-    { name: 'Location Map',      href: '/contact' },
-    { name: 'FAQ',               href: '#' },
+    { name: 'Contact',         href: '/contact' },
+    { name: 'Meet With Us',    href: '/contact' },
+    { name: 'Privacy Policy',  href: '#' },
+    { name: 'Newsletters',     href: '#', disabled: true },
+    { name: 'Location Map',    href: '/contact' },
+    { name: 'FAQ',             href: '#' },
   ] as readonly FooterLink[],
 
   quickLinks: [
@@ -51,8 +56,8 @@ export const footer = {
     { name: 'Forum',          href: '#', disabled: true },
     { name: 'Students',       href: '#', disabled: true },
     { name: 'Parents',        href: '#', disabled: true },
-    { name: 'Teachers',       href: '/faculty' },
-    { name: 'Administration', href: '/about' },
+    { name: 'Teachers',       href: 'https://su.edu.bd/faculty_members/all_faculty_details',     external: true },
+    { name: 'Administration', href: 'https://su.edu.bd/About_us/new_administration/4',           external: true },
   ] as readonly FooterLink[],
 
   campusLinks: [

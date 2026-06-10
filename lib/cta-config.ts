@@ -1,6 +1,7 @@
-// Static content for the JourneyCTA section. Edit values here to
-// change the headline, body, CTA buttons, or hero image — every page
-// picks up the change automatically.
+// Static content for the JourneyCTA section. Values mirror the source
+// Mechanical-Engineering project's seeded UniversityIdentity + Journey
+// CTA singleton row (source: scripts/seed.ts) so the SU site renders
+// exactly the same image, copy, and CTAs.
 
 export interface CtaButton {
   label: string;
@@ -9,17 +10,24 @@ export interface CtaButton {
 }
 
 export const cta = {
-  // Hero background. Picked from the existing template asset set —
-  // swap with a custom image any time. `objectPosition` controls the
-  // visible focal point (e.g. 'center 30%' to bias upward).
-  heroImageUrl: '/assets/images/campus/campus__life__bg__1.jpg',
-  heroImagePosition: 'center',
+  // Source asset (copied from C:/Databrandix HQ/Mechanical-Engineering
+  // /public/assets/journey-cta.webp). `heroImagePosition` mirrors the
+  // source `heroImageVerticalPercent: 32`.
+  heroImageUrl: '/assets/journey-cta.webp',
+  heroImagePosition: 'center 32%',
 
   heading: 'Shape Your Future with Excellence',
   body:
     'Join a vibrant academic community where innovation, leadership, ' +
     'and lifelong learning shape your path to success.',
 
-  primary:   { label: 'Apply Now',                href: '/admission' } as CtaButton,
-  secondary: { label: 'Request for Information',  href: '/contact'   } as CtaButton,
+  primary: {
+    label: 'Apply Now',
+    href: 'http://sue.su.edu.bd:5081/sonargaon_erp/siteadmin/admission_info',
+    external: true,
+  } as CtaButton,
+  secondary: {
+    label: 'Request for Information',
+    href: '/contact',
+  } as CtaButton,
 };
