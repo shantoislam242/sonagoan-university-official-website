@@ -1,8 +1,21 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Poppins } from 'next/font/google';
 import VendorPluginInitializer from '@/components/system/VendorPluginInitializer';
 import BackToTop from '@/components/sections/BackToTop';
 import './tailwind.css';
+
+// Poppins is the source project's display font (--font-display in
+// globals.css). Adding it as a CSS variable so JourneyCTA's heading
+// can opt in via `font-family: var(--font-poppins)` inline style
+// without polluting the rest of the template which depends on its
+// own typography.
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'SU Website',
@@ -18,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.variable}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

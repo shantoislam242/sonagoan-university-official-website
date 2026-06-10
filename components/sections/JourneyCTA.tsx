@@ -5,8 +5,13 @@ import { cta } from '@/lib/cta-config';
 
 // Full-bleed CTA section anchored above SUFooter. Inline styles defend
 // against template style.css cascade (proven pattern from SUNavbar
-// port — `img { height: auto }`, `a { color: ... }` would otherwise
-// override Tailwind utilities and inline gradient backgrounds).
+// port — `img { height: auto }`, `a { color: ... }`, `a:hover { color: ... }`
+// would otherwise override Tailwind utilities and inline gradient
+// backgrounds. Class-chained selectors in the scoped <style> block
+// (specificity 0,0,2,1) beat template's `a:hover` (0,0,1,1).
+
+const POPPINS_STACK =
+  'var(--font-poppins), "Poppins", -apple-system, BlinkMacSystemFont, sans-serif';
 
 export default function JourneyCTA() {
   return (
@@ -73,30 +78,33 @@ export default function JourneyCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            style={{ maxWidth: 500, color: '#ffffff', textAlign: 'left' }}
+            style={{ maxWidth: 560, color: '#ffffff', textAlign: 'left' }}
           >
             <h2
               style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                // Source: text-4xl md:text-5xl + font-display (Poppins) +
+                // font-bold + tracking-tight + leading-tight.
+                fontFamily: POPPINS_STACK,
+                fontSize: 48,
                 fontWeight: 700,
-                lineHeight: 1.15,
+                lineHeight: 1.1,
+                letterSpacing: '-0.025em',
                 marginBottom: 20,
+                marginTop: 0,
                 color: '#ffffff',
-                // Narrower max-width on the heading itself forces a
-                // 2-line wrap ("Shape Your Future with" / "Excellence")
-                // so the layout matches the source design even though
-                // the source uses a wider custom display font.
-                maxWidth: 460,
+                maxWidth: 470,
               }}
             >
               {cta.heading}
             </h2>
             <p
               style={{
-                fontSize: '1.0625rem',
-                lineHeight: 1.6,
+                fontFamily: POPPINS_STACK,
+                fontSize: 18,
+                lineHeight: 1.625,
                 marginBottom: 32,
                 color: 'rgba(255,255,255,0.85)',
+                maxWidth: 500,
               }}
             >
               {cta.body}
@@ -108,15 +116,19 @@ export default function JourneyCTA() {
                   target: '_blank',
                   rel: 'noopener noreferrer',
                 })}
+                className="cta-btn cta-btn-primary"
                 style={{
                   padding: '14px 28px',
                   background: 'linear-gradient(to right, #2B3175, #CC1579)',
                   color: '#ffffff',
+                  fontFamily: POPPINS_STACK,
                   fontWeight: 600,
+                  fontSize: 16,
                   borderRadius: 6,
                   boxShadow: '0 10px 28px rgba(0,0,0,0.25)',
                   textDecoration: 'none',
                   display: 'inline-block',
+                  transition: 'all 300ms ease',
                 }}
               >
                 {cta.primary.label}
@@ -127,15 +139,19 @@ export default function JourneyCTA() {
                   target: '_blank',
                   rel: 'noopener noreferrer',
                 })}
+                className="cta-btn cta-btn-secondary"
                 style={{
                   padding: '14px 28px',
                   border: '2px solid #ffffff',
                   color: '#ffffff',
+                  fontFamily: POPPINS_STACK,
                   fontWeight: 600,
+                  fontSize: 16,
                   borderRadius: 6,
                   textDecoration: 'none',
                   display: 'inline-block',
                   background: 'transparent',
+                  transition: 'all 300ms ease',
                 }}
               >
                 {cta.secondary.label}
@@ -153,6 +169,28 @@ export default function JourneyCTA() {
           boxShadow: '0 -4px 12px rgba(204,21,121,0.25)',
         }}
       />
+
+      {/* Class-chained selectors (0,0,2,1) beat template's
+          `a:hover {…}` (0,0,1,1) so hover lift + colour swap actually
+          land. Source: primary brightens + lifts + heavier shadow;
+          secondary inverts to white-bg + navy text + lifts. */}
+      <style>{`
+        .cta-btn.cta-btn-primary:hover,
+        .cta-btn.cta-btn-primary:focus,
+        .cta-btn.cta-btn-primary:active {
+          filter: brightness(1.1);
+          transform: translateY(-2px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+          color: #ffffff !important;
+        }
+        .cta-btn.cta-btn-secondary:hover,
+        .cta-btn.cta-btn-secondary:focus,
+        .cta-btn.cta-btn-secondary:active {
+          background: #ffffff !important;
+          color: #2B3175 !important;
+          transform: translateY(-2px);
+        }
+      `}</style>
     </section>
   );
 }
