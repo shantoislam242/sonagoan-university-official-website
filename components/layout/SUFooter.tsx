@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin, Phone, Mail, ArrowUp, ArrowUpRight } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
 import {
   FacebookBrandIcon, InstagramBrandIcon, LinkedinBrandIcon,
   YoutubeBrandIcon, XBrandIcon, ThreadsBrandIcon,
@@ -40,6 +40,9 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
     <h4
       style={{
+        // Source heading font is Poppins (font-display); without this the
+        // h4 inherits Montserrat and renders noticeably heavier at 700.
+        fontFamily: 'var(--font-poppins), Poppins, sans-serif',
         fontWeight: 700,
         fontSize: 18,
         marginBottom: 20,
@@ -58,10 +61,6 @@ const linkColor = 'rgba(255,255,255,0.7)';
 const smallText = 'rgba(255,255,255,0.8)';
 
 export default function SUFooter() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const socialList = [
     { name: 'Facebook',  Icon: FacebookBrandIcon,  href: footer.socials.facebookUrl  },
     { name: 'Instagram', Icon: InstagramBrandIcon, href: footer.socials.instagramUrl },
@@ -266,32 +265,18 @@ export default function SUFooter() {
               ))}
             </div>
           )}
-          <button
-            type="button"
-            onClick={scrollToTop}
-            aria-label="Scroll to top"
-            style={{
-              width: 40,
-              height: 40,
-              background: MAGENTA,
-              borderRadius: '50%',
-              border: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#ffffff',
-              cursor: 'pointer',
-              boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
-            }}
-          >
-            <ArrowUp size={20} />
-          </button>
         </div>
       </div>
 
       {/* Responsive grid via media queries in a <style> block so we
           don't need a Tailwind class to defeat the template cascade. */}
       <style>{`
+        /* Template style.css ":464  ul li { margin: 10px 0 }" inflates the
+           gap between every footer link (added on top of the flex gap:12).
+           Zero it inside the footer so only the intended 12px gap remains
+           (matches source's space-y-3). Class selector (0,0,1,1) beats the
+           template's "ul li" (0,0,0,2). */
+        .footer-grid li { margin-top: 0; margin-bottom: 0; }
         .footer-grid { grid-template-columns: 1fr; }
         @media (min-width: 768px) {
           .footer-grid { grid-template-columns: 1fr 1fr; }

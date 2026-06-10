@@ -45,7 +45,7 @@ export const footer = {
   getInTouchLinks: [
     { name: 'Contact',         href: '/contact' },
     { name: 'Meet With Us',    href: '/contact' },
-    { name: 'Privacy Policy',  href: '#' },
+    { name: 'Privacy Statement', href: '#' },
     { name: 'Newsletters',     href: '#', disabled: true },
     { name: 'Location Map',    href: '/contact' },
     { name: 'FAQ',             href: '#' },
@@ -66,5 +66,12 @@ export const footer = {
     { name: 'Mohakhali Campus',  href: 'https://maps.google.com/?q=Sonargaon+University+Mohakhali',        external: true },
   ] as readonly FooterLink[],
 
-  legalLinks: [] as readonly FooterLink[],
+  // Bottom-row legal links — mirror the source project (Privacy
+  // Statement / Terms & Conditions / Sitemap). hrefs are '#' until the
+  // matching SU pages exist; swap in real routes when available.
+  legalLinks: [
+    { name: 'Privacy Statement',  href: '#' },
+    { name: 'Terms & Conditions', href: '#' },
+    { name: 'Sitemap',            href: '#' },
+  ] as readonly FooterLink[],
 };

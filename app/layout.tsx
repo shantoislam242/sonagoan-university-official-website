@@ -60,7 +60,17 @@ export default function RootLayout({
       <body className="page" style={{ paddingTop: 146 }}>
         <VendorPluginInitializer />
         {children}
-        <BackToTop />
+        {/* BackToTop kept in the DOM but visually hidden. The template's
+            main.js backToTopInit always runs and calls
+            `.progress-wrap path.getTotalLength()`; if the element is absent
+            it throws "Cannot read properties of null (reading
+            'getTotalLength')". Hiding it (visibility:hidden — keeps geometry
+            so getTotalLength still works) satisfies main.js while leaving
+            SUFooter's single magenta scroll-to-top button as the only
+            visible one, matching source. */}
+        <div aria-hidden="true" style={{ visibility: 'hidden', pointerEvents: 'none' }}>
+          <BackToTop />
+        </div>
         <div id="anywhere-home" />
         {/* Hidden DOM stubs that template plugins (main.js) probe for on init.
             Without these the rtsJs.m() IIFE throws on pages that do not include

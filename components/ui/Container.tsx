@@ -10,7 +10,7 @@ export default function Container({
   className?: string;
 }) {
   return (
-    <div className={`max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div className={`max-w-[1600px] mx-auto px-[16px] sm:px-[24px] lg:px-[32px] ${className}`}>
       {children}
     </div>
   );

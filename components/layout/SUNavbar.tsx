@@ -16,6 +16,16 @@ import {
   type QuickAccessItem, type MainNavGroup,
 } from '@/lib/nav-config';
 
+// ─────────────────────────────────────────────────────────────────
+//  SOURCE-PARITY NOTE
+//  Template style.css sets `html { font-size: 10px }`, so every rem-based
+//  Tailwind utility (text-sm, px-5, gap-6 …) would render at 62.5%. To
+//  match the source project pixel-for-pixel, ALL sizing here is pinned to
+//  absolute px — either inline `style` or `*-[Npx]` arbitrary utilities.
+//  Inline colours stay as cascade defenses against template's wider
+//  `a { color: var(--rt-…) }` / `img { height: auto }` / `footer{}` rules.
+//  See docs/superpowers/specs/2026-06-10-navbar-footer-source-parity-design.md
+// ─────────────────────────────────────────────────────────────────
 
 // Icon map for QuickAccessItem.iconName → component. Source uses a
 // DynamicLucideIcon that resolves all 1000+ lucide icons; we only need
@@ -80,10 +90,8 @@ export default function SUNavbar() {
     <nav
       className="fixed w-full flex flex-col transition-all duration-300"
       style={{
-        // Inline position defends against template style.css. Inline
-        // z-index defends against template's banner/hero images which
-        // often carry z-index: 99/100 in template CSS and would
-        // otherwise paint over the sticky bar.
+        // Inline position + high z-index defend against template's
+        // banner/hero images which carry z-index 99/100 in template CSS.
         position: 'fixed',
         top: 0,
         left: 0,
@@ -91,52 +99,50 @@ export default function SUNavbar() {
         zIndex: 999,
       }}
     >
-      {/* 1. TOP BAR */}
+      {/* 1. TOP BAR — source height 40px (h-10), collapses to 0 on scroll. */}
       <div
         className={`hidden md:flex items-center overflow-hidden transition-all duration-500 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}
-        style={{ height: isScrolled ? 0 : 36 }}
+        style={{ height: isScrolled ? 0 : 40 }}
       >
-        {/* Left Side - Magenta Background. Items hug the left edge of
-            the viewport (no centered Container), matching source design.
-            Each <a> gets inline white color because template style.css's
-            wider `a { color: ... }` rules override inherited color. */}
+        {/* Left — magenta. Items live inside the same Container as the
+            middle/bottom bars, so the first link aligns with the logo's
+            left edge (source design). */}
         <div
-          className="flex-grow h-full flex items-center pr-4"
-          style={{ background: '#CC1579', paddingLeft: 24 }}
+          className="flex-grow h-full flex items-center pr-[16px]"
+          style={{ background: '#CC1579' }}
         >
-          <div className="flex items-center gap-1 font-medium" style={{ fontSize: 12 }}>
-            {topLinks.map((link, idx) => (
-              <div key={link.name} className="flex items-center">
-                <a
-                  href={link.isDisabled || !link.href ? '#' : link.href}
-                  {...(link.isExternal && link.href && { target: '_blank', rel: 'noopener noreferrer' })}
-                  className={`px-2 relative group uppercase tracking-wider transition-colors ${
-                    link.isDisabled ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                  style={{ color: 'rgba(255,255,255,0.95)' }}
-                  aria-disabled={link.isDisabled || undefined}
-                >
-                  {link.name}
-                </a>
-                {idx < topLinks.length - 1 && <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>}
-              </div>
-            ))}
-          </div>
+          <Container className="w-full !max-w-[1600px] flex items-center">
+            <div className="flex items-center gap-[4px] font-medium" style={{ fontSize: 11 }}>
+              {topLinks.map((link, idx) => (
+                <div key={link.name} className="flex items-center">
+                  <a
+                    href={link.isDisabled || !link.href ? '#' : link.href}
+                    {...(link.isExternal && link.href && { target: '_blank', rel: 'noopener noreferrer' })}
+                    className={`px-[8px] relative group uppercase tracking-wider transition-colors ${
+                      link.isDisabled ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    style={{ color: 'rgba(255,255,255,0.9)' }}
+                    aria-disabled={link.isDisabled || undefined}
+                  >
+                    {link.name}
+                  </a>
+                  {idx < topLinks.length - 1 && <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>}
+                </div>
+              ))}
+            </div>
+          </Container>
         </div>
 
-        {/* Right Side - Socials with Dark Blue Background.
-            Each <a> gets inline color because template style.css has
-            wider `a { color: var(--rt-…) }` rules that override the
-            inherited white from the parent, making links invisible on
-            the navy bg. Inline color: '#ffffff' beats stylesheet. */}
-        <div className="h-full flex items-center px-10" style={{ background: '#2B3175' }}>
-          <div className="flex items-center gap-6 font-medium" style={{ fontSize: 12 }}>
+        {/* Right — navy social strip. Inline white colour beats template's
+            wider `a { color: var(--rt-…) }` which would hide links on navy. */}
+        <div className="h-full flex items-center px-[40px]" style={{ background: '#2B3175' }}>
+          <div className="flex items-center gap-[24px] font-medium" style={{ fontSize: 11 }}>
             {socials.facebookUrl && (
               <a
                 href={socials.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-colors"
+                className="flex items-center gap-[6px] transition-colors hover:text-accent"
                 style={{ color: '#ffffff' }}
               >
                 <FacebookBrandIcon size={12} />
@@ -148,7 +154,7 @@ export default function SUNavbar() {
                 href={socials.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-colors"
+                className="flex items-center gap-[6px] transition-colors hover:text-accent"
                 style={{ color: '#ffffff' }}
               >
                 <LinkedinBrandIcon size={12} />
@@ -160,7 +166,7 @@ export default function SUNavbar() {
                 href={socials.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-colors"
+                className="flex items-center gap-[6px] transition-colors hover:text-accent"
                 style={{ color: '#ffffff' }}
               >
                 <YoutubeBrandIcon size={14} />
@@ -171,29 +177,30 @@ export default function SUNavbar() {
         </div>
       </div>
 
-      {/* 2. MIDDLE BAR - Logo & Action Buttons — inline bg + padding
-          defeats template style.css overrides. When scrolled, the bar
-          matches the bottom-nav gray (#f3f4f6) so the sticky state reads
-          as a single unified strip. */}
+      {/* 2. MIDDLE BAR — Logo & actions. Source: white (scrolled →
+          white/95 + backdrop-blur), py 16 → 8 when scrolled. */}
       <div
-        className={`relative transition-all duration-500 border-b ${isScrolled ? 'border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.06)]' : 'border-gray-100'}`}
+        className={`relative transition-all duration-500 border-b ${
+          isScrolled
+            ? 'border-gray-50 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.02)]'
+            : 'border-gray-100'
+        }`}
         style={{
-          background: isScrolled ? '#f3f4f6' : '#ffffff',
-          paddingTop: isScrolled ? 10 : 16,
-          paddingBottom: isScrolled ? 10 : 16,
+          background: isScrolled ? 'rgba(255,255,255,0.95)' : '#ffffff',
+          paddingTop: isScrolled ? 8 : 16,
+          paddingBottom: isScrolled ? 8 : 16,
           zIndex: 999,
         }}
       >
         <Container className="flex justify-between items-center !max-w-[1600px]">
-          {/* Logo — inline `height` defeats template `img { height: auto }`
-              rule at style.css:9764 which would otherwise let the logo
-              render at its natural PNG size (way too small). */}
+          {/* Logo — inline height defeats template `img { height: auto }`. */}
           <a href="/" aria-label="Sonargaon University — Home" className="flex items-center shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/images/logo/su-logo.png"
               alt="Sonargaon University"
               style={{
-                height: isScrolled ? 36 : 42,
+                height: isScrolled ? 32 : 40,
                 width: 'auto',
                 maxWidth: '42vw',
                 objectFit: 'contain',
@@ -202,28 +209,24 @@ export default function SUNavbar() {
             />
           </a>
 
-          {/* Compact Scroll Navigation — only when scrolled. Wider gap
-              + larger NavGroup padding so items don't crush together. */}
+          {/* Compact scroll nav — only when scrolled. */}
           {isScrolled && (
-            <div
-              className="hidden lg:flex items-center justify-center"
-              style={{ gap: 24 }}
-            >
+            <div className="hidden lg:flex items-center justify-center gap-[2px] xl:gap-[4px]">
               {mainNav.map((group) => (
                 <NavGroup key={group.name} group={group} compact />
               ))}
             </div>
           )}
 
-          {/* Right side: Secondary buttons + Apply Now + Mobile toggle */}
-          <div className="flex items-center gap-1 lg:gap-3 -mr-3 lg:mr-0">
-            <div className={`flex items-center gap-3 ${isScrolled ? 'lg:hidden' : ''}`}>
+          {/* Right side: secondary buttons + Apply Now + mobile toggle */}
+          <div className="flex items-center gap-[4px] lg:gap-[12px] -mr-[12px] lg:mr-0">
+            <div className={`flex items-center gap-[12px] ${isScrolled ? 'lg:hidden' : ''}`}>
               <a
                 href={resolveQuickAccessHref('ERP')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden xl:flex items-center gap-2 bg-gray-50 hover:bg-gray-100 rounded-lg font-bold whitespace-nowrap transition-all shadow-sm border border-gray-100"
-                style={{ padding: '10px 18px', fontSize: '14px', color: '#374151' }}
+                className="hidden xl:flex items-center gap-[8px] bg-gray-50 hover:bg-gray-100 rounded-[8px] font-semibold whitespace-nowrap transition-all shadow-sm border border-gray-100"
+                style={{ padding: '10px 16px', fontSize: 14, color: '#374151' }}
               >
                 <User size={16} className="text-accent" />
                 ERP
@@ -232,8 +235,8 @@ export default function SUNavbar() {
                 href={resolveQuickAccessHref('Convoc. Reg.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden xl:flex items-center gap-2 bg-gray-50 hover:bg-gray-100 rounded-lg font-bold whitespace-nowrap transition-all shadow-sm border border-gray-100"
-                style={{ padding: '10px 18px', fontSize: '14px', color: '#374151' }}
+                className="hidden xl:flex items-center gap-[8px] bg-gray-50 hover:bg-gray-100 rounded-[8px] font-semibold whitespace-nowrap transition-all shadow-sm border border-gray-100"
+                style={{ padding: '10px 16px', fontSize: 14, color: '#374151' }}
               >
                 <GraduationCap size={16} className="text-accent" />
                 Convoc. Reg.
@@ -242,25 +245,23 @@ export default function SUNavbar() {
                 href={resolveQuickAccessHref('Verification')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 bg-gray-50 hover:bg-gray-100 rounded-lg font-bold whitespace-nowrap transition-all shadow-sm border border-gray-100"
-                style={{ padding: '10px 18px', fontSize: '14px', color: '#374151' }}
+                className="hidden md:flex items-center gap-[8px] bg-gray-50 hover:bg-gray-100 rounded-[8px] font-semibold whitespace-nowrap transition-all shadow-sm border border-gray-100"
+                style={{ padding: '10px 16px', fontSize: 14, color: '#374151' }}
               >
                 <CheckCircle size={16} className="text-accent" />
                 Verification
               </a>
             </div>
 
-            {/* Apply Now — inline styles defend against template style.css
-                cascade conflicts (which strip Tailwind gradient + sizing via
-                wider `a {…}` selectors). */}
+            {/* Apply Now — inline gradient + sizing beats template cascade. */}
             <a
               href={applyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:flex items-center gap-2 rounded-lg font-bold whitespace-nowrap transition-all shadow-md hover:shadow-lg hover:brightness-110 shrink-0"
+              className="hidden lg:flex items-center gap-[8px] rounded-[8px] font-semibold whitespace-nowrap transition-all shadow-md hover:shadow-lg hover:brightness-110 shrink-0"
               style={{
-                padding: '10px 22px',
-                fontSize: '14px',
+                padding: '10px 20px',
+                fontSize: 14,
                 background: 'linear-gradient(to right, #2B3175, #CC1579)',
                 color: '#ffffff',
               }}
@@ -268,13 +269,12 @@ export default function SUNavbar() {
               Apply Now
             </a>
 
-            {/* Quick Access grid — only when scrolled. Extra left margin
-                creates breathing room after the Apply Now button. */}
+            {/* Quick Access grid — only when scrolled. */}
             {isScrolled && (
               <div className="hidden lg:block group relative" style={{ marginLeft: 12 }}>
                 <button
                   aria-label="Quick access"
-                  className="rounded-lg transition-colors"
+                  className="rounded-[8px] transition-colors"
                   style={{
                     padding: 10,
                     background: '#eff6ff',
@@ -284,8 +284,8 @@ export default function SUNavbar() {
                 >
                   <LayoutGrid size={20} />
                 </button>
-                <div className="invisible absolute right-0 top-full z-50 mt-2 w-[320px] translate-y-2 rounded-xl border border-gray-100 bg-white p-3 opacity-0 shadow-premium transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  <div className="grid grid-cols-3 gap-1">
+                <div className="invisible absolute right-0 top-full z-50 mt-[8px] w-[320px] translate-y-2 rounded-[12px] border border-gray-100 bg-white p-[12px] opacity-0 shadow-premium transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div className="grid grid-cols-3 gap-[4px]">
                     {quickAccessItems.map((item) => {
                       const isLive = !!item.href && !item.isDisabled;
                       return (
@@ -293,7 +293,7 @@ export default function SUNavbar() {
                           key={item.name}
                           href={isLive ? item.href : '#'}
                           {...(item.isExternal && isLive && { target: '_blank', rel: 'noopener noreferrer' })}
-                          className={`flex flex-col items-center justify-center gap-1.5 p-3 rounded-lg text-center transition-colors hover:bg-accent/5 ${
+                          className={`flex flex-col items-center justify-center gap-[6px] p-[12px] rounded-[8px] text-center transition-colors hover:bg-accent/5 ${
                             !isLive ? 'opacity-50 cursor-not-allowed' : ''
                           }`}
                           aria-disabled={!isLive || undefined}
@@ -314,7 +314,7 @@ export default function SUNavbar() {
                 type="button"
                 aria-label="Search"
                 onClick={() => setSearchOpen(true)}
-                className="lg:hidden p-2 text-primary relative z-[70]"
+                className="lg:hidden p-[8px] text-primary relative z-[70]"
               >
                 <Search size={24} />
               </button>
@@ -325,7 +325,7 @@ export default function SUNavbar() {
               type="button"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
-              className="lg:hidden p-2 text-primary relative z-[70]"
+              className="lg:hidden p-[8px] text-primary relative z-[70]"
               onClick={toggleMobileMenu}
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -334,16 +334,19 @@ export default function SUNavbar() {
         </Container>
       </div>
 
-      {/* 3. BOTTOM BAR - Nav Links — inline `height: 60` per user spec.
-          Items centred. Inline bg defeats template style.css. */}
+      {/* 3. BOTTOM BAR - Nav Links — height 56px. Source uses bg-white/95 +
+          blur, but because the SU layout pushes content below the fixed
+          navbar (body paddingTop), there's no hero behind the bar for the
+          blur to tint — so white reads as invisible. A light solid #F3F4F6
+          keeps the bar visibly distinct without touching the hero. */}
       {!isScrolled && (
         <div
-          className="hidden lg:block backdrop-blur-md"
-          style={{ background: '#f3f4f6' }}
+          className="hidden lg:block border-b border-gray-50 shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+          style={{ background: '#F3F4F6' }}
         >
           <Container className="!max-w-[1600px]">
-            <div className="flex items-center" style={{ height: 60 }}>
-              <div className="mx-auto flex items-center justify-center gap-0.5 xl:gap-1">
+            <div className="flex items-center" style={{ height: 56 }}>
+              <div className="mx-auto flex items-center justify-center gap-[2px] xl:gap-[4px]">
                 {mainNav.map((group) => (
                   <NavGroup key={group.name} group={group} />
                 ))}
@@ -364,15 +367,15 @@ export default function SUNavbar() {
       />
       {/* Drawer */}
       <div
-        className={`lg:hidden fixed inset-y-0 right-0 w-[min(85vw,340px)] overflow-y-auto overscroll-contain bg-white z-[55] shadow-2xl transform transition-transform duration-300 pb-6 ${
+        className={`lg:hidden fixed inset-y-0 right-0 w-[min(85vw,340px)] overflow-y-auto overscroll-contain bg-white z-[55] shadow-2xl transform transition-transform duration-300 pb-[24px] ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
         }`}
       >
-        <div className="px-4 pt-8 pb-3">
-          <h3 className="text-base font-bold text-primary">Menu</h3>
+        <div className="px-[16px] pt-[32px] pb-[12px]">
+          <h3 className="text-[16px] font-bold text-primary">Menu</h3>
         </div>
 
-        <div className="px-4">
+        <div className="px-[16px]">
           {mainNav.map((group) => {
             const isOpen = openMobileSection === group.name;
             return (
@@ -382,7 +385,7 @@ export default function SUNavbar() {
                     type="button"
                     onClick={() => toggleMobileSection(group.name)}
                     aria-expanded={isOpen}
-                    className="w-full py-3 text-[14px] font-semibold text-primary flex justify-between items-center"
+                    className="w-full py-[12px] text-[14px] font-semibold text-primary flex justify-between items-center"
                   >
                     {group.name}
                     <ChevronDown
@@ -393,19 +396,19 @@ export default function SUNavbar() {
                 ) : (
                   <a
                     href={group.href ?? '#'}
-                    className="block py-3 text-[14px] font-semibold text-primary"
+                    className="block py-[12px] text-[14px] font-semibold text-primary"
                   >
                     {group.name}
                   </a>
                 )}
                 {group.items.length > 0 && isOpen && (
-                  <div className="pb-2 pl-3 flex flex-col gap-1">
+                  <div className="pb-[8px] pl-[12px] flex flex-col gap-[4px]">
                     {group.items.map((child) => (
                       <a
                         key={child.name}
                         href={child.isDisabled ? '#' : child.href}
                         {...(child.isExternal && !child.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
-                        className={`py-1.5 text-[13px] font-medium transition-colors ${
+                        className={`py-[6px] text-[13px] font-medium transition-colors ${
                           child.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:text-accent'
                         }`}
                         aria-disabled={child.isDisabled || undefined}
@@ -421,12 +424,12 @@ export default function SUNavbar() {
         </div>
 
         {/* Apply Now */}
-        <div className="px-4 pt-3">
+        <div className="px-[16px] pt-[12px]">
           <a
             href={applyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg text-sm font-bold text-center shadow-md transition-all"
+            className="block w-full py-[12px] bg-primary hover:bg-primary/90 text-white rounded-[8px] text-[14px] font-bold text-center shadow-md transition-all"
           >
             Apply Now
           </a>
@@ -434,15 +437,15 @@ export default function SUNavbar() {
 
         {/* Quick Links — derived from main_nav Admission group */}
         {mobileQuickLinks.length > 0 && (
-          <div className="mt-4 px-4 pt-4 border-t border-gray-100">
-            <h4 className="text-[13px] font-bold text-primary mb-2.5">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+          <div className="mt-[16px] px-[16px] pt-[16px] border-t border-gray-100">
+            <h4 className="text-[13px] font-bold text-primary mb-[10px]">Quick Links</h4>
+            <div className="grid grid-cols-2 gap-x-[16px] gap-y-[6px]">
               {mobileQuickLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.isDisabled ? '#' : link.href}
                   {...(link.isExternal && !link.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
-                  className={`text-[12.5px] transition-colors py-1 ${
+                  className={`text-[12.5px] transition-colors py-[4px] ${
                     link.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:text-accent'
                   }`}
                   aria-disabled={link.isDisabled || undefined}
@@ -455,9 +458,9 @@ export default function SUNavbar() {
         )}
 
         {/* Services — from quickAccessItems */}
-        <div className="mt-4 px-4 pt-4 pb-4 border-t border-gray-100">
-          <h4 className="text-[13px] font-bold text-primary mb-3">Services</h4>
-          <div className="grid grid-cols-3 gap-2">
+        <div className="mt-[16px] px-[16px] pt-[16px] pb-[16px] border-t border-gray-100">
+          <h4 className="text-[13px] font-bold text-primary mb-[12px]">Services</h4>
+          <div className="grid grid-cols-3 gap-[8px]">
             {quickAccessItems.map((item) => {
               const isLive = !!item.href && !item.isDisabled;
               return (
@@ -466,7 +469,7 @@ export default function SUNavbar() {
                   href={isLive ? item.href : '#'}
                   {...(item.isExternal && isLive && { target: '_blank', rel: 'noopener noreferrer' })}
                   onClick={() => isLive && setMobileMenuOpen(false)}
-                  className={`flex flex-col items-center justify-center gap-1.5 py-3 px-1 rounded-lg bg-gray-50 hover:bg-accent/5 active:bg-accent/10 transition-colors text-center ${
+                  className={`flex flex-col items-center justify-center gap-[6px] py-[12px] px-[4px] rounded-[8px] bg-gray-50 hover:bg-accent/5 active:bg-accent/10 transition-colors text-center ${
                     !isLive ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
                   aria-disabled={!isLive || undefined}
@@ -495,9 +498,11 @@ function NavGroup({
   group: MainNavGroup;
   compact?: boolean;
 }) {
+  // Source-exact px sizing. Non-compact: px 6/20, height 56, font 12/15.
+  // Compact (scrolled): height 44, px 4/12, font 11/14, bold.
   const linkClass = compact
-    ? 'h-12 flex items-center gap-1.5 text-[14px] font-bold whitespace-nowrap text-gray-800 hover:text-accent transition-colors'
-    : 'px-1.5 xl:px-5 flex items-center gap-0.5 xl:gap-1.5 text-[12px] xl:text-[15px] font-medium whitespace-nowrap text-gray-800 hover:text-accent transition-all relative h-[60px]';
+    ? 'h-[44px] px-[4px] xl:px-[12px] flex items-center gap-[2px] xl:gap-[4px] text-[11px] xl:text-[14px] font-bold whitespace-nowrap text-gray-800 hover:text-accent transition-colors'
+    : 'px-[6px] xl:px-[20px] h-[56px] flex items-center gap-[2px] xl:gap-[6px] text-[12px] xl:text-[15px] font-medium whitespace-nowrap text-gray-800 hover:text-accent transition-all relative';
 
   return (
     <div className="group relative">
@@ -508,28 +513,28 @@ function NavGroup({
         {group.name}
         {group.hasDropdown && <ChevronDown size={compact ? 12 : 13} className="hidden xl:block opacity-80" />}
         {!compact && (
-          <span className="absolute bottom-0 left-0 w-0 h-1 bg-accent transition-all group-hover:w-full" />
+          <span className="absolute bottom-0 left-0 w-0 h-[4px] bg-accent transition-all group-hover:w-full" />
         )}
       </a>
       {group.items.length > 0 && (
-        <div className="invisible absolute left-0 top-full z-50 min-w-[280px] translate-y-2 rounded-lg border border-gray-100 bg-white py-3 opacity-0 shadow-premium transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+        <div className="invisible absolute left-0 top-full z-50 min-w-[280px] translate-y-2 rounded-[8px] border border-gray-100 bg-white py-[12px] opacity-0 shadow-premium transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
           {(group.title || group.name) && (
-            <div className="px-5 pt-1 pb-3 border-b border-gray-200">
+            <div className="px-[20px] pt-[4px] pb-[12px] border-b border-gray-200">
               <div className="text-[15px] font-bold text-gray-900">{group.title ?? group.name}</div>
             </div>
           )}
-          <div className="py-2">
+          <div className="py-[8px]">
             {group.items.map((child) => (
               <a
                 key={child.name}
                 href={child.isDisabled ? '#' : child.href}
                 {...(child.isExternal && !child.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
-                className={`group/item block px-5 py-2.5 text-sm font-medium transition-colors ${
+                className={`group/item block px-[20px] py-[10px] text-[14px] font-medium transition-colors ${
                   child.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-accent/5 hover:text-accent'
                 }`}
                 aria-disabled={child.isDisabled || undefined}
               >
-                <span className="inline-flex items-center gap-2">
+                <span className="inline-flex items-center gap-[8px]">
                   {child.name}
                   {!child.isDisabled && (
                     <ChevronRight
