@@ -83,37 +83,36 @@ export default function JourneyCTA() {
             style={{ maxWidth: 640, color: '#ffffff', textAlign: 'left' }}
           >
             <h2
+              className="cta-heading"
               style={{
-                // 52px sized so "Shape Your Future with" sits on line 1
-                // and "Excellence" lands on line 2 within a 620px box
-                // (matches the source's 2-line layout shape). Weight
-                // 800 (extrabold) gives the heading the visual heft of
-                // the source's font-display Poppins render.
+                // Source: text-4xl md:text-5xl + font-bold +
+                // tracking-tight + leading-tight. Size handled by the
+                // scoped <style> media query below (36px mobile / 48px
+                // md+) so it exactly matches Tailwind's responsive
+                // utilities the source project uses.
                 fontFamily: POPPINS_STACK,
-                fontSize: 52,
-                fontWeight: 800,
+                fontWeight: 700,
                 lineHeight: 1.1,
                 letterSpacing: '-0.025em',
-                marginBottom: 24,
+                marginBottom: 20,
                 marginTop: 0,
                 color: '#ffffff',
-                maxWidth: 620,
+                maxWidth: 580,
               }}
             >
               {cta.heading}
             </h2>
             <p
+              className="cta-body"
               style={{
+                // Source: text-base md:text-lg (16px / 18px) +
+                // leading-relaxed.
                 fontFamily: POPPINS_STACK,
-                fontSize: 18,
-                lineHeight: 1.6,
+                lineHeight: 1.625,
                 fontWeight: 400,
                 marginBottom: 32,
-                color: 'rgba(255,255,255,0.88)',
-                // Match heading's max-width so the right edge aligns
-                // and the paragraph wraps to 2 lines (not 3 with an
-                // orphaned "success." on its own line).
-                maxWidth: 600,
+                color: 'rgba(255,255,255,0.85)',
+                maxWidth: 580,
               }}
             >
               {cta.body}
@@ -183,8 +182,16 @@ export default function JourneyCTA() {
       {/* Class-chained selectors (0,0,2,1) beat template's
           `a:hover {…}` (0,0,1,1) so hover lift + colour swap actually
           land. Source: primary brightens + lifts + heavier shadow;
-          secondary inverts to white-bg + navy text + lifts. */}
+          secondary inverts to white-bg + navy text + lifts.
+          Responsive font sizes mirror Tailwind's text-4xl md:text-5xl
+          and text-base md:text-lg breakpoint at 768px. */}
       <style>{`
+        .cta-heading { font-size: 2.25rem; }   /* text-4xl = 36px */
+        .cta-body { font-size: 1rem; }          /* text-base = 16px */
+        @media (min-width: 768px) {
+          .cta-heading { font-size: 3rem; }    /* md:text-5xl = 48px */
+          .cta-body { font-size: 1.125rem; }   /* md:text-lg = 18px */
+        }
         .cta-btn.cta-btn-primary:hover,
         .cta-btn.cta-btn-primary:focus,
         .cta-btn.cta-btn-primary:active {
