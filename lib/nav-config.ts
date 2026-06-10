@@ -13,14 +13,17 @@ export interface QuickAccessItem {
   name: string;
   href: string;
   iconName:
-    | 'User'
-    | 'GraduationCap'
-    | 'CheckCircle'
-    | 'Building'
     | 'BookOpen'
-    | 'Calendar'
-    | 'Mail'
-    | 'Phone';
+    | 'GraduationCap'
+    | 'Image'
+    | 'Compass'
+    | 'Archive'
+    | 'Users'
+    | 'Globe'
+    | 'ClipboardList'
+    | 'Building2'
+    | 'Award'
+    | 'CheckCircle';
   isExternal?: boolean;
   isDisabled?: boolean;
 }
@@ -50,13 +53,23 @@ export const topLinks: readonly TopLink[] = [
   { name: 'Contact',      href: '/contact' },
 ];
 
+// Quick-access grid — mirrors the source project's seeded quick_access_item
+// list (real su.edu.bd URLs + lucide icon names). The middle-bar ERP /
+// Convoc. Reg. / Verification buttons resolve their hrefs from here by name.
+// SU-internal routes that don't exist yet use '#'; disabled items match
+// the source (Virtual Tour / Archive).
 export const quickAccessItems: readonly QuickAccessItem[] = [
-  { name: 'ERP',          href: 'https://erp.example.com',         iconName: 'User',          isExternal: true },
-  { name: 'Convoc. Reg.', href: 'https://convocation.example.com', iconName: 'GraduationCap', isExternal: true },
-  { name: 'Verification', href: 'https://verify.example.com',      iconName: 'CheckCircle',   isExternal: true },
-  { name: 'Library',      href: '#', iconName: 'BookOpen' },
-  { name: 'Notice',       href: '#', iconName: 'Calendar' },
-  { name: 'Mail',         href: '#', iconName: 'Mail' },
+  { name: 'Library',      href: 'http://lib.su.edu.bd',                                                      iconName: 'BookOpen',      isExternal: true },
+  { name: 'Admission',    href: '/admission',                                                                iconName: 'GraduationCap' },
+  { name: 'Photo',        href: '#',                                                                         iconName: 'Image' },
+  { name: 'Virtual Tour', href: '#',                                                                         iconName: 'Compass',       isDisabled: true },
+  { name: 'Archive',      href: '#',                                                                         iconName: 'Archive' },
+  { name: 'Notice',       href: 'https://su.edu.bd/welcome/notice',                                          iconName: 'Users',         isExternal: true },
+  { name: 'ERP',          href: 'http://sue.su.edu.bd:5081/sonargaon_erp/',                                  iconName: 'Globe',         isExternal: true },
+  { name: 'IQAC',         href: 'https://su.edu.bd/iqac',                                                    iconName: 'ClipboardList', isExternal: true },
+  { name: 'Career',       href: 'https://su.edu.bd/welcome/career',                                          iconName: 'Building2',     isExternal: true },
+  { name: 'Convoc. Reg.', href: 'http://sue.su.edu.bd:5081/sonargaon_erp/student/convocation_registration', iconName: 'Award',         isExternal: true },
+  { name: 'Verification', href: 'https://su.edu.bd/welcome/degree_verification',                             iconName: 'CheckCircle',   isExternal: true },
 ];
 
 export const mainNav: readonly MainNavGroup[] = [

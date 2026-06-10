@@ -90,6 +90,14 @@
   --rt-radius-badge: 3px;
 }
 
+/* === Bootstrap utility reclaim ============================== */
+/* Template loads bootstrap.min.css, whose `.text-primary { color:#0d6efd
+   !important }` (bright blue) hijacks every Tailwind `text-primary` we use
+   (nav grid icons, drawer headings, …). Re-assert the brand navy/magenta.
+   design-system.css loads AFTER bootstrap, so this later !important wins. */
+.text-primary { color: var(--su-navy) !important; }
+.text-accent  { color: var(--su-magenta) !important; }
+
 /* === Typography baseline ===================================== */
 body {
   font-family: var(--font-secondary) !important;

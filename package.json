@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "lucide-react": "^1.17.0",
+    "lucide-react": "^0.546.0",
     "motion": "^12.40.0",
     "next": "15.5.18",
     "react": "19.0.0",

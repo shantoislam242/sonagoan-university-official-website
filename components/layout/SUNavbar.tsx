@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import {
   Menu, X, Search,
   User, ChevronDown, ChevronRight, LayoutGrid,
-  GraduationCap, CheckCircle, Building, BookOpen, Calendar, Mail, Phone,
+  GraduationCap, CheckCircle, BookOpen, Image, Compass, Archive,
+  Users, Globe, ClipboardList, Building2, Award,
 } from 'lucide-react';
 import Container from '../ui/Container';
 import {
@@ -31,7 +32,8 @@ import {
 // DynamicLucideIcon that resolves all 1000+ lucide icons; we only need
 // the small set the static config references.
 const ICON_MAP = {
-  User, GraduationCap, CheckCircle, Building, BookOpen, Calendar, Mail, Phone,
+  BookOpen, GraduationCap, Image, Compass, Archive,
+  Users, Globe, ClipboardList, Building2, Award, CheckCircle,
 } as const;
 
 function QuickAccessIcon({
@@ -59,6 +61,10 @@ export default function SUNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
+  // Quick-access grid panel. JS-controlled (open on hover AND click) because
+  // the CSS group-hover reveal proved unreliable inside the template's CSS
+  // environment; inline visibility styles also beat any template cascade.
+  const [quickOpen, setQuickOpen] = useState(false);
 
   const toggleMobileSection = (name: string) => {
     setOpenMobileSection((prev) => (prev === name ? null : name));
@@ -269,11 +275,19 @@ export default function SUNavbar() {
               Apply Now
             </a>
 
-            {/* Quick Access grid — only when scrolled. */}
+            {/* Quick Access grid — only when scrolled. Opens on hover and
+                on click; visibility driven by JS state + inline styles. */}
             {isScrolled && (
-              <div className="hidden lg:block group relative" style={{ marginLeft: 12 }}>
+              <div
+                className="hidden lg:block relative"
+                onMouseEnter={() => setQuickOpen(true)}
+                onMouseLeave={() => setQuickOpen(false)}
+              >
                 <button
+                  type="button"
                   aria-label="Quick access"
+                  aria-expanded={quickOpen}
+                  onClick={() => setQuickOpen((v) => !v)}
                   className="rounded-[8px] transition-colors"
                   style={{
                     padding: 10,
@@ -284,7 +298,17 @@ export default function SUNavbar() {
                 >
                   <LayoutGrid size={20} />
                 </button>
-                <div className="invisible absolute right-0 top-full z-50 mt-[8px] w-[320px] translate-y-2 rounded-[12px] border border-gray-100 bg-white p-[12px] opacity-0 shadow-premium transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div
+                  className="absolute right-0 top-full z-50 mt-[8px] w-[320px] rounded-[12px] p-[12px] shadow-premium transition-all duration-200"
+                  style={{
+                    background: '#ffffff',
+                    border: '1px solid #f3f4f6',
+                    visibility: quickOpen ? 'visible' : 'hidden',
+                    opacity: quickOpen ? 1 : 0,
+                    transform: quickOpen ? 'translateY(0)' : 'translateY(8px)',
+                    pointerEvents: quickOpen ? 'auto' : 'none',
+                  }}
+                >
                   <div className="grid grid-cols-3 gap-[4px]">
                     {quickAccessItems.map((item) => {
                       const isLive = !!item.href && !item.isDisabled;
@@ -293,6 +317,7 @@ export default function SUNavbar() {
                           key={item.name}
                           href={isLive ? item.href : '#'}
                           {...(item.isExternal && isLive && { target: '_blank', rel: 'noopener noreferrer' })}
+                          onClick={() => isLive && setQuickOpen(false)}
                           className={`flex flex-col items-center justify-center gap-[6px] p-[12px] rounded-[8px] text-center transition-colors hover:bg-accent/5 ${
                             !isLive ? 'opacity-50 cursor-not-allowed' : ''
                           }`}
