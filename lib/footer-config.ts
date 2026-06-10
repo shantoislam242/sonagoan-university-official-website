@@ -30,7 +30,7 @@ export const footer = {
     xUrl:         'https://x.com/SonargaonUni',
     threadsUrl:   'https://www.threads.com/@sonargaonuniversitybd',
     tiktokUrl:    'https://www.tiktok.com/@sonargaonuniversityedu',
-    whatsappUrl:  null as string | null,
+    whatsappUrl:  'https://wa.me/8801775000888',
   },
 
   usefulLinks: [

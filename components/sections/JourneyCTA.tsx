@@ -73,7 +73,7 @@ export default function JourneyCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            style={{ maxWidth: 576, color: '#ffffff', textAlign: 'left' }}
+            style={{ maxWidth: 500, color: '#ffffff', textAlign: 'left' }}
           >
             <h2
               style={{
@@ -82,6 +82,11 @@ export default function JourneyCTA() {
                 lineHeight: 1.15,
                 marginBottom: 20,
                 color: '#ffffff',
+                // Narrower max-width on the heading itself forces a
+                // 2-line wrap ("Shape Your Future with" / "Excellence")
+                // so the layout matches the source design even though
+                // the source uses a wider custom display font.
+                maxWidth: 460,
               }}
             >
               {cta.heading}
