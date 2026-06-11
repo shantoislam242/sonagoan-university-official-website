@@ -101,6 +101,12 @@
 .bg-primary { background-color: var(--su-navy) !important; }
 .bg-accent  { background-color: var(--su-magenta) !important; }
 
+/* Mega-menu links: on hover only a light tint background appears
+   (border stays transparent — no box border). */
+.su-mega-link:hover {
+  background-color: rgba(204, 21, 121, 0.06);
+}
+
 /* === Fixed navbar offset ==================================== */
 /* The navbar is position:fixed and its height changes per breakpoint
    (mobile = middle bar only; ≥768 adds the top bar; ≥1024 adds the bottom

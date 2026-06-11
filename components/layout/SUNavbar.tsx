@@ -648,10 +648,13 @@ function NavGroup({
                         href={child.isDisabled ? '#' : child.href}
                         {...(child.isExternal && !child.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
                         onClick={() => setOpen(false)}
-                        className={`block text-[13.5px] transition-colors ${
+                        className={`su-mega-link block text-[13.5px] transition-all ${
                           child.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:text-accent'
                         }`}
-                        style={{ padding: '6px 0', textDecoration: 'none' }}
+                        // Transparent full border by default (reserves space, no
+                        // shift) → on hover design-system.css adds a magenta box
+                        // border + light tint background.
+                        style={{ padding: '6px 10px', border: '1px solid transparent', borderRadius: 6, textDecoration: 'none' }}
                         aria-disabled={child.isDisabled || undefined}
                       >
                         {child.name}
