@@ -26,9 +26,8 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'Sonargaon University',
   description: 'Sonargoan University official website.',
-  icons: {
-    icon: '/assets/images/fav.svg',
-  },
+  // Favicon/apple-icon come from app/icon.png and app/apple-icon.png
+  // (Next.js file convention) — the Sonargaon University crest.
 };
 
 export default function RootLayout({
