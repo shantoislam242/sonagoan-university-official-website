@@ -15,50 +15,36 @@ export default function IndexThreePage() {
       <HeaderHomeThree />
 
       {/* header banner */}
-      <div className="banner v__3">
+      <div className="banner v__2">
         <div className="banner__wrapper">
-          <div
-            className="swiper swiper-data"
-            data-swiper='{
-                    "slidesPerView":1,
-                    "effect": "fade",
-                    "loop": false,
-                    "speed": 1000,
-                    "autoplay":{
-                        "delay":"7000"
-                    }}'
-          >
+          <div className="swiper  swiper-data" data-swiper='{
+                        "slidesPerView":1,
+                        "effect": "fade",
+                        "loop": true,
+                        "speed": 1000,
+                        "autoplay":{
+                            "delay":"7000"
+                }}'>
             <div className="swiper-wrapper">
-              {/* single slide */}
+              {/* single slides */}
               <div className="swiper-slide">
-                <div
-                  className="banner__wrapper--bg"
-                  style={{ backgroundImage: 'url(/assets/images/banner/slider__3.jpg)' }}
-                >
+                <div className="banner__wrapper--bg" style={{ backgroundImage: 'url(/assets/images/banner/01.jpg)' }}>
                   <div className="container">
-                    <div className="row justify-content-center">
-                      <div className="col-lg-6 col-md-10 col-sm-10">
+                    <div className="row">
+                      <div className="col-lg-12">
                         <div className="banner__slides--container banner__height">
                           <div className="banner__slides--content">
-                            <div className="banner__slides--content--icon">
-                              <img src="/assets/images/banner/banner__3--icon.svg" alt="cap" />
+                            <div className="banner__slides--content--sub">
+                              <img src="/assets/images/icon/e-cap.svg" alt="cap" /> knowledge meets
+                              innovation
                             </div>
-                            <h2 className="banner__slides--content--title">
-                              Academic Journey
-                              Begins SU Website
-                            </h2>
-                            <p className="banner__slides--content--description">
-                              Remember to tailor the section names to fit the specific needs and
-                              structure of your university website.
-                            </p>
-                            <div className="banner__slides--content--btn">
-                              <Link href="/program-single" className="rts-theme-btn btn-arrow">
-                                View Our Program
-                                <span>
-                                  <i className="fa-regular fa-arrow-right"></i>
-                                </span>
-                              </Link>
-                            </div>
+                            <h1 className="banner__slides--content--title">
+                              Unleashing Potential
+                              Fostering Excellence
+                            </h1>
+                            <Link href="/program-single" className="rts-theme-btn btn-arrow">View Our Program
+                              <span><i className="fa-regular fa-arrow-right"></i></span>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -66,38 +52,26 @@ export default function IndexThreePage() {
                   </div>
                 </div>
               </div>
-              {/* single slide */}
-
+              {/* single slides end */}
               {/* single slides */}
               <div className="swiper-slide">
-                <div
-                  className="banner__wrapper--bg"
-                  style={{ backgroundImage: 'url(/assets/images/banner/slider__3-2.jpg)' }}
-                >
+                <div className="banner__wrapper--bg" style={{ backgroundImage: 'url(/assets/images/banner/02.jpg)' }}>
                   <div className="container">
-                    <div className="row justify-content-center">
-                      <div className="col-lg-6 col-md-10 col-sm-10">
+                    <div className="row">
+                      <div className="col-lg-12">
                         <div className="banner__slides--container banner__height">
                           <div className="banner__slides--content">
-                            <div className="banner__slides--content--icon">
-                              <img src="/assets/images/banner/banner__3--icon.svg" alt="cap" />
+                            <div className="banner__slides--content--sub">
+                              <img src="/assets/images/icon/e-cap.svg" alt="cap" /> knowledge meets
+                              innovation
                             </div>
-                            <h2 className="banner__slides--content--title">
-                              Academic Journey
-                              Begins SU Website
-                            </h2>
-                            <p className="banner__slides--content--description">
-                              Remember to tailor the section names to fit the specific needs and
-                              structure of your university website.
-                            </p>
-                            <div className="banner__slides--content--btn">
-                              <Link href="/program-single" className="rts-theme-btn btn-arrow">
-                                View Our Program
-                                <span>
-                                  <i className="fa-regular fa-arrow-right"></i>
-                                </span>
-                              </Link>
-                            </div>
+                            <h1 className="banner__slides--content--title">
+                              Unleashing Potential
+                              Fostering Excellence
+                            </h1>
+                            <Link href="/program-single" className="rts-theme-btn btn-arrow">View Our Program
+                              <span><i className="fa-regular fa-arrow-right"></i></span>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -105,7 +79,18 @@ export default function IndexThreePage() {
                   </div>
                 </div>
               </div>
-              {/* single slides */}
+              {/* single slides end */}
+            </div>
+          </div>
+          <div className="banner__slides--navigation">
+            <div className="banner__slides--navigation--single">
+              <h5 className="nav__title">Undergraduate</h5>
+              <Link href="/academic" className="nav__description">Browse the undergraduate
+                degrees</Link>
+            </div>
+            <div className="banner__slides--navigation--single">
+              <h5 className="nav__title">Graduate</h5>
+              <Link href="/academic" className="nav__description">Browse the graduate degrees</Link>
             </div>
           </div>
         </div>

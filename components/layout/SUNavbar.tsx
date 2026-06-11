@@ -183,16 +183,18 @@ export default function SUNavbar() {
         </div>
       </div>
 
-      {/* 2. MIDDLE BAR — Logo & actions. Source: white (scrolled →
-          white/95 + backdrop-blur), py 16 → 8 when scrolled. */}
+      {/* 2. MIDDLE BAR — Logo & actions. Sticky (scrolled) state uses the
+          same solid #ffffff as the original (non-scrolled) navbar — not a
+          translucent white/95 — so the bar looks identical once stuck.
+          py 16 → 8 when scrolled. */}
       <div
         className={`relative transition-all duration-500 border-b ${
           isScrolled
-            ? 'border-gray-50 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.02)]'
+            ? 'border-gray-50 shadow-[0_4px_20px_rgba(0,0,0,0.02)]'
             : 'border-gray-100'
         }`}
         style={{
-          background: isScrolled ? 'rgba(255,255,255,0.95)' : '#ffffff',
+          background: '#ffffff',
           paddingTop: isScrolled ? 8 : 16,
           paddingBottom: isScrolled ? 8 : 16,
           zIndex: 999,
