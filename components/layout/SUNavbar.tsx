@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import {
   Menu, X, Search,
   User, ChevronDown, ChevronRight, LayoutGrid,
@@ -342,6 +342,7 @@ export default function SUNavbar() {
                 aria-label="Search"
                 onClick={() => setSearchOpen(true)}
                 className="lg:hidden p-[8px] text-primary relative z-[70]"
+                style={{ appearance: 'none', WebkitAppearance: 'none', border: 'none', background: 'transparent' }}
               >
                 <Search size={24} />
               </button>
@@ -353,6 +354,7 @@ export default function SUNavbar() {
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
               className="lg:hidden p-[8px] text-primary relative z-[70]"
+              style={{ appearance: 'none', WebkitAppearance: 'none', border: 'none', background: 'transparent' }}
               onClick={toggleMobileMenu}
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -392,11 +394,15 @@ export default function SUNavbar() {
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       />
-      {/* Drawer */}
+      {/* Drawer — inline transform (Tailwind's translate-x utilities are
+          broken here: preflight is off, so the slide never applied and the
+          drawer stayed visible even when "closed"). */}
       <div
-        className={`lg:hidden fixed inset-y-0 right-0 w-[min(85vw,340px)] overflow-y-auto overscroll-contain bg-white z-[55] shadow-2xl transform transition-transform duration-300 pb-[24px] ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
-        }`}
+        className="lg:hidden fixed inset-y-0 right-0 w-[min(85vw,340px)] overflow-y-auto overscroll-contain bg-white z-[55] shadow-2xl transition-transform duration-300 pb-[24px]"
+        style={{
+          transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(100%)',
+          pointerEvents: mobileMenuOpen ? 'auto' : 'none',
+        }}
       >
         <div className="px-[16px] pt-[32px] pb-[12px]">
           <h3 className="text-[16px] font-bold text-primary">Menu</h3>
@@ -405,6 +411,8 @@ export default function SUNavbar() {
         <div className="px-[16px]">
           {mainNav.map((group) => {
             const isOpen = openMobileSection === group.name;
+            // Mega groups flatten all their columns into one drawer list.
+            const drawerItems = group.mega ? group.mega.flatMap((c) => c.items) : group.items;
             return (
               <div key={group.name} className="border-b border-gray-100 last:border-b-0">
                 {group.hasDropdown ? (
@@ -428,9 +436,38 @@ export default function SUNavbar() {
                     {group.name}
                   </a>
                 )}
-                {group.items.length > 0 && isOpen && (
+                {/* Mega groups render their columns as labeled sub-sections
+                    (DIU-style) — accent column headings + their items — so the
+                    structure is clear. The whole drawer scrolls; nothing is
+                    capped/hidden. Non-mega groups stay a flat list. */}
+                {isOpen && group.mega ? (
+                  <div className="pb-[8px] pl-[12px]">
+                    {group.mega.map((col) => (
+                      <div key={col.title} className="mb-[4px]">
+                        <div className="pt-[8px] pb-[2px] text-[12px] font-bold text-accent uppercase tracking-wide">
+                          {col.title}
+                        </div>
+                        <div className="flex flex-col gap-[2px]">
+                          {col.items.map((child) => (
+                            <a
+                              key={child.name}
+                              href={child.isDisabled ? '#' : child.href}
+                              {...(child.isExternal && !child.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
+                              className={`py-[5px] text-[13px] font-medium transition-colors ${
+                                child.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:text-accent'
+                              }`}
+                              aria-disabled={child.isDisabled || undefined}
+                            >
+                              {child.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : isOpen && drawerItems.length > 0 ? (
                   <div className="pb-[8px] pl-[12px] flex flex-col gap-[4px]">
-                    {group.items.map((child) => (
+                    {drawerItems.map((child) => (
                       <a
                         key={child.name}
                         href={child.isDisabled ? '#' : child.href}
@@ -444,7 +481,7 @@ export default function SUNavbar() {
                       </a>
                     ))}
                   </div>
-                )}
+                ) : null}
               </div>
             );
           })}
@@ -456,7 +493,8 @@ export default function SUNavbar() {
             href={applyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full py-[12px] bg-primary hover:bg-primary/90 text-white rounded-[8px] text-[14px] font-bold text-center shadow-md transition-all"
+            className="block w-full py-[12px] rounded-[8px] text-[14px] font-bold text-center shadow-md transition-all hover:brightness-110"
+            style={{ background: 'linear-gradient(to right, #2B3175, #CC1579)', color: '#ffffff' }}
           >
             Apply Now
           </a>
@@ -525,29 +563,117 @@ function NavGroup({
   group: MainNavGroup;
   compact?: boolean;
 }) {
+  // JS-controlled hover (open on mouseenter, close on mouseleave) — reliable
+  // inside the template's CSS env where group-hover proved flaky. Visibility
+  // is driven by inline styles so nothing in the template cascade can hide
+  // the panel.
+  const [open, setOpen] = useState(false);
+
   // Source-exact px sizing. Non-compact: px 6/20, height 56, font 12/15.
   // Compact (scrolled): height 44, px 4/12, font 11/14, bold.
   const linkClass = compact
     ? 'h-[44px] px-[4px] xl:px-[12px] flex items-center gap-[2px] xl:gap-[4px] text-[11px] xl:text-[14px] font-bold whitespace-nowrap text-gray-800 hover:text-accent transition-colors'
     : 'px-[6px] xl:px-[20px] h-[56px] flex items-center gap-[2px] xl:gap-[6px] text-[12px] xl:text-[15px] font-medium whitespace-nowrap text-gray-800 hover:text-accent transition-all relative';
 
+  const hasMega = !!group.mega && group.mega.length > 0;
+  const hasPanel = hasMega || group.items.length > 0;
+
+  // Shared open/close animation styles for any panel.
+  const panelMotion: CSSProperties = {
+    visibility: open ? 'visible' : 'hidden',
+    opacity: open ? 1 : 0,
+    transform: open ? 'translateY(0)' : 'translateY(8px)',
+    pointerEvents: open ? 'auto' : 'none',
+  };
+
   return (
-    <div className="group relative">
-      <a
-        href={group.href ?? '#'}
-        className={linkClass}
-      >
+    <div
+      className="relative"
+      onMouseEnter={() => hasPanel && setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <a href={group.href ?? '#'} className={linkClass}>
         {group.name}
         {group.hasDropdown && <ChevronDown size={compact ? 12 : 13} className="hidden xl:block opacity-80" />}
         {!compact && (
-          <span className="absolute bottom-0 left-0 w-0 h-[4px] bg-accent transition-all group-hover:w-full" />
+          <span
+            className="absolute bottom-0 left-0 h-[4px] bg-accent transition-all"
+            style={{ width: open ? '100%' : 0 }}
+          />
         )}
       </a>
-      {group.items.length > 0 && (
-        <div className="invisible absolute left-0 top-full z-50 min-w-[280px] translate-y-2 rounded-[8px] border border-gray-100 bg-white py-[12px] opacity-0 shadow-premium transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+
+      {/* MEGA MENU — multi-column grid panel. Fixed + left:50% / translateX
+          centers it under the navbar (not anchored to the About item's left
+          edge). `top` tracks the navbar height: ~168px at rest, ~58px when
+          scrolled (compact bar). */}
+      {hasMega && (
+        <div
+          className="fixed z-50 rounded-[8px] shadow-premium transition-all duration-200"
+          style={{
+            background: '#ffffff',
+            border: '1px solid #f3f4f6',
+            width: 'min(1080px, 96vw)',
+            maxWidth: '96vw',
+            padding: '24px 28px',
+            left: '50%',
+            top: compact ? 58 : 168,
+            zIndex: 1000,
+            visibility: open ? 'visible' : 'hidden',
+            opacity: open ? 1 : 0,
+            pointerEvents: open ? 'auto' : 'none',
+            transform: `translateX(-50%) translateY(${open ? '0' : '8px'})`,
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${group.mega!.length}, minmax(0, 1fr))`,
+              gap: 24,
+            }}
+          >
+            {group.mega!.map((col) => (
+              <div key={col.title}>
+                {/* Column heading — navy, with a thin accent underline. */}
+                <div
+                  className="text-[15px] font-bold text-primary"
+                  style={{ paddingBottom: 10, marginBottom: 12, borderBottom: '1px solid #e5e7eb' }}
+                >
+                  {col.title}
+                </div>
+                <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                  {col.items.map((child) => (
+                    <li key={child.name}>
+                      <a
+                        href={child.isDisabled ? '#' : child.href}
+                        {...(child.isExternal && !child.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
+                        onClick={() => setOpen(false)}
+                        className={`block text-[13.5px] transition-colors ${
+                          child.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:text-accent'
+                        }`}
+                        style={{ padding: '6px 0', textDecoration: 'none' }}
+                        aria-disabled={child.isDisabled || undefined}
+                      >
+                        {child.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* SIMPLE DROPDOWN — single column list */}
+      {!hasMega && group.items.length > 0 && (
+        <div
+          className="absolute left-0 top-full z-50 min-w-[280px] rounded-[8px] shadow-premium transition-all duration-200"
+          style={{ background: '#ffffff', border: '1px solid #f3f4f6', paddingTop: 12, paddingBottom: 12, ...panelMotion }}
+        >
           {(group.title || group.name) && (
-            <div className="px-[20px] pt-[4px] pb-[12px] border-b border-gray-200">
-              <div className="text-[15px] font-bold text-gray-900">{group.title ?? group.name}</div>
+            <div className="px-[20px] pt-[4px] pb-[12px]" style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <div className="text-[15px] font-bold" style={{ color: '#111827' }}>{group.title ?? group.name}</div>
             </div>
           )}
           <div className="py-[8px]">
@@ -556,6 +682,7 @@ function NavGroup({
                 key={child.name}
                 href={child.isDisabled ? '#' : child.href}
                 {...(child.isExternal && !child.isDisabled && { target: '_blank', rel: 'noopener noreferrer' })}
+                onClick={() => setOpen(false)}
                 className={`group/item block px-[20px] py-[10px] text-[14px] font-medium transition-colors ${
                   child.isDisabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-accent/5 hover:text-accent'
                 }`}

@@ -35,12 +35,22 @@ export interface MainNavItem {
   isDisabled?: boolean;
 }
 
+// One column of a mega-menu (heading + its links).
+export interface MegaColumn {
+  title: string;
+  items: MainNavItem[];
+}
+
 export interface MainNavGroup {
   name: string;
   href?: string;
   hasDropdown: boolean;
   title?: string;
   items: MainNavItem[];
+  // When set, the desktop dropdown renders as a multi-column grid (mega
+  // menu) instead of a single list. Mobile flattens all columns into one
+  // list. `items` may stay empty when `mega` is used.
+  mega?: MegaColumn[];
 }
 
 export const applyUrl = 'https://example.com/apply'; // TODO: real apply URL
@@ -76,44 +86,225 @@ export const mainNav: readonly MainNavGroup[] = [
   {
     name: 'About',
     hasDropdown: true,
-    items: [
-      { name: 'Overview',         href: '/about' },
-      { name: 'Mission & Vision', href: '/about' },
-      { name: 'Athletics',        href: '/athletics' },
-      { name: 'Research',         href: '/research' },
-      { name: 'Alumni',           href: '/alumni' },
+    items: [],
+    // 5-column mega menu. hrefs are '#' until the matching SU pages exist;
+    // the few that already have pages point to them.
+    mega: [
+      {
+        title: 'Overview',
+        items: [
+          { name: 'About Us',        href: '/about' },
+          { name: 'Vision & Mission', href: '/about' },
+          { name: 'History',          href: '#' },
+          { name: 'Why Choose SU',    href: '#' },
+        ],
+      },
+      {
+        title: 'Leadership',
+        items: [
+          { name: 'Vice Chancellor', href: '#' },
+          { name: 'Pro-VC Office',   href: '#' },
+          { name: 'Former VC',       href: '#' },
+          { name: 'Former Pro-VC',   href: '#' },
+          { name: 'Treasurer',       href: '#' },
+        ],
+      },
+      {
+        title: 'Governing Bodies',
+        items: [
+          { name: 'Treasurer Office',  href: '#' },
+          { name: 'Board of Trustees', href: '#' },
+          { name: 'Audit',             href: '#' },
+          { name: 'Advisory Council',  href: '#' },
+        ],
+      },
+      {
+        title: 'Administration',
+        items: [
+          { name: 'Registrar',             href: '#' },
+          { name: 'Finance & Accounts',    href: '#' },
+          { name: 'Human Resource Mgmt.',  href: '#' },
+          { name: 'Planning & Development', href: '#' },
+          { name: 'Purchase',              href: '#' },
+        ],
+      },
     ],
   },
   {
-    name: 'Faculty Member',
-    href: '/faculty',
-    hasDropdown: false,
+    name: 'Academics',
+    hasDropdown: true,
     items: [],
+    // 3-column mega menu. hrefs map to existing SU pages where they exist,
+    // '#' otherwise (placeholder until those pages are built).
+    mega: [
+      {
+        title: 'Faculty Directory',
+        items: [
+          { name: 'Our Programs',          href: '/academic' },
+          { name: 'Faculties',             href: '/faculty' },
+          { name: 'Departments',           href: '/department-details' },
+          { name: 'Dean of the Faculties', href: '#' },
+          { name: 'Head of the Departments', href: '#' },
+          { name: 'All Faculty Members',   href: '/faculty' },
+          { name: 'Advisor List',          href: '#' },
+        ],
+      },
+      {
+        title: 'Programs',
+        items: [
+          { name: 'Faculty of Science & Engineering', href: '/academic-area' },
+          { name: 'Faculty of Business',              href: '#' },
+          { name: 'Faculty of Arts & Humanities',     href: '#' },
+          { name: 'Undergraduate Programs',           href: '/academic' },
+          { name: 'Graduate Programs',                href: '/academic' },
+        ],
+      },
+      {
+        title: 'Academic Offices',
+        items: [
+          { name: 'Academic Affairs',       href: '#' },
+          { name: 'Exam Controller',        href: '#' },
+          { name: 'IQAC & PRIA',            href: '#' },
+          { name: 'Information Technology', href: '#' },
+          { name: 'Library & Information',  href: '#' },
+          { name: 'Certificate Verification', href: '#' },
+        ],
+      },
+    ],
   },
   {
     name: 'Admission',
     hasDropdown: true,
-    items: [
-      { name: 'Admission',   href: '/admission' },
-      { name: 'Scholarship', href: '/scholarship' },
-      { name: 'Tuition Fee', href: '/tution-fee' },
-    ],
-  },
-  {
-    name: 'Student Society',
-    hasDropdown: true,
-    items: [
-      { name: 'Campus Life', href: '/campus-life' },
-      { name: 'Athletics',   href: '/athletics' },
-      { name: 'Event',       href: '/event' },
-      { name: 'Blog',        href: '/blog' },
-    ],
-  },
-  {
-    name: 'Contact',
-    href: '/contact',
-    hasDropdown: false,
     items: [],
+    // 3-column mega menu. hrefs map to existing SU pages where they exist,
+    // '#' otherwise; Apply Now uses the shared applyUrl.
+    mega: [
+      {
+        title: 'Apply & Policy',
+        items: [
+          { name: 'Requirements',            href: '/admission' },
+          { name: 'Registration Policies',   href: '#' },
+          { name: 'Admission & Information', href: '/admission' },
+        ],
+      },
+      {
+        title: 'Fees & Aid',
+        items: [
+          { name: 'Tuition Fee',  href: '/tution-fee' },
+          { name: 'Waiver Policy', href: '#' },
+        ],
+      },
+      {
+        title: 'Quick Access',
+        items: [
+          { name: 'Online Admission',       href: '/admission' },
+          { name: 'Admission Officer List', href: '#' },
+          { name: 'Apply Now',              href: applyUrl, isExternal: true },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Research',
+    hasDropdown: true,
+    items: [],
+    // 3-column mega menu. Research pages map to /research; '#' otherwise.
+    mega: [
+      {
+        title: 'Research by Faculty',
+        items: [
+          { name: 'Science & Engineering Research', href: '/research' },
+          { name: 'Business Research (BBA)',        href: '/research' },
+          { name: 'Arts & Humanities Research',     href: '/research' },
+        ],
+      },
+      {
+        title: 'Output & Journal',
+        items: [
+          { name: 'SU Journal',     href: '/research' },
+          { name: 'Publications',   href: '#' },
+          { name: 'Research Funds', href: '#' },
+        ],
+      },
+      {
+        title: 'Centers & Quality',
+        items: [
+          { name: 'CRTC',            href: '#' },
+          { name: 'IQAC',            href: '#' },
+          { name: 'Advisory Council', href: '#' },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Campus Life',
+    hasDropdown: true,
+    items: [],
+    // 3-column mega menu. Existing SU pages mapped where available; '#' else.
+    mega: [
+      {
+        title: 'Student Services',
+        items: [
+          { name: 'Student Welfare Division',  href: '/campus-life' },
+          { name: 'International Affairs & PR', href: '#' },
+          { name: 'Counselling',               href: '#' },
+          { name: 'Career Development',        href: '#' },
+        ],
+      },
+      {
+        title: 'Facilities',
+        items: [
+          { name: 'Library',   href: 'http://lib.su.edu.bd', isExternal: true },
+          { name: 'Lab',       href: '#' },
+          { name: 'Transport', href: '#' },
+          { name: 'Hostel',    href: '#' },
+        ],
+      },
+      {
+        title: 'Activities & Community',
+        items: [
+          { name: 'Sports',         href: '/athletics' },
+          { name: 'Business Club',  href: '#' },
+          { name: 'Blood Bank',     href: '#' },
+          { name: 'Clubs & Events', href: '/event' },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Explore',
+    hasDropdown: true,
+    items: [],
+    // 3-column "more / explore" mega. ('Login to ERP' intentionally omitted.)
+    mega: [
+      {
+        title: 'Updates',
+        items: [
+          { name: 'Notice',         href: 'https://su.edu.bd/welcome/notice', isExternal: true },
+          { name: 'News & Events',  href: '/event' },
+          { name: 'Career',         href: 'https://su.edu.bd/welcome/career', isExternal: true },
+          { name: 'Code of Conduct', href: '#' },
+        ],
+      },
+      {
+        title: 'Quick Links',
+        items: [
+          { name: 'Online Admission',   href: '/admission' },
+          { name: 'Exam Room Tracking', href: '#' },
+          { name: 'Alumni Registration', href: '/alumni' },
+          { name: 'Degree Verification', href: 'https://su.edu.bd/welcome/degree_verification', isExternal: true },
+        ],
+      },
+      {
+        title: 'Get in Touch',
+        items: [
+          { name: 'Contact',          href: '/contact' },
+          { name: 'Green Road Campus', href: 'https://maps.google.com/?q=147/I+Green+Road+Panthapath+Dhaka', isExternal: true },
+          { name: 'Mohakhali Campus', href: 'https://maps.google.com/?q=Sonargaon+University+Mohakhali', isExternal: true },
+          { name: 'Permanent Campus', href: 'https://maps.google.com/?q=Sonargaon+University+Permanent+Campus', isExternal: true },
+        ],
+      },
+    ],
   },
 ];
 

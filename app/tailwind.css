@@ -3,3 +3,21 @@
    with template style.css. */
 @tailwind components;
 @tailwind utilities;
+
+/* Preflight is disabled (see tailwind.config.ts), so Tailwind never
+   initializes its transform/filter CSS variables. Without these defaults
+   every transform utility (translate-x-full, translate-y-2, scale, rotate,
+   the mobile drawer slide, hover lifts, chevron nudges …) resolves to an
+   invalid `transform` and silently does nothing. Re-declare just the
+   defaults preflight would set, so transform utilities work again. */
+*,
+::before,
+::after {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+}

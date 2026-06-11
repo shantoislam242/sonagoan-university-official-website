@@ -97,6 +97,38 @@
    design-system.css loads AFTER bootstrap, so this later !important wins. */
 .text-primary { color: var(--su-navy) !important; }
 .text-accent  { color: var(--su-magenta) !important; }
+/* Same clash for backgrounds: bootstrap's .bg-primary{#0d6efd}. */
+.bg-primary { background-color: var(--su-navy) !important; }
+.bg-accent  { background-color: var(--su-magenta) !important; }
+
+/* === Fixed navbar offset ==================================== */
+/* The navbar is position:fixed and its height changes per breakpoint
+   (mobile = middle bar only; ≥768 adds the top bar; ≥1024 adds the bottom
+   nav bar). Offset the page by the matching height so there's no empty gap
+   on mobile (a single fixed value over-padded small screens). */
+body.page { padding-top: 76px; }
+@media (min-width: 768px)  { body.page { padding-top: 116px; } }
+@media (min-width: 1024px) { body.page { padding-top: 170px; } }
+
+/* === Hero (banner v__2) — center the content on mobile/tablet ===== */
+/* Template left-aligns the hero content (max-width:550px + left text);
+   center it on small screens. Desktop keeps the original left layout. */
+@media (max-width: 992px) {
+  .banner.v__2 .banner__wrapper .banner__slides--content {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+  .banner.v__2 .banner__wrapper .banner__slides--content--sub {
+    justify-content: center !important;
+  }
+  .banner.v__2 .banner__wrapper .banner__slides--content--title {
+    text-align: center !important;
+  }
+  .banner.v__2 .banner__wrapper .banner__slides--navigation {
+    justify-content: center !important;
+  }
+}
 
 /* === Typography baseline ===================================== */
 body {

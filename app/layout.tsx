@@ -57,7 +57,9 @@ export default function RootLayout({
             which we redefine here to the Navy/Magenta/Amber palette). */}
         <link rel="stylesheet" href="/assets/css/design-system.css" />
       </head>
-      <body className="page" style={{ paddingTop: 146 }}>
+      {/* padding-top is set responsively in design-system.css (body.page)
+          to match the fixed navbar height at each breakpoint. */}
+      <body className="page">
         <VendorPluginInitializer />
         {children}
         {/* BackToTop kept in the DOM but visually hidden. The template's
