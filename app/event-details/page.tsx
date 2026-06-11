@@ -52,7 +52,7 @@ export default function EventDetailsPage() {
                     {/* single feature */}
                     <div className="single-feature">
                       <p className="feature-heading">Registration:</p>
-                      <p className="feature-description">Secure your spot today and be part of the Future Minds Symposium. Early bird registration is now open at www.SU Website Don&apos;t miss this opportunity to gain valuable insights.</p>
+                      <p className="feature-description">Secure your spot today and be part of the Future Minds Symposium. Early bird registration is now open at www.Sonargaon University Don&apos;t miss this opportunity to gain valuable insights.</p>
                     </div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export default function EventDetailsPage() {
                         <div className="left-side bold">Web Site:</div>
                         <div className="right-side">
                           <span className="desc">
-                            <a href="#">www.suwebsite.com</a>
+                            <a href="#">www.su.edu.bd</a>
                             {/* social item */}
                             <span className="social-links">
                               <a href="#"><i className="fa-brands fa-facebook"></i></a>

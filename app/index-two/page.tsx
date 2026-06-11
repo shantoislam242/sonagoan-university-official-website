@@ -111,7 +111,7 @@ export default function IndexTwoPage() {
                         <path id="circle" d="M50,50 m-37,0a37,37 0 1,1 74,0a37,37 0 1,1 -74,0"></path>
                       </defs>
                       <text>
-                        <textPath xlinkHref="#circle">SU Website University * Estd. 1971 * Explore Future *
+                        <textPath xlinkHref="#circle">Sonargaon University * Estd. 1971 * Explore Future *
                         </textPath>
                       </text>
                     </svg>
@@ -132,7 +132,7 @@ export default function IndexTwoPage() {
                   knowledge meets innovation
                 </div>
                 <h2 className="about__right--content--title">About University</h2>
-                <p className="about__right--content--description">At SU Website University, we believe in the
+                <p className="about__right--content--description">At Sonargaon University, we believe in the
                   transformative power of education and the boundless potential that resides within each
                   individual.</p>
                 <p className="about__right--content--description">Our mission is to foster intellectual curiosity,
@@ -363,9 +363,9 @@ export default function IndexTwoPage() {
             <div className="col-lg-4">
               <div className="rts__section--wrapper v__7">
                 <h2 className="rts__section--title">Tuition Fees at
-                  SU Website University</h2>
+                  Sonargaon University</h2>
                 <p className="rts__section--description">
-                  At SU Website University Name we are committed to providing a high-quality education that is accessible to a diverse range of students.
+                  At Sonargaon University Name we are committed to providing a high-quality education that is accessible to a diverse range of students.
                 </p>
                 <Link href="/tution-fee" className="rts-theme-btn btn-arrow">Plan Details
                   <span><i className="fa-regular fa-arrow-right"></i></span>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const siteName = 'SU Website';
+const siteName = 'Sonargaon University';
 // Replace before production deploy. Override via NEXT_PUBLIC_SITE_URL when set.
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com';

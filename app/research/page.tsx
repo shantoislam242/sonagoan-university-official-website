@@ -24,7 +24,7 @@ export default function ResearchPage() {
               <div className="campus-life__content">
                 <h1 className="rts-section-title">Research Centers</h1>
                 <p className="description w-680">
-                  From Nobel Prize winners to undergraduates, all members of the SU Website
+                  From Nobel Prize winners to undergraduates, all members of the Sonargaon University
                   community are engaged in the creation of knowledge.
                 </p>
                 <div className="campus-video">

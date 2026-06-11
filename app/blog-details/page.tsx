@@ -32,17 +32,17 @@ export default function BlogDetailsPage() {
                   <a href="#"><span><i className="fa-sharp fa-light fa-tags"></i></span>Study Aboard</a>
                 </div>
                 <h3 className="blog-title">10 Effective Study Tips for College Success</h3>
-                <p>Welcome to SU Website! As a student, navigating through college can sometimes feel overwhelming. However, with the right strategies and study techniques, you can enhance your learning experience and achieve academic success. In this blog post, we&apos;ll explore 10 effective study tips to help you thrive in college.</p>
+                <p>Welcome to Sonargaon University! As a student, navigating through college can sometimes feel overwhelming. However, with the right strategies and study techniques, you can enhance your learning experience and achieve academic success. In this blog post, we&apos;ll explore 10 effective study tips to help you thrive in college.</p>
                 <h5>Create a Study Schedule:</h5>
                 <p>Establishing a study schedule can help you manage your time effectively and ensure that you allocate sufficient time for studying each subject. Determine your most productive hours and dedicate them to focused study sessions.</p>
                 <h5>Set Specific Goals:</h5>
                 <p>Set clear and achievable goals for each study session. Whether it&apos;s completing a set of practice problems or reviewing lecture notes, having specific objectives will keep you motivated and on track.</p>
                 <blockquote className="rts-blockquote">
-                  <h4>The SU Website Advantage</h4>
-                  <p>At SU Website, we understand the transformative power of education, and we&apos;re committed to making learning accessible, engaging, and impactful for everyone. Here&apos;s how SU Website can help you on your education journey:</p>
+                  <h4>The Sonargaon University Advantage</h4>
+                  <p>At Sonargaon University, we understand the transformative power of education, and we&apos;re committed to making learning accessible, engaging, and impactful for everyone. Here&apos;s how Sonargaon University can help you on your education journey:</p>
                   <span>Maria Sarapoba</span>
                 </blockquote>
-                <p>Whether you&apos;re looking to advance your career, pursue your passions, or simply expand your horizons, SU Website is here to help you unlock your full potential. Embrace the journey of lifelong learning with SU Website as your trusted partner and embark on a transformative educational experience that will shape your future success.</p>
+                <p>Whether you&apos;re looking to advance your career, pursue your passions, or simply expand your horizons, Sonargaon University is here to help you unlock your full potential. Embrace the journey of lifelong learning with Sonargaon University as your trusted partner and embark on a transformative educational experience that will shape your future success.</p>
                 <div className="row mb-5">
                   <div className="col-md-6">
                     <div className="post-image">
@@ -89,7 +89,7 @@ export default function BlogDetailsPage() {
                     </div>
                   </div>
                 </div>
-                <p>At SU Website, we believe that education has the power to change lives, inspire innovation, and create positive impact in the world. Join us on this exciting journey of lifelong learning and discover the endless possibilities that await you. Visit SU Website today and take the first step towards realizing your dreams and aspirations. Remember, your education journey starts here!</p>
+                <p>At Sonargaon University, we believe that education has the power to change lives, inspire innovation, and create positive impact in the world. Join us on this exciting journey of lifelong learning and discover the endless possibilities that await you. Visit Sonargaon University today and take the first step towards realizing your dreams and aspirations. Remember, your education journey starts here!</p>
               </article>
               <div className="blog-info">
                 <div className="blog-tags">
@@ -119,7 +119,7 @@ export default function BlogDetailsPage() {
                   </div>
                   <div className="author-content">
                     <a href="#">Maria Sara Khan</a>
-                    <p>SU Website University brings expertise, passion, and dedication to shaping future minds.</p>
+                    <p>Sonargaon University brings expertise, passion, and dedication to shaping future minds.</p>
                     <div className="social__media--list">
                       <a href="#" className="media"><i className="fa-brands fa-facebook-f"></i></a>
                       <a href="#" className="media"><i className="fa-brands fa-instagram"></i></a>
@@ -169,7 +169,7 @@ export default function BlogDetailsPage() {
                   <p>B.A. in Africana Studies</p>
                   <div className="contact-info">
                     <h5>Contact:</h5>
-                    <a href="mailto:barry.suwebsite@info.com">barry.suwebsite@info.com</a>
+                    <a href="mailto:info@su.edu.bd">info@su.edu.bd</a>
                     <a href="callto:121">664-254-251</a>
                   </div>
                   <div className="social-info">

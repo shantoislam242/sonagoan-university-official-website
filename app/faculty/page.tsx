@@ -47,7 +47,7 @@ export default function FacultyPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+1 2245 1247 241</a>
                     <div className="staf-info__speciality">
                       <p>Hospitality, Tourism, Event Management and Esports</p>
@@ -73,7 +73,7 @@ export default function FacultyPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+1 2245 1247 241</a>
                     <div className="staf-info__speciality">
                       <p>Hospitality, Tourism, Event Management and Esports</p>
@@ -99,7 +99,7 @@ export default function FacultyPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+1 2245 1247 241</a>
                     <div className="staf-info__speciality">
                       <p>Hospitality, Tourism, Event Management and Esports</p>
@@ -125,7 +125,7 @@ export default function FacultyPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+1 2245 1247 241</a>
                     <div className="staf-info__speciality">
                       <p>Hospitality, Tourism, Event Management and Esports</p>
@@ -151,7 +151,7 @@ export default function FacultyPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+1 2245 1247 241</a>
                     <div className="staf-info__speciality">
                       <p>Hospitality, Tourism, Event Management and Esports</p>
@@ -177,7 +177,7 @@ export default function FacultyPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+1 2245 1247 241</a>
                     <div className="staf-info__speciality">
                       <p>Hospitality, Tourism, Event Management and Esports</p>
@@ -203,7 +203,7 @@ export default function FacultyPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+1 2245 1247 241</a>
                     <div className="staf-info__speciality">
                       <p>Hospitality, Tourism, Event Management and Esports</p>
@@ -229,7 +229,7 @@ export default function FacultyPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+1 2245 1247 241</a>
                     <div className="staf-info__speciality">
                       <p>Hospitality, Tourism, Event Management and Esports</p>

@@ -22,7 +22,7 @@ export default function AlumniPage() {
           <div className="row">
             <div className="col-sm-12">
               <div className="rts__section--wrapper v__9">
-                <h2 className="rts__section--title">Save the date for SU Website Reunion Homecoming!</h2>
+                <h2 className="rts__section--title">Save the date for Sonargaon University Reunion Homecoming!</h2>
                 <p className="rts__section--description">Calling all &rsquo;4s and &rsquo;9s! It&rsquo;s time to reunite with your
                   classmates on November 24&ndash;27, 2024.</p>
               </div>
@@ -109,7 +109,7 @@ export default function AlumniPage() {
                   <h5 className="rts__single--event--meta--title">
                     <Link href="/event-details">
                       Sustainability Showcase: Green
-                      Living at SU Website </Link>
+                      Living at Sonargaon University </Link>
                   </h5>
                   <Link href="/event-details" className="rts__round--btn">
                     <i className="fa-light fa-arrow-right"></i>
@@ -162,12 +162,12 @@ export default function AlumniPage() {
             <div className="col-xl-5 col-lg-6 col-md-6 col-sm-11">
               <div className="left__side">
                 <div className="rts__section--wrapper v__7">
-                  <h2 className="rts__section--title">Stories of SU Website Student</h2>
-                  <p className="rts__section--description">Embark on a journey of knowledge, discovery, and growth at SU Website University. Our admissions process is designed identify bright, motivated individuals who are eager contribute to our dynamic academic community.</p>
+                  <h2 className="rts__section--title">Stories of Sonargaon University Student</h2>
+                  <p className="rts__section--description">Embark on a journey of knowledge, discovery, and growth at Sonargaon University. Our admissions process is designed identify bright, motivated individuals who are eager contribute to our dynamic academic community.</p>
                 </div>
                 <div className="left__side__image">
                   <img src="/assets/images/alumni/01.jpg" alt="alumni" />
-                  <h5 className="left__side__title">Voices of Victory: SU Website Student Stories</h5>
+                  <h5 className="left__side__title">Voices of Victory: Sonargaon University Student Stories</h5>
                   <p className="left__side__description">Through these narratives, readers gain insight into the diverse backgrounds, aspirations, and achievements of individuals.</p>
                 </div>
               </div>
@@ -178,8 +178,8 @@ export default function AlumniPage() {
                 <div className="right__side__image">
                   <img src="/assets/images/alumni/02.jpg" alt="alumni" />
                 </div>
-                <h5 className="right__side__title">Unveiling SU Website: Inspiring Student Stories</h5>
-                <p className="right__side__description">Delve into the heartfelt narratives of SU Website students, where each story resonates with triumph, resilience, and personal growth. From academic achievements to life-changing experiences, these stories illuminate.</p>
+                <h5 className="right__side__title">Unveiling Sonargaon University: Inspiring Student Stories</h5>
+                <p className="right__side__description">Delve into the heartfelt narratives of Sonargaon University students, where each story resonates with triumph, resilience, and personal growth. From academic achievements to life-changing experiences, these stories illuminate.</p>
                 <div className="right__side__link">
                   <Link href="/program-single" className="rts-theme-btn btn-arrow">View all story
                     <span><i className="fa-regular fa-arrow-right"></i></span></Link>

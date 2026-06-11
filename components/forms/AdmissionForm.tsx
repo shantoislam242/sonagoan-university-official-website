@@ -124,7 +124,7 @@ export default function AdmissionForm() {
 
         <div className="d-flex align-items-center single-checkbox mt--20">
           <input type="checkbox" id="exampleCheck1" name="exampleCheck1" />
-          <label htmlFor="exampleCheck1">By submitting this form, you agree to the SU Website University Privacy Notice</label>
+          <label htmlFor="exampleCheck1">By submitting this form, you agree to the Sonargaon University Privacy Notice</label>
         </div>
       </div>
       <button type="submit" disabled={submitting} className="rts-theme-btn primary with-arrow">Submit Application<span><i className="fa-thin fa-arrow-right"></i></span></button>

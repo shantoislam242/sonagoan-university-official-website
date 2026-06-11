@@ -144,7 +144,7 @@ export default function CampusLifePage() {
                     <img src="/assets/images/campus/04.jpg" alt="item-image" />
                   </div>
                   <div className="single-item__meta">
-                    <h5 className="item-title"><a href="#">The Arts at SU Website</a></h5>
+                    <h5 className="item-title"><a href="#">The Arts at Sonargaon University</a></h5>
                     <p className="item-description">Stanford has a rich tradition of fostering creativity and the arts, A vibrant campus</p>
                   </div>
                 </div>

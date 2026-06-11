@@ -44,10 +44,10 @@ export default function FacultySubDetailsPage() {
               <div className="faculty-content-text ms-lg-5 mt-5 mt-lg-0">
                 <p className="h6 mb-
                         4">It&rsquo;s your Time Join to explore</p>
-                <p className="mb-5">The Faculty of Arts SU Website University warmly welcomes you to a vast, vivid and vigorous academic landscape of relentless pursuits and superb brilliance.</p>
+                <p className="mb-5">The Faculty of Arts Sonargaon University warmly welcomes you to a vast, vivid and vigorous academic landscape of relentless pursuits and superb brilliance.</p>
                 <p className="h6 mb-
                         4">Learn to lead</p>
-                <p className="mb-5">In line with the lifelong motto of SU Website &lsquo;where leaders are created&rsquo;, FA is devoted to produce accomplished, as well as skilled, learners who can meet the professional requirements of today&rsquo;s local and global job market. Be it an academic seminar or an in-house cricket tournament or a debate festival, students and teachers at FA work hand in hand to make it a success. This is how we make sure that each of our students remains engaged in academic and extracurricular rigors to grow to his or her fullest extent. This is how FA of SU Website creates local leaders for the global demands.</p>
+                <p className="mb-5">In line with the lifelong motto of Sonargaon University &lsquo;where leaders are created&rsquo;, FA is devoted to produce accomplished, as well as skilled, learners who can meet the professional requirements of today&rsquo;s local and global job market. Be it an academic seminar or an in-house cricket tournament or a debate festival, students and teachers at FA work hand in hand to make it a success. This is how we make sure that each of our students remains engaged in academic and extracurricular rigors to grow to his or her fullest extent. This is how FA of Sonargaon University creates local leaders for the global demands.</p>
                 <p className="h6 mb-
                         4">Challenge yourself to change the world</p>
                 <p>Education becomes meaningful only when it can change the world when necessary. This is what my colleagues and I are working for every single day of the week at FA. I hope that you will find whatever information you may need here and if not please feel free to let me know. I warmly welcome your comments and suggestions. Thank you very much for your kind visit.</p>
@@ -301,7 +301,7 @@ export default function FacultySubDetailsPage() {
                   <h5 className="rts__single--event--meta--title">
                     <Link href="/event-details">
                       Sustainability Showcase: Green
-                      Living at SU Website </Link>
+                      Living at Sonargaon University </Link>
                   </h5>
                   <Link href="/event-details" className="rts__round--btn">
                     <i className="fa-light fa-arrow-right"></i>

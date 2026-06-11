@@ -151,7 +151,7 @@ export default function BlogListPage() {
                     <p>B.A. in Africana Studies</p>
                     <div className="contact-info">
                       <h5>Contact:</h5>
-                      <a href="mailto:barry.suwebsite@info.com">barry.suwebsite@info.com</a>
+                      <a href="mailto:info@su.edu.bd">info@su.edu.bd</a>
                       <a href="callto:121">664-254-251</a>
                     </div>
                     <div className="social-info">

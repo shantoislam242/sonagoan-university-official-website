@@ -90,8 +90,8 @@ export default function AdmissionPage() {
                         </tbody>
                       </table>
                     </div>
-                    <p> SU Website reserves the right to evaluate an application and render a final decision even if all pieces of the application have not been received.</p>
-                    <p className="w-95 mx-0">Applicants are limited to a total of three applications for undergraduate admission, whether for first-year admission, transfer admission or a <br />combination of both. If you have submitted fewer than three applications to SU Website, you may reapply.
+                    <p> Sonargaon University reserves the right to evaluate an application and render a final decision even if all pieces of the application have not been received.</p>
+                    <p className="w-95 mx-0">Applicants are limited to a total of three applications for undergraduate admission, whether for first-year admission, transfer admission or a <br />combination of both. If you have submitted fewer than three applications to Sonargaon University, you may reapply.
                     </p>
                   </div>
                 </div>
@@ -128,7 +128,7 @@ export default function AdmissionPage() {
                   <p>B.A. in Africana Studies</p>
                   <div className="contact-info">
                     <h5>Contact:</h5>
-                    <a href="mailto:barry.suwebsite@info.com">barry.suwebsite@info.com</a>
+                    <a href="mailto:info@su.edu.bd">info@su.edu.bd</a>
                     <a href="callto:121">664-254-251</a>
                   </div>
                   <div className="social-info">

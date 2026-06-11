@@ -205,7 +205,7 @@ export default function IndexFourPage() {
                   <span>History</span>
                 </h2>
                 <div className="left-section-content">
-                  <p>Founded on the principles of knowledge, innovation, and community, SU Website University has a storied history that spans decades of academic excellence and societal impact. Our journey began with a vision to create a center of learning that would not only shape individual futures but contribute to the advancement of society as a whole.</p>
+                  <p>Founded on the principles of knowledge, innovation, and community, Sonargaon University has a storied history that spans decades of academic excellence and societal impact. Our journey began with a vision to create a center of learning that would not only shape individual futures but contribute to the advancement of society as a whole.</p>
                   <Link href="/campus-life" className="rts-theme-btn primary btn-arrow">
                     Read More<span><i className="fa-thin fa-arrow-right"></i></span>
                   </Link>
@@ -248,7 +248,7 @@ export default function IndexFourPage() {
                       <img src="/assets/images/program/icon/03.svg" alt="education" />
                     </div>
                     <Link href="/program-single" className="program-link">Graduate Admissions</Link>
-                    <p>Embark on a journey of knowledge, discovery, and growth at SU Website University.</p>
+                    <p>Embark on a journey of knowledge, discovery, and growth at Sonargaon University.</p>
                     <Link href="/program-single" className="about-btn rts-nbg-btn btn-arrow rt-white before-white">
                       Visit Program <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span>
                     </Link>
@@ -292,7 +292,7 @@ export default function IndexFourPage() {
                       <img src="/assets/images/program/icon/01.svg" alt="education" />
                     </div>
                     <Link href="/program-single" className="program-link">Online Education</Link>
-                    <p>Embark on a journey of knowledge, discovery, and growth at SU Website University.</p>
+                    <p>Embark on a journey of knowledge, discovery, and growth at Sonargaon University.</p>
                     <Link href="/program-single" className="about-btn rts-nbg-btn btn-arrow rt-white before-white">
                       Visit Program <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span>
                     </Link>
@@ -327,8 +327,8 @@ export default function IndexFourPage() {
           <div className="row justify-content-sm-center">
             <div className="col-lg-12 col-sm-11">
               <div className="rts-section mb--40 rt-between">
-                <h2 className="rts-section-title w-440">How to Apply to SU Website University</h2>
-                <p className="w-520">If you have any questions or need assistance at any step of the application process, our admissions team is here to help. We look forward to welcoming you to SU Website University.</p>
+                <h2 className="rts-section-title w-440">How to Apply to Sonargaon University</h2>
+                <p className="w-520">If you have any questions or need assistance at any step of the application process, our admissions team is here to help. We look forward to welcoming you to Sonargaon University.</p>
               </div>
             </div>
           </div>
@@ -344,7 +344,7 @@ export default function IndexFourPage() {
                   <img src="/assets/images/icon/07.svg" alt="" />
                 </div>
                 <a href="#">Create an Account:</a>
-                <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at SU Website University</p>
+                <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at Sonargaon University</p>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-sm-11">
@@ -357,7 +357,7 @@ export default function IndexFourPage() {
                   <img src="/assets/images/icon/06.svg" alt="" />
                 </div>
                 <a href="#">Online Application</a>
-                <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at SU Website University</p>
+                <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at Sonargaon University</p>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-sm-11">
@@ -370,7 +370,7 @@ export default function IndexFourPage() {
                   <img src="/assets/images/icon/06.svg" alt="" />
                 </div>
                 <a href="#">Programs &amp; Requirements</a>
-                <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at SU Website University</p>
+                <p>Take the time to explore the diverse range of undergraduate and graduate programs offered at Sonargaon University</p>
               </div>
             </div>
           </div>
@@ -392,7 +392,7 @@ export default function IndexFourPage() {
                   <h2 className="rts-section-title mt--80 mb--20">
                     University Research Centers and Institutes:
                   </h2>
-                  <p>Discover a network of cutting-edge research centers and institutes that serve as hubs of innovation within SU Website University From state-of-the-art laboratories.</p>
+                  <p>Discover a network of cutting-edge research centers and institutes that serve as hubs of innovation within Sonargaon University From state-of-the-art laboratories.</p>
                   <div className="research-subject mt--30">
                     <div className="single-research">
                       <div className="icon">

@@ -106,7 +106,7 @@ export default function IndexThreePage() {
               <div className="rts__section--wrapper v__2">
                 <h2 className="rts__section--title text-capitalize">Our Programs</h2>
                 <p className="rts__section--description">
-                  Embark on a journey of knowledge, discovery, and growth at SU Website University.
+                  Embark on a journey of knowledge, discovery, and growth at Sonargaon University.
                   Our admissions process is designed identify bright, motivated individuals who are
                   eager contribute to our dynamic academic community.
                 </p>
@@ -131,8 +131,7 @@ export default function IndexThreePage() {
                     >
                       <h5 className="rts__program--item--title">Summer Program</h5>
                       <p className="rts__program--item--description">
-                        Embark on a journey of knowledge discovery, and growth at SU Website
-                        University.
+                        Embark on a journey of knowledge discovery, and growth at Sonargaon University.
                       </p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">
                         Learn More
@@ -149,8 +148,7 @@ export default function IndexThreePage() {
                     >
                       <h5 className="rts__program--item--title">Undergraduate</h5>
                       <p className="rts__program--item--description">
-                        Embark on a journey of knowledge discovery, and growth at SU Website
-                        University.
+                        Embark on a journey of knowledge discovery, and growth at Sonargaon University.
                       </p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">
                         Learn More
@@ -170,8 +168,7 @@ export default function IndexThreePage() {
                     >
                       <h5 className="rts__program--item--title">Summer Program</h5>
                       <p className="rts__program--item--description">
-                        Embark on a journey of knowledge discovery, and growth at SU Website
-                        University.
+                        Embark on a journey of knowledge discovery, and growth at Sonargaon University.
                       </p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">
                         Learn More
@@ -188,8 +185,7 @@ export default function IndexThreePage() {
                     >
                       <h5 className="rts__program--item--title">Online Program</h5>
                       <p className="rts__program--item--description">
-                        Embark on a journey of knowledge discovery, and growth at SU Website
-                        University.
+                        Embark on a journey of knowledge discovery, and growth at Sonargaon University.
                       </p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">
                         Learn More
@@ -215,7 +211,7 @@ export default function IndexThreePage() {
             <div className="col-lg-6 col-xl-5 col-md-10 col-sm-11">
               <div className="rts-left-section">
                 <h2 className="section-title rt-white mb--55">
-                  Embark on a Journey: Unveiling the Story of su-website University
+                  Embark on a Journey: Unveiling the Story of Sonargaon University
                 </h2>
                 <Link
                   href="/about"
@@ -232,8 +228,7 @@ export default function IndexThreePage() {
             <div className="col-lg-6 col-xl-7 col-md-10 col-sm-11">
               <div className="rts-right-section rt-relative">
                 <p className="rt-white mb--40">
-                  Embark on a journey of knowledge, discovery, and growth at SU Website
-                  University. Our admissions process is designed to identify bright, motivated
+                  Embark on a journey of knowledge, discovery, and growth at Sonargaon University. Our admissions process is designed to identify bright, motivated
                   individuals who are eager to contribute to our dynamic academic community.
                 </p>
                 <img className="round" src="/assets/images/feature/01.jpg" alt="campus images" />
@@ -280,10 +275,10 @@ export default function IndexThreePage() {
               <div className="rts__section--wrapper v__7">
                 <h2 className="rts__section--title">
                   Tuition Fees at
-                  SU Website University
+                  Sonargaon University
                 </h2>
                 <p className="rts__section--description">
-                  At SU Website University Name we are committed to providing a high-quality
+                  At Sonargaon University Name we are committed to providing a high-quality
                   education that is accessible to a diverse range of students.
                 </p>
                 <Link href="/tution-fee" className="rts-theme-btn btn-arrow">
@@ -344,10 +339,10 @@ export default function IndexThreePage() {
               <div className="col-lg-6">
                 <div className="campus__right--text">
                   <h2 className="campus__right--text--title">
-                    Thriving Beyond Classes Campus Life at su-website
+                    Thriving Beyond Classes Campus Life at Sonargaon University
                   </h2>
                   <p className="campus__right--text--description">
-                    Step into a World of Possibilities: SU Website Campus Life is a Hub of Energy,
+                    Step into a World of Possibilities: Sonargaon University Campus Life is a Hub of Energy,
                     Creativity, and Collaboration. Discover a Home Away from Home Where Every
                     Moment Counts.&quot;
                   </p>
@@ -371,8 +366,8 @@ export default function IndexThreePage() {
               <div className="rts__section--wrapper v__9">
                 <h2 className="rts__section--title">Apply for Admission</h2>
                 <p className="rts__section--description">
-                  Welcome to the gateway of possibilities your admission to SU Website University.
-                  At SU Website, we understand.
+                  Welcome to the gateway of possibilities your admission to Sonargaon University.
+                  At Sonargaon University, we understand.
                 </p>
               </div>
             </div>
@@ -615,7 +610,7 @@ export default function IndexThreePage() {
                   <h5 className="rts__single--event--meta--title">
                     <Link href="/event-details">
                       Sustainability Showcase: Green
-                      Living at SU Website{' '}
+                      Living at Sonargaon University{' '}
                     </Link>
                   </h5>
                   <Link href="/event-details" className="rts__round--btn">

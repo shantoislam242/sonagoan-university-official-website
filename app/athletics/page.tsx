@@ -40,7 +40,7 @@ export default function AthleticsPage() {
               <div className="col-lg-6">
                 <div className="right-content">
                   <div className="right-content__section">
-                    <h2 className="rts-section-title mb--15">SU Website Athletics opens
+                    <h2 className="rts-section-title mb--15">Sonargaon University Athletics opens
                       the vault to sports
                     </h2>
                     <p className="description">

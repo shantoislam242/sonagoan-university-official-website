@@ -44,7 +44,7 @@ export default function NoticeDetailsPage() {
                     </p>
 
                     <p><b>1. Program Offerings:</b>
-                      SU Website University offers a diverse range of undergraduate
+                      Sonargaon University offers a diverse range of undergraduate
                       programs across
                       various disciplines, including but not limited to Arts, Sciences, Engineering,
                       Business, and Humanities. Detailed
@@ -93,8 +93,7 @@ export default function NoticeDetailsPage() {
                     </p>
 
                     <p>
-                      We look forward to receiving your application and welcoming you to SU Website
-                      University as part of our
+                      We look forward to receiving your application and welcoming you to Sonargaon University as part of our
                       vibrant academic community.
                     </p>
 
@@ -109,7 +108,7 @@ export default function NoticeDetailsPage() {
                       <b>Assistant Professor</b>
                     </p>
                     <p>
-                      <b>SU Website University</b>
+                      <b>Sonargaon University</b>
 
                     </p>
                   </div>

@@ -84,7 +84,7 @@ export default function AcademicPage() {
             <div className="col-lg-5 col-md-11">
               <div className="rts-multi-row-content">
                 <h4 className="row-title">Undergraduate Education</h4>
-                <p>SU Website Undergrad is your guide to undergraduate academics and opportunities run by the Vice Provost for Undergraduate Education.</p>
+                <p>Sonargaon University Undergrad is your guide to undergraduate academics and opportunities run by the Vice Provost for Undergraduate Education.</p>
                 <div className="program-list">
                   <Link href="/program-single" className="program-item"><span>Africana Studies <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
                   <Link href="/program-single" className="program-item"><span>Accounting, BS <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
@@ -127,8 +127,8 @@ export default function AcademicPage() {
                 <div className="program-list">
                   <div className="single-list">
                     <h4 className="row-title">Lifelong Learning</h4>
-                    <p>SU Website offers a wide range of programs, classes, internships, and an entire online high school.</p>
-                    <a href="#" className="about-btn rts-nbg-btn btn-arrow">SU Website Undergraduate <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></a>
+                    <p>Sonargaon University offers a wide range of programs, classes, internships, and an entire online high school.</p>
+                    <a href="#" className="about-btn rts-nbg-btn btn-arrow">Sonargaon University Undergraduate <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></a>
                   </div>
                   <div className="single-list">
                     <h4 className="row-title">Professional Development</h4>
@@ -159,7 +159,7 @@ export default function AcademicPage() {
             </div>
             <div className="col-lg-8">
               <div className="rts-video-section-text rt-center mx-3">
-                <p>Embark on a journey of knowledge, discovery, and growth at SU Website University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you&apos;re a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
+                <p>Embark on a journey of knowledge, discovery, and growth at Sonargaon University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you&apos;re a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
                 <Link href="/campus-life" className="mt--15 about-btn rts-nbg-btn btn-arrow">Visit Campus <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></Link>
               </div>
             </div>

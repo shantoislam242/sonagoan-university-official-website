@@ -43,7 +43,7 @@ export default function DepartmentDetailsPage() {
                   <div className="program-about">
                     <h4 className="title">About The Program</h4>
                     <p>The Department of English, under the Faculty of Arts &amp; Social Sciences (FA), started its journey with two predominant visions: first, to enhance and nourish students&rsquo; mental, ethical, and creative facets of their personality; secondly, to prepare themselves for efficient professional and technical employment in future. There can be no denying that ethics, values, morality and creativity are the essential ingredients of nation-building.</p>
-                    <p>As a pioneering private university of this country, SU Website has always been committed to imparting these ingredients among its students as the larger concerns of society. The Department of English firmly believes that value-education can bring excellence in leadership, and consequently excellence in nation-building.</p>
+                    <p>As a pioneering private university of this country, Sonargaon University has always been committed to imparting these ingredients among its students as the larger concerns of society. The Department of English firmly believes that value-education can bring excellence in leadership, and consequently excellence in nation-building.</p>
                   </div>
                   {/* TODO: Faculty Members */}
                   <div className="row g-5 faculty-sub-details mt--40">

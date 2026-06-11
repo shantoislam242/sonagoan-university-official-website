@@ -40,7 +40,7 @@ export default function FacultyDetailsPage() {
                       <a href="#"><i className="fa-brands fa-medium"></i></a>
                       <a href="#"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <a href="mailto:jenni@suwebsite.edu" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>jenni@suwebsite.edu</a>
+                    <a href="mailto:info@su.edu.bd" className="email-contact"><span><i className="fa-light fa-envelope"></i></span>info@su.edu.bd</a>
                     <a href="calltto:121" className="phone-contact"><span><i className="fa-light fa-phone"></i></span>+122451247241</a>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ export default function FacultyDetailsPage() {
                   <div className="short-info">
                     <h5 className="rts-section-title">Biography</h5>
                     <p className="description">
-                      She began teaching primarily Latin and Classics-related courses at SU Website in January of 2008. Katherine serves as the advisor for the Classics National Honor Society (ΗΣΦ) and OGRE (Order of Greco-Roman Enthusiasts), as well as being an active member of the Interdisciplinary Center of Hellenic Studies (ICHS) and the Friends of Hellenic Studies (FHS). Her research focuses on the ancient Greek and Roman novels. Katherine is currently working on three manuscripts. The first focuses on the role of pirates and robbers in the ancient novels and the other two are in collaboration with former students: one is an intermediate Greek text on Aesop&rsquo;s Fables; the other is a collection of essays on suicide in the ancient Greco-Roman world.
+                      She began teaching primarily Latin and Classics-related courses at Sonargaon University in January of 2008. Katherine serves as the advisor for the Classics National Honor Society (ΗΣΦ) and OGRE (Order of Greco-Roman Enthusiasts), as well as being an active member of the Interdisciplinary Center of Hellenic Studies (ICHS) and the Friends of Hellenic Studies (FHS). Her research focuses on the ancient Greek and Roman novels. Katherine is currently working on three manuscripts. The first focuses on the role of pirates and robbers in the ancient novels and the other two are in collaboration with former students: one is an intermediate Greek text on Aesop&rsquo;s Fables; the other is a collection of essays on suicide in the ancient Greco-Roman world.
                     </p>
                     <h5 className="rts-section-title">Education</h5>
                     <p className="description">Ph.D., The Ohio State University</p>

@@ -30,8 +30,8 @@ export default function ScholarshipPage() {
                     <img src="/assets/images/course/scholarship-big.jpg" alt="program" />
                   </div>
                   <div className="program-about">
-                    <h4 className="title">Scholarship Opportunities at SU Website University</h4>
-                    <p>At SU Website University, we are committed to supporting academic excellence and ensuring that deserving students have access to quality education. Through a range of scholarship opportunities, we aim to recognize and reward outstanding achievements. Explore the various scholarships available:</p>
+                    <h4 className="title">Scholarship Opportunities at Sonargaon University</h4>
+                    <p>At Sonargaon University, we are committed to supporting academic excellence and ensuring that deserving students have access to quality education. Through a range of scholarship opportunities, we aim to recognize and reward outstanding achievements. Explore the various scholarships available:</p>
                   </div>
                   <div className="repeating-content">
                     <h5 className="title">Merit-Based Scholarships</h5>
@@ -134,7 +134,7 @@ export default function ScholarshipPage() {
                       </div>
                     </div>
                     <p className="desc mt--40">
-                      For detailed information on eligibility criteria, application deadlines, and the application process for each scholarship, please visit our [Scholarships] page or contact the SU Website University Financial Aid Office.
+                      For detailed information on eligibility criteria, application deadlines, and the application process for each scholarship, please visit our [Scholarships] page or contact the Sonargaon University Financial Aid Office.
                     </p>
                   </div>
 
@@ -142,10 +142,10 @@ export default function ScholarshipPage() {
                   {/* si = scholarship-information */}
                   <div className="si">
                     <h4 className="title">Scholarship Requirements at
-                      SU Website University
+                      Sonargaon University
                     </h4>
                     <p>
-                      At SU Website University, we believe in recognizing and supporting exceptional talent and achievements. Our scholarship programs aim to provide financial assistance
+                      At Sonargaon University, we believe in recognizing and supporting exceptional talent and achievements. Our scholarship programs aim to provide financial assistance
                     </p>
                     <div className="si__list">
                       <ul className="list-unstyled">
@@ -184,7 +184,7 @@ export default function ScholarshipPage() {
                       <div className="accordion" id="rts-accordion">
                         <div className="accordion-item">
                           <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What are the admission requirements for SU Website University?
+                            What are the admission requirements for Sonargaon University?
                           </button>
                           <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#rts-accordion">
                             <div className="accordion-body">
@@ -208,7 +208,7 @@ export default function ScholarshipPage() {
                         </div>
                         <div className="accordion-item">
                           <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            How do I contact SU Website University?
+                            How do I contact Sonargaon University?
                           </button>
                           <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#rts-accordion">
                             <div className="accordion-body">
@@ -289,7 +289,7 @@ export default function ScholarshipPage() {
                     <p>B.A. in Africana Studies</p>
                     <div className="contact-info">
                       <h5>Contact:</h5>
-                      <a href="mailto:barry.suwebsite@info.com">barry.suwebsite@info.com</a>
+                      <a href="mailto:info@su.edu.bd">info@su.edu.bd</a>
                       <a href="callto:121">664-254-251</a>
                     </div>
                     <div className="social-info">

@@ -105,7 +105,7 @@ export default function ContactPage() {
                     <p className="description">University of London, 15 Talbot Square, Tyburnia, London W2 1TT, UK</p>
                     <div className="contact-link">
                       <a href="callto:+442078628360">+44 20 7862 8360</a>
-                      <a href="mailto:suwebsite.info@edu">suwebsite.info@edu</a>
+                      <a href="mailto:info@su.edu.bd">info@su.edu.bd</a>
                     </div>
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
                     <p className="description">80 Washington Square E, New York, NY 10003, USA</p>
                     <div className="contact-link">
                       <a href="callto:+442078628360">+44 20 7862 8360</a>
-                      <a href="mailto:suwebsite.info@edu">suwebsite.info@edu</a>
+                      <a href="mailto:info@su.edu.bd">info@su.edu.bd</a>
                     </div>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ export default function ContactPage() {
                     <p className="description">Center for Computing & Data Sciences, 665 Commonwealth Ave, Boston, MA 02215, USA</p>
                     <div className="contact-link">
                       <a href="callto:+442078628360">+44 20 7862 8360</a>
-                      <a href="mailto:suwebsite.info@edu">suwebsite.info@edu</a>
+                      <a href="mailto:info@su.edu.bd">info@su.edu.bd</a>
                     </div>
                   </div>
                 </div>

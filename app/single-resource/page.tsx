@@ -26,7 +26,7 @@ export default function SingleResourcePage() {
                 <h3 className="rts-section-title">Unleashing Curiosity &ndash; Science Resources for Young Minds.</h3>
               </div>
               <div className="col-lg-6">
-                <p className="rts-section-description">At SU Website school, our Science Resources are designed to spark curiosity, creativity, and critical thinking among students. Through interactive learning, experiments, and real-world applications, we make science fun and engaging.</p>
+                <p className="rts-section-description">At Sonargaon University school, our Science Resources are designed to spark curiosity, creativity, and critical thinking among students. Through interactive learning, experiments, and real-world applications, we make science fun and engaging.</p>
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function SingleResourcePage() {
                   </div>
                   <div className="program-about">
                     <h4 className="title">About The Program</h4>
-                    <p>At SU Website School, we believe that science is the key to understanding the world around us. Our Science Resources are designed to ignite curiosity, foster creativity, and develop problem-solving skills in young learners. Through interactive experiments, hands-on projects, and real-world applications, students explore the fundamentals of life sciences, physical sciences, and earth sciences.</p>
+                    <p>At Sonargaon University School, we believe that science is the key to understanding the world around us. Our Science Resources are designed to ignite curiosity, foster creativity, and develop problem-solving skills in young learners. Through interactive experiments, hands-on projects, and real-world applications, students explore the fundamentals of life sciences, physical sciences, and earth sciences.</p>
                     <p>We encourage students to think critically, ask questions, and discover answers through guided exploration. Our engaging science lessons help students connect theoretical knowledge with practical experiences, making learning both fun and meaningful.</p>
                   </div>
                   <ul className="program__list">
@@ -174,7 +174,7 @@ export default function SingleResourcePage() {
                       <div className="accordion" id="rts-accordion">
                         <div className="accordion-item expanded">
                           <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What are the admission requirements for SU Website University?
+                            What are the admission requirements for Sonargaon University?
                           </button>
                           <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#rts-accordion">
                             <div className="accordion-body">
@@ -198,7 +198,7 @@ export default function SingleResourcePage() {
                         </div>
                         <div className="accordion-item">
                           <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            How do I contact SU Website University?
+                            How do I contact Sonargaon University?
                           </button>
                           <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#rts-accordion">
                             <div className="accordion-body">
@@ -243,7 +243,7 @@ export default function SingleResourcePage() {
                     <p>B.A. in Africana Studies</p>
                     <div className="contact-info">
                       <h5>Contact:</h5>
-                      <a href="mailto:barry.suwebsite@info.com">barry.suwebsite@info.com</a>
+                      <a href="mailto:info@su.edu.bd">info@su.edu.bd</a>
                       <a href="callto:121">664-254-251</a>
                     </div>
                     <div className="social-info">

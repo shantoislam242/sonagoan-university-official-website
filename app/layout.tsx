@@ -24,7 +24,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'SU Website',
+  title: 'Sonargaon University',
   description: 'Sonargoan University official website.',
   icons: {
     icon: '/assets/images/fav.svg',

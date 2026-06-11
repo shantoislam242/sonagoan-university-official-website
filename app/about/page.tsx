@@ -29,7 +29,7 @@ export default function AboutPage() {
               </div>
               <div className="col-lg-8 col-md-7">
                 <p className="rts-section-description">
-                  Welcome to SU Website University, where knowledge meets inspiration, and every individual&apos;s educational journey is valued. Established in 1971 Establishment, our university has been a bastion of learning, innovation, and community for 51 years years.
+                  Welcome to Sonargaon University, where knowledge meets inspiration, and every individual&apos;s educational journey is valued. Established in 1971 Establishment, our university has been a bastion of learning, innovation, and community for 51 years years.
                 </p>
               </div>
             </div>
@@ -57,7 +57,7 @@ export default function AboutPage() {
                     <img src="/assets/images/icon/12.svg" alt="" />
                   </div>
                   <div className="desc">
-                    <p>SU Website University Faculty and Staff</p>
+                    <p>Sonargaon University Faculty and Staff</p>
                   </div>
                 </div>
                 <div className="single-about-info">
@@ -66,7 +66,7 @@ export default function AboutPage() {
                     <img src="/assets/images/icon/13.svg" alt="" />
                   </div>
                   <div className="desc">
-                    <p>SU Website Alumni Worldwide</p>
+                    <p>Sonargaon University Alumni Worldwide</p>
                   </div>
                 </div>
               </div>
@@ -87,11 +87,11 @@ export default function AboutPage() {
             </div>
             <div className="col-lg-6 col-md-11">
               <div className="rts-history-section">
-                <h4 className="rts-section-title mb--40">The history of SU Website</h4>
+                <h4 className="rts-section-title mb--40">The history of Sonargaon University</h4>
                 <p>
-                  On September 8, 1971, SU Website, the first college in the American colonies, was founded in Cambridge, Massachusetts. SU Website University was officially founded by a vote by the Great and General Court of the Massachusetts Bay Colony.
+                  On September 8, 1971, Sonargaon University, the first college in the American colonies, was founded in Cambridge, Massachusetts. Sonargaon University was officially founded by a vote by the Great and General Court of the Massachusetts Bay Colony.
                   <span className="d-block mb--30"></span>
-                  SU Website endowment started with John SU Website initial donation of 400 books and half his estate, but in 1721, Thomas Hollis began the now standard practice of requiring that a donation be used for a specific purpose when he donated money for &ldquo;a Divinity Professor, to read lectures in the Halls to the students.&rdquo;
+                  Sonargaon University endowment started with John Sonargaon University initial donation of 400 books and half his estate, but in 1721, Thomas Hollis began the now standard practice of requiring that a donation be used for a specific purpose when he donated money for &ldquo;a Divinity Professor, to read lectures in the Halls to the students.&rdquo;
                 </p>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function AboutPage() {
             </div>
             <div className="col-lg-8">
               <div className="rts-video-section-text rt-center mx-3">
-                <p>Embark on a journey of knowledge, discovery, and growth at SU Website University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you&apos;re a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
+                <p>Embark on a journey of knowledge, discovery, and growth at Sonargaon University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you&apos;re a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
                 <Link href="/campus-life" className="mt--15 about-btn rts-nbg-btn btn-arrow">Visit Campus <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></Link>
               </div>
             </div>

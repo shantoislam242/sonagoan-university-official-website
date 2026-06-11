@@ -38,11 +38,11 @@ export default function IndexFivePage() {
                       <h5 className="banner__sub__heading"><img src="/assets/images/icon/e-cap-small.svg" alt="" /> knowledge meets innovation</h5>
                       <h1 className="banner__heading__title">
                         Explore Boundless
-                        Opportunities at SU Website
+                        Opportunities at Sonargaon University
                       </h1>
                     </div>
                     <div className="banner__content__right">
-                      <p className="banner__description__text">Welcome to SU Website, where academic excellence converges with a vibrant community spirit to shape the leaders of tomorrow. Nestled within our historic campus, SU Website offers a dynamic environment.</p>
+                      <p className="banner__description__text">Welcome to Sonargaon University, where academic excellence converges with a vibrant community spirit to shape the leaders of tomorrow. Nestled within our historic campus, Sonargaon University offers a dynamic environment.</p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">View Our Program<span><i className="fa-sharp fa-regular fa-arrow-right"></i>
                       </span></Link>
                     </div>
@@ -55,7 +55,7 @@ export default function IndexFivePage() {
                             <path id="circle" d="M50,50 m-37,0a37,37 0 1,1 74,0a37,37 0 1,1 -74,0"></path>
                           </defs>
                           <text>
-                            <textPath xlinkHref="#circle">SU Website University * Estd. 1971 * Explore Future *</textPath>
+                            <textPath xlinkHref="#circle">Sonargaon University * Estd. 1971 * Explore Future *</textPath>
                           </text>
                         </svg>
                         <div className="rts__circle--icon save-from-hidden">
@@ -159,14 +159,13 @@ export default function IndexFivePage() {
                   <img src="/assets/images/icon/e-cap-small.svg" alt="" /> about
                 </h6>
                 <h2 className="rts__section--title mb-0">
-                  History SU Website
-                  University
+                  History Sonargaon University
                 </h2>
               </div>
             </div>
             <div className="col-lg-8">
               <p className="about__description__text">
-                Welcome to SU Website, where academic excellence, innovation, and community thrive. Nestled in the heart of USA, our university is dedicated to fostering a diverse and inclusive environment where students from all walks of life can thrive and excel. With a rich history of scholarship and a commitment to cutting-edge research, SU Website offers a wide range of programs across various disciplines, ensuring that every student can find their passion and pursue their goals.
+                Welcome to Sonargaon University, where academic excellence, innovation, and community thrive. Nestled in the heart of USA, our university is dedicated to fostering a diverse and inclusive environment where students from all walks of life can thrive and excel. With a rich history of scholarship and a commitment to cutting-edge research, Sonargaon University offers a wide range of programs across various disciplines, ensuring that every student can find their passion and pursue their goals.
               </p>
             </div>
           </div>
@@ -191,7 +190,7 @@ export default function IndexFivePage() {
                   <img src="/assets/images/icon/e-cap-small.svg" alt="" /> program
                 </h6>
                 <h2 className="rts__section--title text-capitalize">Our Programs</h2>
-                <p className="rts__section--description">Embark on a journey of knowledge, discovery, and growth at SU Website University. Our admissions process is designed identify bright, motivated individuals who are eager contribute to our dynamic academic community.</p>
+                <p className="rts__section--description">Embark on a journey of knowledge, discovery, and growth at Sonargaon University. Our admissions process is designed identify bright, motivated individuals who are eager contribute to our dynamic academic community.</p>
                 <div className="campus__vector">
                   <img src="/assets/images/campus/campus__vector.svg" alt="" />
                 </div>
@@ -206,7 +205,7 @@ export default function IndexFivePage() {
                   <div className="program__content">
                     <div className="rts__program--item v__2" style={{ backgroundImage: 'url(/assets/images/program/program__1.jpg)' }}>
                       <h5 className="rts__program--item--title">Summer Program</h5>
-                      <p className="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at SU Website University.</p>
+                      <p className="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Sonargaon University.</p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">Learn More<span><i className="fa-sharp fa-regular fa-arrow-right"></i>
                       </span></Link>
                       <h5 className="rts__program--item--title--show">Summer Program</h5>
@@ -214,7 +213,7 @@ export default function IndexFivePage() {
                     {/* second one */}
                     <div className="rts__program--item v__2" style={{ backgroundImage: 'url(/assets/images/program/program__2.jpg)' }}>
                       <h5 className="rts__program--item--title">Undergraduate</h5>
-                      <p className="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at SU Website University.</p>
+                      <p className="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Sonargaon University.</p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">Learn More<span><i className="fa-sharp fa-regular fa-arrow-right"></i>
                       </span></Link>
                       <h5 className="rts__program--item--title--show">Undergraduate</h5>
@@ -225,7 +224,7 @@ export default function IndexFivePage() {
                   <div className="program__content mt--85">
                     <div className="rts__program--item v__2" style={{ backgroundImage: 'url(/assets/images/program/program__3.jpg)' }}>
                       <h5 className="rts__program--item--title">Summer Program</h5>
-                      <p className="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at SU Website University.</p>
+                      <p className="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Sonargaon University.</p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">Learn More<span><i className="fa-sharp fa-regular fa-arrow-right"></i>
                       </span></Link>
                       <h5 className="rts__program--item--title--show">Summer Program</h5>
@@ -233,7 +232,7 @@ export default function IndexFivePage() {
                     {/* second one */}
                     <div className="rts__program--item v__2" style={{ backgroundImage: 'url(/assets/images/program/program__4.jpg)' }}>
                       <h5 className="rts__program--item--title">Online Program</h5>
-                      <p className="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at SU Website University.</p>
+                      <p className="rts__program--item--description">Embark on a journey of knowledge discovery, and growth at Sonargaon University.</p>
                       <Link href="/program-single" className="rts-nbg-btn btn-arrow">Learn More<span><i className="fa-sharp fa-regular fa-arrow-right"></i>
                       </span></Link>
                       <h5 className="rts__program--item--title--show">Online Program</h5>
@@ -261,10 +260,10 @@ export default function IndexFivePage() {
               <div className="col-lg-6">
                 <div className="campus__right--text">
                   <h2 className="campus__right--text--title">
-                    Thriving Beyond Classes Campus Life at su-website
+                    Thriving Beyond Classes Campus Life at Sonargaon University
                   </h2>
                   <p className="campus__right--text--description">
-                    Step into a World of Possibilities: SU Website Campus Life is a Hub of Energy, Creativity, and Collaboration. Discover a Home Away from Home Where Every Moment Counts.&quot;
+                    Step into a World of Possibilities: Sonargaon University Campus Life is a Hub of Energy, Creativity, and Collaboration. Discover a Home Away from Home Where Every Moment Counts.&quot;
                   </p>
                 </div>
               </div>
@@ -388,7 +387,7 @@ export default function IndexFivePage() {
                 <h6 className="rts__section--subheading">
                   <img src="/assets/images/icon/e-cap-small.svg" alt="" /> research
                 </h6>
-                <h2 className="rts__section--title">SU Website Research
+                <h2 className="rts__section--title">Sonargaon University Research
                   Centers </h2>
               </div>
               <div className="rts__section--details">
@@ -612,7 +611,7 @@ export default function IndexFivePage() {
                   <h5 className="rts__single--event--meta--title">
                     <Link href="/event-details">
                       Sustainability Showcase: Green
-                      Living at SU Website </Link>
+                      Living at Sonargaon University </Link>
                   </h5>
                   <Link href="/event-details" className="rts__round--btn">
                     <i className="fa-light fa-arrow-right"></i>

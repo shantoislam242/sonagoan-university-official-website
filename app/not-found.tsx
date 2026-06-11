@@ -3,7 +3,7 @@ import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
 
 export const metadata = {
-  title: 'Page not found | SU Website',
+  title: 'Page not found | Sonargaon University',
   description: 'The page you are looking for could not be found.',
 };
 
