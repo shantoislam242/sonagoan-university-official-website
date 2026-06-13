@@ -1,6 +1,7 @@
 ﻿import { buildMetadata } from '@/lib/metadata';
 import HeaderHomeThree from '@/components/layout/HeaderHomeThree';
 import FooterHomeThree from '@/components/layout/FooterHomeThree';
+import Container from '@/components/ui/Container';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
@@ -96,6 +97,48 @@ export default function IndexThreePage() {
         </div>
       </div>
       {/* header banner end */}
+
+      {/* mission section — centered intro (Stanford-style), SU theme */}
+      <section style={{ background: '#ffffff', padding: '90px 0' }}>
+        <Container className="!max-w-[1600px]">
+          <div style={{ textAlign: 'center' }}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-poppins), Poppins, sans-serif',
+              fontWeight: 700,
+              color: '#2B3175',
+              fontSize: 'clamp(28px, 4vw, 44px)',
+              lineHeight: 1.2,
+              marginBottom: 28,
+            }}
+          >
+            A Mission Defined by Possibility
+          </h2>
+          <p
+            style={{
+              color: '#5B5B78',
+              fontSize: 'clamp(17px, 1.9vw, 21px)',
+              lineHeight: 1.9,
+              marginBottom: 40,
+            }}
+          >
+            The mission of Sonargaon University is to impart world-class education and
+            provide research facilities so that students can attain their full
+            intellectual, social and personal potentials. SU also wants to create
+            facilities for higher education to the students of Bangladesh at an
+            affordable cost, keeping in view the challenges of the twenty-first century.
+            SU is committed to developing human capital by cultivating creative thinking
+            in individuals, and offers education through modern modes of teaching.
+          </p>
+          <Link href="/mission-vision" className="rts-theme-btn btn-arrow">
+            Explore Our Vision
+            <span>
+              <i className="fa-regular fa-arrow-right"></i>
+            </span>
+          </Link>
+          </div>
+        </Container>
+      </section>
 
       {/* our program */}
       {/* TODO: Programs */}
