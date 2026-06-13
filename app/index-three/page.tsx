@@ -200,7 +200,7 @@ export default function IndexThreePage() {
                 }}
               >
                 <div style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, fontSize: 26, lineHeight: 1 }}>
-                  6,000+
+                  21,000+
                 </div>
                 <div style={{ fontSize: 12, letterSpacing: '0.04em', marginTop: 4, opacity: 0.9 }}>
                   students since 2012
@@ -221,7 +221,7 @@ export default function IndexThreePage() {
                 {[
                   'Approved by UGC & the Government of Bangladesh',
                   'Sponsored by the non-profit Sonargaon University Trust',
-                  'Over 6,000 students educated since 2012',
+                  'Over 21,000 students educated since 2012',
                   'Guided by a strong Academic Advisory Council',
                 ].map((item) => (
                   <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
