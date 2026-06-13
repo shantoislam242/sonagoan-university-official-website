@@ -2,6 +2,7 @@
 import HeaderHomeThree from '@/components/layout/HeaderHomeThree';
 import FooterHomeThree from '@/components/layout/FooterHomeThree';
 import Container from '@/components/ui/Container';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
@@ -15,6 +16,10 @@ export default function IndexThreePage() {
     <>
       <HeaderHomeThree />
 
+      {/* Sticky hero (Stanford-style): the hero pins at the top while the
+          content below scrolls up over it. Lower z-index keeps it under both
+          the content and the fixed navbar. */}
+      <div style={{ position: 'sticky', top: 0, zIndex: 0 }}>
       {/* header banner */}
       <div className="banner v__2">
         <div className="banner__wrapper">
@@ -97,6 +102,12 @@ export default function IndexThreePage() {
         </div>
       </div>
       {/* header banner end */}
+      </div>
+      {/* end sticky hero */}
+
+      {/* Everything below scrolls up over the pinned hero (opaque bg + higher
+          z-index), but still passes under the fixed navbar. */}
+      <div style={{ position: 'relative', zIndex: 2, background: '#ffffff' }}>
 
       {/* mission section — centered intro (Stanford-style), SU theme */}
       <section style={{ background: '#ffffff', padding: '90px 0' }}>
@@ -139,6 +150,137 @@ export default function IndexThreePage() {
           </div>
         </Container>
       </section>
+
+      {/* About — redesigned, balanced two-column layout */}
+      <section style={{ background: '#ffffff', padding: '90px 0' }}>
+        <Container className="!max-w-[1600px]">
+          <div
+            className="about-grid"
+            style={{ display: 'grid', gap: 56, alignItems: 'center' }}
+          >
+            {/* Header — label + title (sits top-right on desktop, top-centered on mobile) */}
+            <div className="about-header" style={{ gridArea: 'header' }}>
+              <span style={{ display: 'inline-block', color: '#CC1579', fontWeight: 700, fontSize: 13, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>
+                About Us
+              </span>
+              <h2 style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, color: '#2B3175', fontSize: 'clamp(28px, 3.4vw, 40px)', lineHeight: 1.2, margin: 0 }}>
+                About Sonargaon University
+              </h2>
+            </div>
+
+            {/* Images — staggered tilted pair with stat label */}
+            <div className="su-about-imgs" style={{ gridArea: 'images', position: 'relative', display: 'flex', gap: 28, justifyContent: 'center', alignItems: 'flex-start' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="about-img about-img--left"
+                src="/assets/images/about/about__h1.png"
+                alt="Sonargaon University campus"
+                style={{ width: '50%', height: 420, objectFit: 'cover', borderRadius: 14, boxShadow: '0 24px 60px rgba(43,49,117,0.18)', display: 'block' }}
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="about-img about-img--right"
+                src="/assets/images/about/about__h2.png"
+                alt="Sonargaon University building"
+                style={{ width: '50%', height: 420, objectFit: 'cover', borderRadius: 14, marginTop: 70, boxShadow: '0 24px 60px rgba(43,49,117,0.18)', display: 'block' }}
+              />
+              {/* accent stat card */}
+              <div
+                className="about-stat"
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  bottom: 24,
+                  background: 'linear-gradient(135deg, #2B3175, #CC1579)',
+                  color: '#ffffff',
+                  borderRadius: 14,
+                  padding: '16px 22px',
+                  boxShadow: '0 14px 30px rgba(204,21,121,0.30)',
+                  zIndex: 3,
+                }}
+              >
+                <div style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, fontSize: 26, lineHeight: 1 }}>
+                  6,000+
+                </div>
+                <div style={{ fontSize: 12, letterSpacing: '0.04em', marginTop: 4, opacity: 0.9 }}>
+                  students since 2012
+                </div>
+              </div>
+            </div>
+
+            {/* Body — description + checklist + link */}
+            <div className="about-body" style={{ gridArea: 'body' }}>
+              <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.9, marginBottom: 26 }}>
+                Sonargaon University (SU) is one of Bangladesh&rsquo;s preeminent private
+                universities &mdash; approved by the University Grants Commission (UGC) and the
+                Government of Bangladesh, and sponsored by the non-profit Sonargaon University
+                Trust. It was founded to bring quality education within the reach of students
+                with modest economic means.
+              </p>
+              <ul style={{ listStyle: 'none', margin: '0 0 32px', padding: 0, display: 'grid', gap: 14 }}>
+                {[
+                  'Approved by UGC & the Government of Bangladesh',
+                  'Sponsored by the non-profit Sonargaon University Trust',
+                  'Over 6,000 students educated since 2012',
+                  'Guided by a strong Academic Advisory Council',
+                ].map((item) => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+                    <span style={{ flexShrink: 0, width: 24, height: 24, borderRadius: '50%', background: '#CC1579', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 2 }}>
+                      <Check size={15} color="#ffffff" strokeWidth={3} />
+                    </span>
+                    <span style={{ color: '#1C1C1A', fontSize: 16, lineHeight: 1.5 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/about" className="rts-nbg-btn btn-arrow">University Overview <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></Link>
+            </div>
+          </div>
+        </Container>
+        <style>{`
+          /* Mobile: header (centered) -> images -> body */
+          .about-grid {
+            grid-template-columns: 1fr;
+            grid-template-areas: "header" "images" "body";
+          }
+          .about-header { text-align: center; }
+          @media (min-width: 992px) {
+            /* Desktop: images span both rows on the left; header + body stack on the right */
+            .about-grid {
+              grid-template-columns: 1fr 1fr;
+              grid-template-areas: "images header" "images body";
+            }
+            .about-header { text-align: left; align-self: end; }
+            .about-body { align-self: start; }
+          }
+          .about-img { transition: transform .45s ease, box-shadow .45s ease; will-change: transform; }
+          .about-img--left { transform: rotate(-4deg); }
+          .about-img--right { transform: rotate(4deg); }
+          .about-img--left:hover,
+          .about-img--right:hover {
+            transform: rotate(0deg) scale(1.04);
+            box-shadow: 0 32px 72px rgba(43,49,117,0.28);
+          }
+          /* Mobile: drop the tilt/offset, keep a tidy equal-height pair */
+          /* Mobile: tilted pair, left-aligned, overlapping only at the bottom */
+          @media (max-width: 991px) {
+            .su-about-imgs { display: block !important; position: relative; min-height: 440px; margin: 8px 0 24px; }
+            .about-img--left {
+              width: 58% !important; height: 270px !important; margin: 0 !important;
+            }
+            .about-img--right {
+              position: absolute !important; right: 0; top: 95px;
+              width: 56% !important; height: 270px !important; margin: 0 !important; z-index: 2;
+            }
+            .about-stat { left: auto !important; right: 0 !important; bottom: 0 !important; z-index: 3; }
+          }
+          @media (max-width: 480px) {
+            .su-about-imgs { min-height: 340px; }
+            .about-img--left { height: 240px !important; }
+            .about-img--right { height: 240px !important; top: 90px; }
+          }
+        `}</style>
+      </section>
+      {/* About End */}
 
       {/* our program */}
       {/* TODO: Programs */}
@@ -826,6 +968,8 @@ export default function IndexThreePage() {
       {/* newsletter end */}
 
       <FooterHomeThree />
+      </div>
+      {/* end overlapping content */}
     </>
   );
 }

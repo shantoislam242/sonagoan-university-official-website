@@ -29,7 +29,16 @@ export default function AboutPage() {
               </div>
               <div className="col-lg-8 col-md-7">
                 <p className="rts-section-description">
-                  Welcome to Sonargaon University, where knowledge meets inspiration, and every individual&apos;s educational journey is valued. Established in 1971 Establishment, our university has been a bastion of learning, innovation, and community for 51 years years.
+                  Sonargaon University (SU) is one of Bangladesh&rsquo;s preeminent private universities, approved by the University Grants Commission (UGC) of Bangladesh and the Government of Bangladesh (GoB), and sponsored by the Sonargaon University (SU) Trust &mdash; a registered, non-political, non-profit voluntary organization. The members of the SU Trust, mostly eminent entrepreneurs from the academic arena, felt the need for a private university to bring quality education within the reach of students with modest economic means. The quality of our teaching and learning is underpinned by the best staff-to-student ratios; our professors teach at every level as well as engage in ground-breaking research. Our work is audited regularly by the UGC, and we are supported by a strong Academic Advisory Council.
+                </p>
+                <p className="rts-section-description">
+                  We are launching young people into a boundless future and confronting the grand challenges of our time through undaunted research and scholarship. Ranked No.&nbsp;4 among the highest research-fund-spending private universities in Bangladesh (UGC Annual Report, 2018), we have in recent years achieved the National Award 2018 (a2i innovation competition), the Asia Young Designer Award 2019, Best Supporting Architecture School of Bangladesh, the A3f Sustainable Design Award 2019, and the Shah Cement DOT Student Design Award 2019. The University has educated more than 6,000 students since its commencement in 2012. We turn ideas into impact and transform lives and our world. For more about our impact, visit our Facebook page (Sonargaon University) and website www.su.edu.bd.
+                </p>
+                <p className="rts-section-description">
+                  So what defines our students, faculty and community members? The way we work together. It&rsquo;s not about the accomplishments of an individual; it&rsquo;s what we can accomplish together. It is our belief that together we can create a world of good.
+                </p>
+                <p className="rts-section-description">
+                  <strong>Join us on the journey.</strong>
                 </p>
               </div>
             </div>

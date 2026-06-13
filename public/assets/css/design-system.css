@@ -116,6 +116,12 @@ body.page { padding-top: 76px; }
 @media (min-width: 768px)  { body.page { padding-top: 116px; } }
 @media (min-width: 1024px) { body.page { padding-top: 170px; } }
 
+/* Enable position:sticky. The template sets body{overflow-x:hidden} (and
+   overflow:hidden at 768–1199px), which turns body into a scroll container
+   and breaks sticky. `clip` clips horizontal overflow WITHOUT creating a
+   scroll container, so sticky (the pinned hero) works. */
+body.page { overflow-x: clip !important; overflow-y: visible !important; }
+
 /* === Hero (banner v__2) — center the content on mobile/tablet ===== */
 /* Template left-aligns the hero content (max-width:550px + left text);
    center it on small screens. Desktop keeps the original left layout. */
