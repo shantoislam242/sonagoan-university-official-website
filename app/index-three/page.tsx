@@ -173,14 +173,14 @@ export default function IndexThreePage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="about-img about-img--left"
-                src="/assets/images/about/about__h1.png"
+                src="/assets/images/about/about1.jpeg"
                 alt="Sonargaon University campus"
                 style={{ width: '50%', height: 420, objectFit: 'cover', borderRadius: 14, boxShadow: '0 24px 60px rgba(43,49,117,0.18)', display: 'block' }}
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="about-img about-img--right"
-                src="/assets/images/about/about__h2.png"
+                src="/assets/images/about/about2.jpeg"
                 alt="Sonargaon University building"
                 style={{ width: '50%', height: 420, objectFit: 'cover', borderRadius: 14, marginTop: 70, boxShadow: '0 24px 60px rgba(43,49,117,0.18)', display: 'block' }}
               />
