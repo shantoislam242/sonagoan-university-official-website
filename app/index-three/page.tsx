@@ -45,8 +45,8 @@ export default function IndexThreePage() {
                               innovation
                             </div>
                             <h1 className="banner__slides--content--title">
-                              Unleashing Potential
-                              Fostering Excellence
+                              We will rise up,<br />
+                              We will shine.
                             </h1>
                             <Link href="/program-single" className="rts-theme-btn btn-arrow">View Our Program
                               <span><i className="fa-regular fa-arrow-right"></i></span>
@@ -72,8 +72,8 @@ export default function IndexThreePage() {
                               innovation
                             </div>
                             <h1 className="banner__slides--content--title">
-                              Unleashing Potential
-                              Fostering Excellence
+                              We will rise up,<br />
+                              We will shine.
                             </h1>
                             <Link href="/program-single" className="rts-theme-btn btn-arrow">View Our Program
                               <span><i className="fa-regular fa-arrow-right"></i></span>
@@ -369,6 +369,10 @@ export default function IndexThreePage() {
           /* template caps .rts__section--wrapper.v__2 at 470px — widen so the
              intro text expands to the right instead of staying cramped */
           .prog2-intro { max-width: 700px !important; }
+          /* match the About section heading size for consistency */
+          .prog2-intro .rts__section--title {
+            font-size: clamp(28px, 3.4vw, 40px) !important; line-height: 1.2;
+          }
           .prog2-intro .rts__section--description {
             font-size: 16.5px; line-height: 1.85; color: #5B5B78; max-width: 100%; margin-bottom: 6px !important;
           }
