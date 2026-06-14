@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, type CSSProperties } from 'react';
+import { useState, useEffect, useRef, type CSSProperties } from 'react';
 import {
   Menu, X, Search,
   User, ChevronDown, ChevronRight, LayoutGrid,
@@ -569,6 +569,26 @@ function NavGroup({
   // the panel.
   const [open, setOpen] = useState(false);
 
+  // Close on a short delay so moving the cursor across the gap between the nav
+  // item and the (fixed) mega panel doesn't dismiss the menu. Entering either
+  // the item or the panel cancels the pending close.
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+  const openMenu = () => {
+    cancelClose();
+    if (hasPanel) setOpen(true);
+  };
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpen(false), 220);
+  };
+  useEffect(() => cancelClose, []);
+
   // Source-exact px sizing. Non-compact: px 6/20, height 56, font 12/15.
   // Compact (scrolled): height 44, px 4/12, font 11/14, bold.
   const linkClass = compact
@@ -589,8 +609,8 @@ function NavGroup({
   return (
     <div
       className="relative"
-      onMouseEnter={() => hasPanel && setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={openMenu}
+      onMouseLeave={scheduleClose}
     >
       <a href={group.href ?? '#'} className={linkClass}>
         {group.name}
@@ -610,6 +630,8 @@ function NavGroup({
       {hasMega && (
         <div
           className="fixed z-50 rounded-[8px] shadow-premium transition-all duration-200"
+          onMouseEnter={openMenu}
+          onMouseLeave={scheduleClose}
           style={{
             background: '#ffffff',
             border: '1px solid #f3f4f6',
@@ -672,6 +694,8 @@ function NavGroup({
       {!hasMega && group.items.length > 0 && (
         <div
           className="absolute left-0 top-full z-50 min-w-[280px] rounded-[8px] shadow-premium transition-all duration-200"
+          onMouseEnter={openMenu}
+          onMouseLeave={scheduleClose}
           style={{ background: '#ffffff', border: '1px solid #f3f4f6', paddingTop: 12, paddingBottom: 12, ...panelMotion }}
         >
           {(group.title || group.name) && (

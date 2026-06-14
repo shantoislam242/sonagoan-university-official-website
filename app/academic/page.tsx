@@ -1,320 +1,240 @@
-﻿import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata } from '@/lib/metadata';
 import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
 import PageBanner from '@/components/sections/PageBanner';
-import Link from 'next/link';
+import Container from '@/components/ui/Container';
+import { CalendarRange, Layers, ClipboardCheck } from 'lucide-react';
 
 export const metadata = buildMetadata({
-  title: 'Academic',
-  description: 'Academic departments, programs, and disciplines at Sonargoan University.',
+  title: 'Our Programs',
+  description:
+    'Program structure at Sonargaon University — 3 faculties, 13 undergraduate and 10 postgraduate programs, with credits, duration, semester system and assessment details.',
   path: '/academic',
 });
+
+type Row = { program: string; credits: string; duration: string };
+type Group = { label: string; rows: Row[] };
+type Faculty = { name: string; groups: Group[]; note?: string };
+
+const r = (program: string, credits: string, duration: string): Row => ({ program, credits, duration });
+
+const FACULTIES: Faculty[] = [
+  {
+    name: 'Faculty of Science & Engineering',
+    note: 'Diploma entrants: engineering programs run 140–147.5 credits (~3 years 8 months).',
+    groups: [
+      {
+        label: 'Undergraduate · Science background',
+        rows: [
+          r('B.Sc. in Computer Science & Engineering (CSE)', '162', '4 yrs'),
+          r('B.Sc. in Electrical & Electronics Engineering (EEE)', '161', '4 yrs'),
+          r('B.Sc. in Mechanical Engineering (ME)', '160', '4 yrs'),
+          r('B.Sc. in Civil Engineering', '161', '4 yrs'),
+          r('B.Sc. in Textile Engineering', '161', '4 yrs'),
+          r('B.Sc. in Naval Architecture & Marine Engineering (NAME)', '161', '4 yrs'),
+          r('Bachelor of Architecture (BARC)', '196', '4 yrs'),
+        ],
+      },
+      {
+        label: 'Undergraduate · Any background',
+        rows: [
+          r('B.Sc. in Apparel Manufacture & Technology (AMT)', '160', '4 yrs'),
+          r('B.Sc. in Fashion Design & Technology (FDT)', '160', '4 yrs'),
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Faculty of Business',
+    groups: [
+      {
+        label: 'Undergraduate',
+        rows: [r('Bachelor of Business Administration (BBA)', '141', '4 yrs')],
+      },
+      {
+        label: 'Postgraduate',
+        rows: [
+          r('Master of Business Administration (MBA)', '39', '1 yr'),
+          r('Executive MBA (EMBA)', '54', '1.4 yrs'),
+          r('Regular MBA (RMBA)', '69', '2 yrs'),
+          r('MBA in Supply Chain Management (MSCM)', '69', '2 yrs'),
+          r('Master in Bank Management (MBM)', '69', '2 yrs'),
+          r('MBA in Textile & Fashion Marketing (MTFM)', '69', '2 yrs'),
+          r('MBA in Apparel Merchandising — 2 yr (MAM)', '60', '2 yrs'),
+          r('MBA in Apparel Merchandising — 1 yr (MAMS)', '36', '1 yr'),
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Faculty of Arts & Humanities',
+    groups: [
+      {
+        label: 'Undergraduate',
+        rows: [
+          r("LLB (Hon's)", '144', '4 yrs'),
+          r("B.A. (Hon's) in Bangla", '142', '4 yrs'),
+          r("BSS (Hon's) in Journalism & Media Studies (JMS)", '146', '4 yrs'),
+        ],
+      },
+      {
+        label: 'Postgraduate',
+        rows: [
+          r('LLM (1 year)', '36', '1 yr'),
+          r('LLM (2 years) — LLMP', '62', '2 yrs'),
+        ],
+      },
+    ],
+  },
+];
+
+const INFO = [
+  { Icon: CalendarRange, title: 'Academic Year', body: 'January – December.' },
+  {
+    Icon: Layers,
+    title: 'Semester System',
+    body: 'Tri-semester: CSE, EEE, ME, Civil, Textile, BBA, MBA, EMBA, RMBA, MSCM, MBM. Bi-semester: AMT, FDT, NAME, BARC, Bangla, LLB, JMS, MTFM, MAM, MAMS, LLM, LLMP.',
+  },
+  { Icon: ClipboardCheck, title: 'Assessment', body: 'Continuous 30% + Midterm 30% + Final 40%.' },
+];
+
+const eyebrow = { display: 'inline-block', color: '#CC1579', fontWeight: 700, fontSize: 13, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 } as const;
 
 export default function AcademicPage() {
   return (
     <>
       <HeaderUniversity />
       <PageBanner
-        title="Academic"
-        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Academic' }]}
+        title="Our Programs"
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Our Programs' }]}
       />
 
-      {/* about university */}
-      <section className="rts-about-university pt--100 pb--80">
-        <div className="container">
-          <div className="row">
-            <div className="rts-section">
-              <div className="col-lg-4 col-md-3 col-sm-12">
-                <h3 className="rts-section-title">Academics</h3>
-              </div>
-              <div className="col-lg-8 col-md-9 col-sm-12">
-                <p className="rts-section-description">
-                  This distinguished university of arts, sciences and professional studies is noted for exceptional program offerings and an interdisciplinary approach to learning, while also providing students with a diverse, high-quality student, faculty and staff population.
-                </p>
-              </div>
-            </div>
+      {/* ===== Intro ===== */}
+      <section style={{ background: '#ffffff', padding: '100px 0 50px' }}>
+        <Container className="!max-w-[1600px]">
+          <div style={{ textAlign: 'center', maxWidth: 820, margin: '0 auto' }}>
+            <span style={eyebrow}>Academic Programs</span>
+            <h2 style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, color: '#2B3175', fontSize: 'clamp(30px, 4vw, 44px)', lineHeight: 1.18, marginBottom: 18 }}>
+              Program Structure
+            </h2>
+            <p style={{ color: '#5B5B78', fontSize: 18, lineHeight: 1.8, margin: 0 }}>
+              Three faculties · 13 undergraduate · 10 postgraduate programs &mdash; explore the full range of
+              degrees offered at Sonargaon University, with credits and duration for each.
+            </p>
           </div>
-          <div className="row">
-            <div className="col-12">
-              <div className="academic-picture">
-                <img src="/assets/images/feature/academic-1.jpg" alt="academic" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* about university end */}
-
-
-      <div className="rts-funfact ">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10 ">
-              <div className="rts-funfact-wrapper">
-                <div className="single-cta-item">
-                  <h2 className="single-cta-item__title">90%</h2>
-                  <p>post-graduation success rate</p>
-                </div>
-                <div className="single-cta-item">
-                  <h2 className="single-cta-item__title">Top 10</h2>
-                  <p>Colleges that Create Futures</p>
-                </div>
-                <div className="single-cta-item">
-                  <h2 className="single-cta-item__title">No. 1</h2>
-                  <p>in the nation for materials R&D</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      {/* TODO: Departments */}
-      {/* multi row item */}
-      <div className="rts-multi-row-section pt--100">
-        <div className="container">
-          {/* first */}
-          <div className="row g-5 justify-content-center justify-content-start align-items-center">
-            <div className="col-lg-7 col-md-11">
-              <div className="rts-multi-row-image">
-                <img src="/assets/images/feature/multi-1.jpg" alt="undergraduate education" />
-              </div>
-            </div>
-            <div className="col-lg-5 col-md-11">
-              <div className="rts-multi-row-content">
-                <h4 className="row-title">Undergraduate Education</h4>
-                <p>Sonargaon University Undergrad is your guide to undergraduate academics and opportunities run by the Vice Provost for Undergraduate Education.</p>
-                <div className="program-list">
-                  <Link href="/program-single" className="program-item"><span>Africana Studies <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
-                  <Link href="/program-single" className="program-item"><span>Accounting, BS <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
-                  <Link href="/program-single" className="program-item"><span>Applied Mathematics <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
-                  <Link href="/program-single" className="program-item"><span>Anthropology <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
-                  <Link href="/program-single" className="mt--15 about-btn rts-nbg-btn btn-arrow">View All Program <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* second */}
-          <div className="row g-5 justify-content-center justify-content-start align-items-center">
-            <div className="col-lg-5 col-md-11">
-              <div className="rts-multi-row-content left-side">
-                <h3 className="row-title">Graduate Education</h3>
-                <p>The VPGE office works collaboratively across the University to ensure that every graduate student has the best possible education.</p>
-                <div className="program-list">
-                  <Link href="/program-single" className="program-item"><span>M.A. in American Studies <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
-                  <Link href="/program-single" className="program-item"><span>Biomedical Engineering <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
-                  <Link href="/program-single" className="program-item"><span>Master of Public Health <i className="fa-regular fa-chevron-right"></i></span> <span>A.B</span></Link>
-                  <Link href="/program-single" className="mt--15 about-btn rts-nbg-btn btn-arrow">View All Program <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-7 col-md-11">
-              <div className="rts-multi-row-image">
-                <img src="/assets/images/feature/multi-2.jpg" alt="undergraduate education" />
-              </div>
-            </div>
-          </div>
-          {/* third */}
-          <div className="row g-5 justify-content-center justify-content-start align-items-center">
-            <div className="col-lg-7 col-md-11">
-              <div className="rts-multi-row-image">
-                <img src="/assets/images/feature/multi-3.jpg" alt="undergraduate education" />
-              </div>
-            </div>
-            <div className="col-lg-5 col-md-11">
-              <div className="rts-multi-row-content">
-                <div className="program-list">
-                  <div className="single-list">
-                    <h4 className="row-title">Lifelong Learning</h4>
-                    <p>Sonargaon University offers a wide range of programs, classes, internships, and an entire online high school.</p>
-                    <a href="#" className="about-btn rts-nbg-btn btn-arrow">Sonargaon University Undergraduate <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></a>
-                  </div>
-                  <div className="single-list">
-                    <h4 className="row-title">Professional Development</h4>
-                    <p>Explore the 67 major fields of undergraduate study at Stanford.</p>
-                    <a href="#" className="about-btn rts-nbg-btn btn-arrow">Professional Development <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* multi row item end */}
-
-
-      {/* mission end */}
-      <section className="rts-campus-tour rts-section-padding">
-        <div className="container">
-          <div className="row justify-content-center">
-            <h2 className="section-title rt-center mb--50">Our Campus Tour</h2>
-            <div className="col-12">
-              <div className="rts-video-section height-500 mb--50">
-                <a href="https://www.youtube.com/watch?v=Uwq1uiuM_9w" className="rts-video-section-player popup-video video-btn">
-                  <i className="fa-sharp fa-solid fa-play"></i>
-                </a>
-                <img src="/assets/images/about/video-thumb.jpg" alt="video-bg" />
-              </div>
-            </div>
-            <div className="col-lg-8">
-              <div className="rts-video-section-text rt-center mx-3">
-                <p>Embark on a journey of knowledge, discovery, and growth at Sonargaon University. Our admissions process is designed to identify bright, motivated individuals who are eager to contribute to our dynamic academic community. Whether you&apos;re a recent high school graduate or a transfer student seeking a new academic home, we invite you to explore the possibilities that await you.</p>
-                <Link href="/campus-life" className="mt--15 about-btn rts-nbg-btn btn-arrow">Visit Campus <span><i className="fa-sharp fa-regular fa-arrow-right"></i></span></Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Testimonial Start */}
-      <div className="rts-testimonial pb--120">
-        <div className="container">
-          {/* testimonial content */}
-          <div className="row">
-            <div className="col-12">
-              <div className="rts-testimonial-box">
-                <div className="testimonial-item rt-flex">
-                  <div className="testimonial-item-image">
-                    <img src="/assets/images/testimonial/testimonial-big.jpg" alt="testimonial thumbnail" />
-                  </div>
-                  <div className="testimonial-item-content w-570 rt-relative">
-                    <div className="swiper swiper-data" data-swiper='{
-                                        "slidesPerView":1,
-                                        "loop": true,
-                                        "navigation":{
-                                            "nextEl":".rt-next",
-                                            "prevEl":".rt-prev"
-                                        },
-                                        "autoplay":{
-                                            "delay":"3000"
-                                        }
-                                }'>
-                      <div className="swiper-wrapper">
-                        {/* single testimonial */}
-                        <div className="swiper-slide">
-                          <div className="single-testimonial">
-                            <div className="rt-between mb--50">
-                              <div className="rt-icon">
-                                <img src="/assets/images/testimonial/quote.svg" alt="quote icon" />
-                              </div>
-                              <div className="rt-review">
-                                <div className="rating-star mb--10">
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-light fa-star"></i>
-                                </div>
-                                <p className="rt-secondary rt-medium --p-s">4.5 ( 112 Review)</p>
-                              </div>
-                            </div>
-                            <p className="testimonial-text">
-                              I would highly recommend Michael Richard to anyone interested the subject matter. It has provided me with invaluable knowledge & a newfound passion topic. My only suggestion would be to add more live.
-                            </p>
-                            <div className="rt-testimonial-author mt--50">
-                              <div className="rt-author-meta rt-flex rt-gap-20">
-                                <div className="rt-author-img">
-                                  <img src="/assets/images/testimonial/author-1.png" alt="author" />
-                                </div>
-                                <div className="rt-author-info">
-                                  <h5 className="mb-1">David Jhon</h5>
-                                  <p>Artist and Instructor</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* single testimonial */}
-                        <div className="swiper-slide">
-                          <div className="single-testimonial">
-                            <div className="rt-between mb--50">
-                              <div className="rt-icon">
-                                <img src="/assets/images/testimonial/quote.svg" alt="quote icon" />
-                              </div>
-                              <div className="rt-review">
-                                <div className="rating-star mb--10">
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-light fa-star"></i>
-                                </div>
-                                <p className="rt-secondary rt-medium --p-s">4.5 ( 112 Review)</p>
-                              </div>
-                            </div>
-                            <p className="testimonial-text">
-                              I would highly recommend Michael Richard to anyone interested the subject matter. It has provided me with invaluable knowledge & a newfound passion topic. My only suggestion would be to add more live.
-                            </p>
-                            <div className="rt-testimonial-author mt--50">
-                              <div className="rt-author-meta rt-flex rt-gap-20">
-                                <div className="rt-author-img">
-                                  <img src="/assets/images/testimonial/author-1.png" alt="author" />
-                                </div>
-                                <div className="rt-author-info">
-                                  <h5 className="mb-1">David Jhon</h5>
-                                  <p>Artist and Instructor</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* single testimonial */}
-                        <div className="swiper-slide">
-                          <div className="single-testimonial">
-                            <div className="rt-between mb--50">
-                              <div className="rt-icon">
-                                <img src="/assets/images/testimonial/quote.svg" alt="quote icon" />
-                              </div>
-                              <div className="rt-review">
-                                <div className="rating-star mb--10">
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-light fa-star"></i>
-                                </div>
-                                <p className="rt-secondary rt-medium --p-s">4.5 ( 112 Review)</p>
-                              </div>
-                            </div>
-                            <p className="testimonial-text">
-                              I would highly recommend Michael Richard to anyone interested the subject matter. It has provided me with invaluable knowledge & a newfound passion topic. My only suggestion would be to add more live.
-                            </p>
-                            <div className="rt-testimonial-author mt--50">
-                              <div className="rt-author-meta rt-flex rt-gap-20">
-                                <div className="rt-author-img">
-                                  <img src="/assets/images/testimonial/author-1.png" alt="author" />
-                                </div>
-                                <div className="rt-author-info">
-                                  <h5 className="mb-1">David Jhon</h5>
-                                  <p>Artist and Instructor</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    {/* rts arrow */}
-                    <div className="rts-slider-arrow testimonial-arrow">
-                      <div className="rt-slider-btn rt-next">
-                        <i className="fa-solid fa-chevron-left"></i>
-                      </div>
-                      <div className="rt-slider-btn rt-prev">
-                        <i className="fa-solid fa-chevron-right"></i>
-                      </div>
+      {/* ===== Faculties ===== */}
+      <section style={{ background: '#F6F7FC', padding: '60px 0 90px' }}>
+        <Container className="!max-w-[1600px]">
+          <div className="acad-faculties">
+            {FACULTIES.map((fac) => (
+              <div key={fac.name} className="acad-fac">
+                <h3 className="acad-fac__name">{fac.name}</h3>
+                {fac.groups.map((g) => (
+                  <div key={g.label} className="acad-group">
+                    <h4 className="acad-group__label">{g.label}</h4>
+                    <div className="acad-table-wrap">
+                      <table className="acad-table">
+                        <thead>
+                          <tr>
+                            <th style={{ textAlign: 'left' }}>Program</th>
+                            <th style={{ textAlign: 'center', width: 120 }}>Credits</th>
+                            <th style={{ textAlign: 'center', width: 130 }}>Duration</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {g.rows.map((row) => (
+                            <tr key={row.program}>
+                              <td>{row.program}</td>
+                              <td style={{ textAlign: 'center' }}>{row.credits}</td>
+                              <td style={{ textAlign: 'center' }}>{row.duration}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-
-                </div>
+                ))}
+                {fac.note && <p className="acad-note">{fac.note}</p>}
               </div>
-            </div>
+            ))}
           </div>
-        </div>
-      </div>
-      {/* Testimonial end */}
+        </Container>
+      </section>
+
+      {/* ===== Academic info ===== */}
+      <section style={{ background: '#ffffff', padding: '90px 0' }}>
+        <Container className="!max-w-[1600px]">
+          <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 50px' }}>
+            <span style={eyebrow}>Good to Know</span>
+            <h2 style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, color: '#2B3175', fontSize: 'clamp(26px, 3.2vw, 38px)', lineHeight: 1.2, margin: 0 }}>
+              Academic Information
+            </h2>
+          </div>
+          <div className="acad-info">
+            {INFO.map(({ Icon, title, body }) => (
+              <div key={title} className="acad-info__card">
+                <span className="acad-info__icon">
+                  <Icon size={26} color="#CC1579" strokeWidth={2} />
+                </span>
+                <h3 style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, color: '#2B3175', fontSize: 20, margin: '0 0 10px' }}>
+                  {title}
+                </h3>
+                <p style={{ color: '#5B5B78', fontSize: 15.5, lineHeight: 1.75, margin: 0 }}>{body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <FooterUniversity />
+
+      <style>{`
+        .acad-faculties { display: flex; flex-direction: column; gap: 48px; }
+        .acad-fac {
+          background: #ffffff; border: 1px solid #ECECF3; border-radius: 20px;
+          padding: 40px 38px; box-shadow: 0 12px 34px rgba(43,49,117,0.05);
+        }
+        .acad-fac__name {
+          font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700;
+          color: #2B3175; font-size: clamp(22px, 2.4vw, 28px); margin: 0 0 8px;
+          padding-bottom: 18px; border-bottom: 2px solid #F0EAF2;
+        }
+        .acad-group { margin-top: 26px; }
+        .acad-group__label {
+          color: #CC1579; font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+          text-transform: uppercase; margin: 0 0 14px;
+        }
+        .acad-table-wrap { overflow-x: auto; }
+        .acad-table { width: 100%; border-collapse: collapse; min-width: 520px; }
+        .acad-table th {
+          font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700;
+          color: #2B3175; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase;
+          background: #F6F4FA; padding: 13px 18px; border-bottom: 1px solid #ECECF3;
+        }
+        .acad-table td {
+          color: #3D3D55; font-size: 15.5px; padding: 14px 18px; border-bottom: 1px solid #F0F0F5;
+        }
+        .acad-table tbody tr:hover { background: #FBF7FA; }
+        .acad-table td:first-child { font-weight: 500; color: #2B3175; }
+        .acad-note {
+          margin: 22px 0 0; font-size: 14.5px; color: #8A6D7B; font-style: italic;
+          background: rgba(204,21,121,0.05); border-left: 3px solid #CC1579;
+          padding: 12px 18px; border-radius: 0 10px 10px 0;
+        }
+        .acad-info { display: grid; grid-template-columns: 1fr; gap: 26px; }
+        @media (min-width: 768px) { .acad-info { grid-template-columns: repeat(3, 1fr); } }
+        .acad-info__card {
+          background: #ffffff; border: 1px solid #ECECF3; border-radius: 18px;
+          padding: 32px 30px; box-shadow: 0 10px 30px rgba(43,49,117,0.05);
+        }
+        .acad-info__icon {
+          display: inline-flex; width: 54px; height: 54px; border-radius: 14px;
+          background: rgba(204,21,121,0.10); align-items: center; justify-content: center; margin-bottom: 18px;
+        }
+      `}</style>
     </>
   );
 }
