@@ -283,109 +283,143 @@ export default function IndexThreePage() {
       {/* About End */}
 
       {/* our program */}
-      {/* TODO: Programs */}
-      <section className="program rts-section-padding">
-        <div className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className="col-lg-5">
-              <div className="rts__section--wrapper v__2">
-                <h2 className="rts__section--title text-capitalize">Our Programs</h2>
-                <p className="rts__section--description">
-                  Embark on a journey of knowledge, discovery, and growth at Sonargaon University.
-                  Our admissions process is designed identify bright, motivated individuals who are
-                  eager contribute to our dynamic academic community.
-                </p>
+      <section className="program" style={{ padding: '100px 0', background: '#F2F2F2' }}>
+        <Container className="!max-w-[1600px]">
+          <div className="prog2-wrap">
+            {/* left intro */}
+            <div className="rts__section--wrapper v__2 prog2-intro">
+              <h2 className="rts__section--title text-capitalize">Our Programs</h2>
+              <p className="rts__section--description">
+                At Sonargaon University, education is more than a degree &mdash; it&rsquo;s a journey of
+                discovery, growth, and impact. Across three faculties and a wide range of undergraduate
+                and postgraduate programs, we nurture bright, motivated minds eager to learn, lead, and
+                shape the world around them. Find the program that fits your ambition &mdash; and start
+                turning ideas into impact.
+              </p>
+              <div className="prog2-stats">
+                <div className="prog2-stat">
+                  <h3><span className="counter">13</span></h3>
+                  <p>Undergraduate Programs</p>
+                </div>
+                <div className="prog2-stat">
+                  <h3><span className="counter">10</span></h3>
+                  <p>Graduate Programs</p>
+                </div>
+                <div className="prog2-stat">
+                  <h3><span className="counter">3</span></h3>
+                  <p>Faculties</p>
+                </div>
+                <div className="prog2-stat">
+                  <h3><span className="counter">6,000</span>+</h3>
+                  <p>Students</p>
+                </div>
+              </div>
+              <p className="prog2-obe">
+                From engineering and business to law and design &mdash; explore programs built around the
+                Outcome-Based Education model.
+              </p>
+              <div className="prog2-cta">
                 <div className="campus__vector">
                   <img src="/assets/images/campus/campus__vector.svg" alt="" />
                 </div>
                 <Link href="/academic" className="rts-theme-btn btn-arrow">
-                  View All Program
+                  View All Programs
                   <span>
                     <i className="fa-regular fa-arrow-right"></i>
                   </span>
                 </Link>
               </div>
             </div>
-            <div className="col-lg-6 col-md-12 col-sm-10 mt-5 mt-md-0">
-              <div className="row g-5">
-                <div className="col-lg-6 col-md-6">
-                  <div className="program__content">
-                    <div
-                      className="rts__program--item v__2"
-                      style={{ backgroundImage: 'url(/assets/images/program/program__1.jpg)' }}
-                    >
-                      <h5 className="rts__program--item--title">Summer Program</h5>
-                      <p className="rts__program--item--description">
-                        Embark on a journey of knowledge discovery, and growth at Sonargaon University.
-                      </p>
-                      <Link href="/program-single" className="rts-nbg-btn btn-arrow">
-                        Learn More
-                        <span>
-                          <i className="fa-sharp fa-regular fa-arrow-right"></i>
-                        </span>
-                      </Link>
-                      <h5 className="rts__program--item--title--show">Summer Program</h5>
-                    </div>
-                    {/* second one */}
-                    <div
-                      className="rts__program--item v__2"
-                      style={{ backgroundImage: 'url(/assets/images/program/program__2.jpg)' }}
-                    >
-                      <h5 className="rts__program--item--title">Undergraduate</h5>
-                      <p className="rts__program--item--description">
-                        Embark on a journey of knowledge discovery, and growth at Sonargaon University.
-                      </p>
-                      <Link href="/program-single" className="rts-nbg-btn btn-arrow">
-                        Learn More
-                        <span>
-                          <i className="fa-sharp fa-regular fa-arrow-right"></i>
-                        </span>
-                      </Link>
-                      <h5 className="rts__program--item--title--show">Undergraduate</h5>
-                    </div>
-                  </div>
+
+            {/* right — two large landscape cards */}
+            <div className="prog2-cards">
+              <Link
+                href="/academic"
+                className="prog2-card prog2-card--a"
+                style={{ backgroundImage: 'url(/assets/images/program/program__2.jpg)' }}
+              >
+                <div className="prog2-card__body">
+                  <h5>Undergraduate</h5>
+                  <p className="prog2-card__desc">
+                    Bachelor&rsquo;s degrees across Science &amp; Engineering, Business, and Arts &amp; Humanities &mdash; from CSE, EEE and Architecture to BBA, LLB and more.
+                  </p>
                 </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="program__content mt--85">
-                    <div
-                      className="rts__program--item v__2"
-                      style={{ backgroundImage: 'url(/assets/images/program/program__3.jpg)' }}
-                    >
-                      <h5 className="rts__program--item--title">Summer Program</h5>
-                      <p className="rts__program--item--description">
-                        Embark on a journey of knowledge discovery, and growth at Sonargaon University.
-                      </p>
-                      <Link href="/program-single" className="rts-nbg-btn btn-arrow">
-                        Learn More
-                        <span>
-                          <i className="fa-sharp fa-regular fa-arrow-right"></i>
-                        </span>
-                      </Link>
-                      <h5 className="rts__program--item--title--show">Summer Program</h5>
-                    </div>
-                    {/* second one */}
-                    <div
-                      className="rts__program--item v__2"
-                      style={{ backgroundImage: 'url(/assets/images/program/program__4.jpg)' }}
-                    >
-                      <h5 className="rts__program--item--title">Online Program</h5>
-                      <p className="rts__program--item--description">
-                        Embark on a journey of knowledge discovery, and growth at Sonargaon University.
-                      </p>
-                      <Link href="/program-single" className="rts-nbg-btn btn-arrow">
-                        Learn More
-                        <span>
-                          <i className="fa-sharp fa-regular fa-arrow-right"></i>
-                        </span>
-                      </Link>
-                      <h5 className="rts__program--item--title--show">Online Program</h5>
-                    </div>
-                  </div>
+              </Link>
+              <Link
+                href="/academic"
+                className="prog2-card prog2-card--b"
+                style={{ backgroundImage: 'url(/assets/images/program/program__4.jpg)' }}
+              >
+                <div className="prog2-card__body">
+                  <h5>Graduate</h5>
+                  <p className="prog2-card__desc">
+                    Master&rsquo;s degrees for graduates and professionals &mdash; a wide range of MBA tracks, MSCM, MTFM, MBM and LLM programs.
+                  </p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
-        </div>
+        </Container>
+
+        <style>{`
+          .prog2-wrap { display: grid; grid-template-columns: 1fr; gap: 50px; align-items: center; }
+          @media (min-width: 992px) {
+            .prog2-wrap { grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+          }
+          /* template caps .rts__section--wrapper.v__2 at 470px — widen so the
+             intro text expands to the right instead of staying cramped */
+          .prog2-intro { max-width: 700px !important; }
+          .prog2-intro .rts__section--description {
+            font-size: 16.5px; line-height: 1.85; color: #5B5B78; max-width: 100%; margin-bottom: 6px !important;
+          }
+          .prog2-intro .campus__vector { margin: 16px 0; }
+          /* move the whole arrow+CTA group toward center; margin-left on the
+             wrapper shifts both together so their internal alignment is intact */
+          @media (min-width: 992px) { .prog2-cta { margin-left: 110px; } }
+          .prog2-obe { font-size: 15px; color: #8A8AA3; font-style: italic; line-height: 1.6; margin: 18px 0 0; }
+          .prog2-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 10px 0 0; max-width: 460px; }
+          .prog2-stat {
+            background: #ffffff; border: 1px solid #E8E8F0; border-radius: 14px;
+            padding: 20px 22px; box-shadow: 0 6px 18px rgba(43,49,117,0.04);
+          }
+          .prog2-stat h3 {
+            font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700;
+            color: #2B3175; font-size: 34px; line-height: 1; margin: 0 0 4px;
+          }
+          .prog2-stat p { color: #5B5B78; font-size: 14px; margin: 0; }
+          .prog2-cards { display: flex; flex-direction: column; gap: 30px; }
+          .prog2-card {
+            position: relative; display: block; height: 310px; border-radius: 20px;
+            background-size: cover; background-position: center; overflow: hidden;
+            box-shadow: 0 18px 44px rgba(43,49,117,0.16);
+            transition: transform .4s ease, box-shadow .4s ease;
+          }
+          .prog2-card::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(20,16,40,0.72) 0%, rgba(20,16,40,0.05) 60%);
+            transition: background .4s ease;
+          }
+          .prog2-card:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(43,49,117,0.24); }
+          .prog2-card:hover::before {
+            background: linear-gradient(to top, rgba(20,16,40,0.88) 0%, rgba(20,16,40,0.30) 75%);
+          }
+          .prog2-card__body { position: absolute; left: 30px; right: 30px; bottom: 26px; z-index: 1; }
+          .prog2-card__body h5 {
+            margin: 0; color: #ffffff; font-family: var(--font-poppins), Poppins, sans-serif;
+            font-weight: 700; font-size: 26px;
+          }
+          .prog2-card__desc {
+            max-height: 0; opacity: 0; overflow: hidden; margin: 0;
+            color: rgba(255,255,255,0.92); font-size: 15px; line-height: 1.6;
+            transition: max-height .45s ease, opacity .35s ease, margin-top .45s ease;
+          }
+          .prog2-card:hover .prog2-card__desc { max-height: 140px; opacity: 1; margin-top: 12px; }
+          @media (min-width: 992px) {
+            .prog2-card { width: 90%; }
+            .prog2-card--a { align-self: flex-start; }
+            .prog2-card--b { align-self: flex-end; }
+          }
+        `}</style>
       </section>
       {/* our program end */}
 

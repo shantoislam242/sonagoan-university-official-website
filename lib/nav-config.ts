@@ -96,7 +96,7 @@ export const mainNav: readonly MainNavGroup[] = [
           { name: 'About Us',        href: '/about' },
           { name: 'Vision & Mission', href: '/mission-vision' },
           { name: 'History',          href: '/history' },
-          { name: 'Why Choose SU',    href: '#' },
+          { name: 'Why Choose SU',    href: '/why-choose-su' },
         ],
       },
       {
