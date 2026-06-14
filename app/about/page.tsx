@@ -32,7 +32,7 @@ export default function AboutPage() {
               About Sonargaon University
             </h2>
           </div>
-          <p style={{ color: '#5B5B78', fontSize: 18, lineHeight: 1.9, textAlign: 'center', maxWidth: 940, margin: '0 auto' }}>
+          <p style={{ color: '#5B5B78', fontSize: 18, lineHeight: 1.9, textAlign: 'center', maxWidth: 1240, margin: '0 auto' }}>
             Sonargaon University (SU) is one of Bangladesh&rsquo;s preeminent private universities &mdash; approved by the University Grants Commission (UGC) of Bangladesh and the Government of Bangladesh (GoB), and sponsored by the Sonargaon University (SU) Trust. The Trust is a registered, non-political, non-profit voluntary organization. Its members &mdash; mostly eminent entrepreneurs from the academic arena &mdash; recognized the need for a private university that brings quality education within the reach of students of modest economic means.
           </p>
         </Container>
@@ -69,16 +69,44 @@ export default function AboutPage() {
       </section>
 
       {/* ===== Community callout ===== */}
-      <section style={{ background: 'linear-gradient(135deg, #2B3175 0%, #CC1579 100%)', padding: '84px 0' }}>
+      <section style={{ background: '#ffffff', padding: '40px 0 90px' }}>
         <Container className="!max-w-[1600px]">
-          <div style={{ textAlign: 'center', maxWidth: 900, margin: '0 auto' }}>
-            <span style={{ display: 'inline-block', color: 'rgba(255,255,255,0.85)', fontWeight: 700, fontSize: 13, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
+          <div
+            style={{
+              position: 'relative',
+              maxWidth: 980,
+              margin: '0 auto',
+              background: 'linear-gradient(135deg, #F5F4FB 0%, #FBF2F7 100%)',
+              border: '1px solid #ECEAF4',
+              borderRadius: 24,
+              padding: '64px 56px',
+              textAlign: 'center',
+              overflow: 'hidden',
+            }}
+          >
+            {/* soft decorative quote mark */}
+            <span
+              aria-hidden
+              style={{
+                position: 'absolute',
+                top: 6,
+                left: 34,
+                fontFamily: 'Georgia, serif',
+                fontSize: 140,
+                lineHeight: 1,
+                color: 'rgba(204,21,121,0.10)',
+                pointerEvents: 'none',
+              }}
+            >
+              &ldquo;
+            </span>
+            <span style={{ display: 'inline-block', color: '#CC1579', fontWeight: 700, fontSize: 13, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
               All Together
             </span>
-            <p style={{ color: '#ffffff', fontSize: 'clamp(20px, 2.6vw, 27px)', lineHeight: 1.6, fontWeight: 500, margin: '0 0 24px' }}>
+            <p style={{ color: '#2B3175', fontSize: 'clamp(19px, 2.2vw, 25px)', lineHeight: 1.65, fontWeight: 500, margin: '0 auto 26px', maxWidth: 760 }}>
               So what defines our students, faculty, and community members? The way we work &mdash; all together. It&rsquo;s not about the accomplishments of an individual; it&rsquo;s about what we can accomplish together. It is our belief that together we can create a world of good.
             </p>
-            <p style={{ color: '#ffffff', fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, fontSize: 'clamp(22px, 3vw, 30px)', margin: 0 }}>
+            <p style={{ color: '#CC1579', fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, fontSize: 'clamp(21px, 2.6vw, 28px)', margin: 0 }}>
               Join us on the journey.
             </p>
           </div>
@@ -177,152 +205,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Testimonial Start */}
-      <div className="rts-testimonial rts-section-padding">
-        <div className="container">
-          {/* testimonial content */}
-          <div className="row">
-            <div className="col-12">
-              <div className="rts-testimonial-box">
-                <div className="testimonial-item rt-flex">
-                  <div className="testimonial-item-image">
-                    <img src="/assets/images/testimonial/testimonial-big.jpg" alt="testimonial thumbnail" />
-                  </div>
-                  <div className="testimonial-item-content w-570 rt-relative">
-                    <div className="swiper swiper-data" data-swiper='{
-                                        "slidesPerView":1,
-                                        "loop": true,
-                                        "navigation":{
-                                            "nextEl":".rt-next",
-                                            "prevEl":".rt-prev"
-                                        },
-                                        "autoplay":{
-                                            "delay":"3000"
-                                        }
-                                }'>
-                      <div className="swiper-wrapper">
-                        {/* single testimonial */}
-                        <div className="swiper-slide">
-                          <div className="single-testimonial">
-                            <div className="rt-between mb--50">
-                              <div className="rt-icon">
-                                <img src="/assets/images/testimonial/quote.svg" alt="quote icon" />
-                              </div>
-                              <div className="rt-review">
-                                <div className="rating-star mb--10">
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-light fa-star"></i>
-                                </div>
-                                <p className="rt-secondary rt-medium --p-s">4.5 ( 112 Review)</p>
-                              </div>
-                            </div>
-                            <p className="testimonial-text">
-                              I would highly recommend Michael Richard to anyone interested the subject matter. It has provided me with invaluable knowledge & a newfound passion topic. My only suggestion would be to add more live.
-                            </p>
-                            <div className="rt-testimonial-author mt--50">
-                              <div className="rt-author-meta rt-flex rt-gap-20">
-                                <div className="rt-author-img">
-                                  <img src="/assets/images/testimonial/author-1.png" alt="author" />
-                                </div>
-                                <div className="rt-author-info">
-                                  <h5 className="mb-1">David Jhon</h5>
-                                  <p>Artist and Instructor</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* single testimonial */}
-                        <div className="swiper-slide">
-                          <div className="single-testimonial">
-                            <div className="rt-between mb--50">
-                              <div className="rt-icon">
-                                <img src="/assets/images/testimonial/quote.svg" alt="quote icon" />
-                              </div>
-                              <div className="rt-review">
-                                <div className="rating-star mb--10">
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-light fa-star"></i>
-                                </div>
-                                <p className="rt-secondary rt-medium --p-s">4.5 ( 112 Review)</p>
-                              </div>
-                            </div>
-                            <p className="testimonial-text">
-                              I would highly recommend Michael Richard to anyone interested the subject matter. It has provided me with invaluable knowledge & a newfound passion topic. My only suggestion would be to add more live.
-                            </p>
-                            <div className="rt-testimonial-author mt--50">
-                              <div className="rt-author-meta rt-flex rt-gap-20">
-                                <div className="rt-author-img">
-                                  <img src="/assets/images/testimonial/author-1.png" alt="author" />
-                                </div>
-                                <div className="rt-author-info">
-                                  <h5 className="mb-1">David Jhon</h5>
-                                  <p>Artist and Instructor</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* single testimonial */}
-                        <div className="swiper-slide">
-                          <div className="single-testimonial">
-                            <div className="rt-between mb--50">
-                              <div className="rt-icon">
-                                <img src="/assets/images/testimonial/quote.svg" alt="quote icon" />
-                              </div>
-                              <div className="rt-review">
-                                <div className="rating-star mb--10">
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-solid fa-star"></i>
-                                  <i className="fa-sharp fa-light fa-star"></i>
-                                </div>
-                                <p className="rt-secondary rt-medium --p-s">4.5 ( 112 Review)</p>
-                              </div>
-                            </div>
-                            <p className="testimonial-text">
-                              I would highly recommend Michael Richard to anyone interested the subject matter. It has provided me with invaluable knowledge & a newfound passion topic. My only suggestion would be to add more live.
-                            </p>
-                            <div className="rt-testimonial-author mt--50">
-                              <div className="rt-author-meta rt-flex rt-gap-20">
-                                <div className="rt-author-img">
-                                  <img src="/assets/images/testimonial/author-1.png" alt="author" />
-                                </div>
-                                <div className="rt-author-info">
-                                  <h5 className="mb-1">David Jhon</h5>
-                                  <p>Artist and Instructor</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    {/* rts arrow */}
-                    <div className="rts-slider-arrow testimonial-arrow">
-                      <div className="rt-slider-btn rt-next">
-                        <i className="fa-solid fa-chevron-left"></i>
-                      </div>
-                      <div className="rt-slider-btn rt-prev">
-                        <i className="fa-solid fa-chevron-right"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Testimonial end */}
 
       <FooterUniversity />
     </>
