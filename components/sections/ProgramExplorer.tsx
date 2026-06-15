@@ -172,6 +172,9 @@ export default function ProgramExplorer() {
 
       <style>{`
         .pex { display: grid; grid-template-columns: 1fr; gap: 36px; }
+        /* let grid items shrink below content width so the table can scroll
+           inside its wrapper instead of overflowing the page on mobile */
+        .pex-side, .pex-main { min-width: 0; }
         @media (min-width: 992px) {
           .pex { grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
           .pex-side { position: sticky; top: 110px; align-self: start; }
@@ -246,6 +249,12 @@ export default function ProgramExplorer() {
           background: rgba(204,21,121,0.08); padding: 4px 12px; border-radius: 999px;
         }
         .pex-empty { color: #8A8AA3; font-size: 15.5px; padding: 24px 0; }
+        @media (max-width: 575px) {
+          .pex-table { min-width: 460px; }
+          .pex-table th, .pex-table td { padding-left: 12px; padding-right: 12px; }
+          .pex-main__name { font-size: 26px; }
+          .pex-tab { padding: 10px 18px; font-size: 14px; }
+        }
         .pex-note {
           margin: 22px 0 0; font-size: 14.5px; color: #8A6D7B; font-style: italic;
           background: rgba(204,21,121,0.05); border-left: 3px solid #CC1579;
