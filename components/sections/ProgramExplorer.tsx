@@ -172,7 +172,10 @@ export default function ProgramExplorer() {
 
       <style>{`
         .pex { display: grid; grid-template-columns: 1fr; gap: 36px; }
-        @media (min-width: 992px) { .pex { grid-template-columns: 300px 1fr; gap: 48px; } }
+        @media (min-width: 992px) {
+          .pex { grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
+          .pex-side { position: sticky; top: 110px; align-self: start; }
+        }
 
         /* sidebar */
         .pex-side__title {
