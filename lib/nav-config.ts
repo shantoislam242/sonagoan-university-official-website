@@ -152,11 +152,9 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Programs',
         items: [
-          { name: 'Faculty of Science & Engineering', href: '/academic-area' },
-          { name: 'Faculty of Business',              href: '#' },
-          { name: 'Faculty of Arts & Humanities',     href: '#' },
-          { name: 'Undergraduate Programs',           href: '/academic' },
-          { name: 'Graduate Programs',                href: '/academic' },
+          { name: 'Faculty of Science & Engineering', href: '/faculty/science-engineering' },
+          { name: 'Faculty of Business',              href: '/faculty/business' },
+          { name: 'Faculty of Arts & Humanities',     href: '/faculty/arts-humanities' },
         ],
       },
       {

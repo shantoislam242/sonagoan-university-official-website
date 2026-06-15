@@ -3,6 +3,7 @@ import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
 import PageBanner from '@/components/sections/PageBanner';
 import Container from '@/components/ui/Container';
+import DeanMessage from '@/components/sections/DeanMessage';
 import Link from 'next/link';
 import { GraduationCap, BookOpen, Target, Scale, ArrowUpRight } from 'lucide-react';
 
@@ -103,21 +104,27 @@ export default function ArtsHumanitiesFacultyPage() {
               </p>
             </div>
 
-            {/* Dean card (initials avatar — no photo on file) */}
-            <aside className="ah-dean">
-              <span className="ah-dean__heading">Meet Our Dean</span>
+            <div className="ah-ov-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/assets/images/faculty/dean-arts.jpg"
-                alt="Dean — Dr. A. S. M. Tariq Iqbal"
-                className="ah-dean__photo"
-              />
-              <h3 className="ah-dean__name">Dr. A. S. M. Tariq Iqbal</h3>
-              <p className="ah-dean__post">Dean, Faculty of Arts &amp; Humanities</p>
-            </aside>
+              <img src="/assets/images/program/program__3.jpg" alt="Faculty of Arts & Humanities" />
+            </div>
           </div>
         </Container>
       </section>
+
+      {/* ===== Dean's Message ===== */}
+      <DeanMessage
+        photo="/assets/images/faculty/dean-arts.jpg"
+        name="Dr. A. S. M. Tariq Iqbal"
+        role="Dean, Faculty of Arts & Humanities"
+        lead="Welcome to the Faculty of Arts & Humanities at Sonargaon University."
+        paragraphs={[
+          'In a world driven by technology, the human voice matters more than ever — the ability to think critically, to communicate clearly, to question, to interpret, and to seek justice. Our faculty is devoted to nurturing exactly these qualities. Through our programs in Law, Bangla Language & Literature, and Journalism & Media Studies, we explore the ideas, institutions, and expressions that shape society.',
+          'Our students learn not only to understand the world, but to engage with it — future lawyers who advocate for justice, journalists who inform and hold power to account, and scholars who preserve and enrich our cultural heritage. Grounded in the Outcome-Based Education model, our teaching blends rigorous theory with practical experience, from courtroom advocacy to newsroom reporting.',
+          'We believe the humanities are not a luxury but a necessity — the foundation of a just, informed, and compassionate society. It is our shared mission, and one we pursue together.',
+        ]}
+        closing="I invite you to join us on this journey of discovery, and to lend your voice to building a world of good."
+      />
 
       {/* ===== At a glance ===== */}
       <section style={{ background: '#F6F7FC', padding: '70px 0' }}>
@@ -196,19 +203,10 @@ export default function ArtsHumanitiesFacultyPage() {
       <style>{`
         .ah-intro { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
         @media (min-width: 992px) { .ah-intro { grid-template-columns: 1.7fr 1fr; gap: 56px; } }
-        .ah-dean {
-          display: flex; flex-direction: column; align-items: center; text-align: center;
-          background: #ffffff; border: 1px solid #ECECF3; border-radius: 18px;
-          padding: 28px 26px; box-shadow: 0 12px 30px rgba(43,49,117,0.07);
-          max-width: 340px; margin: 0 auto;
+        .ah-ov-media img {
+          width: 100%; height: 380px; object-fit: cover; border-radius: 18px; display: block;
+          box-shadow: 0 22px 54px rgba(43,49,117,0.16);
         }
-        .ah-dean__heading { color: #CC1579; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 20px; }
-        .ah-dean__photo {
-          width: 100%; max-width: 190px; height: 220px; border-radius: 14px;
-          object-fit: cover; object-position: top center; margin-bottom: 18px;
-        }
-        .ah-dean__name { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: 18px; line-height: 1.35; margin: 0 0 6px; }
-        .ah-dean__post { font-size: 13px; color: #8A8AA3; margin: 0; }
 
         .ah-glance { display: grid; grid-template-columns: 1fr; gap: 18px; }
         @media (min-width: 600px) { .ah-glance { grid-template-columns: 1fr 1fr; } }

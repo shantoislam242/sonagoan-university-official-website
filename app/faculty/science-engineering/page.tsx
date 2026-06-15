@@ -4,7 +4,7 @@ import FooterUniversity from '@/components/layout/FooterUniversity';
 import PageBanner from '@/components/sections/PageBanner';
 import Container from '@/components/ui/Container';
 import Link from 'next/link';
-import { GraduationCap, ShieldCheck, Target, FlaskConical, ArrowUpRight, Award } from 'lucide-react';
+import { GraduationCap, ShieldCheck, Target, FlaskConical, ArrowUpRight, Award, Quote } from 'lucide-react';
 
 export const metadata = buildMetadata({
   title: 'Faculty of Science & Engineering',
@@ -82,7 +82,7 @@ export default function ScienceEngineeringFacultyPage() {
       {/* ===== Overview ===== */}
       <section style={{ background: '#ffffff', padding: '100px 0 70px' }}>
         <Container className="!max-w-[1600px]">
-          <div className="se-intro">
+          <div className="se-ov">
             <div>
               <span style={eyebrow}>Faculty of Science &amp; Engineering</span>
               <h2 style={{ ...h2, fontSize: 'clamp(28px, 3.6vw, 42px)', marginBottom: 22 }}>
@@ -99,20 +99,60 @@ export default function ScienceEngineeringFacultyPage() {
                 education within reach of every aspiring student.
               </p>
             </div>
+            <div className="se-ov__media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/images/program/program__1.jpg" alt="Sonargaon University campus" />
+            </div>
+          </div>
+        </Container>
+      </section>
 
-            {/* Dean card */}
-            <aside className="se-dean">
-              <span className="se-dean__heading">Meet Our Dean</span>
+      {/* ===== Dean's Message ===== */}
+      <section style={{ background: 'linear-gradient(180deg, #F6F7FC 0%, #ffffff 100%)', padding: '90px 0' }}>
+        <Container className="!max-w-[1600px]">
+          <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 40px' }}>
+            <span style={eyebrow}>Dean&rsquo;s Message</span>
+            <h2 style={{ ...h2, fontSize: 'clamp(26px, 3.2vw, 38px)' }}>A Welcome from the Dean</h2>
+          </div>
+
+          <article className="se-letter">
+            <aside className="se-letter__side">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/assets/images/faculty/dean-kamal.png"
                 alt="Dean — Brig. Gen. (Retd) Prof. Habibur Rahman Kamal"
-                className="se-dean__photo"
+                className="se-letter__photo"
               />
-              <h3 className="se-dean__name">Brig. Gen. (Retd) Prof. Habibur Rahman Kamal</h3>
-              <p className="se-dean__post">Dean, Science &amp; Engineering &middot; ndc, psc</p>
+              <h3 className="se-letter__name">Brig. Gen. (Retd) Prof. Habibur Rahman Kamal</h3>
+              <span className="se-letter__role">Dean, Faculty of Science &amp; Engineering &middot; ndc, psc</span>
             </aside>
-          </div>
+
+            <div className="se-letter__body">
+              <span className="se-letter__quote" aria-hidden><Quote size={24} color="#CC1579" strokeWidth={2.2} /></span>
+              <p className="se-letter__lead">
+                Welcome to the Faculty of Science &amp; Engineering at Sonargaon University.
+              </p>
+            <p>
+              We live in an age defined by technology &mdash; where engineers, architects and innovators shape the
+              way the world builds, connects and grows. It is our privilege to prepare you for that world. Across
+              our nine programs &mdash; from Computer Science and Electrical Engineering to Civil, Mechanical,
+              Textile and Marine Engineering, Architecture and Design &mdash; we are committed to an education that
+              is rigorous, practical and deeply rooted in real-world application.
+            </p>
+            <p>
+              Our approach is built on the Outcome-Based Education model, supported by well-equipped laboratories
+              and a faculty that teaches not only from textbooks but from experience. We want our graduates to
+              leave here as problem-solvers &mdash; engineers who can think critically, work ethically and
+              contribute meaningfully to the development of Bangladesh and beyond.
+            </p>
+            <p>
+              But excellence is never the work of one person. It is what we achieve together &mdash; students,
+              teachers and mentors moving forward as one. I invite you to join us, to be curious, to work hard and
+              to rise to the challenges of your time.
+            </p>
+              <p className="se-letter__closing">Together, we will rise up, and we will shine.</p>
+            </div>
+          </article>
         </Container>
       </section>
 
@@ -201,24 +241,57 @@ export default function ScienceEngineeringFacultyPage() {
       <FooterUniversity />
 
       <style>{`
-        .se-intro { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
-        @media (min-width: 992px) { .se-intro { grid-template-columns: 1.7fr 1fr; gap: 56px; } }
-        .se-dean {
-          display: flex; flex-direction: column; align-items: center; text-align: center;
-          background: #ffffff; border: 1px solid #ECECF3; border-radius: 18px;
-          padding: 28px 26px; box-shadow: 0 12px 30px rgba(43,49,117,0.07);
-          max-width: 340px; margin: 0 auto;
+        .se-ov { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+        @media (min-width: 992px) { .se-ov { grid-template-columns: 1.1fr 0.9fr; gap: 56px; } }
+        .se-ov__media img {
+          width: 100%; height: 380px; object-fit: cover; border-radius: 18px; display: block;
+          box-shadow: 0 22px 54px rgba(43,49,117,0.16);
         }
-        .se-dean__heading {
-          color: #CC1579; font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
-          text-transform: uppercase; margin-bottom: 20px;
+
+        .se-letter {
+          position: relative; max-width: 1240px; margin: 0 auto; background: #ffffff;
+          border: 1px solid #ECECF3; border-radius: 22px; overflow: hidden;
+          box-shadow: 0 24px 60px rgba(43,49,117,0.10);
+          display: grid; grid-template-columns: 1fr;
         }
-        .se-dean__photo {
-          width: 100%; max-width: 190px; height: 220px; border-radius: 14px;
-          object-fit: cover; object-position: top center; margin-bottom: 18px;
+        @media (min-width: 900px) { .se-letter { grid-template-columns: 320px 1fr; } }
+        .se-letter::before {
+          content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; z-index: 2;
+          background: linear-gradient(90deg, #2B3175, #CC1579);
         }
-        .se-dean__name { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: 18px; line-height: 1.35; margin: 0 0 6px; }
-        .se-dean__post { font-size: 13px; color: #8A8AA3; margin: 0; }
+        .se-letter__side {
+          background: linear-gradient(180deg, #F7F8FC 0%, #F2F0F9 100%);
+          padding: 52px 34px; text-align: center;
+          display: flex; flex-direction: column; align-items: center; justify-content: center;
+          border-right: 1px solid #ECECF3;
+        }
+        .se-letter__photo {
+          width: 100%; max-width: 205px; height: 240px; border-radius: 16px; object-fit: cover;
+          object-position: top center; margin: 0 auto 18px; display: block;
+          box-shadow: 0 16px 34px rgba(43,49,117,0.20); border: 4px solid #ffffff;
+        }
+        .se-letter__name { display: block; font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: 17px; line-height: 1.35; margin-bottom: 6px; }
+        .se-letter__role { display: block; color: #8A8AA3; font-size: 13px; line-height: 1.5; }
+        .se-letter__body { padding: 52px 54px 48px; }
+        .se-letter__quote {
+          display: inline-flex; width: 52px; height: 52px; border-radius: 14px;
+          background: rgba(204,21,121,0.10); align-items: center; justify-content: center; margin-bottom: 22px;
+        }
+        .se-letter__body p { color: #4A4A63; font-size: 16.5px; line-height: 1.95; margin: 0 0 18px; }
+        @media (max-width: 899px) {
+          .se-letter__side { border-right: none; border-bottom: 1px solid #ECECF3; padding: 40px 26px; }
+          .se-letter__photo { max-width: 180px; height: 210px; }
+          .se-letter__body { padding: 40px 26px 36px; }
+        }
+        .se-letter__lead { color: #2B3175 !important; font-weight: 600; font-size: 18.5px !important; }
+        .se-letter__closing {
+          color: #CC1579 !important; font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700;
+          font-size: clamp(19px, 2.2vw, 24px) !important; line-height: 1.45 !important; margin: 22px 0 0 !important;
+        }
+        @media (max-width: 575px) {
+          .se-letter { padding: 40px 26px 34px; }
+          .se-letter__quote { font-size: 110px; left: 18px; }
+        }
 
         .se-glance { display: grid; grid-template-columns: 1fr; gap: 18px; }
         @media (min-width: 600px) { .se-glance { grid-template-columns: 1fr 1fr; } }

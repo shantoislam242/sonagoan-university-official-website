@@ -3,6 +3,7 @@ import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
 import PageBanner from '@/components/sections/PageBanner';
 import Container from '@/components/ui/Container';
+import DeanMessage from '@/components/sections/DeanMessage';
 import Link from 'next/link';
 import { GraduationCap, Target, Layers, TrendingUp, ArrowUpRight } from 'lucide-react';
 
@@ -104,21 +105,27 @@ export default function BusinessFacultyPage() {
               </p>
             </div>
 
-            {/* Dean card (initials avatar — no photo on file) */}
-            <aside className="bz-dean">
-              <span className="bz-dean__heading">Meet Our Dean</span>
+            <div className="bz-ov-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/assets/images/faculty/dean-business.jpg"
-                alt="Dean — Prof. Md. Al-Amin Molla"
-                className="bz-dean__photo"
-              />
-              <h3 className="bz-dean__name">Prof. Md. Al-Amin Molla</h3>
-              <p className="bz-dean__post">Dean, Faculty of Business</p>
-            </aside>
+              <img src="/assets/images/program/program__2.jpg" alt="Faculty of Business" />
+            </div>
           </div>
         </Container>
       </section>
+
+      {/* ===== Dean's Message ===== */}
+      <DeanMessage
+        photo="/assets/images/faculty/dean-business.jpg"
+        name="Prof. Md. Al-Amin Molla"
+        role="Dean, Faculty of Business"
+        lead="Welcome to the Faculty of Business at Sonargaon University."
+        paragraphs={[
+          'Business is the engine of progress — and behind every thriving enterprise are people with vision, discipline, and the courage to lead. Our faculty exists to develop exactly those people. From our Bachelor of Business Administration to a rich portfolio of postgraduate programs — including the MBA, Executive MBA, and specialized degrees in Supply Chain Management, Bank Management, and Apparel Merchandising — we offer pathways for learners at every stage of their professional journey.',
+          'What sets our programs apart is their balance of strong management theory with the practical, industry-focused skills today’s economy demands. Our specializations are closely aligned with Bangladesh’s largest growth sectors, ensuring that what you learn in the classroom translates directly into value in the workplace.',
+          'We believe education should open doors — and that success is something we build together, as a community of learners and leaders. Whether you are beginning your studies or returning to advance your career, you will find here the knowledge, mentorship, and support to achieve your ambitions.',
+        ]}
+        closing="I warmly welcome you to our faculty and look forward to being part of your journey."
+      />
 
       {/* ===== At a glance ===== */}
       <section style={{ background: '#F6F7FC', padding: '70px 0' }}>
@@ -203,19 +210,10 @@ export default function BusinessFacultyPage() {
       <style>{`
         .bz-intro { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
         @media (min-width: 992px) { .bz-intro { grid-template-columns: 1.7fr 1fr; gap: 56px; } }
-        .bz-dean {
-          display: flex; flex-direction: column; align-items: center; text-align: center;
-          background: #ffffff; border: 1px solid #ECECF3; border-radius: 18px;
-          padding: 28px 26px; box-shadow: 0 12px 30px rgba(43,49,117,0.07);
-          max-width: 340px; margin: 0 auto;
+        .bz-ov-media img {
+          width: 100%; height: 380px; object-fit: cover; border-radius: 18px; display: block;
+          box-shadow: 0 22px 54px rgba(43,49,117,0.16);
         }
-        .bz-dean__heading { color: #CC1579; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 20px; }
-        .bz-dean__photo {
-          width: 100%; max-width: 190px; height: 220px; border-radius: 14px;
-          object-fit: cover; object-position: top center; margin-bottom: 18px;
-        }
-        .bz-dean__name { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: 18px; line-height: 1.35; margin: 0 0 6px; }
-        .bz-dean__post { font-size: 13px; color: #8A8AA3; margin: 0; }
 
         .bz-glance { display: grid; grid-template-columns: 1fr; gap: 18px; }
         @media (min-width: 600px) { .bz-glance { grid-template-columns: 1fr 1fr; } }
