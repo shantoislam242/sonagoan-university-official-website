@@ -38,14 +38,14 @@ const FACULTIES = [
   {
     name: 'Faculty of Business',
     image: '/assets/images/program/program__2.jpg',
-    href: '/academic',
+    href: '/faculty/business',
     blurb:
       'Want to lead in the business world? The Faculty of Business builds independent thinkers ready to launch and lead — from the BBA to a wide range of specialised MBA tracks.',
   },
   {
     name: 'Faculty of Arts & Humanities',
     image: '/assets/images/program/program__3.jpg',
-    href: '/academic',
+    href: '/faculty/arts-humanities',
     blurb:
       'Explore law, language and media — degrees that sharpen critical thinking, communication and a deep understanding of the society around us.',
   },
@@ -104,7 +104,7 @@ export default function FacultyPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={f.image} alt={f.name} className="fac-card__img" />
                     <div className="fac-card__body">
-                      <h3 className="fac-card__name">{f.name}</h3>
+                      <h3 className="fac-card__name"><Link href={f.href}>{f.name}</Link></h3>
                       <p className="fac-card__blurb">{f.blurb}</p>
                       <Link href={f.href} className="fac-card__more">
                         Learn More <ArrowUpRight size={17} />
@@ -177,6 +177,8 @@ export default function FacultyPage() {
           font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700;
           color: #2B3175; font-size: 22px; margin: 0 0 12px;
         }
+        .fac-card__name a { color: inherit; text-decoration: none; transition: color .2s ease; }
+        .fac-card__name a:hover { color: #CC1579; }
         .fac-card__blurb { color: #5B5B78; font-size: 15.5px; line-height: 1.75; margin: 0 0 20px; flex: 1; }
         .fac-card__more {
           display: inline-flex; align-items: center; gap: 7px; color: #CC1579;
