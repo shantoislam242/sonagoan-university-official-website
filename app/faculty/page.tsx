@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
 
 const SECTIONS = [
   { label: 'Faculties', href: '/faculty', current: true },
-  { label: 'Deans', href: '#' },
+  { label: 'Deans', href: '/faculty/deans' },
   { label: 'Department Heads', href: '#' },
   { label: 'Faculty Members', href: '#', ext: true },
   { label: 'Advisory Council', href: '#', ext: true },
