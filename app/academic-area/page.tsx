@@ -1,342 +1,43 @@
-﻿import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata } from '@/lib/metadata';
 import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
 import PageBanner from '@/components/sections/PageBanner';
-import Link from 'next/link';
+import Container from '@/components/ui/Container';
+import DepartmentExplorer from '@/components/sections/DepartmentExplorer';
 
 export const metadata = buildMetadata({
-  title: 'Academic Areas',
-  description: 'Areas of academic study, schools, and disciplines at Sonargoan University.',
+  title: 'Departments',
+  description: 'The academic departments of Sonargaon University across Science & Engineering, Business, and Arts & Humanities — browse by faculty and program level.',
   path: '/academic-area',
 });
 
-export default function AcademicAreaPage() {
+export default function DepartmentsPage() {
   return (
     <>
       <HeaderUniversity />
       <PageBanner
-        title="Academic Areas"
-        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Academic Areas' }]}
+        title="Departments"
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Departments' }]}
       />
 
-      {/* content */}
-      <div className="rts-academic-area rts-section-padding">
-        <div className="container">
-          <div className="row">
-            <div className="rts-section">
-              <h3 className="rts-section-title">Academic Areas of Study</h3>
-            </div>
+      <section style={{ background: '#F6F7FC', padding: '80px 0 90px' }}>
+        <Container className="!max-w-[1600px]">
+          <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 44px' }}>
+            <span style={{ display: 'inline-block', color: '#CC1579', fontWeight: 700, fontSize: 13, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>
+              Academics
+            </span>
+            <h2 style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, color: '#2B3175', fontSize: 'clamp(28px, 3.6vw, 42px)', lineHeight: 1.2, marginBottom: 14 }}>
+              Our Departments
+            </h2>
+            <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.8, margin: 0 }}>
+              Explore the departments across our three faculties &mdash; filter by faculty or by program level to
+              find the right fit for your ambition.
+            </p>
           </div>
-          {/* academic top */}
-          <div className="search-filter mb--40">
-            <div className="row g-5">
-              <div className="col-lg-7 col-md-6">
-                <div className="category-search">
-                  <h6>Areas of Study:</h6>
-                  <form className="cat-search-form">
-                    <input type="text" placeholder="What interests you?" name="s" id="cat" />
-                    <button type="submit" className="cat-search"><i className="fa-light fa-magnifying-glass"></i></button>
-                  </form>
-                </div>
-              </div>
-              <div className="col-lg-5 col-md-6">
-                <div className="category-filter">
-                  <h6>Program Type:</h6>
-                  <select name="cat-search" id="cat-filter">
-                    <option value="*">Undergraduate Programs</option>
-                    <option value="*">Accounting BS</option>
-                    <option value="*">Africana Studies, BA</option>
-                    <option value="*">Applied Physics, BA, BS</option>
-                    <option value="*">Biology, BA, BS</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* TODO: Departments */}
-          <div className="all-program-category">
-            <div className="row g-5">
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/01.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Accounting BS</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
 
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/02.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Africana Studies, BA</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/03.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Applied Physics, BA, BS</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/03.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Applied Physics, BA, BS</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/04.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Biology, BA, BS</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/05.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Chemistry, BA, BS</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/06.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Computer Science, BS</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/07.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Economics, BA</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/08.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Business Administration</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/09.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Online Education</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">American Studies, MA</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/10.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">graduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">M.A. in Education</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/11.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">graduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Education, MA</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/12.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Undergraduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Nursing, DNP</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/13.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">graduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">M.A. in Counseling</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/14.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">Online Education</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">M.S. in Nursing</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single item */}
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <div className="single-cat-item">
-                  <div className="cat-thumb">
-                    <img src="/assets/images/course/15.jpg" alt="course-thumbnail" />
-                    <Link href="/program-single" className="cat-link-btn">graduate</Link>
-                  </div>
-                  <div className="cat-meta">
-                    <div className="cat-title">
-                      <Link href="/program-single">Master of Public Health</Link>
-                    </div>
-                    <div className="cat-link">
-                      <Link href="/program-single" className="cat-link-arrow"><i className="fa-sharp fa-regular fa-arrow-right"></i></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div className="rts-load-more-btn ">
-              <a href="#" className="rts-theme-btn primary lh-100">Load More</a>
-            </div>
-          </div>
-        </div>
-      </div>
+          <DepartmentExplorer />
+        </Container>
+      </section>
 
       <FooterUniversity />
     </>

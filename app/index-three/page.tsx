@@ -336,7 +336,7 @@ export default function IndexThreePage() {
               <Link
                 href="/academic"
                 className="prog2-card prog2-card--a"
-                style={{ backgroundImage: 'url(/assets/images/program/program__2.jpg)' }}
+                style={{ backgroundImage: 'url(/assets/images/program/su-undergrad.jpg)' }}
               >
                 <div className="prog2-card__body">
                   <h5>Undergraduate</h5>
@@ -348,7 +348,7 @@ export default function IndexThreePage() {
               <Link
                 href="/academic"
                 className="prog2-card prog2-card--b"
-                style={{ backgroundImage: 'url(/assets/images/program/program__4.jpg)' }}
+                style={{ backgroundImage: 'url(/assets/images/program/su-grad.jpg)' }}
               >
                 <div className="prog2-card__body">
                   <h5>Graduate</h5>
