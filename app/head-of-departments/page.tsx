@@ -161,7 +161,7 @@ export default function HeadOfDepartmentsPage() {
                 <div className="hod-card__body">
                   <h3 className="hod-card__name">{h.name}</h3>
                   <p className="hod-card__role">{h.designation}</p>
-                  <p className="hod-card__dept">Head, {h.department}</p>
+                  <p className="hod-card__dept">{h.department}</p>
                   <div className="hod-card__contact">
                     <a href={`mailto:${h.email}`} className="hod-card__row">
                       <Mail size={15} />
