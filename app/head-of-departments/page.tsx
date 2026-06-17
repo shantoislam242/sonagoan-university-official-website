@@ -259,11 +259,11 @@ export default function HeadOfDepartmentsPage() {
           display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0; white-space: nowrap;
           align-self: flex-end; margin-bottom: 1px;
           color: #CC1579; font-weight: 600; font-size: 12.5px;
-          text-decoration: underline; text-underline-offset: 3px;
+          text-decoration: none; text-underline-offset: 3px;
           transition: gap .2s ease;
         }
         .hod-card__profile svg { color: #CC1579; flex-shrink: 0; }
-        .hod-card__profile:hover { gap: 9px; }
+        .hod-card__profile:hover { gap: 9px; text-decoration: underline; }
       `}</style>
     </>
   );
