@@ -106,9 +106,11 @@ export default function FacultyMembersExplorer() {
         .fme-search:focus-within { border-color: #2B3175; box-shadow: 0 0 0 3px rgba(43,49,117,0.08); }
         .fme-search svg { color: #8A8AA3; flex-shrink: 0; }
         .fme-search input {
-          width: 100%; border: 0; outline: 0; background: transparent; padding: 13px 0;
-          font-size: 14.5px; color: #2B3175;
+          width: 100%; padding: 13px 0; font-size: 14.5px; color: #2B3175;
+          border: 0 !important; outline: 0 !important; background: transparent !important;
+          box-shadow: none !important; border-radius: 0 !important; -webkit-appearance: none; appearance: none;
         }
+        .fme-search input:focus { border: 0 !important; box-shadow: none !important; outline: 0 !important; }
         .fme-search input::placeholder { color: #9A9AB0; }
         .fme-tabs { display: flex; flex-wrap: wrap; gap: 10px; }
         .fme-tab {

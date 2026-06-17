@@ -147,7 +147,7 @@ export const mainNav: readonly MainNavGroup[] = [
           { name: 'Dean of the Faculties', href: '/faculty/deans' },
           { name: 'Head of the Departments', href: '/head-of-departments' },
           { name: 'All Faculty Members',   href: '/faculty-members' },
-          { name: 'Advisor List',          href: '#' },
+          { name: 'Advisor List',          href: '/advisor-list' },
         ],
       },
       {
