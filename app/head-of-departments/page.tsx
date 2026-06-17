@@ -3,7 +3,7 @@ import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
 import PageBanner from '@/components/sections/PageBanner';
 import Container from '@/components/ui/Container';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, ArrowUpRight } from 'lucide-react';
 
 export const metadata = buildMetadata({
   title: 'Head of the Departments',
@@ -19,9 +19,14 @@ type Head = {
   email: string;
   phone: string;
   photo: string;
+  // Profile page link. '#' until the SU profile page exists; the two heads
+  // that already have a published profile point to it.
+  profile: string;
 };
 
 const P = '/assets/images/heads';
+// Department-head profiles already published on the Mechanical Engineering site.
+const ME = 'https://mechanical-engineering-olive.vercel.app/faculty-member';
 
 const HEADS: Head[] = [
   {
@@ -31,6 +36,7 @@ const HEADS: Head[] = [
     email: 'hrkamal@gmail.com',
     phone: '01955529745',
     photo: `${P}/civil.jpeg`,
+    profile: `${ME}/habibur-rahman-kamal`,
   },
   {
     name: 'Engr. Mohammad Abdul Baset',
@@ -39,6 +45,7 @@ const HEADS: Head[] = [
     email: 'basettex7@gmail.com',
     phone: '01676877697',
     photo: `${P}/textile.jpg`,
+    profile: '#',
   },
   {
     name: 'Prof. Md. Mostofa Hossain',
@@ -47,6 +54,7 @@ const HEADS: Head[] = [
     email: 'headme@su.edu.bd',
     phone: '01955529729',
     photo: `${P}/mechanical.jpeg`,
+    profile: `${ME}/mostofa-hossain`,
   },
   {
     name: 'Prof. Khabirul Haque Chowdhury',
@@ -55,6 +63,7 @@ const HEADS: Head[] = [
     email: 'khabir.buet@gmail.com',
     phone: '01619214080',
     photo: `${P}/naval.png`,
+    profile: '#',
   },
   {
     name: 'Prof. Bulbul Ahamed',
@@ -63,6 +72,7 @@ const HEADS: Head[] = [
     email: 'bulbul_cse@su.edu.bd',
     phone: '01955529841',
     photo: `${P}/cse.jpg`,
+    profile: '#',
   },
   {
     name: 'Akmal Hakim',
@@ -71,6 +81,7 @@ const HEADS: Head[] = [
     email: 'akmal67@gmail.com',
     phone: '01711534795',
     photo: `${P}/architecture.jpg`,
+    profile: '#',
   },
   {
     name: 'Md. Rasel Hawlader',
@@ -79,6 +90,7 @@ const HEADS: Head[] = [
     email: 'raselhawlader71@gmail.com',
     phone: '01992077406',
     photo: `${P}/business.jpg`,
+    profile: '#',
   },
   {
     name: 'Md. Ahshan Habib',
@@ -87,6 +99,7 @@ const HEADS: Head[] = [
     email: 'habib826620@yahoo.com',
     phone: '01955529877',
     photo: `${P}/fashion.jpg`,
+    profile: '#',
   },
   {
     name: 'Md. Tajbir Husain',
@@ -95,6 +108,7 @@ const HEADS: Head[] = [
     email: 'Mtajbirsojib@gmail.com',
     phone: '01721978664',
     photo: `${P}/apparel.jpg`,
+    profile: '#',
   },
   {
     name: 'Md. Rais Uddin Mollah',
@@ -103,6 +117,7 @@ const HEADS: Head[] = [
     email: 'raismollah.su.eee@gmail.com',
     phone: '01955529768',
     photo: `${P}/eee.jpg`,
+    profile: '#',
   },
   {
     name: 'Md. Shamim Sarker',
@@ -111,6 +126,7 @@ const HEADS: Head[] = [
     email: 'shahriarshamim35@gmail.com',
     phone: '01958642454',
     photo: `${P}/bangla.jpg`,
+    profile: '#',
   },
   {
     name: 'Sharmin Jahan Runa',
@@ -119,6 +135,7 @@ const HEADS: Head[] = [
     email: 'sharminjahanlaw88@gmail.com',
     phone: '01955529862',
     photo: `${P}/law.png`,
+    profile: '#',
   },
 ];
 
@@ -150,31 +167,42 @@ export default function HeadOfDepartmentsPage() {
           </div>
 
           <div className="hod-grid">
-            {HEADS.map((h) => (
-              <article key={h.department} className="hod-card">
-                <div className="hod-card__photo-wrap">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={h.photo} alt="" aria-hidden className="hod-card__bg" />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={h.photo} alt={h.name} className="hod-card__photo" />
-                </div>
-                <div className="hod-card__body">
-                  <h3 className="hod-card__name">{h.name}</h3>
-                  <p className="hod-card__role">{h.designation}</p>
-                  <p className="hod-card__dept">{h.department}</p>
-                  <div className="hod-card__contact">
-                    <a href={`mailto:${h.email}`} className="hod-card__row">
-                      <Mail size={15} />
-                      <span>{h.email}</span>
-                    </a>
-                    <a href={`tel:${h.phone}`} className="hod-card__row">
-                      <Phone size={15} />
-                      <span>{h.phone}</span>
-                    </a>
+            {HEADS.map((h) => {
+              const ext = h.profile.startsWith('http');
+              const linkProps = ext ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+              return (
+                <article key={h.department} className="hod-card">
+                  <a href={h.profile} {...linkProps} className="hod-card__photo-wrap" aria-label={`View profile of ${h.name}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={h.photo} alt="" aria-hidden className="hod-card__bg" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={h.photo} alt={h.name} className="hod-card__photo" />
+                  </a>
+                  <div className="hod-card__body">
+                    <h3 className="hod-card__name">
+                      <a href={h.profile} {...linkProps}>{h.name}</a>
+                    </h3>
+                    <p className="hod-card__role">{h.designation}</p>
+                    <p className="hod-card__dept">{h.department}</p>
+                    <div className="hod-card__contact">
+                      <div className="hod-card__info">
+                        <a href={`mailto:${h.email}`} className="hod-card__row">
+                          <Mail size={15} />
+                          <span>{h.email}</span>
+                        </a>
+                        <a href={`tel:${h.phone}`} className="hod-card__row">
+                          <Phone size={15} />
+                          <span>{h.phone}</span>
+                        </a>
+                      </div>
+                      <a href={h.profile} {...linkProps} className="hod-card__profile">
+                        View Profile <ArrowUpRight size={14} />
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -193,7 +221,7 @@ export default function HeadOfDepartmentsPage() {
         }
         .hod-card:hover { transform: translateY(-5px); box-shadow: 0 24px 50px rgba(43,49,117,0.13); }
         .hod-card__photo-wrap {
-          position: relative; border-bottom: 1px solid #ECECF3; background: #EEF0F6;
+          display: block; position: relative; border-bottom: 1px solid #ECECF3; background: #EEF0F6;
           overflow: hidden; aspect-ratio: 1 / 1;
         }
         .hod-card__bg {
@@ -210,12 +238,15 @@ export default function HeadOfDepartmentsPage() {
           font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700;
           color: #2B3175; font-size: 16px; line-height: 1.3; margin: 0 0 4px;
         }
+        .hod-card__name a { color: inherit; text-decoration: none; transition: color .2s ease; }
+        .hod-card__name a:hover { color: #CC1579; }
         .hod-card__role { color: #5B5B78; font-size: 13px; margin: 0 0 3px; }
         .hod-card__dept { color: #CC1579; font-size: 12.5px; font-weight: 600; margin: 0 0 14px; }
         .hod-card__contact {
-          margin-top: auto; display: flex; flex-direction: column; gap: 7px;
-          padding-top: 13px; border-top: 1px solid #F0F0F5;
+          margin-top: auto; display: flex; align-items: center; justify-content: space-between;
+          gap: 12px; padding-top: 13px; border-top: 1px solid #F0F0F5;
         }
+        .hod-card__info { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
         .hod-card__row {
           display: inline-flex; align-items: center; gap: 8px;
           color: #5B5B78; font-size: 12.5px; text-decoration: none; word-break: break-all;
@@ -224,6 +255,15 @@ export default function HeadOfDepartmentsPage() {
         .hod-card__row svg { color: #2B3175; flex-shrink: 0; }
         .hod-card__row:hover { color: #CC1579; }
         .hod-card__row:hover svg { color: #CC1579; }
+        .hod-card__profile {
+          display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0; white-space: nowrap;
+          align-self: flex-end; margin-bottom: 1px;
+          color: #CC1579; font-weight: 600; font-size: 12.5px;
+          text-decoration: underline; text-underline-offset: 3px;
+          transition: gap .2s ease;
+        }
+        .hod-card__profile svg { color: #CC1579; flex-shrink: 0; }
+        .hod-card__profile:hover { gap: 9px; }
       `}</style>
     </>
   );
