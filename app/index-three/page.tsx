@@ -45,6 +45,15 @@ export default function IndexThreePage() {
         .banner.v__2 .banner__slides--content--sub { animation: heroReveal 7s .3s infinite both; }
         .banner.v__2 .banner__slides--content--title { animation: heroReveal 7s .8s infinite both; }
         .banner.v__2 .banner__slides--content .rts-theme-btn { animation: heroReveal 7s 1.3s infinite both; }
+        /* hero button: navy by default, magenta + white text on hover */
+        .banner.v__2 .banner__wrapper .banner__slides--content .rts-theme-btn::before { display: none !important; }
+        .banner.v__2 .banner__wrapper .banner__slides--content .rts-theme-btn {
+          background: #2B3175 !important; color: #fff !important;
+          transition: background .3s ease, color .3s ease !important;
+        }
+        .banner.v__2 .banner__wrapper .banner__slides--content .rts-theme-btn:hover {
+          background: #CC1579 !important; color: #fff !important;
+        }
         /* hero side nav: lower it, tighten the gap, just a slight blur (no card) */
         .banner.v__2 .banner__wrapper .banner__slides--navigation {
           bottom: 48px;
