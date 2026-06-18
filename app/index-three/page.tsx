@@ -6,8 +6,8 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
-  title: 'Home — Layout 3',
-  description: 'Sonargoan University official website — alternative homepage layout.',
+  title: 'Home Layout 3',
+  description: 'Sonargoan University official website alternative homepage layout.',
   path: '/index-three',
 });
 
@@ -139,7 +139,7 @@ export default function IndexThreePage() {
           z-index), but still passes under the fixed navbar. */}
       <div style={{ position: 'relative', zIndex: 2, background: '#ffffff' }}>
 
-      {/* mission section — centered intro (Stanford-style), SU theme */}
+      {/* mission section centered intro (Stanford-style), SU theme */}
       <section style={{ background: '#ffffff', padding: '90px 0' }}>
         <Container className="!max-w-[1600px]">
           <div style={{ textAlign: 'center' }}>
@@ -181,14 +181,14 @@ export default function IndexThreePage() {
         </Container>
       </section>
 
-      {/* About — redesigned, balanced two-column layout */}
+      {/* About redesigned, balanced two-column layout */}
       <section style={{ background: '#ffffff', padding: '90px 0' }}>
         <Container className="!max-w-[1600px]">
           <div
             className="about-grid"
             style={{ display: 'grid', gap: 56, alignItems: 'center' }}
           >
-            {/* Header — label + title (sits top-right on desktop, top-centered on mobile) */}
+            {/* Header label + title (sits top-right on desktop, top-centered on mobile) */}
             <div className="about-header" style={{ gridArea: 'header' }}>
               <span style={{ display: 'inline-block', color: '#CC1579', fontWeight: 700, fontSize: 13, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>
                 About Us
@@ -198,7 +198,7 @@ export default function IndexThreePage() {
               </h2>
             </div>
 
-            {/* Images — staggered tilted pair with stat label */}
+            {/* Images staggered tilted pair with stat label */}
             <div className="su-about-imgs" style={{ gridArea: 'images', position: 'relative', display: 'flex', gap: 28, justifyContent: 'center', alignItems: 'flex-start' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -238,11 +238,11 @@ export default function IndexThreePage() {
               </div>
             </div>
 
-            {/* Body — description + checklist + link */}
+            {/* Body description + checklist + link */}
             <div className="about-body" style={{ gridArea: 'body' }}>
               <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.9, marginBottom: 26 }}>
                 Sonargaon University (SU) is one of Bangladesh&rsquo;s preeminent private
-                universities &mdash; approved by the University Grants Commission (UGC) and the
+                universities approved by the University Grants Commission (UGC) and the
                 Government of Bangladesh, and sponsored by the non-profit Sonargaon University
                 Trust. It was founded to bring quality education within the reach of students
                 with modest economic means.
@@ -320,10 +320,10 @@ export default function IndexThreePage() {
             <div className="rts__section--wrapper v__2 prog2-intro">
               <h2 className="rts__section--title text-capitalize">Our Programs</h2>
               <p className="rts__section--description">
-                At Sonargaon University, education is more than a degree &mdash; it&rsquo;s a journey of
+                At Sonargaon University, education is more than a degree it&rsquo;s a journey of
                 discovery, growth, and impact. Across three faculties and a wide range of undergraduate
                 and postgraduate programs, we nurture bright, motivated minds eager to learn, lead, and
-                shape the world around them. Find the program that fits your ambition &mdash; and start
+                shape the world around them. Find the program that fits your ambition and start
                 turning ideas into impact.
               </p>
               <div className="prog2-stats">
@@ -345,7 +345,7 @@ export default function IndexThreePage() {
                 </div>
               </div>
               <p className="prog2-obe">
-                From engineering and business to law and design &mdash; explore programs built around the
+                From engineering and business to law and design explore programs built around the
                 Outcome-Based Education model.
               </p>
               <div className="prog2-cta">
@@ -361,7 +361,7 @@ export default function IndexThreePage() {
               </div>
             </div>
 
-            {/* right — two large landscape cards */}
+            {/* right two large landscape cards */}
             <div className="prog2-cards">
               <Link
                 href="/academic"
@@ -371,7 +371,7 @@ export default function IndexThreePage() {
                 <div className="prog2-card__body">
                   <h5>Undergraduate</h5>
                   <p className="prog2-card__desc">
-                    Bachelor&rsquo;s degrees across Science &amp; Engineering, Business, and Arts &amp; Humanities &mdash; from CSE, EEE and Architecture to BBA, LLB and more.
+                    Bachelor&rsquo;s degrees across Science &amp; Engineering, Business, and Arts &amp; Humanities from CSE, EEE and Architecture to BBA, LLB and more.
                   </p>
                 </div>
               </Link>
@@ -383,7 +383,7 @@ export default function IndexThreePage() {
                 <div className="prog2-card__body">
                   <h5>Graduate</h5>
                   <p className="prog2-card__desc">
-                    Master&rsquo;s degrees for graduates and professionals &mdash; a wide range of MBA tracks, MSCM, MTFM, MBM and LLM programs.
+                    Master&rsquo;s degrees for graduates and professionals a wide range of MBA tracks, MSCM, MTFM, MBM and LLM programs.
                   </p>
                 </div>
               </Link>
@@ -396,7 +396,7 @@ export default function IndexThreePage() {
           @media (min-width: 992px) {
             .prog2-wrap { grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
           }
-          /* template caps .rts__section--wrapper.v__2 at 470px — widen so the
+          /* template caps .rts__section--wrapper.v__2 at 470px widen so the
              intro text expands to the right instead of staying cramped */
           .prog2-intro { max-width: 700px !important; }
           /* match the About section heading size for consistency */

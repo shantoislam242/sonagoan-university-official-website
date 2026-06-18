@@ -9,7 +9,7 @@ import { ArrowUpRight } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'Deans of the Faculties',
   description:
-    'Meet the deans leading the three faculties of Sonargaon University — Science & Engineering, Business, and Arts & Humanities.',
+    'Meet the deans leading the three faculties of Sonargaon University Science & Engineering, Business, and Arts & Humanities.',
   path: '/faculty/deans',
 });
 

@@ -7,7 +7,7 @@ import DepartmentExplorer from '@/components/sections/DepartmentExplorer';
 
 export const metadata = buildMetadata({
   title: 'Departments',
-  description: 'The academic departments of Sonargaon University across Science & Engineering, Business, and Arts & Humanities — browse by faculty and program level.',
+  description: 'The academic departments of Sonargaon University across Science & Engineering, Business, and Arts & Humanities browse by faculty and program level.',
   path: '/academic-area',
 });
 
@@ -30,7 +30,7 @@ export default function DepartmentsPage() {
               Our Departments
             </h2>
             <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.8, margin: 0 }}>
-              Explore the departments across our three faculties &mdash; filter by faculty or by program level to
+              Explore the departments across our three faculties filter by faculty or by program level to
               find the right fit for your ambition.
             </p>
           </div>

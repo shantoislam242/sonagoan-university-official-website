@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata = buildMetadata({
   title: 'Blog',
-  description: 'University blog — articles, insights, and stories from the Sonargoan community.',
+  description: 'University blog articles, insights, and stories from the Sonargoan community.',
   path: '/blog',
 });
 

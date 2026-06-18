@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata = buildMetadata({
   title: 'Research',
-  description: 'Research at Sonargoan University — labs, publications, and projects.',
+  description: 'Research at Sonargoan University labs, publications, and projects.',
   path: '/research',
 });
 
@@ -198,7 +198,7 @@ export default function ResearchPage() {
               </div>
               <div className="research__text--single">
                 <h5 className="rts-section-title">Collaboration and Interdisciplinary Insights:</h5>
-                <p className="description">In the spirit of progress, Medicine Research thrives on collaboration. Researchers from diverse backgrounds—clinicians, scientists, technologists, and ethicists—come together to pool their expertise, fostering interdisciplinary insights that drive innovation forward.</p>
+                <p className="description">In the spirit of progress, Medicine Research thrives on collaboration. Researchers from diverse backgrounds clinicians, scientists, technologists, and ethicists come together to pool their expertise, fostering interdisciplinary insights that drive innovation forward.</p>
               </div>
             </div>
           </div>

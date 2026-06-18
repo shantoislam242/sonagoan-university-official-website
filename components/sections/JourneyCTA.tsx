@@ -12,7 +12,7 @@ import { cta } from '@/lib/cta-config';
 // (the old "62.5%" trick), so Tailwind's rem-based utilities
 // (text-5xl, px-7, max-w-xl, gap-4 …) render at 62.5% and the whole
 // section came out tiny. rem is ROOT-relative, so it can't be reset
-// per-section — instead every rem-dependent utility here is pinned to
+// per-section instead every rem-dependent utility here is pinned to
 // an absolute px arbitrary value (text-[48px], px-[28px], max-w-[576px]
 // …). This matches the source project's 16px-base sizes exactly while
 // leaving the template's own 10px-base layout untouched.
@@ -27,7 +27,7 @@ export default function JourneyCTA() {
   return (
     <section className="cta-section relative">
       <div className="relative h-[420px] md:h-[480px] overflow-hidden">
-        {/* Hero image — plain <img> with inline objectFit/objectPosition
+        {/* Hero image plain <img> with inline objectFit/objectPosition
             so template `img { height: auto }` cannot strip the cover
             behaviour. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -57,7 +57,7 @@ export default function JourneyCTA() {
           }}
         />
 
-        {/* Content overlay — uses the same Container component as
+        {/* Content overlay uses the same Container component as
             SUNavbar so the heading's left edge aligns with the logo. */}
         <Container className="relative z-10 h-full flex items-center">
           <motion.div
@@ -67,7 +67,7 @@ export default function JourneyCTA() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="max-w-[576px] text-white text-left"
           >
-            {/* Heading — source-exact classes. Inline color defends
+            {/* Heading source-exact classes. Inline color defends
                 against template `h2 { color: ... }`. */}
             <h2
               className="font-display text-[36px] md:text-[48px] font-bold mb-[20px] leading-tight tracking-tight"
@@ -76,7 +76,7 @@ export default function JourneyCTA() {
               {cta.heading}
             </h2>
 
-            {/* Body — source-exact classes. Inline color override. */}
+            {/* Body source-exact classes. Inline color override. */}
             <p
               className="text-[16px] md:text-[18px] mb-[32px] leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.85)' }}
@@ -85,7 +85,7 @@ export default function JourneyCTA() {
             </p>
 
             <div className="flex flex-wrap gap-[16px]">
-              {/* Primary — source classes for layout, inline bg for the
+              {/* Primary source classes for layout, inline bg for the
                   navy→magenta gradient (Tailwind gradient utilities
                   are easy targets for template style.css overrides). */}
               <a
@@ -104,7 +104,7 @@ export default function JourneyCTA() {
                 {cta.primary.label}
               </a>
 
-              {/* Secondary — white border + transparent bg, swaps on hover. */}
+              {/* Secondary white border + transparent bg, swaps on hover. */}
               <a
                 href={cta.secondary.href}
                 {...(cta.secondary.external && {
@@ -113,7 +113,7 @@ export default function JourneyCTA() {
                 })}
                 className="cta-btn cta-btn-secondary inline-block text-[16px] px-[28px] py-[12px] font-semibold rounded-[6px]"
                 style={{
-                  // Inline border — Tailwind's `border-2 border-white` sets
+                  // Inline border Tailwind's `border-2 border-white` sets
                   // width+colour but NOT style, and preflight (which supplies
                   // the default `border-style: solid`) is disabled in this
                   // project, so the Tailwind border renders invisible. Inline

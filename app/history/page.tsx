@@ -8,17 +8,17 @@ import { Award } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'History',
   description:
-    'The history of Sonargaon University (SU) — established in 2012 under the SU Trust, and grown into one of Bangladesh’s preeminent private universities.',
+    'The history of Sonargaon University (SU) established in 2012 under the SU Trust, and grown into one of Bangladesh’s preeminent private universities.',
   path: '/history',
 });
 
 const AWARDS = [
-  'National Award 2018 — a2i Innovation Competition',
+  'National Award 2018 a2i Innovation Competition',
   'Asia Young Designer Award 2019',
   'Best Supporting Architecture School of Bangladesh',
   'A3F Sustainable Design Award 2019',
   'Shah Cement DOT Student Design Award 2019',
-  'ISIF 2025 — Bangladesh round (SU NextGen Innovators)',
+  'ISIF 2025 Bangladesh round (SU NextGen Innovators)',
 ];
 
 const MILESTONES = [
@@ -40,7 +40,7 @@ export default function HistoryPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'About Us', href: '/about' }, { label: 'History' }]}
       />
 
-      {/* ===== 1. The beginning — image + text ===== */}
+      {/* ===== 1. The beginning image + text ===== */}
       <section style={{ background: '#ffffff', padding: '100px 0 72px' }}>
         <Container className="!max-w-[1600px]">
           <div className="hist-intro">
@@ -54,7 +54,7 @@ export default function HistoryPage() {
                 The History of Sonargaon University
               </h2>
               <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.9, margin: 0 }}>
-                Sonargaon University was established in 2012 under the Sonargaon University (SU) Trust &mdash; a registered, non-political, non-profit voluntary organization founded by eminent entrepreneurs from the academic arena who shared a vision of accessible, quality higher education. The University formally began its academic activities on 18 November 2012, approved by the University Grants Commission (UGC of Bangladesh, ID&nbsp;97) and the Government of Bangladesh.
+                Sonargaon University was established in 2012 under the Sonargaon University (SU) Trust a registered, non-political, non-profit voluntary organization founded by eminent entrepreneurs from the academic arena who shared a vision of accessible, quality higher education. The University formally began its academic activities on 18 November 2012, approved by the University Grants Commission (UGC of Bangladesh, ID&nbsp;97) and the Government of Bangladesh.
               </p>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function HistoryPage() {
             </h2>
             <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.85, margin: 0 }}>
               From its earliest years, SU set out to combine affordable education with strong research and
-              creative practice &mdash; a commitment that soon earned recognition at home and abroad.
+              creative practice a commitment that soon earned recognition at home and abroad.
             </p>
           </div>
           <div className="hist-awards">
@@ -122,7 +122,7 @@ export default function HistoryPage() {
               </div>
             </div>
             <p style={{ color: '#5B5B78', fontSize: 'clamp(17px, 2.2vw, 22px)', lineHeight: 1.7, fontWeight: 500, margin: '36px auto 0', maxWidth: 820 }}>
-              Since its commencement in 2012, Sonargaon University has turned ideas into impact &mdash;
+              Since its commencement in 2012, Sonargaon University has turned ideas into impact 
               transforming lives across Bangladesh and beyond.
             </p>
           </div>

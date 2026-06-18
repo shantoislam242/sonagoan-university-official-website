@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata = buildMetadata({
   title: 'Alumni',
-  description: 'Sonargoan University alumni network — stories, events, and giving.',
+  description: 'Sonargoan University alumni network stories, events, and giving.',
   path: '/alumni',
 });
 

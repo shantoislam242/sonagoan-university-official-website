@@ -54,7 +54,7 @@ export default function IqacPriaPage() {
         <Container className="!max-w-[1100px]">
           <div style={{ textAlign: 'center', maxWidth: 880, margin: '0 auto' }}>
             <span style={{ display: 'inline-block', color: '#CC1579', fontWeight: 700, fontSize: 13, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>
-              IQAC &mdash; Institutional Quality Assurance Cell
+              IQAC Institutional Quality Assurance Cell
             </span>
             <h2 style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, color: '#2B3175', fontSize: 'clamp(26px, 3.4vw, 38px)', lineHeight: 1.25, marginBottom: 18 }}>
               About this Office
@@ -64,7 +64,7 @@ export default function IqacPriaPage() {
               and administrative quality at Sonargaon University. Working alongside PRIA, the cell sets
               quality standards, conducts self-assessments across programs, and promotes a culture of
               accountability and excellence throughout the university. Its goal is to ensure that every
-              program meets national and international standards of higher education &mdash; supporting
+              program meets national and international standards of higher education supporting
               SU&rsquo;s commitment to &ldquo;Quality Education, National Needs, Global Standards.&rdquo;
             </p>
           </div>

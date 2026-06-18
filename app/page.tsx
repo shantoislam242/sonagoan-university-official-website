@@ -7,7 +7,7 @@ import { buildMetadata } from '@/lib/metadata';
 export const metadata = buildMetadata({
   title: 'Home',
   description:
-    'Sonargoan University official website — programs, faculty, events, admission, and campus life.',
+    'Sonargoan University official website programs, faculty, events, admission, and campus life.',
   path: '/',
 });
 

@@ -8,7 +8,7 @@ import { Target, Eye } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'Mission & Vision',
   description:
-    'The mission and vision of Sonargaon University (SU) — world-class education, research, and a commitment to excellence.',
+    'The mission and vision of Sonargaon University (SU) world-class education, research, and a commitment to excellence.',
   path: '/mission-vision',
 });
 
@@ -63,7 +63,7 @@ export default function MissionVisionPage() {
             </h2>
             <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.8, margin: 0 }}>
               At Sonargaon University, everything we do is guided by a clear mission and an
-              ambitious vision — to educate, to discover, and to shape leaders for the future.
+              ambitious vision to educate, to discover, and to shape leaders for the future.
             </p>
           </div>
 

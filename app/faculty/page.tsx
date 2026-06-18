@@ -8,7 +8,7 @@ import { ArrowUpRight, Link2 } from 'lucide-react';
 
 export const metadata = buildMetadata({
   title: 'Faculty',
-  description: 'Browse the faculties of Sonargaon University — Science & Engineering, Business, and Arts & Humanities — and explore their programs.',
+  description: 'Browse the faculties of Sonargaon University Science & Engineering, Business, and Arts & Humanities and explore their programs.',
   path: '/faculty',
 });
 
@@ -33,21 +33,21 @@ const FACULTIES = [
     image: '/assets/images/program/program__1.jpg',
     href: '/faculty/science-engineering',
     blurb:
-      'A degree from Science & Engineering will transform your life — preparing you for the fourth industrial revolution across computing, electronics, civil, mechanical, architecture, textiles and marine engineering.',
+      'A degree from Science & Engineering will transform your life preparing you for the fourth industrial revolution across computing, electronics, civil, mechanical, architecture, textiles and marine engineering.',
   },
   {
     name: 'Faculty of Business',
     image: '/assets/images/program/program__2.jpg',
     href: '/faculty/business',
     blurb:
-      'Want to lead in the business world? The Faculty of Business builds independent thinkers ready to launch and lead — from the BBA to a wide range of specialised MBA tracks.',
+      'Want to lead in the business world? The Faculty of Business builds independent thinkers ready to launch and lead from the BBA to a wide range of specialised MBA tracks.',
   },
   {
     name: 'Faculty of Arts & Humanities',
     image: '/assets/images/program/program__3.jpg',
     href: '/faculty/arts-humanities',
     blurb:
-      'Explore law, language and media — degrees that sharpen critical thinking, communication and a deep understanding of the society around us.',
+      'Explore law, language and media degrees that sharpen critical thinking, communication and a deep understanding of the society around us.',
   },
 ];
 

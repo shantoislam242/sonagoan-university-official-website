@@ -35,7 +35,7 @@ export default function DeanMessage({
         <article className="dean-letter">
           <aside className="dean-letter__side">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={photo} alt={`Dean — ${name}`} className="dean-letter__photo" />
+            <img src={photo} alt={`Dean ${name}`} className="dean-letter__photo" />
             <h3 className="dean-letter__name">{name}</h3>
             <span className="dean-letter__role">{role}</span>
           </aside>

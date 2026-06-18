@@ -13,7 +13,7 @@ const FACULTIES: Faculty[] = [
   {
     name: 'Faculty of Science & Engineering',
     blurb:
-      'Engineering and technology degrees that prepare you for the fourth industrial revolution — from computing and electronics to architecture, textiles and marine engineering.',
+      'Engineering and technology degrees that prepare you for the fourth industrial revolution from computing and electronics to architecture, textiles and marine engineering.',
     facultyHref: '/faculty',
     ug: [
       p('B.Sc. in Computer Science & Engineering', 'CSE', '162', '4 yrs'),
@@ -32,7 +32,7 @@ const FACULTIES: Faculty[] = [
   {
     name: 'Faculty of Business',
     blurb:
-      'Business and management degrees — from the BBA to a wide range of specialised MBA tracks for fresh graduates and working professionals.',
+      'Business and management degrees from the BBA to a wide range of specialised MBA tracks for fresh graduates and working professionals.',
     facultyHref: '/faculty',
     ug: [p('Bachelor of Business Administration', 'BBA', '141', '4 yrs')],
     pg: [

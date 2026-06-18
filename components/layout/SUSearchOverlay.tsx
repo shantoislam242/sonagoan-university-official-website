@@ -9,7 +9,7 @@ interface SUSearchOverlayProps {
 }
 
 // Placeholder search overlay. Real search backend (faculty, pages,
-// programs) is TODO — when wired up, swap the empty-state body for
+// programs) is TODO when wired up, swap the empty-state body for
 // a results list. Modal pattern lifted from source SearchOverlay.tsx.
 export default function SUSearchOverlay({ open, onClose }: SUSearchOverlayProps) {
   const [query, setQuery] = useState('');
@@ -34,7 +34,7 @@ export default function SUSearchOverlay({ open, onClose }: SUSearchOverlayProps)
     return () => window.removeEventListener('keydown', onKey);
   }, [open, onClose]);
 
-  // Conditional render — keeping the overlay mounted with `-translate-y-full`
+  // Conditional render keeping the overlay mounted with `-translate-y-full`
   // would normally hide it, but template style.css contains broad `transform`
   // resets that defeat Tailwind's transform utilities, so the closed overlay
   // ended up visible. Unmounting when closed is bulletproof.
@@ -77,7 +77,7 @@ export default function SUSearchOverlay({ open, onClose }: SUSearchOverlayProps)
           {/* Placeholder body */}
           <div className="mt-3 max-h-[70vh] overflow-y-auto py-8 text-center text-sm text-gray-500">
             {!query.trim() ? (
-              <>Type a keyword — pages, faculty names, programs…</>
+              <>Type a keyword pages, faculty names, programs…</>
             ) : (
               <>Search backend coming soon. Use the menu above to navigate.</>
             )}

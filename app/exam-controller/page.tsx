@@ -8,7 +8,7 @@ import { Check } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'Office of the Controller of Examinations',
   description:
-    'The Office of the Controller of Examinations manages the complete examination process of Sonargaon University — scheduling, conducting exams, and processing and publishing results.',
+    'The Office of the Controller of Examinations manages the complete examination process of Sonargaon University scheduling, conducting exams, and processing and publishing results.',
   path: '/exam-controller',
 });
 
@@ -62,7 +62,7 @@ export default function ExamControllerPage() {
             </h2>
             <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.85, margin: 0 }}>
               The Office of the Controller of Examinations manages the complete examination process of
-              Sonargaon University &mdash; from scheduling and conducting examinations to processing and
+              Sonargaon University from scheduling and conducting examinations to processing and
               publishing results. It works to ensure that every examination is conducted fairly, securely,
               and on time, and that students receive accurate academic records and certificates across all
               faculties and departments.

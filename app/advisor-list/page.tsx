@@ -7,7 +7,7 @@ import Container from '@/components/ui/Container';
 export const metadata = buildMetadata({
   title: 'Advisor List',
   description:
-    'Meet the advisors of Sonargaon University — the experienced advisors supporting the university’s growth and direction.',
+    'Meet the advisors of Sonargaon University the experienced advisors supporting the university’s growth and direction.',
   path: '/advisor-list',
 });
 

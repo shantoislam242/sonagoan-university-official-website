@@ -29,7 +29,7 @@ export default function BrandLogo({
         alignItems: 'center',
         textDecoration: 'none',
       }}
-      aria-label="Sonargaon University — Home"
+      aria-label="Sonargaon University Home"
     >
       <img
         src={src}

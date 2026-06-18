@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: 'Sonargaon University',
   description: 'Sonargoan University official website.',
   // Favicon/apple-icon come from app/icon.png and app/apple-icon.png
-  // (Next.js file convention) — the Sonargaon University crest.
+  // (Next.js file convention) the Sonargaon University crest.
 };
 
 export default function RootLayout({
@@ -40,7 +40,7 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* Stylesheets — load order mirrors index.html exactly */}
+        {/* Stylesheets load order mirrors index.html exactly */}
         <link rel="stylesheet" href="/assets/css/plugins/animate.min.css" />
         <link rel="stylesheet" href="/assets/css/plugins/fontawesome.min.css" />
         <link rel="stylesheet" href="/assets/fonts/css/rt_icon.css" />
@@ -51,7 +51,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/plugins/nice-select.css" />
         <link rel="stylesheet" href="/assets/css/plugins/jquery-ui.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
-        {/* SU design-system override — MUST load LAST so its cascade
+        {/* SU design-system override MUST load LAST so its cascade
             wins over the template (style.css uses --rt-primary etc.,
             which we redefine here to the Navy/Magenta/Amber palette). */}
         <link rel="stylesheet" href="/assets/css/design-system.css" />
@@ -65,7 +65,7 @@ export default function RootLayout({
             main.js backToTopInit always runs and calls
             `.progress-wrap path.getTotalLength()`; if the element is absent
             it throws "Cannot read properties of null (reading
-            'getTotalLength')". Hiding it (visibility:hidden — keeps geometry
+            'getTotalLength')". Hiding it (visibility:hidden keeps geometry
             so getTotalLength still works) satisfies main.js while leaving
             SUFooter's single magenta scroll-to-top button as the only
             visible one, matching source. */}
@@ -79,7 +79,7 @@ export default function RootLayout({
         <div id="search-input-area-stub" aria-hidden="true" style={{ display: 'none' }} />
         <span id="year" aria-hidden="true" style={{ display: 'none' }} />
 
-        {/* jQuery first — plugins depend on window.jQuery being defined */}
+        {/* jQuery first plugins depend on window.jQuery being defined */}
         <Script
           src="/assets/js/vendor/jquery.min.js"
           strategy="beforeInteractive"
@@ -99,7 +99,7 @@ export default function RootLayout({
              so they reach the page as opaque events with empty {} payload).
              The plugins still run; the error is purely Next.js dev-overlay
              noise that interrupts the user. Page functionality is unaffected.
-             We DO NOT suppress real application errors — only this specific
+             We DO NOT suppress real application errors only this specific
              pattern from third-party scripts. */
           window.addEventListener('error', function (e) {
             try {
@@ -123,10 +123,10 @@ export default function RootLayout({
             } catch (_) {}
           });
         `}</Script>
-        {/* Vendor plugins — order mirrors index.html */}
+        {/* Vendor plugins order mirrors index.html */}
         <Script src="/assets/js/plugins/bootstrap.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/vendor/jquery-ui.js" strategy="afterInteractive" />
-        {/* waw.js (WOW 2015) and twinmax.js (GSAP 1.15) disabled — they bind to a
+        {/* waw.js (WOW 2015) and twinmax.js (GSAP 1.15) disabled they bind to a
             scope-dependent `this` that resolves to undefined in Next.js Script
             context, triggering runtime TypeError "(intermediate value)(...) is
             not a function". Their effects (scroll-triggered .wow animations,

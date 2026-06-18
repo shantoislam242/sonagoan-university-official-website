@@ -8,7 +8,7 @@ import { Check } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'Office of Academic Affairs',
   description:
-    'The Office of Academic Affairs coordinates the academic operations of Sonargaon University — scheduling, records, examinations, and academic policy.',
+    'The Office of Academic Affairs coordinates the academic operations of Sonargaon University scheduling, records, examinations, and academic policy.',
   path: '/academic-affairs',
 });
 
@@ -60,7 +60,7 @@ export default function AcademicAffairsPage() {
             </h2>
             <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.85, margin: 0 }}>
               The Office of Academic Affairs coordinates the academic operations of Sonargaon University
-              &mdash; supporting students, faculties, and departments across the academic year. It works to
+ supporting students, faculties, and departments across the academic year. It works to
               ensure smooth scheduling, accurate records, and a consistent academic experience for every
               student.
             </p>

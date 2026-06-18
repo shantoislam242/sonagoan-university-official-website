@@ -22,7 +22,7 @@ import {
 //  Template style.css sets `html { font-size: 10px }`, so every rem-based
 //  Tailwind utility (text-sm, px-5, gap-6 …) would render at 62.5%. To
 //  match the source project pixel-for-pixel, ALL sizing here is pinned to
-//  absolute px — either inline `style` or `*-[Npx]` arbitrary utilities.
+//  absolute px either inline `style` or `*-[Npx]` arbitrary utilities.
 //  Inline colours stay as cascade defenses against template's wider
 //  `a { color: var(--rt-…) }` / `img { height: auto }` / `footer{}` rules.
 //  See docs/superpowers/specs/2026-06-10-navbar-footer-source-parity-design.md
@@ -77,7 +77,7 @@ export default function SUNavbar() {
 
   // On pages with the homepage video hero (.banner.v__2), keep the full
   // top/middle/nav bars (and the pinned hero) until the content section below
-  // scrolls all the way up to the navbar — only then collapse to the compact
+  // scrolls all the way up to the navbar only then collapse to the compact
   // sticky bar. On every other page (no hero) it compacts immediately as before.
   useEffect(() => {
     const hero = document.querySelector('.banner.v__2') as HTMLElement | null;
@@ -124,12 +124,12 @@ export default function SUNavbar() {
         zIndex: 999,
       }}
     >
-      {/* 1. TOP BAR — source height 40px (h-10), collapses to 0 on scroll. */}
+      {/* 1. TOP BAR source height 40px (h-10), collapses to 0 on scroll. */}
       <div
         className={`hidden md:flex items-center overflow-hidden transition-all duration-500 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}
         style={{ height: isScrolled ? 0 : 40 }}
       >
-        {/* Left — magenta. Items live inside the same Container as the
+        {/* Left magenta. Items live inside the same Container as the
             middle/bottom bars, so the first link aligns with the logo's
             left edge (source design). */}
         <div
@@ -158,7 +158,7 @@ export default function SUNavbar() {
           </Container>
         </div>
 
-        {/* Right — navy social strip. Inline white colour beats template's
+        {/* Right navy social strip. Inline white colour beats template's
             wider `a { color: var(--rt-…) }` which would hide links on navy. */}
         <div className="h-full flex items-center px-[40px]" style={{ background: '#2B3175' }}>
           <div className="flex items-center gap-[24px] font-medium" style={{ fontSize: 11 }}>
@@ -202,9 +202,9 @@ export default function SUNavbar() {
         </div>
       </div>
 
-      {/* 2. MIDDLE BAR — Logo & actions. Sticky (scrolled) state uses the
-          same solid #ffffff as the original (non-scrolled) navbar — not a
-          translucent white/95 — so the bar looks identical once stuck.
+      {/* 2. MIDDLE BAR Logo & actions. Sticky (scrolled) state uses the
+          same solid #ffffff as the original (non-scrolled) navbar not a
+          translucent white/95 so the bar looks identical once stuck.
           py 16 → 8 when scrolled. */}
       <div
         className={`relative transition-all duration-500 border-b ${
@@ -220,8 +220,8 @@ export default function SUNavbar() {
         }}
       >
         <Container className="flex justify-between items-center !max-w-[1600px]">
-          {/* Logo — inline height defeats template `img { height: auto }`. */}
-          <a href="/" aria-label="Sonargaon University — Home" className="flex items-center shrink-0">
+          {/* Logo inline height defeats template `img { height: auto }`. */}
+          <a href="/" aria-label="Sonargaon University Home" className="flex items-center shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/images/logo/su-logo.png"
@@ -236,7 +236,7 @@ export default function SUNavbar() {
             />
           </a>
 
-          {/* Compact scroll nav — only when scrolled. */}
+          {/* Compact scroll nav only when scrolled. */}
           {isScrolled && (
             <div className="hidden lg:flex items-center justify-center gap-[2px] xl:gap-[4px]">
               {mainNav.map((group) => (
@@ -280,7 +280,7 @@ export default function SUNavbar() {
               </a>
             </div>
 
-            {/* Apply Now — inline gradient + sizing beats template cascade. */}
+            {/* Apply Now inline gradient + sizing beats template cascade. */}
             <a
               href={applyUrl}
               target="_blank"
@@ -296,7 +296,7 @@ export default function SUNavbar() {
               Apply Now
             </a>
 
-            {/* Quick Access grid — only when scrolled. Opens on hover and
+            {/* Quick Access grid only when scrolled. Opens on hover and
                 on click; visibility driven by JS state + inline styles. */}
             {isScrolled && (
               <div
@@ -382,10 +382,10 @@ export default function SUNavbar() {
         </Container>
       </div>
 
-      {/* 3. BOTTOM BAR - Nav Links — height 56px. Source uses bg-white/95 +
+      {/* 3. BOTTOM BAR - Nav Links height 56px. Source uses bg-white/95 +
           blur, but because the SU layout pushes content below the fixed
           navbar (body paddingTop), there's no hero behind the bar for the
-          blur to tint — so white reads as invisible. A light solid #F3F4F6
+          blur to tint so white reads as invisible. A light solid #F3F4F6
           keeps the bar visibly distinct without touching the hero. */}
       {!isScrolled && (
         <div
@@ -413,7 +413,7 @@ export default function SUNavbar() {
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       />
-      {/* Drawer — inline transform (Tailwind's translate-x utilities are
+      {/* Drawer inline transform (Tailwind's translate-x utilities are
           broken here: preflight is off, so the slide never applied and the
           drawer stayed visible even when "closed"). */}
       <div
@@ -456,7 +456,7 @@ export default function SUNavbar() {
                   </a>
                 )}
                 {/* Mega groups render their columns as labeled sub-sections
-                    (DIU-style) — accent column headings + their items — so the
+                    (DIU-style) accent column headings + their items so the
                     structure is clear. The whole drawer scrolls; nothing is
                     capped/hidden. Non-mega groups stay a flat list. */}
                 {isOpen && group.mega ? (
@@ -519,7 +519,7 @@ export default function SUNavbar() {
           </a>
         </div>
 
-        {/* Quick Links — derived from main_nav Admission group */}
+        {/* Quick Links derived from main_nav Admission group */}
         {mobileQuickLinks.length > 0 && (
           <div className="mt-[16px] px-[16px] pt-[16px] border-t border-gray-100">
             <h4 className="text-[13px] font-bold text-primary mb-[10px]">Quick Links</h4>
@@ -541,7 +541,7 @@ export default function SUNavbar() {
           </div>
         )}
 
-        {/* Services — from quickAccessItems */}
+        {/* Services from quickAccessItems */}
         <div className="mt-[16px] px-[16px] pt-[16px] pb-[16px] border-t border-gray-100">
           <h4 className="text-[13px] font-bold text-primary mb-[12px]">Services</h4>
           <div className="grid grid-cols-3 gap-[8px]">
@@ -582,7 +582,7 @@ function NavGroup({
   group: MainNavGroup;
   compact?: boolean;
 }) {
-  // JS-controlled hover (open on mouseenter, close on mouseleave) — reliable
+  // JS-controlled hover (open on mouseenter, close on mouseleave) reliable
   // inside the template's CSS env where group-hover proved flaky. Visibility
   // is driven by inline styles so nothing in the template cascade can hide
   // the panel.
@@ -642,7 +642,7 @@ function NavGroup({
         )}
       </a>
 
-      {/* MEGA MENU — multi-column grid panel. Fixed + left:50% / translateX
+      {/* MEGA MENU multi-column grid panel. Fixed + left:50% / translateX
           centers it under the navbar (not anchored to the About item's left
           edge). `top` tracks the navbar height: ~168px at rest, ~58px when
           scrolled (compact bar). */}
@@ -675,7 +675,7 @@ function NavGroup({
           >
             {group.mega!.map((col) => (
               <div key={col.title}>
-                {/* Column heading — navy, with a thin accent underline. */}
+                {/* Column heading navy, with a thin accent underline. */}
                 <div
                   className="text-[15px] font-bold text-primary"
                   style={{ paddingBottom: 10, marginBottom: 12, borderBottom: '1px solid #e5e7eb' }}
@@ -709,7 +709,7 @@ function NavGroup({
         </div>
       )}
 
-      {/* SIMPLE DROPDOWN — single column list */}
+      {/* SIMPLE DROPDOWN single column list */}
       {!hasMega && group.items.length > 0 && (
         <div
           className="absolute left-0 top-full z-50 min-w-[280px] rounded-[8px] shadow-premium transition-all duration-200"

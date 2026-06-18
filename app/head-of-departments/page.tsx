@@ -8,7 +8,7 @@ import { Mail, Phone, ArrowUpRight } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'Head of the Departments',
   description:
-    'Meet the heads of the academic departments at Sonargaon University — the academic leaders guiding each department across our three faculties.',
+    'Meet the heads of the academic departments at Sonargaon University the academic leaders guiding each department across our three faculties.',
   path: '/head-of-departments',
 });
 

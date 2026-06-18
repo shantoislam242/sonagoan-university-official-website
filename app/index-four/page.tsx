@@ -4,8 +4,8 @@ import FooterUniversity from '@/components/layout/FooterUniversity';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
-  title: 'Home — Layout 4',
-  description: 'Sonargoan University official website — alternative homepage layout.',
+  title: 'Home Layout 4',
+  description: 'Sonargoan University official website alternative homepage layout.',
   path: '/index-four',
 });
 

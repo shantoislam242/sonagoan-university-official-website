@@ -10,7 +10,7 @@ import { GraduationCap, Target, Layers, TrendingUp, ArrowUpRight } from 'lucide-
 export const metadata = buildMetadata({
   title: 'Faculty of Business',
   description:
-    'The Faculty of Business at Sonargaon University — a BBA and eight specialised MBA tracks built on the Outcome-Based Education model, aligned with Bangladesh’s largest growth industries.',
+    'The Faculty of Business at Sonargaon University a BBA and eight specialised MBA tracks built on the Outcome-Based Education model, aligned with Bangladesh’s largest growth industries.',
   path: '/faculty/business',
 });
 
@@ -55,8 +55,8 @@ const PROGRAM_GROUPS = [
       'MBA in Supply Chain Management (MSCM)',
       'Master in Bank Management (MBM)',
       'MBA in Textile & Fashion Marketing (MTFM)',
-      'MBA in Apparel Merchandising — 2 year (MAM)',
-      'MBA in Apparel Merchandising — 1 year (MAMS)',
+      'MBA in Apparel Merchandising 2 year (MAM)',
+      'MBA in Apparel Merchandising 1 year (MAMS)',
     ],
   },
 ];
@@ -65,7 +65,7 @@ const PATHWAYS = [
   { title: 'MBA (1 Year)', desc: 'For graduates ready to fast-track into management.' },
   { title: 'Executive MBA (EMBA)', desc: 'For working professionals balancing study with a career.' },
   { title: 'Regular MBA (2 Years)', desc: 'A comprehensive foundation for fresh graduates.' },
-  { title: 'Specialized MBAs', desc: 'Supply Chain, Bank Management, Textile & Fashion Marketing and Apparel Merchandising — built for Bangladesh’s biggest industries.' },
+  { title: 'Specialized MBAs', desc: 'Supply Chain, Bank Management, Textile & Fashion Marketing and Apparel Merchandising built for Bangladesh’s biggest industries.' },
 ];
 
 const eyebrow = { display: 'inline-block', color: '#CC1579', fontWeight: 700, fontSize: 13, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 } as const;
@@ -94,13 +94,13 @@ export default function BusinessFacultyPage() {
                 Shaping the leaders, managers and entrepreneurs of tomorrow
               </h2>
               <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.9, marginBottom: 18 }}>
-                With one undergraduate program and eight postgraduate specializations &mdash; from general
-                management to supply chain, banking and apparel merchandising &mdash; the faculty offers one of
+                With one undergraduate program and eight postgraduate specializations from general
+                management to supply chain, banking and apparel merchandising the faculty offers one of
                 the most comprehensive business pathways among private universities in Bangladesh.
               </p>
               <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.9, margin: 0 }}>
                 Grounded in the Outcome-Based Education (OBE) model, it blends core management theory with the
-                practical, industry-focused skills today&rsquo;s employers demand &mdash; preparing graduates to lead
+                practical, industry-focused skills today&rsquo;s employers demand preparing graduates to lead
                 in a fast-changing local and global economy.
               </p>
             </div>
@@ -120,9 +120,9 @@ export default function BusinessFacultyPage() {
         role="Dean, Faculty of Business"
         lead="Welcome to the Faculty of Business at Sonargaon University."
         paragraphs={[
-          'Business is the engine of progress — and behind every thriving enterprise are people with vision, discipline, and the courage to lead. Our faculty exists to develop exactly those people. From our Bachelor of Business Administration to a rich portfolio of postgraduate programs — including the MBA, Executive MBA, and specialized degrees in Supply Chain Management, Bank Management, and Apparel Merchandising — we offer pathways for learners at every stage of their professional journey.',
+          'Business is the engine of progress and behind every thriving enterprise are people with vision, discipline, and the courage to lead. Our faculty exists to develop exactly those people. From our Bachelor of Business Administration to a rich portfolio of postgraduate programs including the MBA, Executive MBA, and specialized degrees in Supply Chain Management, Bank Management, and Apparel Merchandising we offer pathways for learners at every stage of their professional journey.',
           'What sets our programs apart is their balance of strong management theory with the practical, industry-focused skills today’s economy demands. Our specializations are closely aligned with Bangladesh’s largest growth sectors, ensuring that what you learn in the classroom translates directly into value in the workplace.',
-          'We believe education should open doors — and that success is something we build together, as a community of learners and leaders. Whether you are beginning your studies or returning to advance your career, you will find here the knowledge, mentorship, and support to achieve your ambitions.',
+          'We believe education should open doors and that success is something we build together, as a community of learners and leaders. Whether you are beginning your studies or returning to advance your career, you will find here the knowledge, mentorship, and support to achieve your ambitions.',
         ]}
         closing="I warmly welcome you to our faculty and look forward to being part of your journey."
       />

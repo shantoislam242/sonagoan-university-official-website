@@ -7,7 +7,7 @@ import Container from '@/components/ui/Container';
 export const metadata = buildMetadata({
   title: 'Why Choose SU',
   description:
-    'Why choose Sonargaon University — UGC-approved recognition, generous scholarships, research-driven teaching, modern facilities, and a vibrant student community.',
+    'Why choose Sonargaon University UGC-approved recognition, generous scholarships, research-driven teaching, modern facilities, and a vibrant student community.',
   path: '/why-choose-su',
 });
 
@@ -20,37 +20,37 @@ const REASONS = [
   {
     n: '02',
     title: 'Scholarships for Every Deserving Student',
-    body: 'We make quality education affordable through 50–100% tuition scholarships based on academic results. Students with outstanding SSC and HSC results — including Golden A+ holders — can qualify for up to 100% tuition waivers, alongside freedom-fighter and other special quotas.',
+    body: 'We make quality education affordable through 50–100% tuition scholarships based on academic results. Students with outstanding SSC and HSC results including Golden A+ holders can qualify for up to 100% tuition waivers, alongside freedom-fighter and other special quotas.',
   },
   {
     n: '03',
     title: 'Strong Academic Foundation',
-    body: 'With three faculties — Science & Engineering, Business, and Arts & Humanities — SU offers a wide range of undergraduate and postgraduate programs. Our teaching follows the Outcome-Based Education (OBE) model, supported by some of the best staff-to-student ratios and a strong Academic Advisory Council.',
+    body: 'With three faculties Science & Engineering, Business, and Arts & Humanities SU offers a wide range of undergraduate and postgraduate programs. Our teaching follows the Outcome-Based Education (OBE) model, supported by some of the best staff-to-student ratios and a strong Academic Advisory Council.',
   },
   {
     n: '04',
     title: 'Research-Driven',
-    body: 'SU ranks among the top private universities in Bangladesh for research-fund spending (UGC Annual Report, 2018). Our professors teach at every level while staying engaged in ground-breaking research — and our students compete and win on national and international stages.',
+    body: 'SU ranks among the top private universities in Bangladesh for research-fund spending (UGC Annual Report, 2018). Our professors teach at every level while staying engaged in ground-breaking research and our students compete and win on national and international stages.',
   },
   {
     n: '05',
     title: 'Award-Winning Excellence',
-    body: 'Our community has earned distinction across disciplines — the a2i National Award 2018, Asia Young Designer Award 2019, recognition as the Best Supporting Architecture School of Bangladesh, the A3F Sustainable Design Award 2019, and most recently honors at the International Science & Innovation Fair (ISIF) 2025.',
+    body: 'Our community has earned distinction across disciplines the a2i National Award 2018, Asia Young Designer Award 2019, recognition as the Best Supporting Architecture School of Bangladesh, the A3F Sustainable Design Award 2019, and most recently honors at the International Science & Innovation Fair (ISIF) 2025.',
   },
   {
     n: '06',
     title: 'Modern Campus & Facilities',
-    body: 'Learn in an environment built for growth — 15+ specialized labs, a library of 10,000+ books, and free transport across 20+ buses. In 2024, SU opened its permanent campus in Khilgaon, complementing two city campuses at Green Road and Mohakhali.',
+    body: 'Learn in an environment built for growth 15+ specialized labs, a library of 10,000+ books, and free transport across 20+ buses. In 2024, SU opened its permanent campus in Khilgaon, complementing two city campuses at Green Road and Mohakhali.',
   },
   {
     n: '07',
     title: 'A Vibrant Student Life',
-    body: 'Beyond the classroom, 28 active clubs run by the Student Welfare Division give students space to lead, create, and connect — building skills, friendships, and a sense of belonging.',
+    body: 'Beyond the classroom, 28 active clubs run by the Student Welfare Division give students space to lead, create, and connect building skills, friendships, and a sense of belonging.',
   },
   {
     n: '08',
     title: 'A Proven Track Record',
-    body: 'Since 2012, SU has educated more than 6,000 students and built an alumni network of over 21,000. We turn ideas into impact and transform lives — guided by the belief that together we can create a world of good.',
+    body: 'Since 2012, SU has educated more than 6,000 students and built an alumni network of over 21,000. We turn ideas into impact and transform lives guided by the belief that together we can create a world of good.',
   },
 ];
 

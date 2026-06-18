@@ -9,7 +9,7 @@ import { CalendarRange, Layers, ClipboardCheck } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'Our Programs',
   description:
-    'Program structure at Sonargaon University — browse undergraduate and postgraduate programs by faculty, with short tags, credits, duration, semester system and assessment details.',
+    'Program structure at Sonargaon University browse undergraduate and postgraduate programs by faculty, with short tags, credits, duration, semester system and assessment details.',
   path: '/academic',
 });
 
@@ -43,7 +43,7 @@ export default function AcademicPage() {
               Program Structure
             </h2>
             <p style={{ color: '#5B5B78', fontSize: 18, lineHeight: 1.8, margin: 0 }}>
-              Three faculties · 13 undergraduate · 10 postgraduate programs &mdash; choose a faculty to explore
+              Three faculties · 13 undergraduate · 10 postgraduate programs choose a faculty to explore
               its degrees, with short tags, credits and duration for each.
             </p>
           </div>

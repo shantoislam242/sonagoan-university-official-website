@@ -10,7 +10,7 @@ import { GraduationCap, BookOpen, Target, Scale, ArrowUpRight } from 'lucide-rea
 export const metadata = buildMetadata({
   title: 'Faculty of Arts & Humanities',
   description:
-    'The Faculty of Arts & Humanities at Sonargaon University — law, Bangla language & literature, and journalism & media studies, built on the Outcome-Based Education model.',
+    'The Faculty of Arts & Humanities at Sonargaon University law, Bangla language & literature, and journalism & media studies, built on the Outcome-Based Education model.',
   path: '/faculty/arts-humanities',
 });
 
@@ -48,14 +48,14 @@ const PROGRAM_GROUPS = [
   },
   {
     group: 'Postgraduate',
-    items: ['LLM (1 year)', 'LLM (2 years) — LLMP'],
+    items: ['LLM (1 year)', 'LLM (2 years) LLMP'],
   },
 ];
 
 const DISCIPLINES = [
   {
     title: 'Law (LLB & LLM)',
-    desc: 'A complete legal pathway — from undergraduate honours to one- and two-year master’s — preparing students for advocacy, the judiciary, corporate law and legal research.',
+    desc: 'A complete legal pathway from undergraduate honours to one- and two-year master’s preparing students for advocacy, the judiciary, corporate law and legal research.',
   },
   {
     title: 'Bangla Language & Literature',
@@ -94,12 +94,12 @@ export default function ArtsHumanitiesFacultyPage() {
               </h2>
               <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.9, marginBottom: 18 }}>
                 Spanning law, language and media studies, the faculty offers programs that explore society,
-                culture, justice and human expression &mdash; preparing graduates for careers in the legal
+                culture, justice and human expression preparing graduates for careers in the legal
                 profession, journalism, education, research and beyond.
               </p>
               <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.9, margin: 0 }}>
                 Built around the Outcome-Based Education (OBE) model, it pairs strong theoretical grounding with
-                practical skills &mdash; from courtroom advocacy to newsroom reporting &mdash; equipping students to
+                practical skills from courtroom advocacy to newsroom reporting equipping students to
                 engage thoughtfully with the world and contribute to a just, informed society.
               </p>
             </div>
@@ -119,9 +119,9 @@ export default function ArtsHumanitiesFacultyPage() {
         role="Dean, Faculty of Arts & Humanities"
         lead="Welcome to the Faculty of Arts & Humanities at Sonargaon University."
         paragraphs={[
-          'In a world driven by technology, the human voice matters more than ever — the ability to think critically, to communicate clearly, to question, to interpret, and to seek justice. Our faculty is devoted to nurturing exactly these qualities. Through our programs in Law, Bangla Language & Literature, and Journalism & Media Studies, we explore the ideas, institutions, and expressions that shape society.',
-          'Our students learn not only to understand the world, but to engage with it — future lawyers who advocate for justice, journalists who inform and hold power to account, and scholars who preserve and enrich our cultural heritage. Grounded in the Outcome-Based Education model, our teaching blends rigorous theory with practical experience, from courtroom advocacy to newsroom reporting.',
-          'We believe the humanities are not a luxury but a necessity — the foundation of a just, informed, and compassionate society. It is our shared mission, and one we pursue together.',
+          'In a world driven by technology, the human voice matters more than ever the ability to think critically, to communicate clearly, to question, to interpret, and to seek justice. Our faculty is devoted to nurturing exactly these qualities. Through our programs in Law, Bangla Language & Literature, and Journalism & Media Studies, we explore the ideas, institutions, and expressions that shape society.',
+          'Our students learn not only to understand the world, but to engage with it future lawyers who advocate for justice, journalists who inform and hold power to account, and scholars who preserve and enrich our cultural heritage. Grounded in the Outcome-Based Education model, our teaching blends rigorous theory with practical experience, from courtroom advocacy to newsroom reporting.',
+          'We believe the humanities are not a luxury but a necessity the foundation of a just, informed, and compassionate society. It is our shared mission, and one we pursue together.',
         ]}
         closing="I invite you to join us on this journey of discovery, and to lend your voice to building a world of good."
       />

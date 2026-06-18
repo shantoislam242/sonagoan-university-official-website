@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata = buildMetadata({
   title: 'Contact',
-  description: 'Get in touch with Sonargoan University — campus addresses, phone, and email.',
+  description: 'Get in touch with Sonargoan University campus addresses, phone, and email.',
   path: '/contact',
 });
 

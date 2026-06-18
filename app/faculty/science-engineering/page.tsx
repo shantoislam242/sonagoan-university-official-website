@@ -9,7 +9,7 @@ import { GraduationCap, ShieldCheck, Target, FlaskConical, ArrowUpRight, Award, 
 export const metadata = buildMetadata({
   title: 'Faculty of Science & Engineering',
   description:
-    'The Faculty of Science & Engineering at Sonargaon University — nine undergraduate programs across engineering, technology, architecture and design, built on the Outcome-Based Education model.',
+    'The Faculty of Science & Engineering at Sonargaon University nine undergraduate programs across engineering, technology, architecture and design, built on the Outcome-Based Education model.',
   path: '/faculty/science-engineering',
 });
 
@@ -40,7 +40,7 @@ const GLANCE = [
   },
 ];
 
-// Program pages are coming later — hrefs stay '#' for now.
+// Program pages are coming later hrefs stay '#' for now.
 const PROGRAM_GROUPS = [
   {
     group: 'For Science background (HSC Science / Diploma)',
@@ -95,7 +95,7 @@ export default function ScienceEngineeringFacultyPage() {
               </p>
               <p style={{ color: '#5B5B78', fontSize: 17, lineHeight: 1.9, margin: 0 }}>
                 From computing and electrical systems to civil construction, textiles, marine engineering and
-                architecture, the faculty reflects SU&rsquo;s founding promise &mdash; quality, hands-on technical
+                architecture, the faculty reflects SU&rsquo;s founding promise quality, hands-on technical
                 education within reach of every aspiring student.
               </p>
             </div>
@@ -120,7 +120,7 @@ export default function ScienceEngineeringFacultyPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/assets/images/faculty/dean-kamal.png"
-                alt="Dean — Brig. Gen. (Retd) Prof. Habibur Rahman Kamal"
+                alt="Dean Brig. Gen. (Retd) Prof. Habibur Rahman Kamal"
                 className="se-letter__photo"
               />
               <h3 className="se-letter__name">Brig. Gen. (Retd) Prof. Habibur Rahman Kamal</h3>
@@ -133,20 +133,20 @@ export default function ScienceEngineeringFacultyPage() {
                 Welcome to the Faculty of Science &amp; Engineering at Sonargaon University.
               </p>
             <p>
-              We live in an age defined by technology &mdash; where engineers, architects and innovators shape the
+              We live in an age defined by technology where engineers, architects and innovators shape the
               way the world builds, connects and grows. It is our privilege to prepare you for that world. Across
-              our nine programs &mdash; from Computer Science and Electrical Engineering to Civil, Mechanical,
-              Textile and Marine Engineering, Architecture and Design &mdash; we are committed to an education that
+              our nine programs from Computer Science and Electrical Engineering to Civil, Mechanical,
+              Textile and Marine Engineering, Architecture and Design we are committed to an education that
               is rigorous, practical and deeply rooted in real-world application.
             </p>
             <p>
               Our approach is built on the Outcome-Based Education model, supported by well-equipped laboratories
               and a faculty that teaches not only from textbooks but from experience. We want our graduates to
-              leave here as problem-solvers &mdash; engineers who can think critically, work ethically and
+              leave here as problem-solvers engineers who can think critically, work ethically and
               contribute meaningfully to the development of Bangladesh and beyond.
             </p>
             <p>
-              But excellence is never the work of one person. It is what we achieve together &mdash; students,
+              But excellence is never the work of one person. It is what we achieve together students,
               teachers and mentors moving forward as one. I invite you to join us, to be curious, to work hard and
               to rise to the challenges of your time.
             </p>
@@ -224,7 +224,7 @@ export default function ScienceEngineeringFacultyPage() {
             </Link>
           </div>
 
-          {/* Recognition — brief, links to milestones instead of repeating the awards list */}
+          {/* Recognition brief, links to milestones instead of repeating the awards list */}
           <div className="se-reco">
             <span className="se-reco__icon"><Award size={24} color="#ffffff" strokeWidth={2} /></span>
             <p className="se-reco__text">

@@ -4,8 +4,8 @@ import FooterHomeTwo from '@/components/layout/FooterHomeTwo';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
-  title: 'Home — Layout 2',
-  description: 'Sonargoan University official website — alternative homepage layout.',
+  title: 'Home Layout 2',
+  description: 'Sonargoan University official website alternative homepage layout.',
   path: '/index-two',
 });
 

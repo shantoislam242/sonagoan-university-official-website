@@ -8,7 +8,7 @@ import { GraduationCap, Lightbulb } from 'lucide-react';
 
 export const metadata = buildMetadata({
   title: 'About Us',
-  description: 'Learn about Sonargoan University — our history, mission, leadership, and community.',
+  description: 'Learn about Sonargoan University our history, mission, leadership, and community.',
   path: '/about',
 });
 
@@ -33,12 +33,12 @@ export default function AboutPage() {
             </h2>
           </div>
           <p style={{ color: '#5B5B78', fontSize: 18, lineHeight: 1.9, textAlign: 'center', maxWidth: 1240, margin: '0 auto' }}>
-            Sonargaon University (SU) is one of Bangladesh&rsquo;s preeminent private universities &mdash; approved by the University Grants Commission (UGC) of Bangladesh and the Government of Bangladesh (GoB), and sponsored by the Sonargaon University (SU) Trust. The Trust is a registered, non-political, non-profit voluntary organization. Its members &mdash; mostly eminent entrepreneurs from the academic arena &mdash; recognized the need for a private university that brings quality education within the reach of students of modest economic means.
+            Sonargaon University (SU) is one of Bangladesh&rsquo;s preeminent private universities approved by the University Grants Commission (UGC) of Bangladesh and the Government of Bangladesh (GoB), and sponsored by the Sonargaon University (SU) Trust. The Trust is a registered, non-political, non-profit voluntary organization. Its members mostly eminent entrepreneurs from the academic arena recognized the need for a private university that brings quality education within the reach of students of modest economic means.
           </p>
         </Container>
       </section>
 
-      {/* ===== Teaching & Research — two feature cards ===== */}
+      {/* ===== Teaching & Research two feature cards ===== */}
       <section style={{ background: '#F6F7FC', padding: '70px 0' }}>
         <Container className="!max-w-[1600px]">
           <div className="about-feature-grid" style={{ display: 'grid', gap: 30 }}>
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 Research &amp; Distinction
               </h3>
               <p style={{ color: '#5B5B78', fontSize: 16.5, lineHeight: 1.85, margin: 0 }}>
-                We are committed to launching young people into a boundless future and confronting the grand challenges of our time through undaunted research and scholarship. Ranked No.&nbsp;4 among the highest research-fund-spending private universities in Bangladesh &mdash; as published in the UGC Annual Report, 2018 &mdash; SU continues to earn national and international distinction for its academic and creative excellence.
+                We are committed to launching young people into a boundless future and confronting the grand challenges of our time through undaunted research and scholarship. Ranked No.&nbsp;4 among the highest research-fund-spending private universities in Bangladesh as published in the UGC Annual Report, 2018 SU continues to earn national and international distinction for its academic and creative excellence.
               </p>
             </article>
           </div>
@@ -104,7 +104,7 @@ export default function AboutPage() {
               All Together
             </span>
             <p style={{ color: '#2B3175', fontSize: 'clamp(19px, 2.2vw, 25px)', lineHeight: 1.65, fontWeight: 500, margin: '0 auto 26px', maxWidth: 760 }}>
-              So what defines our students, faculty, and community members? The way we work &mdash; all together. It&rsquo;s not about the accomplishments of an individual; it&rsquo;s about what we can accomplish together. It is our belief that together we can create a world of good.
+              So what defines our students, faculty, and community members? The way we work all together. It&rsquo;s not about the accomplishments of an individual; it&rsquo;s about what we can accomplish together. It is our belief that together we can create a world of good.
             </p>
             <p style={{ color: '#CC1579', fontFamily: 'var(--font-poppins), Poppins, sans-serif', fontWeight: 700, fontSize: 'clamp(21px, 2.6vw, 28px)', margin: 0 }}>
               Join us on the journey.
@@ -113,7 +113,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ===== Our Values — original timeline layout, new content ===== */}
+      {/* ===== Our Values original timeline layout, new content ===== */}
       <section className="rts-mission rts-section-padding">
         <div className="container">
           <div className="row justify-content-center rt-center">
@@ -129,7 +129,7 @@ export default function AboutPage() {
                     <div className="single-timeline-item">
                       <h5 className="timeline-title">Quality Education</h5>
                       <p>
-                        Delivering world-class teaching underpinned by strong staff-to-student ratios &mdash; where professors teach at every level while driving ground-breaking research.
+                        Delivering world-class teaching underpinned by strong staff-to-student ratios where professors teach at every level while driving ground-breaking research.
                       </p>
                       <img src="/assets/images/about/mission-1.jpg" alt="Quality Education" />
                     </div>
@@ -147,14 +147,14 @@ export default function AboutPage() {
                     <div className="single-timeline-item">
                       <h5 className="timeline-title">Accessibility</h5>
                       <p>
-                        Bringing quality higher education within reach through 50&ndash;100% result-based scholarships, so talent &mdash; not financial means &mdash; defines who succeeds.
+                        Bringing quality higher education within reach through 50&ndash;100% result-based scholarships, so talent not financial means defines who succeeds.
                       </p>
                       <img src="/assets/images/about/mission-3.jpg" alt="Accessibility" />
                     </div>
                     <div className="single-timeline-item">
                       <h5 className="timeline-title">Community</h5>
                       <p>
-                        Built on a simple belief &mdash; it&rsquo;s not about the accomplishments of an individual; it&rsquo;s what we can accomplish together.
+                        Built on a simple belief it&rsquo;s not about the accomplishments of an individual; it&rsquo;s what we can accomplish together.
                       </p>
                       <img src="/assets/images/about/mission-4.jpg" alt="Community" />
                     </div>

@@ -4,8 +4,8 @@ import FooterHomeFive from '@/components/layout/FooterHomeFive';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
-  title: 'Home — Layout 5',
-  description: 'Sonargoan University official website — alternative homepage layout.',
+  title: 'Home Layout 5',
+  description: 'Sonargoan University official website alternative homepage layout.',
   path: '/index-five',
 });
 
