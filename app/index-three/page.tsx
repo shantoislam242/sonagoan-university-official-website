@@ -19,73 +19,94 @@ export default function IndexThreePage() {
       {/* Sticky hero (Stanford-style): the hero pins at the top while the
           content below scrolls up over it. Lower z-index keeps it under both
           the content and the fixed navbar. */}
-      <div style={{ position: 'sticky', top: 0, zIndex: 0 }}>
+      <div className="su-hero-sticky" style={{ position: 'sticky', top: 0, zIndex: 0 }}>
       {/* header banner */}
+      <style>{`
+        /* Cancel body.page's navbar-height padding-top for the hero so it sits
+           at the very top (full-bleed under the fixed navbar) and pins from the
+           first pixel of scroll instead of drifting up by the padding amount. */
+        .su-hero-sticky { margin-top: -76px; }
+        @media (min-width: 768px)  { .su-hero-sticky { margin-top: -116px; } }
+        @media (min-width: 1024px) { .su-hero-sticky { margin-top: -170px; } }`}</style>
+      <style>{`
+        .banner.v__2 .banner__wrapper .banner__wrapper--bg::before { display: none !important; }
+        /* brand-coloured bottom-up gradient fade on the hero (navy -> magenta) */
+        .banner.v__2 .banner__wrapper .banner__wrapper--bg::after {
+          background: linear-gradient(180deg, rgba(43,49,117,0) 12%, rgba(43,49,117,0.45) 50%, rgba(204,21,121,0.85) 100%) !important;
+        }
+        /* No swiper on the video hero, so reveal the slogan content directly
+           (the template hides it until .swiper-slide-active is applied). */
+        .banner.v__2 .banner__slides--content { opacity: 1 !important; }
+        /* looping staggered reveal (mimics the old 7s swiper re-trigger) */
+        @keyframes heroReveal {
+          0%, 100% { opacity: 0; transform: translateY(38px); }
+          12%, 88% { opacity: 1; transform: translateY(0); }
+        }
+        .banner.v__2 .banner__slides--content--sub { animation: heroReveal 7s .3s infinite both; }
+        .banner.v__2 .banner__slides--content--title { animation: heroReveal 7s .8s infinite both; }
+        .banner.v__2 .banner__slides--content .rts-theme-btn { animation: heroReveal 7s 1.3s infinite both; }
+        /* hero side nav: lower it, tighten the gap, just a slight blur (no card) */
+        .banner.v__2 .banner__wrapper .banner__slides--navigation {
+          bottom: 48px;
+          backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+        }
+        .banner.v__2 .banner__wrapper .banner__slides--navigation--single { padding-bottom: 12px; }
+        .banner.v__2 .banner__wrapper .banner__slides--navigation--single:not(:last-child) { margin-bottom: 18px; }
+        /* bigger hero title */
+        .banner.v__2 .banner__slides--content--title {
+          font-size: clamp(40px, 4.4vw, 64px) !important; line-height: 1.1 !important;
+        }
+        /* fit the hero to the viewport so the slogan never falls below the fold
+           on shorter (laptop) screens; lift the content a bit off the bottom */
+        .banner.v__2 .banner__wrapper .banner__slides--container.banner__height {
+          height: 100vh; padding-bottom: 150px;
+        }
+        @media screen and (max-height: 800px) {
+          .banner.v__2 .banner__wrapper .banner__slides--container.banner__height { padding-bottom: 90px; }
+        }
+        @media screen and (max-width: 992px) {
+          .banner.v__2 .banner__wrapper .banner__slides--container.banner__height {
+            height: 100vh; padding-bottom: 100px;
+          }
+        }
+      `}</style>
       <div className="banner v__2">
         <div className="banner__wrapper">
-          <div className="swiper  swiper-data" data-swiper='{
-                        "slidesPerView":1,
-                        "effect": "fade",
-                        "loop": true,
-                        "speed": 1000,
-                        "autoplay":{
-                            "delay":"7000"
-                }}'>
-            <div className="swiper-wrapper">
-              {/* single slides */}
-              <div className="swiper-slide">
-                <div className="banner__wrapper--bg" style={{ backgroundImage: 'url(/assets/images/banner/01.jpg)' }}>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-lg-12">
-                        <div className="banner__slides--container banner__height">
-                          <div className="banner__slides--content">
-                            <div className="banner__slides--content--sub">
-                              <img src="/assets/images/icon/e-cap.svg" alt="cap" /> knowledge meets
-                              innovation
-                            </div>
-                            <h1 className="banner__slides--content--title">
-                              We will rise up,<br />
-                              We will shine.
-                            </h1>
-                            <Link href="/program-single" className="rts-theme-btn btn-arrow">View Our Program
-                              <span><i className="fa-regular fa-arrow-right"></i></span>
-                            </Link>
-                          </div>
-                        </div>
+          {/* video hero (full-width, no swiper) */}
+          <div className="banner__wrapper--bg" style={{ backgroundImage: 'url(/assets/video/hero-poster.jpg)', flex: '1 1 100%', width: '100%' }}>
+            <video
+              className="banner__video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/assets/video/hero-poster.jpg"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+            >
+              <source src="/assets/video/hero.webm" type="video/webm" />
+              <source src="/assets/video/hero.mp4" type="video/mp4" />
+            </video>
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="banner__slides--container banner__height">
+                    <div className="banner__slides--content">
+                      <div className="banner__slides--content--sub">
+                        <img src="/assets/images/icon/e-cap.svg" alt="cap" /> knowledge meets
+                        innovation
                       </div>
+                      <h1 className="banner__slides--content--title">
+                        We will rise up,<br />
+                        We will shine.
+                      </h1>
+                      <Link href="/program-single" className="rts-theme-btn btn-arrow">View Our Program
+                        <span><i className="fa-regular fa-arrow-right"></i></span>
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* single slides end */}
-              {/* single slides */}
-              <div className="swiper-slide">
-                <div className="banner__wrapper--bg" style={{ backgroundImage: 'url(/assets/images/banner/02.jpg)' }}>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-lg-12">
-                        <div className="banner__slides--container banner__height">
-                          <div className="banner__slides--content">
-                            <div className="banner__slides--content--sub">
-                              <img src="/assets/images/icon/e-cap.svg" alt="cap" /> knowledge meets
-                              innovation
-                            </div>
-                            <h1 className="banner__slides--content--title">
-                              We will rise up,<br />
-                              We will shine.
-                            </h1>
-                            <Link href="/program-single" className="rts-theme-btn btn-arrow">View Our Program
-                              <span><i className="fa-regular fa-arrow-right"></i></span>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* single slides end */}
             </div>
           </div>
           <div className="banner__slides--navigation">

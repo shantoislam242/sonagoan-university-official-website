@@ -163,7 +163,7 @@ export const mainNav: readonly MainNavGroup[] = [
         items: [
           { name: 'Academic Affairs',       href: '/academic-affairs' },
           { name: 'Exam Controller',        href: '/exam-controller' },
-          { name: 'IQAC & PRIA',            href: '#' },
+          { name: 'IQAC & PRIA',            href: '/iqac-pria' },
           { name: 'Information Technology', href: '#' },
           { name: 'Library & Information',  href: '#' },
           { name: 'Certificate Verification', href: '#' },

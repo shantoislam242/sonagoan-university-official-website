@@ -58,6 +58,7 @@ function resolveQuickAccessHref(name: string): string {
 
 export default function SUNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
@@ -74,10 +75,27 @@ export default function SUNavbar() {
     setMobileMenuOpen((prev) => !prev);
   };
 
+  // On pages with the homepage video hero (.banner.v__2), keep the full
+  // top/middle/nav bars (and the pinned hero) until the content section below
+  // scrolls all the way up to the navbar — only then collapse to the compact
+  // sticky bar. On every other page (no hero) it compacts immediately as before.
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const hero = document.querySelector('.banner.v__2') as HTMLElement | null;
+    const navFull = navRef.current?.offsetHeight ?? 0;
+    const computeThreshold = () =>
+      hero ? Math.max(20, hero.offsetHeight - navFull) : 20;
+
+    let threshold = computeThreshold();
+    const handleScroll = () => setIsScrolled(window.scrollY > threshold);
+    const handleResize = () => { threshold = computeThreshold(); handleScroll(); };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   // Lock body scroll while the mobile drawer is open
@@ -94,6 +112,7 @@ export default function SUNavbar() {
 
   return (
     <nav
+      ref={navRef}
       className="fixed w-full flex flex-col transition-all duration-300"
       style={{
         // Inline position + high z-index defend against template's
