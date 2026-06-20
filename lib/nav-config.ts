@@ -165,7 +165,7 @@ export const mainNav: readonly MainNavGroup[] = [
           { name: 'Exam Controller',        href: '/exam-controller' },
           { name: 'IQAC & PRIA',            href: '/iqac-pria' },
           { name: 'Information Technology', href: '/information-technology' },
-          { name: 'Library & Information',  href: '#' },
+          { name: 'Library & Information',  href: '/library-information' },
           { name: 'Certificate Verification', href: '#' },
         ],
       },
