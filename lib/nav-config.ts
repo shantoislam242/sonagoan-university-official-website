@@ -122,7 +122,7 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Administration',
         items: [
-          { name: 'Registrar',             href: '#' },
+          { name: 'Registrar',             href: '/registrar' },
           { name: 'Finance & Accounts',    href: '#' },
           { name: 'Human Resource Mgmt.',  href: '#' },
           { name: 'Planning & Development', href: '#' },
