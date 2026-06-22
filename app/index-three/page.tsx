@@ -2,7 +2,7 @@
 import HeaderHomeThree from '@/components/layout/HeaderHomeThree';
 import FooterHomeThree from '@/components/layout/FooterHomeThree';
 import Container from '@/components/ui/Container';
-import { Check } from 'lucide-react';
+import { Check, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = buildMetadata({
@@ -56,11 +56,33 @@ export default function IndexThreePage() {
         }
         /* hero side nav: lower it, tighten the gap, just a slight blur (no card) */
         .banner.v__2 .banner__wrapper .banner__slides--navigation {
-          bottom: 48px;
+          bottom: 48px; z-index: 1000;
           backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
         }
         .banner.v__2 .banner__wrapper .banner__slides--navigation--single { padding-bottom: 12px; }
         .banner.v__2 .banner__wrapper .banner__slides--navigation--single:not(:last-child) { margin-bottom: 18px; }
+        /* arrow on the hero side-nav titles (title stays its own line; arrow
+           sits inline after the text and slides on hover) */
+        .banner.v__2 .banner__wrapper .nav__arrow {
+          display: inline-block; vertical-align: middle; margin-left: 8px;
+          color: #fff; transition: transform .3s ease;
+        }
+        /* tilted up-right by default, straightens to the right on hover (like the button) */
+        .banner.v__2 .banner__wrapper .banner__slides--navigation--single:hover .nav__arrow {
+          transform: rotate(45deg);
+        }
+        .banner.v__2 .banner__wrapper .nav__title,
+        .banner.v__2 .banner__wrapper .nav__description { transition: color .25s ease; }
+        .banner.v__2 .banner__wrapper .banner__slides--navigation--single:hover .nav__title,
+        .banner.v__2 .banner__wrapper .banner__slides--navigation--single:hover .nav__description,
+        .banner.v__2 .banner__wrapper .banner__slides--navigation--single:hover .nav__arrow { color: #2B3175 !important; }
+        /* center the hero side-nav on mobile (template pins it to the left) */
+        @media (max-width: 992px) {
+          .banner.v__2 .banner__wrapper .banner__slides--navigation {
+            left: 0 !important; right: 0 !important; transform: none !important;
+            text-align: center; padding: 0 24px;
+          }
+        }
         /* bigger hero title */
         .banner.v__2 .banner__slides--content--title {
           font-size: clamp(40px, 4.4vw, 64px) !important; line-height: 1.1 !important;
@@ -120,12 +142,12 @@ export default function IndexThreePage() {
           </div>
           <div className="banner__slides--navigation">
             <div className="banner__slides--navigation--single">
-              <h5 className="nav__title">Undergraduate</h5>
+              <h5 className="nav__title">Undergraduate <ArrowUpRight className="nav__arrow" size={18} /></h5>
               <Link href="/academic" className="nav__description">Browse the undergraduate
                 degrees</Link>
             </div>
             <div className="banner__slides--navigation--single">
-              <h5 className="nav__title">Graduate</h5>
+              <h5 className="nav__title">Graduate <ArrowUpRight className="nav__arrow" size={18} /></h5>
               <Link href="/academic" className="nav__description">Browse the graduate degrees</Link>
             </div>
           </div>
@@ -369,7 +391,7 @@ export default function IndexThreePage() {
                 style={{ backgroundImage: 'url(/assets/images/program/su-undergrad.jpg)' }}
               >
                 <div className="prog2-card__body">
-                  <h5>Undergraduate</h5>
+                  <h5>Undergraduate <ArrowUpRight className="prog2-card__arrow" size={24} /></h5>
                   <p className="prog2-card__desc">
                     Bachelor&rsquo;s degrees across Science &amp; Engineering, Business, and Arts &amp; Humanities from CSE, EEE and Architecture to BBA, LLB and more.
                   </p>
@@ -381,7 +403,7 @@ export default function IndexThreePage() {
                 style={{ backgroundImage: 'url(/assets/images/program/su-grad.jpg)' }}
               >
                 <div className="prog2-card__body">
-                  <h5>Graduate</h5>
+                  <h5>Graduate <ArrowUpRight className="prog2-card__arrow" size={24} /></h5>
                   <p className="prog2-card__desc">
                     Master&rsquo;s degrees for graduates and professionals a wide range of MBA tracks, MSCM, MTFM, MBM and LLM programs.
                   </p>
@@ -441,7 +463,13 @@ export default function IndexThreePage() {
           .prog2-card__body h5 {
             margin: 0; color: #ffffff; font-family: var(--font-poppins), Poppins, sans-serif;
             font-weight: 700; font-size: 26px;
+            display: inline-flex; align-items: center; gap: 10px;
           }
+          .prog2-card__arrow { color: #ffffff; transition: transform .3s ease, color .25s ease; }
+          .prog2-card:hover .prog2-card__arrow { transform: rotate(45deg); }
+          .prog2-card__body h5 { transition: color .25s ease; }
+          .prog2-card:hover .prog2-card__body h5,
+          .prog2-card:hover .prog2-card__arrow { color: #2B3175; }
           .prog2-card__desc {
             max-height: 0; opacity: 0; overflow: hidden; margin: 0;
             color: rgba(255,255,255,0.92); font-size: 15px; line-height: 1.6;
@@ -489,6 +517,14 @@ export default function IndexThreePage() {
               </div>
             </div>
           </div>
+          <style>{`
+            /* Decorative "About University" outline text is positioned off-screen
+               on the template and clips on small screens; it is purely decorative,
+               so hide it on tablet/mobile. */
+            @media (max-width: 991px) {
+              .rts-campus .bottom-text { display: none !important; }
+            }
+          `}</style>
           <div className="bottom-text rt-clip-text">About University</div>
           <div className="rt-shape">
             <img
