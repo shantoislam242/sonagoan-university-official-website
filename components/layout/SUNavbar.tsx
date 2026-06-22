@@ -439,7 +439,8 @@ export default function SUNavbar() {
                     type="button"
                     onClick={() => toggleMobileSection(group.name)}
                     aria-expanded={isOpen}
-                    className="w-full py-[12px] text-[14px] font-semibold text-primary flex justify-between items-center"
+                    className="w-full py-[12px] text-[14px] font-semibold text-primary flex justify-between items-center text-left"
+                    style={{ background: 'transparent', border: 0, borderRadius: 0, WebkitAppearance: 'none', appearance: 'none', cursor: 'pointer' }}
                   >
                     {group.name}
                     <ChevronDown
