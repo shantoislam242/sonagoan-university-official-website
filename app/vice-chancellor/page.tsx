@@ -90,7 +90,7 @@ export default function ViceChancellorPage() {
                 <p key={i} className="vc-letter__p">{p}</p>
               ))}
               <p className="vc-letter__closing">Together, we will rise up, and we will shine.</p>
-              <Link href="/contact" className="vc-cta">
+              <Link href="/vc-office" className="vc-cta">
                 Office of the Vice Chancellor <ArrowUpRight size={18} />
               </Link>
             </div>

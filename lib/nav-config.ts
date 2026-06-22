@@ -105,7 +105,7 @@ export const mainNav: readonly MainNavGroup[] = [
           { name: 'Chairman',          href: '/chairman' },
           { name: 'General Secretary', href: '/general-secretary' },
           { name: 'Vice Chancellor',   href: '/vice-chancellor' },
-          { name: 'Pro-VC Office',     href: '/pro-vice-chancellor' },
+          { name: 'Pro Vice Chancellor', href: '/pro-vice-chancellor' },
           { name: 'Former VC',         href: '/former-vc' },
           { name: 'Treasurer',         href: '#' },
         ],

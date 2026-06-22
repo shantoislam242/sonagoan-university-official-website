@@ -100,7 +100,7 @@ export default function ProViceChancellorPage() {
                 up and shine.
               </p>
               <p className="pvc-letter__closing">Together, we rise up and shine.</p>
-              <Link href="/contact" className="pvc-cta">
+              <Link href="/pro-vc-office" className="pvc-cta">
                 Office of the Pro-VC <ArrowUpRight size={18} />
               </Link>
             </div>
