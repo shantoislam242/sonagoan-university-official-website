@@ -104,7 +104,7 @@ export default function ViceChancellorPage() {
         .vc-hero { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
         @media (min-width: 860px) { .vc-hero { grid-template-columns: 380px 1fr; gap: 56px; } }
         .vc-hero__media {
-          position: relative; border-radius: 20px; overflow: hidden; max-width: 380px;
+          position: relative; border-radius: 20px; overflow: hidden; max-width: 380px; margin-left: auto; margin-right: auto;
           box-shadow: 0 24px 60px rgba(43,49,117,0.18); border: 1px solid #ECECF3;
         }
         .vc-hero__img { display: block; width: 100%; height: auto; object-fit: cover; }

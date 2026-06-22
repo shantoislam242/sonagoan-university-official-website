@@ -122,6 +122,15 @@ body.page { padding-top: 76px; }
    scroll container, so sticky (the pinned hero) works. */
 body.page { overflow-x: clip !important; overflow-y: visible !important; }
 
+/* ---- Global mobile safety-net (responsive pass 2026-06-22) ---- */
+/* No media should force the page wider than the viewport. */
+img, svg, video, iframe { max-width: 100%; }
+img { height: auto; }
+/* Wide content (tables) stays within its wrapper. */
+table { max-width: 100%; }
+/* Long unbroken strings (emails, URLs) wrap instead of overflowing. */
+.su-break { overflow-wrap: anywhere; word-break: break-word; }
+
 /* === Hero (banner v__2) — center the content on mobile/tablet ===== */
 /* Template left-aligns the hero content (max-width:550px + left text);
    center it on small screens. Desktop keeps the original left layout. */
