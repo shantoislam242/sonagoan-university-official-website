@@ -37,7 +37,7 @@ export default function GeneralSecretaryPage() {
         <Container className="!max-w-[1200px]">
           <div className="gs-hero">
             <div className="gs-hero__media">
-              <span className="gs-hero__tag">Co-Founder</span>
+              <span className="gs-hero__tag">Founder</span>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/assets/images/leadership/abdul-alim.jpeg" alt="Engr. Md. Abdul Alim" className="gs-hero__img" />
             </div>

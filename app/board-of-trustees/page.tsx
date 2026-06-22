@@ -3,6 +3,7 @@ import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
 import PageBanner from '@/components/sections/PageBanner';
 import Container from '@/components/ui/Container';
+import Link from 'next/link';
 
 export const metadata = buildMetadata({
   title: 'Board of Trustees',
@@ -16,9 +17,9 @@ const P = '/assets/images/leadership';
 type Trustee = { name: string; role: string; tag: string; photo: string; href?: string };
 
 const TRUSTEES: Trustee[] = [
-  { name: 'Engr. Abdul Aziz', role: 'Chairman, Board of Trustees', tag: 'Founder', photo: `${P}/abdul-aziz.jpeg`, href: '/chairman' },
-  { name: 'Engr. Md. Abdul Alim', role: 'General Secretary, SU Trust', tag: 'Co-Founder', photo: `${P}/abdul-alim.jpeg`, href: '/general-secretary' },
-  { name: 'Advocate Umme Salma', role: 'Member, Board of Trustees', tag: 'Member', photo: `${P}/umme-salma.jpeg` },
+  { name: 'Engr. Abdul Aziz', role: 'Chairman, Board of Trustees, SU', tag: 'Chairman', photo: `${P}/abdul-aziz.jpeg`, href: '/chairman' },
+  { name: 'Engr. Md. Abdul Alim', role: 'General Secretary, Board of Trustees, SU', tag: 'Founder', photo: `${P}/abdul-alim.jpeg`, href: '/general-secretary' },
+  { name: 'Advocate Umme Salma', role: 'Executive Member, Board of Trustees, SU', tag: 'Executive Member', photo: `${P}/umme-salma.jpeg`, href: '/executive-member' },
 ];
 
 export default function BoardOfTrusteesPage() {
@@ -59,7 +60,7 @@ export default function BoardOfTrusteesPage() {
         <Container className="!max-w-[1100px]">
           <div className="bot-grid">
             {TRUSTEES.map((t) => (
-              <article key={t.name} className="bot-card">
+              <Link key={t.name} href={t.href ?? '#'} className="bot-card">
                 <div className="bot-card__media">
                   <span className="bot-card__tag">{t.tag}</span>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -71,7 +72,7 @@ export default function BoardOfTrusteesPage() {
                   <h3 className="bot-card__name">{t.name}</h3>
                   <p className="bot-card__role">{t.role}</p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </Container>
@@ -88,7 +89,7 @@ export default function BoardOfTrusteesPage() {
         @media (min-width: 980px) { .bot-grid { grid-template-columns: repeat(3, 1fr); } }
 
         .bot-card {
-          background: #ffffff; border: 1px solid #ECECF3; overflow: hidden;
+          background: #ffffff; border: 1px solid #ECECF3; overflow: hidden; text-decoration: none;
           box-shadow: 0 12px 34px rgba(43,49,117,0.06); display: flex; flex-direction: column;
           transition: transform .25s ease, box-shadow .25s ease;
         }
