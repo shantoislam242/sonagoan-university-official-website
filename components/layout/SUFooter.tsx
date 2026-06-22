@@ -277,10 +277,9 @@ export default function SUFooter() {
            (matches source's space-y-3). Class selector (0,0,1,1) beats the
            template's "ul li" (0,0,0,2). */
         .footer-grid li { margin-top: 0; margin-bottom: 0; }
-        .footer-grid { grid-template-columns: 1fr; }
-        @media (min-width: 768px) {
-          .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
+        /* Mobile: brand full-width on top, the four link columns in two columns. */
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+        .footer-brand { grid-column: 1 / -1; }
         @media (min-width: 1024px) {
           .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
           .footer-brand { grid-column: span 1; }
