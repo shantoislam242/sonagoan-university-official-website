@@ -114,7 +114,7 @@ export const mainNav: readonly MainNavGroup[] = [
         title: 'Governing Bodies',
         items: [
           { name: 'Treasurer Office',  href: '#' },
-          { name: 'Board of Trustees', href: '#' },
+          { name: 'Board of Trustees', href: '/board-of-trustees' },
           { name: 'Audit',             href: '#' },
           { name: 'Advisory Council',  href: '#' },
         ],

@@ -90,7 +90,7 @@ export default function ChairmanPage() {
                 <p key={i} className="chm-letter__p">{p}</p>
               ))}
               <p className="chm-letter__closing">Together, we will rise up, and we will shine.</p>
-              <Link href="/about" className="chm-cta">
+              <Link href="/board-of-trustees" className="chm-cta">
                 Meet the Board of Trustees <ArrowUpRight size={18} />
               </Link>
             </div>

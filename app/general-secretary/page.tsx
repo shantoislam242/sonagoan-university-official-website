@@ -90,7 +90,7 @@ export default function GeneralSecretaryPage() {
                 <p key={i} className="gs-letter__p">{p}</p>
               ))}
               <p className="gs-letter__closing">Let us build a world of good, together.</p>
-              <Link href="/about" className="gs-cta">
+              <Link href="/board-of-trustees" className="gs-cta">
                 Meet the Board of Trustees <ArrowUpRight size={18} />
               </Link>
             </div>
