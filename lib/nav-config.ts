@@ -210,9 +210,9 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Research by Faculty',
         items: [
-          { name: 'Science & Engineering Research', href: '/research' },
-          { name: 'Business Research (BBA)',        href: '/research' },
-          { name: 'Arts & Humanities Research',     href: '/research' },
+          { name: 'Science & Engineering Research', href: '/research/science-engineering' },
+          { name: 'Business Research (BBA)',        href: '/research/business' },
+          { name: 'Arts & Humanities Research',     href: '/research/arts-humanities' },
         ],
       },
       {
@@ -220,7 +220,6 @@ export const mainNav: readonly MainNavGroup[] = [
         items: [
           { name: 'SU Journal',     href: '/research' },
           { name: 'Publications',   href: '#' },
-          { name: 'Research Funds', href: '#' },
         ],
       },
       {
@@ -228,7 +227,6 @@ export const mainNav: readonly MainNavGroup[] = [
         items: [
           { name: 'CRTC',            href: '#' },
           { name: 'IQAC',            href: '#' },
-          { name: 'Advisory Council', href: '#' },
         ],
       },
     ],
