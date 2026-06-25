@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const issue = getIssueBySlug(slug);
-  if (!issue) return buildMetadata({ title: 'Journal Issue', path: `/journal/${slug}` });
+  if (!issue) return buildMetadata({ title: 'Journal Issue', description: 'Sonargaon University Journal issue.', path: `/journal/${slug}` });
   return buildMetadata({
     title: `${issueLabel(issue)} — SU Journal`,
     description: `Sonargaon University Journal, ${issueLabel(issue)} (${issue.period}).`,
