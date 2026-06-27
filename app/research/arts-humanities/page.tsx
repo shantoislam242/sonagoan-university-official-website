@@ -27,8 +27,8 @@ const FOCUS = [
 
 const EXPLORE = [
   { name: 'SU Journal', desc: 'The university’s research publication', href: '/research', Icon: BookOpen },
-  { name: 'CRTC', desc: 'Center for Research Training & Consultancy', href: '#', Icon: FlaskConical },
-  { name: 'IQAC', desc: 'Quality assurance & research standards', href: '#', Icon: ShieldCheck },
+  { name: 'CRTC', desc: 'Center for Research Training & Consultancy', href: '/research/crtc', Icon: FlaskConical },
+  { name: 'IQAC', desc: 'Quality assurance & research standards', href: '/iqac-pria', Icon: ShieldCheck },
 ];
 
 export default function ArtsHumanitiesResearchPage() {

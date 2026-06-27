@@ -225,8 +225,8 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Centers & Quality',
         items: [
-          { name: 'CRTC',            href: '#' },
-          { name: 'IQAC',            href: '#' },
+          { name: 'CRTC',            href: '/research/crtc' },
+          { name: 'IQAC',            href: '/iqac-pria' },
         ],
       },
     ],
