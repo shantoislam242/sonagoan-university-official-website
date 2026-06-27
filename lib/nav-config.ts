@@ -216,10 +216,9 @@ export const mainNav: readonly MainNavGroup[] = [
         ],
       },
       {
-        title: 'Output & Journal',
+        title: 'Journal',
         items: [
           { name: 'SU Journal',     href: '/journal' },
-          { name: 'Publications',   href: '#' },
         ],
       },
       {
@@ -241,7 +240,6 @@ export const mainNav: readonly MainNavGroup[] = [
         title: 'Student Services',
         items: [
           { name: 'Student Welfare Division',  href: '/campus-life' },
-          { name: 'International Affairs & PR', href: '#' },
           { name: 'Counselling',               href: '#' },
           { name: 'Career Development',        href: '#' },
         ],
