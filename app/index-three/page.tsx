@@ -469,7 +469,7 @@ export default function IndexThreePage() {
           .prog2-card:hover .prog2-card__arrow { transform: rotate(45deg); }
           .prog2-card__body h5 { transition: color .25s ease; }
           .prog2-card:hover .prog2-card__body h5,
-          .prog2-card:hover .prog2-card__arrow { color: #2B3175; }
+          .prog2-card:hover .prog2-card__arrow { color: #CC1579; }
           .prog2-card__desc {
             max-height: 0; opacity: 0; overflow: hidden; margin: 0;
             color: rgba(255,255,255,0.92); font-size: 15px; line-height: 1.6;
@@ -495,7 +495,7 @@ export default function IndexThreePage() {
                   Embark on a Journey: Unveiling the Story of Sonargaon University
                 </h2>
                 <Link
-                  href="/about"
+                  href="/history"
                   className="about-btn rts-nbg-btn btn-arrow
                     rt-white"
                 >
@@ -509,23 +509,33 @@ export default function IndexThreePage() {
             <div className="col-lg-6 col-xl-7 col-md-10 col-sm-11">
               <div className="rts-right-section rt-relative">
                 <p className="rt-white mb--40">
-                  Embark on a journey of knowledge, discovery, and growth at Sonargaon University. Our admissions process is designed to identify bright, motivated
-                  individuals who are eager to contribute to our dynamic academic community.
+                  Founded in 2012 under the Sonargaon University Trust, SU began its academic journey on 18 November 2012 with approval from the UGC of Bangladesh. In the years since, that journey has grown into a 21,000+ alumni network worldwide &mdash; a story still being written.
                 </p>
-                <img className="round" src="/assets/images/feature/01.jpg" alt="campus images" />
+                <img className="round" src="/assets/images/about/history-home.jpg" alt="Sonargaon University history" />
                 <div className="rts-round-shape"></div>
               </div>
             </div>
           </div>
           <style>{`
-            /* Decorative "About University" outline text is positioned off-screen
-               on the template and clips on small screens; it is purely decorative,
-               so hide it on tablet/mobile. */
+            .rts-campus .bottom-text {
+              left: max(24px, calc((100% - 1320px) / 2 + 12px)) !important;
+              max-width: min(760px, calc(100% - 48px));
+              overflow: hidden;
+            }
+
+            @media (max-width: 1399px) {
+              .rts-campus .bottom-text {
+                left: 24px !important;
+              }
+            }
+
+            /* Decorative outline text clips on small screens; it is purely
+               decorative, so hide it on tablet/mobile. */
             @media (max-width: 991px) {
               .rts-campus .bottom-text { display: none !important; }
             }
           `}</style>
-          <div className="bottom-text rt-clip-text">About University</div>
+          <div className="bottom-text rt-clip-text">Our Story</div>
           <div className="rt-shape">
             <img
               className="rt-shape__1"
@@ -644,7 +654,7 @@ export default function IndexThreePage() {
 
       <div
         className="campus__paralax--image"
-        style={{ backgroundImage: "url('/assets/images/campus/paralax__image.jpg')" }}
+        style={{ backgroundImage: "url('/assets/images/campus/campus-life-events.png')" }}
       ></div>
 
       {/* UPCOMING EVENT */}
