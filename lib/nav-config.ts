@@ -218,7 +218,9 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Journal',
         items: [
-          { name: 'SU Journal',     href: '/journal' },
+          { name: 'SU Journal',              href: '/journal' },
+          { name: 'Editorial Board Members', href: '/editorial-board' },
+          { name: 'Author Guidelines',       href: '/author-guidelines' },
         ],
       },
       {
