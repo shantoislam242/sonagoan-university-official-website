@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { buildMetadata } from '@/lib/metadata';
 import HeaderUniversity from '@/components/layout/HeaderUniversity';
 import FooterUniversity from '@/components/layout/FooterUniversity';
@@ -24,6 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const FRONT_MATTER = ['Editorial', 'Editorial Board Members', 'Call for Papers'];
 
+const sideLabel = (i: (typeof JOURNAL_ISSUES)[number]) =>
+  `Vol ${i.volume} · ${i.issue.includes('&') ? 'Issues' : 'Issue'} ${i.issue}`;
+
 export default async function JournalIssuePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const issue = getIssueBySlug(slug);
@@ -41,98 +45,158 @@ export default async function JournalIssuePage({ params }: { params: Promise<{ s
         ]}
       />
 
-      {/* Issue header */}
-      <section style={{ background: '#ffffff', padding: '60px 0 50px' }}>
-        <Container className="!max-w-[1100px]">
-          <div className="ji-header">
-            <div className="ji-header__cover" aria-hidden>
-              {issue.cover ? (
-                <img className="ji-cover-img" src={issue.cover} alt="" />
-              ) : (
-                <span className="ji-cover">
-                  <span className="ji-cover__eyebrow">SU Journal</span>
-                  <span className="ji-cover__vol">Vol {issue.volume}</span>
-                  <span className="ji-cover__issue">Issue {issue.issue}</span>
-                </span>
+      <section style={{ background: '#ffffff', padding: '50px 0 70px' }}>
+        <Container className="!max-w-[1540px]">
+          <div className="ji-layout">
+            {/* Sidebar: all issues */}
+            <aside className="ji-side">
+              <span className="ji-side__title">All Issues</span>
+              <nav className="ji-side__list">
+                {JOURNAL_ISSUES.map((it) => {
+                  const active = it.slug === issue.slug;
+                  return (
+                    <Link
+                      key={it.slug}
+                      href={`/journal/${it.slug}`}
+                      className={`ji-side__item${active ? ' is-active' : ''}`}
+                      aria-current={active ? 'page' : undefined}
+                    >
+                      <span className="ji-side__vol">{sideLabel(it)}</span>
+                      <span className="ji-side__period">{it.period}</span>
+                    </Link>
+                  );
+                })}
+              </nav>
+              <Link href="/journal" className="ji-side__all">View journal home</Link>
+            </aside>
+
+            {/* Main content */}
+            <div className="ji-main">
+              {/* Issue header */}
+              <div className="ji-header">
+                <div className="ji-header__cover" aria-hidden>
+                  {issue.cover ? (
+                    <img className="ji-cover-img" src={issue.cover} alt="" />
+                  ) : (
+                    <span className="ji-cover">
+                      <span className="ji-cover__eyebrow">SU Journal</span>
+                      <span className="ji-cover__vol">Vol {issue.volume}</span>
+                      <span className="ji-cover__issue">Issue {issue.issue}</span>
+                    </span>
+                  )}
+                </div>
+                <div className="ji-header__body">
+                  <span className="ji-eyebrow">Sonargaon University Journal</span>
+                  <h2 className="ji-title">{issueLabel(issue)}</h2>
+                  <p className="ji-period">{issue.period}</p>
+                  <p className="ji-issn">ISSN 2518-3125</p>
+                  {issue.fullPdf && (
+                    <a href={issue.fullPdf} className="ji-fullbtn">
+                      <Download size={17} /> Download Full Issue{issue.size ? ` (${issue.size})` : ''}
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Front Matter */}
+              {issue.frontMatter && (
+                <div className="ji-block">
+                  <h3 className="ji-section-title">Front Matter</h3>
+                  <div className="ji-front">
+                    {FRONT_MATTER.map((f) => (
+                      <a key={f} href="#" className="ji-front__card">
+                        <FileText size={20} />
+                        <span>{f}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
               )}
-            </div>
-            <div className="ji-header__body">
-              <span className="ji-eyebrow">Sonargaon University Journal</span>
-              <h2 className="ji-title">{issueLabel(issue)}</h2>
-              <p className="ji-period">{issue.period}</p>
-              <p className="ji-issn">ISSN 2518-3125</p>
-              {issue.fullPdf && (
-                <a href={issue.fullPdf} className="ji-fullbtn">
-                  <Download size={17} /> Download Full Issue{issue.size ? ` (${issue.size})` : ''}
-                </a>
+
+              {/* Journal Articles */}
+              {issue.articles && (
+                <div className="ji-block">
+                  <h3 className="ji-section-title">Journal Articles</h3>
+                  <ol className="ji-list">
+                    {issue.articles.map((a, idx) => (
+                      <li key={a.title} className="ji-row">
+                        <span className="ji-row__num">{String(idx + 1).padStart(2, '0')}</span>
+                        <span className="ji-row__title">{a.title}</span>
+                        <a
+                          href={a.pdf}
+                          {...(a.pdf !== '#' && { target: '_blank', rel: 'noopener noreferrer' })}
+                          className="ji-row__btn"
+                        >
+                          <FileText size={15} /> Full Text
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+
+              {/* Technical Note */}
+              {issue.hasTechnicalNote && issue.technicalNote && (
+                <div className="ji-block">
+                  <h3 className="ji-section-title">Technical Note</h3>
+                  <div className="ji-note">
+                    <span className="ji-note__title">{issue.technicalNote.title}</span>
+                    <a href={issue.technicalNote.pdf} className="ji-row__btn">
+                      <FileText size={15} /> Full Text
+                    </a>
+                  </div>
+                </div>
               )}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Front Matter */}
-      {issue.frontMatter && (
-        <section style={{ background: '#F6F7FC', padding: '50px 0' }}>
-          <Container className="!max-w-[1100px]">
-            <h3 className="ji-section-title">Front Matter</h3>
-            <div className="ji-front">
-              {FRONT_MATTER.map((f) => (
-                <a key={f} href="#" className="ji-front__card">
-                  <FileText size={20} />
-                  <span>{f}</span>
-                </a>
-              ))}
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* Journal Articles */}
-      {issue.articles && (
-        <section style={{ background: '#ffffff', padding: '60px 0 40px' }}>
-          <Container className="!max-w-[1100px]">
-            <h3 className="ji-section-title">Journal Articles</h3>
-            <ol className="ji-list">
-              {issue.articles.map((a, idx) => (
-                <li key={a.title} className="ji-row">
-                  <span className="ji-row__num">{String(idx + 1).padStart(2, '0')}</span>
-                  <span className="ji-row__title">{a.title}</span>
-                  <a
-                    href={a.pdf}
-                    {...(a.pdf !== '#' && { target: '_blank', rel: 'noopener noreferrer' })}
-                    className="ji-row__btn"
-                  >
-                    <FileText size={15} /> Full Text
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </Container>
-        </section>
-      )}
-
-      {/* Technical Note */}
-      {issue.hasTechnicalNote && issue.technicalNote && (
-        <section style={{ background: '#ffffff', padding: '10px 0 70px' }}>
-          <Container className="!max-w-[1100px]">
-            <h3 className="ji-section-title">Technical Note</h3>
-            <div className="ji-note">
-              <span className="ji-note__title">{issue.technicalNote.title}</span>
-              <a href={issue.technicalNote.pdf} className="ji-row__btn">
-                <FileText size={15} /> Full Text
-              </a>
-            </div>
-          </Container>
-        </section>
-      )}
-
       <FooterUniversity />
 
       <style>{`
-        .ji-header { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; }
-        @media (min-width: 700px) { .ji-header { grid-template-columns: 240px 1fr; gap: 44px; } }
-        .ji-header__cover { border-radius: 16px; overflow: hidden; max-width: 240px; aspect-ratio: 3 / 4; box-shadow: 0 18px 44px rgba(43,49,117,0.18); }
+        .ji-layout { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: start; }
+        @media (min-width: 900px) { .ji-layout { grid-template-columns: 260px 1fr; gap: 44px; } }
+
+        /* Sidebar */
+        .ji-side {
+          background: #fff; border: 1px solid #ECECF3; border-radius: 16px; padding: 22px 18px;
+          box-shadow: 0 12px 30px rgba(43,49,117,0.06);
+        }
+        @media (min-width: 900px) { .ji-side { position: sticky; top: 96px; } }
+        .ji-side__title {
+          display: block; font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700;
+          color: #2B3175; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+          padding: 0 6px 14px; border-bottom: 1px solid #EFEFF6; margin-bottom: 12px;
+        }
+        .ji-side__list { display: flex; flex-direction: column; gap: 4px; }
+        .ji-side__item {
+          display: flex; flex-direction: column; gap: 2px; text-decoration: none;
+          padding: 11px 13px; border-radius: 11px; border-left: 3px solid transparent;
+          transition: background .18s ease, border-color .18s ease, transform .18s ease;
+        }
+        .ji-side__item:hover { background: #F6F7FC; transform: translateX(2px); }
+        .ji-side__vol { color: #2B3175; font-weight: 600; font-size: 14.5px; }
+        .ji-side__period { color: #8A8AA3; font-size: 12px; }
+        .ji-side__item.is-active {
+          background: linear-gradient(135deg, rgba(43,49,117,0.08), rgba(204,21,121,0.08));
+          border-left-color: #CC1579;
+        }
+        .ji-side__item.is-active .ji-side__vol { color: #CC1579; }
+        .ji-side__all {
+          display: block; margin-top: 14px; padding-top: 14px; border-top: 1px solid #EFEFF6;
+          color: #2B3175; font-weight: 600; font-size: 13.5px; text-decoration: none; padding-left: 6px;
+          transition: color .18s ease;
+        }
+        .ji-side__all:hover { color: #CC1579; }
+
+        /* Main column blocks */
+        .ji-main { min-width: 0; }
+        .ji-block { margin-top: 46px; }
+
+        .ji-header { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+        @media (min-width: 620px) { .ji-header { grid-template-columns: 220px 1fr; gap: 40px; } }
+        .ji-header__cover { border-radius: 16px; overflow: hidden; max-width: 220px; aspect-ratio: 3 / 4; box-shadow: 0 18px 44px rgba(43,49,117,0.18); }
         .ji-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .ji-cover {
           display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
@@ -153,7 +217,7 @@ export default async function JournalIssuePage({ params }: { params: Promise<{ s
         }
         .ji-fullbtn:hover { background: #CC1579; gap: 13px; }
 
-        .ji-section-title { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: clamp(20px, 2.8vw, 26px); margin: 0 0 24px; }
+        .ji-section-title { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: clamp(20px, 2.8vw, 26px); margin: 0 0 22px; }
 
         .ji-front { display: grid; grid-template-columns: 1fr; gap: 16px; }
         @media (min-width: 700px) { .ji-front { grid-template-columns: repeat(3, 1fr); } }
