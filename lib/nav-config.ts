@@ -180,7 +180,7 @@ export const mainNav: readonly MainNavGroup[] = [
         title: 'Apply & Policy',
         items: [
           { name: 'Requirements',            href: '/admission-requirements' },
-          { name: 'Registration Policies',   href: '#' },
+          { name: 'Registration Policies',   href: '/registration-policies' },
           { name: 'Admission & Information', href: '/admission' },
         ],
       },
