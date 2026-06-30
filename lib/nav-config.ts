@@ -187,8 +187,8 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Fees & Aid',
         items: [
-          { name: 'Tuition Fee',  href: '/tution-fee' },
-          { name: 'Waiver Policy', href: '#' },
+          { name: 'Tuition Fee',  href: '/tuition-fees' },
+          { name: 'Waiver Policy', href: '/waiver-policy' },
         ],
       },
       {
