@@ -144,7 +144,11 @@ export default async function JournalIssuePage({ params }: { params: Promise<{ s
                   <h3 className="ji-section-title">Technical Note</h3>
                   <div className="ji-note">
                     <span className="ji-note__title">{issue.technicalNote.title}</span>
-                    <a href={issue.technicalNote.pdf} className="ji-row__btn">
+                    <a
+                      href={issue.technicalNote.pdf}
+                      {...(issue.technicalNote.pdf !== '#' && { target: '_blank', rel: 'noopener noreferrer' })}
+                      className="ji-row__btn"
+                    >
                       <FileText size={15} /> Full Text
                     </a>
                   </div>

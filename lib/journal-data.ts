@@ -30,7 +30,7 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     cover: '/assets/journal/cover-v5i2.png',
     frontMatter: true,
     hasTechnicalNote: true,
-    technicalNote: { title: 'Technical Note', pdf: '#' },
+    technicalNote: { title: 'Technical Note', pdf: '/assets/journal/technical-note.pdf' },
     articles: [
       A('Prophet Mohammad (SM) As The World’s Greatest Reformer', '/assets/journal/v5i2/journal111.pdf'),
       A('Bridging the Knowledge Management Gap: A Comparative Analysis of Public and Private University Libraries in Bangladesh in the Context of the 4th Industrial Revolution', '/assets/journal/v5i2/journal22.pdf'),
@@ -52,7 +52,7 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     cover: '/assets/journal/cover-v5i1.jpg',
     frontMatter: true,
     hasTechnicalNote: true,
-    technicalNote: { title: 'Technical Note', pdf: '#' },
+    technicalNote: { title: 'Technical Note', pdf: '/assets/journal/technical-note.pdf' },
     articles: [
       A('Evaluating the Quality of Higher Education in Private Universities of Bangladesh: Challenges, Developments, and the Path Forward', '/assets/journal/v5i1/journal1.pdf'),
       A('Advancements of Cathode Material for Rechargeable Lithium-Ion Batteries: Progress, Challenges, and Electrochemical Performance', '/assets/journal/v5i1/journal2.pdf'),
@@ -75,7 +75,7 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     cover: '/assets/journal/cover-v4.png',
     frontMatter: true,
     hasTechnicalNote: true,
-    technicalNote: { title: 'Technical Note', pdf: '#' },
+    technicalNote: { title: 'Technical Note', pdf: '/assets/journal/technical-note.pdf' },
     articles: [
       A('Numerical Simulation of NACA 4412 Airfoil to Analyse its Performance Characteristics M15 and M20', '/assets/journal/v4/a1.pdf'),
       A('A Comparison of Compressive Strength of Concrete by Using Different Brands of Portland Composite Cement for Grade M15 and M20', '/assets/journal/v4/a2.pdf'),
@@ -96,7 +96,7 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     cover: '/assets/journal/cover-v3.png',
     frontMatter: true,
     hasTechnicalNote: true,
-    technicalNote: { title: 'Technical Note', pdf: '#' },
+    technicalNote: { title: 'Technical Note', pdf: '/assets/journal/technical-note.pdf' },
     articles: [
       A('Shaping Festival Financing and Expenditure: A Fair Assessment of Bangladeshi Earnings Capable Residents', '/assets/journal/v3/a1.pdf'),
       A('Mixed Convection in a Ventilated Concentric Horizontal Cylindrical Annulus for Aiding and Opposing Buoyancy Forces', '/assets/journal/v3/a2.pdf'),
@@ -116,6 +116,8 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     period: 'December 2017',
     cover: '/assets/journal/cover-v2.png',
     frontMatter: true,
+    hasTechnicalNote: true,
+    technicalNote: { title: 'Technical Note', pdf: '/assets/journal/technical-note.pdf' },
     articles: [
       A('Energy Storage in an Impure Paraffin Wax Embedded in the Finned-Annulus of Two Horizontal Tubes: Part II', '/assets/journal/v2i1/a1.pdf'),
       A('An Empirical Study on Determining the Association Between Micro Finance and Poor’s Access: Evidence from Pakistan', '/assets/journal/v2i1/a2.pdf'),
@@ -136,6 +138,8 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     period: 'June 2017',
     cover: '/assets/journal/cover-v2.png',
     frontMatter: true,
+    hasTechnicalNote: true,
+    technicalNote: { title: 'Technical Note', pdf: '/assets/journal/technical-note.pdf' },
     articles: [
       A('Energy Storage in an Impure Paraffin Wax Embedded in the Finned-Annulus of Two Horizontal Tubes: Part II', '/assets/journal/v2i1/a1.pdf'),
       A('An Empirical Study on Determining the Association Between Micro Finance and Poor’s Access: Evidence from Pakistan', '/assets/journal/v2i1/a2.pdf'),
@@ -156,6 +160,8 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     period: 'December 2016',
     cover: '/assets/journal/cover-v1i2.png',
     frontMatter: true,
+    hasTechnicalNote: true,
+    technicalNote: { title: 'Technical Note', pdf: '/assets/journal/technical-note.pdf' },
     articles: [
       A('Effect of Moving Surface on Aerodynamic Characteristics in NACA0012 Airfoil', '/assets/journal/v1i2/a1.pdf'),
       A('Present Status and Potential Locations of Open Spaces in the Dhaka City Corporation Area: Using GIS Technology', '/assets/journal/v1i2/a2.pdf'),
@@ -177,6 +183,8 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     period: 'June 2016',
     cover: '/assets/journal/cover-v1i1.png',
     frontMatter: true,
+    hasTechnicalNote: true,
+    technicalNote: { title: 'Technical Note', pdf: '/assets/journal/technical-note.pdf' },
     articles: [
       A('Performance Evaluation of Cement Industry of Bangladesh: A Case Study on Some Selected Firms', '/assets/journal/v1i1/a1.pdf'),
       A('Rights of Women Workers in the Ready-Made Garment (RMG) Sector of Bangladesh: Law and Practice', '/assets/journal/v1i1/a2.pdf'),
