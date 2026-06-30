@@ -23,7 +23,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-const FRONT_MATTER = ['Editorial', 'Editorial Board Members', 'Call for Papers'];
+const FRONT_MATTER = [
+  { label: 'Editorial Board Members', href: '/editorial-board' },
+  { label: 'Call for Papers', href: '/author-guidelines' },
+];
 
 const sideLabel = (i: (typeof JOURNAL_ISSUES)[number]) =>
   `Vol ${i.volume} · ${i.issue.includes('&') ? 'Issues' : 'Issue'} ${i.issue}`;
@@ -104,10 +107,10 @@ export default async function JournalIssuePage({ params }: { params: Promise<{ s
                   <h3 className="ji-section-title">Front Matter</h3>
                   <div className="ji-front">
                     {FRONT_MATTER.map((f) => (
-                      <a key={f} href="#" className="ji-front__card">
+                      <Link key={f.label} href={f.href} className="ji-front__card">
                         <FileText size={20} />
-                        <span>{f}</span>
-                      </a>
+                        <span>{f.label}</span>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -220,7 +223,7 @@ export default async function JournalIssuePage({ params }: { params: Promise<{ s
         .ji-section-title { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: clamp(20px, 2.8vw, 26px); margin: 0 0 22px; }
 
         .ji-front { display: grid; grid-template-columns: 1fr; gap: 16px; }
-        @media (min-width: 700px) { .ji-front { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 700px) { .ji-front { grid-template-columns: repeat(2, 1fr); } }
         .ji-front__card {
           display: flex; align-items: center; gap: 12px; text-decoration: none;
           background: #fff; border: 1px solid #ECECF3; border-radius: 12px; padding: 18px 20px;

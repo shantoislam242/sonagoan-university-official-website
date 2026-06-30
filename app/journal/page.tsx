@@ -4,7 +4,7 @@ import FooterUniversity from '@/components/layout/FooterUniversity';
 import Container from '@/components/ui/Container';
 import PageBanner from '@/components/sections/PageBanner';
 import Link from 'next/link';
-import { ArrowRight, FileText } from 'lucide-react';
+import { ArrowRight, FileText, CalendarRange, Unlock, Building2 } from 'lucide-react';
 import { JOURNAL_ISSUES, issueLabel } from '@/lib/journal-data';
 
 export const metadata = buildMetadata({
@@ -18,7 +18,14 @@ const current = JOURNAL_ISSUES.find((i) => i.current) ?? JOURNAL_ISSUES[0];
 
 function Cover({ volume, issue, cover }: { volume: string; issue: string; cover?: string }) {
   if (cover) {
-    return <img className="jr-cover-img" src={cover} alt="" aria-hidden />;
+    return (
+      <>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="jr-cover-img jr-cover-img--bg" src={cover} alt="" aria-hidden />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="jr-cover-img jr-cover-img--main" src={cover} alt="" aria-hidden />
+      </>
+    );
   }
   return (
     <span className="jr-cover" aria-hidden>
@@ -111,6 +118,45 @@ export default function JournalListingPage() {
         </Container>
       </section>
 
+      {/* About the Journal */}
+      <section id="about" style={{ background: '#ffffff', padding: '84px 0 92px' }}>
+        <Container className="!max-w-[1240px]">
+          <span className="jr-section-eyebrow">About the Journal</span>
+          <h2 className="jr-section-title" style={{ marginBottom: 18 }}>Focus &amp; Scope</h2>
+          <p className="jr-about__lead">
+            The Sonargaon University Journal is a half-yearly, peer-reviewed publication dedicated to original
+            scholarly contributions across all disciplines of university research. It welcomes high-quality work
+            from researchers around the world, fostering an open and rigorous platform for the exchange of new
+            ideas and findings.
+          </p>
+
+          <div className="jr-about__grid">
+            <div className="jr-about__card">
+              <span className="jr-about__icon"><CalendarRange size={22} /></span>
+              <h3 className="jr-about__title">Publication Frequency</h3>
+              <p className="jr-about__text">
+                The journal publishes two issues in each volume per year, released in June and December.
+              </p>
+            </div>
+            <div className="jr-about__card">
+              <span className="jr-about__icon"><Unlock size={22} /></span>
+              <h3 className="jr-about__title">Open Access Policy</h3>
+              <p className="jr-about__text">
+                The journal provides immediate open access to all of its content, on the principle that making
+                research freely available to the public supports a greater global exchange of knowledge.
+              </p>
+            </div>
+            <div className="jr-about__card">
+              <span className="jr-about__icon"><Building2 size={22} /></span>
+              <h3 className="jr-about__title">Publisher</h3>
+              <p className="jr-about__text">
+                Published by Sonargaon University (SU), through its Research &amp; Journal Unit.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <FooterUniversity />
 
       <style>{`
@@ -127,6 +173,24 @@ export default function JournalListingPage() {
         }
         .jr-section-title { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: clamp(24px, 3.4vw, 34px); margin: 0 0 36px; }
 
+        .jr-about__lead { color: #5B5B78; font-size: 17px; line-height: 1.9; margin: 0 0 40px; max-width: 980px; }
+        .jr-about__grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+        @media (min-width: 640px) { .jr-about__grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 980px) { .jr-about__grid { grid-template-columns: repeat(3, 1fr); } }
+        .jr-about__card {
+          background: #fff; border: 1px solid #ECECF3; border-radius: 16px; padding: 28px 26px;
+          box-shadow: 0 12px 30px rgba(43,49,117,0.05);
+          transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .jr-about__card:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(43,49,117,0.12); }
+        .jr-about__icon {
+          display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px;
+          border-radius: 13px; margin-bottom: 16px; color: #fff;
+          background: linear-gradient(135deg, #2B3175, #CC1579);
+        }
+        .jr-about__title { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: 18px; margin: 0 0 9px; }
+        .jr-about__text { color: #5B5B78; font-size: 15px; line-height: 1.75; margin: 0; }
+
         /* cover placeholder */
         .jr-cover {
           display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
@@ -137,7 +201,8 @@ export default function JournalListingPage() {
         .jr-cover__vol { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; font-size: 30px; margin-top: 6px; }
         .jr-cover__issue { font-size: 15px; opacity: 0.95; }
         .jr-cover__issn { margin-top: 10px; font-size: 11px; opacity: 0.7; letter-spacing: 0.08em; }
-        .jr-cover-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+        .jr-cover-img--bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(1.18); filter: blur(20px) brightness(0.95); z-index: 0; }
+        .jr-cover-img--main { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
 
         /* feature (current issue) */
         .jr-feature {
@@ -146,7 +211,7 @@ export default function JournalListingPage() {
           box-shadow: 0 24px 60px rgba(43,49,117,0.10);
         }
         @media (min-width: 760px) { .jr-feature { grid-template-columns: 300px 1fr; } }
-        .jr-feature__cover { min-height: 260px; }
+        .jr-feature__cover { position: relative; overflow: hidden; min-height: 300px; background: #EEF0F6; }
         .jr-feature__body { padding: clamp(28px, 4vw, 44px); }
         .jr-feature__title { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: clamp(22px, 3vw, 30px); margin: 0 0 6px; }
         .jr-feature__period { color: #5B5B78; font-size: 16px; margin: 0 0 10px; }
@@ -163,7 +228,7 @@ export default function JournalListingPage() {
           transition: transform .25s ease, box-shadow .25s ease;
         }
         .jr-card:hover { transform: translateY(-5px); box-shadow: 0 24px 48px rgba(43,49,117,0.13); }
-        .jr-card__cover { aspect-ratio: 3 / 2; }
+        .jr-card__cover { aspect-ratio: 1 / 1; position: relative; overflow: hidden; background: #EEF0F6; }
         .jr-card__body { padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
         .jr-card__title { font-family: var(--font-poppins), Poppins, sans-serif; font-weight: 700; color: #2B3175; font-size: 16px; line-height: 1.3; margin: 0 0 5px; }
         .jr-card__period { color: #5B5B78; font-size: 13.5px; margin: 0 0 6px; }

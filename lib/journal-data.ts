@@ -115,6 +115,7 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     issue: '2',
     period: 'December 2017',
     cover: '/assets/journal/cover-v2.png',
+    frontMatter: true,
     articles: [
       A('Energy Storage in an Impure Paraffin Wax Embedded in the Finned-Annulus of Two Horizontal Tubes: Part II', '/assets/journal/v2i1/a1.pdf'),
       A('An Empirical Study on Determining the Association Between Micro Finance and Poor’s Access: Evidence from Pakistan', '/assets/journal/v2i1/a2.pdf'),
@@ -134,6 +135,7 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     issue: '1',
     period: 'June 2017',
     cover: '/assets/journal/cover-v2.png',
+    frontMatter: true,
     articles: [
       A('Energy Storage in an Impure Paraffin Wax Embedded in the Finned-Annulus of Two Horizontal Tubes: Part II', '/assets/journal/v2i1/a1.pdf'),
       A('An Empirical Study on Determining the Association Between Micro Finance and Poor’s Access: Evidence from Pakistan', '/assets/journal/v2i1/a2.pdf'),
@@ -153,6 +155,7 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     issue: '2',
     period: 'December 2016',
     cover: '/assets/journal/cover-v1i2.png',
+    frontMatter: true,
     articles: [
       A('Effect of Moving Surface on Aerodynamic Characteristics in NACA0012 Airfoil', '/assets/journal/v1i2/a1.pdf'),
       A('Present Status and Potential Locations of Open Spaces in the Dhaka City Corporation Area: Using GIS Technology', '/assets/journal/v1i2/a2.pdf'),
@@ -173,6 +176,7 @@ export const JOURNAL_ISSUES: JournalIssue[] = [
     issue: '1',
     period: 'June 2016',
     cover: '/assets/journal/cover-v1i1.png',
+    frontMatter: true,
     articles: [
       A('Performance Evaluation of Cement Industry of Bangladesh: A Case Study on Some Selected Firms', '/assets/journal/v1i1/a1.pdf'),
       A('Rights of Women Workers in the Ready-Made Garment (RMG) Sector of Bangladesh: Law and Practice', '/assets/journal/v1i1/a2.pdf'),
