@@ -194,7 +194,7 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Quick Access',
         items: [
-          { name: 'Admission Officer List', href: '#' },
+          { name: 'Admission Officer List', href: '/admission-officer-list' },
           { name: 'Apply Now',              href: applyUrl, isExternal: true },
         ],
       },
