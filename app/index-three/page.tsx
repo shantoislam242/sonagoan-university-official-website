@@ -29,6 +29,16 @@ export default function IndexThreePage() {
         @media (min-width: 768px)  { .su-hero-sticky { margin-top: -116px; } }
         @media (min-width: 1024px) { .su-hero-sticky { margin-top: -170px; } }`}</style>
       <style>{`
+        /* partner/affiliated-university logos: normalise the varied PNG sizes */
+        .rts-brand.v_1 .single-brand-logo {
+          display: flex; align-items: center; justify-content: center;
+          height: 90px; padding: 0 12px;
+        }
+        .rts-brand.v_1 .single-brand-logo img {
+          max-height: 74px; max-width: 100%; width: auto; object-fit: contain;
+          opacity: .78; transition: opacity .3s ease, filter .3s ease;
+        }
+        .rts-brand.v_1 .single-brand-logo:hover img { opacity: 1; }
         .banner.v__2 .banner__wrapper .banner__wrapper--bg::before { display: none !important; }
         /* brand-coloured bottom-up gradient fade on the hero (navy -> magenta) */
         .banner.v__2 .banner__wrapper .banner__wrapper--bg::after {
@@ -814,48 +824,22 @@ export default function IndexThreePage() {
             }'
               >
                 <div className="swiper-wrapper">
-                  <div className="swiper-slide">
-                    <div className="single-brand-logo">
-                      <a href="#">
-                        <img src="/assets/images/brand/01.svg" alt="" />
-                      </a>
+                  {[
+                    { src: '/assets/images/brand/noida.png', alt: 'Noida International University' },
+                    { src: '/assets/images/brand/iit-khanpur.png', alt: 'IIT Khanpur' },
+                    { src: '/assets/images/brand/maharishi.png', alt: 'Maharishi Markandeshwar University' },
+                    { src: '/assets/images/brand/timisoara.png', alt: 'West University of Timisoara' },
+                    { src: '/assets/images/brand/assam.png', alt: 'Assam Down Town University' },
+                    { src: '/assets/images/brand/yuan-ze.png', alt: 'Yuan Ze University' },
+                    { src: '/assets/images/brand/chea.png', alt: 'CHEA' },
+                  ].map((logo) => (
+                    <div className="swiper-slide" key={logo.src}>
+                      <div className="single-brand-logo">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={logo.src} alt={logo.alt} title={logo.alt} />
+                      </div>
                     </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="single-brand-logo">
-                      <a href="#">
-                        <img src="/assets/images/brand/02.svg" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="single-brand-logo">
-                      <a href="#">
-                        <img src="/assets/images/brand/03.svg" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="single-brand-logo">
-                      <a href="#">
-                        <img src="/assets/images/brand/04.svg" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="single-brand-logo">
-                      <a href="#">
-                        <img src="/assets/images/brand/05.svg" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="single-brand-logo">
-                      <a href="#">
-                        <img src="/assets/images/brand/06.svg" alt="" />
-                      </a>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
