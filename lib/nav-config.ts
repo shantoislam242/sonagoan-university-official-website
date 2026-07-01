@@ -240,7 +240,7 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Student Services',
         items: [
-          { name: 'Student Welfare Division',  href: '/campus-life' },
+          { name: 'Student Welfare Division',  href: '/student-welfare-division' },
           { name: 'Counselling',               href: '#' },
           { name: 'Career Development',        href: '#' },
         ],

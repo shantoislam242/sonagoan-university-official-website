@@ -16,18 +16,20 @@ const EMAIL = 'suadm.data27@gmail.com';
 
 type Officer = { name: string; phone: string; photo?: string };
 
+const P = '/assets/images/admission-officers';
+
 const OFFICERS: Officer[] = [
-  { name: 'Tanvir Hasan', phone: '+880 1999-914395' },
-  { name: 'Md. Majibur Rahman', phone: '+880 1955-529721' },
+  { name: 'Tanvir Hasan', phone: '+880 1999-914395', photo: `${P}/tanvir.png` },
+  { name: 'Md. Majibur Rahman', phone: '+880 1955-529721', photo: `${P}/majibur.png` },
+  { name: 'Tawhidur Rahman', phone: '+880 1780-330044', photo: `${P}/tawhidur.png` },
+  { name: 'Md. Azizul Haque', phone: '+880 1907-165597', photo: `${P}/azizul-haque.png` },
+  { name: 'Ekramunnesa Joya', phone: '+880 1955-529725', photo: `${P}/joya.jpeg` },
+  { name: 'Afsana Ferdous', phone: '+880 1959-204957', photo: `${P}/afsana.png` },
+  { name: 'Khadiza Haque Rimi', phone: '+880 1955-529722', photo: `${P}/rimi.png` },
+  { name: 'Md. Ariful Islam', phone: '+880 1775-000888', photo: `${P}/ariful.png` },
   { name: 'Sanjana Sadia', phone: '+880 1955-529724' },
-  { name: 'Tawhidur Rahman', phone: '+880 1780-330044' },
   { name: 'Md. Mashiur Rahman Prodhan', phone: '+880 1992-077001' },
   { name: 'Md. Tanzil Ahmed Tamim', phone: '+880 1780-330055' },
-  { name: 'Md. Ariful Islam', phone: '+880 1775-000888' },
-  { name: 'Md. Azizul Haque', phone: '+880 1907-165597' },
-  { name: 'Ekramunnesa Joya', phone: '+880 1955-529725' },
-  { name: 'Afsana Ferdous', phone: '+880 1959-204957' },
-  { name: 'Khadiza Haque Rimi', phone: '+880 1955-529722' },
 ];
 
 export default function AdmissionOfficerListPage() {
