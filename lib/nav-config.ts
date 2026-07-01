@@ -250,7 +250,7 @@ export const mainNav: readonly MainNavGroup[] = [
         items: [
           { name: 'Library',   href: 'http://lib.su.edu.bd', isExternal: true },
           { name: 'Lab',       href: '#' },
-          { name: 'Transport', href: '#' },
+          { name: 'Transport', href: '/transport' },
         ],
       },
       {

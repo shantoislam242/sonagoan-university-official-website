@@ -481,7 +481,12 @@ footer p, footer .disc {
 .page-banner::before,
 .rts-banner-area::before,
 .rts-breadcrumb.breadcumb-bg::before {
-  background: rgba(43, 49, 117, 0.75) !important;
+  background: linear-gradient(to top, rgba(43, 49, 117, 0.90) 0%, rgba(43, 49, 117, 0.45) 42%, rgba(43, 49, 117, 0.05) 100%) !important;
+}
+/* Keep hero text readable over the lighter (top) part of the gradient. */
+.rts-breadcrumb.breadcumb-bg .section-title,
+.rts-breadcrumb.breadcumb-bg .breadcrumb-content .breadcrumb {
+  text-shadow: 0 2px 14px rgba(17, 21, 43, 0.45);
 }
 /* Position helper — ONLY breadcrumb (single-bg container with simple structure).
    Homepage banner variants (.banner.v__1-5) have complex split-3 layouts where
