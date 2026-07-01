@@ -53,7 +53,7 @@ export interface MainNavGroup {
   mega?: MegaColumn[];
 }
 
-export const applyUrl = 'https://example.com/apply'; // TODO: real apply URL
+export const applyUrl = 'http://sue.su.edu.bd:5081/sonargaon_erp/siteadmin/admission_info';
 
 export const topLinks: readonly TopLink[] = [
   { name: 'Virtual Tour', href: '#' },
@@ -181,7 +181,7 @@ export const mainNav: readonly MainNavGroup[] = [
         items: [
           { name: 'Requirements',            href: '/admission-requirements' },
           { name: 'Registration Policies',   href: '/registration-policies' },
-          { name: 'Admission & Information', href: '/admission' },
+          { name: 'Information Hub', href: '/information-hub' },
         ],
       },
       {
@@ -194,7 +194,6 @@ export const mainNav: readonly MainNavGroup[] = [
       {
         title: 'Quick Access',
         items: [
-          { name: 'Online Admission',       href: '/admission' },
           { name: 'Admission Officer List', href: '#' },
           { name: 'Apply Now',              href: applyUrl, isExternal: true },
         ],
