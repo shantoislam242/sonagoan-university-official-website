@@ -577,10 +577,10 @@ export default function IndexThreePage() {
                   Sonargaon University
                 </h2>
                 <p className="rts__section--description">
-                  At Sonargaon University Name we are committed to providing a high-quality
-                  education that is accessible to a diverse range of students.
+                  At Sonargaon University, tuition is charged on a per-credit basis and paired with generous
+                  merit waivers, keeping a quality education within reach for every student.
                 </p>
-                <Link href="/tution-fee" className="rts-theme-btn btn-arrow">
+                <Link href="/tuition-fees" className="rts-theme-btn btn-arrow">
                   Plan Details
                   <span>
                     <i className="fa-regular fa-arrow-right"></i>
@@ -591,30 +591,30 @@ export default function IndexThreePage() {
             <div className="col-lg-4 col-md-6 col-sm-10">
               <div className="tution__single--box v__1">
                 <h5 className="tution__single--box--title">Undergraduate Programs</h5>
-                <h6 className="tution__single--box--faculty">College of Arts and Sciences</h6>
+                <h6 className="tution__single--box--faculty">Admission &amp; Tuition</h6>
                 <ul className="tution__single--box--feature">
-                  <li>Full-Time Tuition (per semester): $241</li>
-                  <li>Part-Time Tuition (per credit): $141</li>
+                  <li>Admission fee: &#2547;12,500 (one-time)</li>
+                  <li>Tuition charged per credit</li>
                 </ul>
-                <h6 className="tution__single--box--faculty">School of Business</h6>
+                <h6 className="tution__single--box--faculty">Shifts &amp; Waivers</h6>
                 <ul className="tution__single--box--feature">
-                  <li>Full-Time Tuition (per semester): $241</li>
-                  <li>Part-Time Tuition (per credit): $141</li>
+                  <li>Morning, Evening &amp; Friday batches</li>
+                  <li>Merit waivers up to 100% (Golden A+)</li>
                 </ul>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-sm-10">
               <div className="tution__single--box">
-                <h5 className="tution__single--box--title">Graduate Programs</h5>
-                <h6 className="tution__single--box--faculty">Graduate School/Department</h6>
+                <h5 className="tution__single--box--title">Postgraduate (Master&rsquo;s)</h5>
+                <h6 className="tution__single--box--faculty">Admission &amp; Tuition</h6>
                 <ul className="tution__single--box--feature">
-                  <li>Full-Time Tuition (per semester): $241</li>
-                  <li>Part-Time Tuition (per credit): $141</li>
+                  <li>Admission fee: &#2547;12,500</li>
+                  <li>Per-credit tuition from &#2547;1,020</li>
                 </ul>
-                <h6 className="tution__single--box--faculty">Additional Fees</h6>
+                <h6 className="tution__single--box--faculty">Programs &amp; Benefits</h6>
                 <ul className="tution__single--box--feature">
-                  <li>Technology Fee: $149 per semester</li>
-                  <li>Student Activity Fee: $99 per semester</li>
+                  <li>MBA, EMBA, MSCM, LLM &amp; more</li>
+                  <li>Special rates for existing SU students</li>
                 </ul>
               </div>
             </div>
