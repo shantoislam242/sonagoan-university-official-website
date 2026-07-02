@@ -241,7 +241,6 @@ export const mainNav: readonly MainNavGroup[] = [
         title: 'Student Services',
         items: [
           { name: 'Student Welfare Division',  href: '/student-welfare-division' },
-          { name: 'Counselling',               href: '#' },
           { name: 'Career Development',        href: '/career-development' },
         ],
       },
@@ -249,7 +248,7 @@ export const mainNav: readonly MainNavGroup[] = [
         title: 'Facilities',
         items: [
           { name: 'Library',   href: 'http://lib.su.edu.bd', isExternal: true },
-          { name: 'Lab',       href: '#' },
+          { name: 'Lab',       href: '/lab' },
           { name: 'Transport', href: '/transport' },
         ],
       },
@@ -258,7 +257,7 @@ export const mainNav: readonly MainNavGroup[] = [
         items: [
           { name: 'Sports',         href: '/athletics' },
           { name: 'Blood Bank',     href: '#' },
-          { name: 'Clubs & Events', href: '/event' },
+          { name: 'Clubs', href: '/event' },
         ],
       },
     ],
