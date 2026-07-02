@@ -242,7 +242,7 @@ export const mainNav: readonly MainNavGroup[] = [
         items: [
           { name: 'Student Welfare Division',  href: '/student-welfare-division' },
           { name: 'Counselling',               href: '#' },
-          { name: 'Career Development',        href: '#' },
+          { name: 'Career Development',        href: '/career-development' },
         ],
       },
       {
