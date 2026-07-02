@@ -51,8 +51,8 @@ const FACULTIES: Faculty[] = [
     title: 'Faculty of Arts & Humanities',
     departments: [
       { name: 'Law (LLB)', icon: Scale, desc: 'Moot facilities and computer labs for legal research and practice.', image: '/assets/images/lab/llb.webp' },
-      { name: 'Journalism, Media & Communication', icon: Radio, desc: 'Dedicated Media & Journalism Studies lab for production and reporting practice.' },
-      { name: 'Fashion Design & Technology', icon: Shirt, desc: 'Design studios and practical setups for fashion and apparel work.' },
+      { name: 'Journalism, Media & Communication', icon: Radio, desc: 'Dedicated Media & Journalism Studies lab for production and reporting practice.', image: '/assets/images/lab/jms.webp' },
+      { name: 'Fashion Design & Technology', icon: Shirt, desc: 'Design studios and practical setups for fashion and apparel work.', image: '/assets/images/lab/fdt.webp' },
     ],
   },
 ];
